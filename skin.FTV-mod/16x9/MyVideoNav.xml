@@ -1071,9 +1071,5 @@
 		</control>
 		<include content="JumpToLetter" />
 		<include>SortLetterOverlay</include>		
-		<control type="group">
-			<visible>!Window.IsVisible(1116) + $EXP[ViewTypeSrcCheck]</visible>
-			<include>MsgSplash</include>
-		</control>
 	</controls>
 </window>
