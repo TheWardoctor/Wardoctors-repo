@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="repository.wardoctor" name="Wardoctors Repo" version="1.0.1" provider-name="Wardoctor">
 	<extension point="xbmc.addon.repository" name="Wardoctors Repository">
-		<info compressed="false">https://raw.githubusercontent.com/thewardoctor/Wardoctors-repo/master/addons.xml</info>
-		<checksum>https://raw.githubusercontent.com/thewardoctor/Wardoctors-repo/master/addons.xml.md5</checksum>
-		<datadir zip="true">https://raw.githubusercontent.com/thewardoctor/Wardoctors-repo/master/</datadir>
+		<info compressed="false">https://raw.githubusercontent.com/TheWardoctor/Wardoctors-repo/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/TheWardoctor/Wardoctors-repo/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/TheWardoctor/Wardoctors-repo/master/</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary>Wardoctors repo for Kodi Stuff, don't like it? Go away, problem solved.</summary>
