@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- selectdialog -->
+	<defaultcontrol>3</defaultcontrol>
+	<onload condition="!Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(SetUserRating))">SetFocus(3)</onload>
+	<onload condition="!Window.IsVisible(1105) + !String.IsEmpty(Window(home).Property(SetUserRating))">SetFocus(21)</onload>
+	<onunload>ClearProperty(SetUserRating,home)</onunload>
+	<onunload>ClearProperty(UserRatingIcon,home)</onunload>
+	<controls>
+		<include condition="String.IsEmpty(Window(home).Property(SetUserRating))">IncludeDialogSelectDefault</include>
+		<include condition="String.IsEqual(Window(home).Property(SetUserRating),music)" content="IncludeDialogSelectSpecial">
+			<param name="DialogWidth">770</param>
+			<param name="LabelWidth">812</param>
+			<param name="IconWidth">292</param>
+		</include>
+		<include condition="String.IsEqual(Window(home).Property(SetUserRating),video)" content="IncludeDialogSelectSpecial">
+			<param name="DialogWidth">673</param>
+			<param name="LabelWidth">715</param>
+			<param name="IconWidth">195</param>
+		</include>
+	</controls>
+</window>

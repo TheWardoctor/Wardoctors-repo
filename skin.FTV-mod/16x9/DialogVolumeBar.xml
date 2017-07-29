@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<zorder>2</zorder>
+	<controls>
+		<!-- Progress -->
+		<control id="404" type="progress">
+			<include>HiddenControl</include>
+			<info>player.volume</info>
+		</control>
+		<!-- Main group -->
+		<control type="group">
+			<animation effect="slide" start="0,0" end="-566,0" time="0" condition="Window.IsVisible(extendedprogressdialog) | Window.IsVisible(notification)">Conditional</animation>
+			<include>DialogAnimation</include>
+			<right>12</right>
+			<top>12</top>
+			<width>406</width>
+			<height>224</height>
+			<!-- Background image -->
+			<control type="image">
+				<width>406</width>
+				<height>224</height>
+				<texture border="48">views/shadow_fo.png</texture>
+			</control>
+			<control type="image">
+				<left>48</left>
+				<top>48</top>
+				<width>310</width>
+				<height>128</height>
+				<texture border="4">dialogs/DialogNotificationBackground.png</texture>
+			</control>
+			<!-- icon -->
+			<control type="group">
+				<left>54</left>
+				<top>54</top>
+				<width>116</width>
+				<height>116</height>
+				<!-- Icon back -->
+				<control type="image">
+					<width>116</width>
+					<height>116</height>
+					<texture>dialogs/progress/bg.png</texture>
+				</control>
+				<control type="image">
+					<width>116</width>
+					<height>116</height>
+					<texture>dialogs/progress/bg_circle.png</texture>
+				</control>
+				<control type="image">
+					<width>116</width>
+					<height>116</height>
+					<texture>dialogs/progress/$VAR[VolumeIconCircle].png</texture>		
+					<colordiffuse>ffdadada</colordiffuse>
+				</control>
+				<!-- Icon -->
+				<control type="image">
+					<width>116</width>
+					<height>116</height>
+					<texture>$VAR[VolumeIcon]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!player.passthrough</visible>
+				<!-- Heading -->
+				<control type="label">
+					<left>182</left>
+					<top>72</top>
+					<width>158</width>
+					<height>44</height>
+					<font>Med30</font>
+					<textcolor>ffdadada</textcolor>
+					<label>13376</label>
+				</control>
+				<!-- Details -->
+				<control type="label">
+					<left>182</left>
+					<top>114</top>
+					<width>158</width>
+					<height>36</height>
+					<font>Reg25</font>
+					<scroll>true</scroll>
+					<textcolor>ffdadada</textcolor>
+					<label>$VAR[VolumeDetails]</label>
+				</control>
+			</control>
+			<control type="group">
+				<visible>player.passthrough</visible>
+				<!-- Heading -->
+				<control type="label">
+					<left>182</left>
+					<top>72</top>
+					<width>158</width>
+					<height>44</height>
+					<font>Med30</font>
+					<textcolor>ffdadada</textcolor>
+					<label>13376</label>
+				</control>
+				<!-- Details -->
+				<control type="label">
+					<left>182</left>
+					<top>114</top>
+					<width>158</width>
+					<height>36</height>
+					<font>Reg25</font>
+					<scroll>true</scroll>
+					<textcolor>ffdadada</textcolor>
+					<label>29802</label>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

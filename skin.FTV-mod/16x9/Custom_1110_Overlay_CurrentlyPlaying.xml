@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1110" type="dialog">
+	<zorder>99</zorder>
+	<visible>Player.HasMedia + !Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation) + !Skin.HasSetting(HideNowPlaying) + !String.IsEmpty(Player.Title)</visible>
+	<controls>
+		<!-- Progress -->
+		<control type="progress" id="999">
+			<top>-100</top>
+			<info>Player.Progress</info>
+			<include>HiddenControl</include>
+		</control>
+		<!-- Main group -->
+		<control type="group">
+			<animation condition="Window.IsActive(volumebar) | Window.IsActive(shutdownmenu) | Window.IsActive(notification) | Window.IsActive(extendedprogressdialog) | [Window.IsActive(home) + !String.IsEmpty(Window(Home).Property(WidgetHasFocus))] | Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-script.extendedinfo-DialogInfo.xml) | Window.IsActive(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsActive(script-skinshortcuts.xml) | Window.IsActive(addoninformation) | Window.IsActive(1105) | Window.IsActive(virtualkeyboard) | Window.IsActive(selectdialog) | Window.IsActive(busydialog) | Window.IsActive(DialogConfirm.xml) | Window.IsActive(1149) | !String.IsEmpty(Window(home).Property(HideNowPlaying))" reversible="false" type="Conditional">
+				<effect type="fade" start="100" end="0" time="0" />
+			</animation>
+			<right>12</right>
+			<top>12</top>
+			<width>536</width>
+			<height>224</height>
+			<!-- Background image -->
+			<control type="image">
+				<width>536</width>
+				<height>224</height>
+				<texture border="48">views/shadow_fo.png</texture>
+			</control>
+			<control type="image">
+				<left>48</left>
+				<top>48</top>
+				<width>440</width>
+				<height>128</height>
+				<texture border="4">dialogs/DialogNotificationBackground.png</texture>
+			</control>
+			<!-- icon -->
+			<control type="group">
+				<left>54</left>
+				<top>54</top>
+				<width>116</width>
+				<height>116</height>
+				<!-- Icon back -->
+				<control type="image">
+					<width>116</width>
+					<height>116</height>
+					<texture>dialogs/progress/bg.png</texture>
+				</control>
+				<control type="image">
+					<width>116</width>
+					<height>116</height>
+					<texture>dialogs/progress/bg_circle.png</texture>
+				</control>
+				<control type="image">
+					<width>116</width>
+					<height>116</height>
+					<texture>dialogs/progress/$VAR[CurrentlyPlayingProgressCircle].png</texture>
+					<colordiffuse>ffdadada</colordiffuse>
+					<visible>![Player.IsInternetStream + Player.HasAudio]</visible>
+				</control>
+				<!-- Icon -->
+				<control type="image">
+					<width>116</width>
+					<height>116</height>
+					<texture>dialogs/icons/pause.png</texture>
+					<visible>Player.Paused</visible>
+				</control>
+				<control type="image">
+					<width>116</width>
+					<height>116</height>
+					<texture>dialogs/icons/play.png</texture>
+					<visible>!Player.Paused</visible>
+				</control>
+			</control> 
+			<!-- Heading -->
+			<control id="401" type="label">
+				<left>182</left>
+				<top>72</top>
+				<width>288</width>
+				<height>44</height>
+				<font>Med30</font>
+				<label>$LOCALIZE[31106]</label>
+				<textcolor>ffdadada</textcolor>
+				<visible>!Player.Paused</visible>
+			</control>
+			<control id="401" type="label">
+				<left>182</left>
+				<top>72</top>
+				<width>288</width>
+				<height>44</height>
+				<font>Med30</font>
+				<label>$LOCALIZE[112]</label>
+				<textcolor>ffdadada</textcolor>
+				<visible>Player.Paused</visible>
+			</control>
+			<!-- Details -->
+			<control id="402" type="label">
+				<left>182</left>
+				<top>114</top>
+				<width>288</width>
+				<height>36</height>
+				<font>Reg25</font>
+				<scroll>true</scroll>
+				<label>$VAR[PlayerFullLabel]</label>
+				<textcolor>ffdadada</textcolor>
+			</control>
+		</control>
+	</controls>
+</window>

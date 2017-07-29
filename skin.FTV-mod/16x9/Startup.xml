@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<backgroundcolor>0xff12161b</backgroundcolor>
+	<defaultcontrol always="true">10</defaultcontrol>
+	<onload condition="!Skin.HasSetting(SkinHelper.EnableExtendedArt)">Skin.SetBool(SkinHelper.EnableExtendedArt)</onload>
+	<onload condition="!Skin.HasSetting(SkinHelper.EnableMusicArt)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
+	<controls>
+		<!-- splash -->
+		<control type="image">
+			<left>-96</left>
+			<top>-54</top>
+			<width>2112</width>
+			<height>1188</height>
+			<texture>special://skin/extras/backgrounds/loading.jpg</texture>
+		</control>
+		<control type="label">
+			<top>765</top>
+			<width>1920</width>
+			<height>41</height>
+			<align>center</align>	
+			<height>41</height>
+			<font>Light32</font>
+			<textcolor>ffb0b4b7</textcolor>
+			<label>$VAR[version]</label>
+		</control>
+		<control type="image">
+			<top>735</top>
+			<left>750</left>
+			<height>100</height>
+			<width>89</width>
+			<aspectratio>keep</aspectratio>
+			<colordiffuse>ffffffff</colordiffuse>
+			<texture>dialogs/gradient_animation.png</texture>
+			<animation effect="slide" time="3500" tween="sine" easing="inout" start="0,0" end="330,0" loop="true" condition="true">Conditional</animation>
+		</control>
+		<!-- switch window -->
+		<control type="button" id="10">
+			<onfocus condition="!String.IsEqual(Skin.String(QuestionsAsked),1)">AlarmClock(WaitForPVR,ReplaceWindow(1112),00:02,silent)</onfocus>
+			<onfocus condition="String.IsEqual(Skin.String(QuestionsAsked),1) + !Skin.HasSetting(PreloadDeactivated)">SetProperty(Preload,1,home)</onfocus>
+			<onfocus condition="String.IsEqual(Skin.String(QuestionsAsked),1) + !Skin.HasSetting(PreloadDeactivated)">AlarmClock(PreloadTimeout,ClearProperty(Preload,home),00:30,silent)</onfocus>
+			<onfocus condition="String.IsEqual(Skin.String(QuestionsAsked),1) + !Skin.HasSetting(PreloadDeactivated)">AlarmClock(PreloadDone,SetProperty(PreloadDone,1,home),00:30,silent)</onfocus>
+			<onfocus condition="String.IsEqual(Skin.String(QuestionsAsked),1)">AlarmClock(WaitForPVR,ReplaceWindow($INFO[System.StartupWindow]),00:02,silent)</onfocus>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+		</control>
+	</controls>
+</window>

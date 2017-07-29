@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- videoosd -->
+	<onload condition="String.IsEqual(Window(home).Property(ForceFocus),subtitlealign)">SetFocus(212)</onload>
+	<onload condition="String.IsEqual(Window(home).Property(ForceFocus),apply)">SetFocus(224)</onload>
+	<onload condition="String.IsEmpty(Window(home).Property(ForceFocus)) + String.IsEmpty(Window(home).Property(ShowOptions)) + !Skin.HasSetting(HideOSDControls)">SetFocus(504)</onload>
+	<onload condition="String.IsEmpty(Window(home).Property(ForceFocus)) + String.IsEmpty(Window(home).Property(ShowOptions)) + Skin.HasSetting(HideOSDControls)">SetFocus(999)</onload>
+	<onload condition="String.IsEmpty(Window(home).Property(ForceFocus)) + !String.IsEmpty(Window(home).Property(ShowOptions)) + VideoPlayer.Content(livetv)">SetFocus(110)</onload>
+	<onload condition="String.IsEmpty(Window(home).Property(ForceFocus)) + !String.IsEmpty(Window(home).Property(ShowOptions)) + !VideoPlayer.Content(livetv) + system.getbool(videoplayer.autoplaynextitem)">SetFocus(107)</onload>
+	<onload condition="String.IsEmpty(Window(home).Property(ForceFocus)) + !String.IsEmpty(Window(home).Property(ShowOptions)) + !VideoPlayer.Content(livetv) + !system.getbool(videoplayer.autoplaynextitem)">SetFocus(106)</onload>
+	<onload>ClearProperty(ForceFocus,home)</onload>
+	<onunload>ClearProperty(ShowOptions,home)</onunload>
+	<controls>
+		<!-- Options HiddenControl -->
+		<control type="button" id="999">
+			<visible>Skin.HasSetting(HideOSDControls)</visible>
+			<include>HiddenControl</include>
+			<onup condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)]">Dialog.Close(videoosd,true)</onup>
+			<onup condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)]">ActivateWindow(fullscreeninfo)</onup>
+			<onup condition="VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.Plot)">SetProperty(ShowXRay,true,home)</onup>
+			<onup condition="VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.Plot)">ActivateWindow(1113)</onup>
+			<onclick condition="Skin.HasSetting(HideOSDControls)">SetProperty(ShowOptions,1,home)</onclick>
+			<onclick condition="Skin.HasSetting(HideOSDControls) + VideoPlayer.Content(livetv)">SetFocus(110)</onclick>
+			<onclick condition="Skin.HasSetting(HideOSDControls) + !VideoPlayer.Content(livetv) + system.getbool(videoplayer.autoplaynextitem)">SetFocus(107)</onclick>
+			<onclick condition="Skin.HasSetting(HideOSDControls) + !VideoPlayer.Content(livetv) + !system.getbool(videoplayer.autoplaynextitem)">SetFocus(106)</onclick>					
+			<onfocus>ClearProperty(ShowOptions,home)</onfocus>
+		</control>
+		<!-- Shift HiddenControl -->
+		<control type="button" id="998">
+			<include>HiddenControl</include>
+			<onup>SubtitleShiftUp</onup>
+			<ondown>SubtitleShiftDown</ondown>
+			<onclick>SetFocus(200)</onclick>
+			<onback>SetFocus(12)</onback>
+		</control>
+		<!-- Offset HiddenControl -->
+		<control type="button" id="997">
+			<include>HiddenControl</include>
+			<onleft>SubtitleDelayMinus</onleft>
+			<onright>SubtitleDelayPlus</onright>
+			<onclick>SetFocus(200)</onclick>
+			<onback>SetFocus(12)</onback>
+		</control>
+		<!-- OSD -->
+		<control type="group">
+			<visible>!Window.IsVisible(osdvideosettings) + !Window.IsVisible(osdaudiosettings) + !Window.IsVisible(videobookmarks) + !Window.IsVisible(subtitlesearch) + !Window.IsVisible(playerprocessinfo) + String.IsEmpty(Window(home).Property(ShowXRay))</visible>
+			<!-- Masks -->
+			<include>PlayerTitles</include>
+			<control type="image">
+				<bottom>0</bottom>
+				<width>1920</width>
+				<height>720</height>
+				<texture border="1">osd/mask_bottom.png</texture>
+				<visible>[!String.IsEmpty(Window(home).Property(ShowOptions)) | ControlGroup(100).HasFocus] + !ControlGroup(2000).HasFocus + !ControlGroup(3000).HasFocus + !ControlGroup(5000).HasFocus + !Control.HasFocus(999)</visible>
+				<animation effect="fade" start="0" end="100" time="0" delay="10">WindowOpen</animation>
+			</control>
+			<control type="image">
+				<bottom>0</bottom>
+				<width>1980</width>
+				<height>120</height>
+				<texture>osd/mask.png</texture>
+				<visible>String.IsEmpty(Window(home).Property(ShowOptions)) | Control.HasFocus(999) | ControlGroup(2000).HasFocus | ControlGroup(3000).HasFocus | ControlGroup(5000).HasFocus | Control.HasFocus(998) | Control.HasFocus(997)</visible>
+			</control>
+			<!-- Pause -->
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>321</width>
+				<height>341</height>
+				<texture>osd/Pause.png</texture>
+				<visible>Player.Paused</visible>
+			</control>
+			<!--  Progress bar -->
+			<control type="progress">
+				<left>92</left>
+				<bottom>93</bottom>
+				<width>1735</width>
+				<height>11</height>
+				<reveal>true</reveal>
+				<info>Player.Progress</info>
+				<texturebg border="4">osd/progress_back.png</texturebg>
+				<lefttexture>-</lefttexture>
+				<midtexture border="4">osd/progress_bar.png</midtexture>
+				<righttexture>-</righttexture>
+				<overlaytexture>-</overlaytexture>
+			</control>
+			<!-- Duration Labels -->
+			<include>PlayerDurationLabels</include>		
+			<!-- Options and Cast -->
+			<control type="group">
+				<visible>!Control.IsVisible(2000) + !Control.IsVisible(3000) + !Player.Forwarding + !Player.Rewinding + !Player.ShowInfo</visible>
+				<!--Xray Icon-->
+				<control type="grouplist">
+					<visible>ControlGroup(500).HasFocus | Control.HasFocus(999) | ControlGroup(100).HasFocus</visible>
+					<right>92</right>
+					<bottom>40</bottom>
+					<height>40</height>
+					<itemgap>10</itemgap>
+					<align>right</align>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control id="99" type="label">
+						<top>4</top>
+						<width>auto</width>
+						<height>30</height>
+						<font>Reg27</font>
+						<textcolor>fff3f3f3</textcolor>
+						<label>$LOCALIZE[31338]</label>
+						<visible>VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.Plot) + [ControlGroup(500).HasFocus | Control.HasFocus(999)]</visible>
+					</control>
+					<control type="label">
+						<top>4</top>
+						<width>auto</width>
+						<height>30</height>
+						<font>Reg27</font>
+						<textcolor>fff3f3f3</textcolor>
+						<label>$LOCALIZE[31240]</label>
+						<visible>[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)] + [ControlGroup(500).HasFocus | Control.HasFocus(999)]</visible>
+					</control>
+					<control type="image">
+						<width>40</width>
+						<height>40</height>
+						<texture>osd/x_ray.png</texture>
+						<visible>Skin.HasSetting(HideOSDControls) + [ControlGroup(500).HasFocus | Control.HasFocus(999)] + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | [VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.Plot)]]</visible>
+					</control>
+					<control type="image">
+						<width>40</width>
+						<height>40</height>
+						<texture flipy="true">osd/x_ray.png</texture>
+						<visible>!Skin.HasSetting(HideOSDControls) + [ControlGroup(500).HasFocus | Control.HasFocus(999)] + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | [VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.Plot)]]</visible>
+					</control>
+					<control type="label">
+						<top>4</top>
+						<width>auto</width>
+						<height>30</height>
+						<font>Reg27</font>
+						<textcolor>fff3f3f3</textcolor>
+						<label>    $LOCALIZE[33063]</label>
+					</control>
+					<control type="image">
+						<width>40</width>
+						<height>40</height>
+						<texture>osd/select.png</texture>
+						<visible>Skin.HasSetting(HideOSDControls)</visible>
+					</control>
+					<control type="image">
+						<width>40</width>
+						<height>40</height>
+						<texture>osd/x_ray.png</texture>
+						<visible>!Skin.HasSetting(HideOSDControls)</visible>
+					</control>
+				</control>
+				<!--Shift Offset -->
+				<control type="grouplist">
+					<visible>Control.HasFocus(998) | Control.HasFocus(997)</visible>
+					<onup>SubtitleShiftUp</onup>
+					<ondown>SubtitleShiftDown</ondown>
+					<onback>SetFocus(200)</onback>
+					<right>92</right>
+					<bottom>40</bottom>
+					<height>40</height>
+					<itemgap>10</itemgap>
+					<align>right</align>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<!-- Shift -->
+					<control type="label">
+						<top>4</top>
+						<width>auto</width>
+						<height>30</height>
+						<font>Reg27</font>
+						<textcolor>fff3f3f3</textcolor>
+						<label>$LOCALIZE[31304]</label>
+						<visible>Control.HasFocus(998)</visible>
+					</control>
+					<control type="image">
+						<width>40</width>
+						<height>40</height>
+						<texture>osd/x_ray.png</texture>
+						<visible>Control.HasFocus(998)</visible>
+					</control>
+					<control type="label">
+						<top>4</top>
+						<width>auto</width>
+						<height>30</height>
+						<font>Reg27</font>
+						<textcolor>fff3f3f3</textcolor>
+						<label>    $LOCALIZE[31305]</label>
+						<visible>Control.HasFocus(998)</visible>
+					</control>
+					<control type="image">
+						<width>40</width>
+						<height>40</height>
+						<texture flipy="true">osd/x_ray.png</texture>
+						<visible>Control.HasFocus(998)</visible>
+					</control>
+					<!-- Offset -->
+					<control type="label">
+						<top>4</top>
+						<width>auto</width>
+						<height>30</height>
+						<font>Reg27</font>
+						<textcolor>fff3f3f3</textcolor>
+						<label>$LOCALIZE[31306]</label>
+						<visible>Control.HasFocus(997)</visible>
+					</control>
+					<control type="image">
+						<width>40</width>
+						<height>40</height>
+						<texture>osd/x_ray.png</texture>
+						<animation effect="rotate" end="90" center="auto" time="0" condition="true">Conditional</animation>
+						<visible>Control.HasFocus(997)</visible>
+					</control>
+					<control type="label">
+						<top>4</top>
+						<width>auto</width>
+						<height>30</height>
+						<font>Reg27</font>
+						<textcolor>fff3f3f3</textcolor>
+						<label>    $LOCALIZE[31307]</label>
+						<visible>Control.HasFocus(997)</visible>
+					</control>
+					<control type="image">
+						<width>40</width>
+						<height>40</height>
+						<texture>osd/x_ray.png</texture>
+						<animation effect="rotate" end="-90" center="auto" time="0" condition="true">Conditional</animation>
+						<visible>Control.HasFocus(997)</visible>
+					</control>
+					<!-- menu -->
+					<control type="label">
+						<top>4</top>
+						<width>auto</width>
+						<height>30</height>
+						<font>Reg27</font>
+						<textcolor>fff3f3f3</textcolor>
+						<label>    $LOCALIZE[33061]</label>
+					</control>					
+					<control type="image">
+						<width>40</width>
+						<height>40</height>
+						<texture flipy="true">osd/select.png</texture>
+					</control>
+				</control>
+			</control>
+			<!-- Options -->
+			<control type="group" id="1000">
+				<control type="grouplist" id="100">
+					<right>92</right>
+					<bottom>128</bottom>
+					<width>600</width>
+					<height>600</height>
+					<align>right</align>
+					<itemgap>0</itemgap>
+					<onup>noop</onup>
+					<onleft>noop</onleft>				
+					<onright>noop</onright>				
+					<ondown>ClearProperty(ShowOptions,home)</ondown>
+					<ondown condition="Skin.HasSetting(HideOSDControls)">999</ondown>
+					<ondown condition="!Skin.HasSetting(HideOSDControls)">504</ondown>
+					<orientation>vertical</orientation>
+					<visible>!Control.IsVisible(2000) + !Control.IsVisible(3000) + !Player.Forwarding + !Player.Rewinding + !Control.HasFocus(999) + !Control.HasFocus(504) + [ControlGroup(100).HasFocus | !String.IsEmpty(Window(home).Property(ShowOptions))]</visible>
+					<animation effect="fade" start="0" end="100" time="0" delay="10">WindowOpen</animation>
+					<!-- 3D mode -->
+					<control id="101" type="button">
+						<width>600</width>
+						<height>58</height>
+						<font>Light32</font>
+						<align>right</align>
+						<label>$LOCALIZE[31153]</label>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff000000</shadowcolor>
+						<focusedcolor>ffffc04b</focusedcolor>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onclick>SetFocus(300)</onclick>
+						<onclick>ClearProperty(ShowOptions,home)</onclick>
+						<visible>VideoPlayer.IsStereoscopic</visible>
+					</control>
+					<!-- DVD menu -->
+					<control id="102" type="button">
+						<width>600</width>
+						<height>58</height>
+						<font>Light32</font>
+						<align>right</align>
+						<label>$LOCALIZE[31136]</label>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff000000</shadowcolor>
+						<focusedcolor>ffffc04b</focusedcolor>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onclick>PlayerControl(ShowVideoMenu)</onclick>
+						<visible>VideoPlayer.HasMenu</visible>
+					</control>
+					<!-- Subtitles -->
+					<control id="103" type="button">
+						<width>600</width>
+						<height>58</height>
+						<font>Light32</font>
+						<align>right</align>
+						<label>287</label>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff000000</shadowcolor>
+						<focusedcolor>ffffc04b</focusedcolor>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onclick>SetFocus(200)</onclick>
+						<onclick>ClearProperty(ShowOptions,home)</onclick>
+					</control>
+					<!-- Bookmarks -->
+					<control id="104" type="button">
+						<width>600</width>
+						<height>58</height>
+						<font>Light32</font>
+						<align>right</align>
+						<label>298</label>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff000000</shadowcolor>
+						<focusedcolor>ffffc04b</focusedcolor>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onclick>ActivateWindow(125)</onclick>
+						<onclick>Close</onclick>
+						<visible>!VideoPlayer.Content(livetv)</visible>
+					</control>
+					<!-- Video Settings -->
+					<control id="105" type="button">
+						<width>600</width>
+						<height>58</height>
+						<font>Light32</font>
+						<align>right</align>
+						<label>$LOCALIZE[31137]</label>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff000000</shadowcolor>
+						<focusedcolor>ffffc04b</focusedcolor>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onclick>ActivateWindow(123)</onclick>
+					</control>
+					<!-- Audio Settings -->
+					<control id="106" type="button">
+						<width>600</width>
+						<height>58</height>
+						<font>Light32</font>
+						<align>right</align>
+						<label>$LOCALIZE[31000]</label>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff000000</shadowcolor>
+						<focusedcolor>ffffc04b</focusedcolor>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onclick>ActivateWindow(124)</onclick>
+					</control>
+					<!-- Next Video -->
+					<control id="107" type="button">
+						<width>600</width>
+						<height>58</height>
+						<font>Light32</font>
+						<align>right</align>
+						<label>$VAR[NextVideo]</label>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff000000</shadowcolor>
+						<focusedcolor>ffffc04b</focusedcolor>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onclick>PlayerControl(Next)</onclick>
+						<visible>Window.IsVisible(VideoFullScreen.xml) + system.getbool(videoplayer.autoplaynextitem)</visible>
+					</control>
+					<!-- Teletext -->
+					<control id="108" type="button">
+						<width>600</width>
+						<height>58</height>
+						<font>Light32</font>
+						<align>right</align>
+						<label>$LOCALIZE[23050]</label>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff000000</shadowcolor>
+						<focusedcolor>ffffc04b</focusedcolor>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(Teletext)</onclick>
+						<visible>VideoPlayer.Content(livetv)</visible>
+					</control>
+					<!-- EPG -->
+					<control id="109" type="button">
+						<width>600</width>
+						<height>58</height>
+						<font>Light32</font>
+						<align>right</align>
+						<label>$LOCALIZE[4]</label>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff000000</shadowcolor>
+						<focusedcolor>ffffc04b</focusedcolor>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(tvguide)</onclick>
+						<visible>VideoPlayer.Content(livetv)</visible>
+					</control>
+					<!-- Channels -->
+					<control id="110" type="button">
+						<width>600</width>
+						<height>58</height>
+						<font>Light32</font>
+						<align>right</align>
+						<label>$LOCALIZE[19023]</label>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff000000</shadowcolor>
+						<focusedcolor>ffffc04b</focusedcolor>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(pvrosdchannels)</onclick>
+						<visible>VideoPlayer.Content(livetv)</visible>
+					</control>
+				</control>
+			</control>
+			<!-- Subtitles -->
+			<control type="group" id="2000">
+				<visible allowhiddenfocus="true">ControlGroup(2000).HasFocus</visible>
+				<animation effect="fade" start="100" end="0" time="100" condition="Window.IsVisible(selectdialog)">Conditional</animation>
+				<top>635</top>
+				<!-- Background -->
+				<control type="image">
+					<bottom>120</bottom>
+					<width>1920</width>
+					<height>265</height>
+					<texture>osd/mask.png</texture>
+				</control>
+				<!-- Left Grouplist -->
+				<control type="group">
+					<bottom>0</bottom>
+					<height>368</height>
+					<control type="label">
+						<left>92</left>
+						<height>36</height>
+						<font>Bold30</font>
+						<label>$LOCALIZE[287]</label>
+						<textcolor>ffdadada</textcolor>
+					</control>
+					<control type="grouplist" id="200">
+						<left>81</left>
+						<bottom>0</bottom>
+						<height>320</height>
+						<width>805</width>
+						<itemgap>10</itemgap>
+						<onleft>SetFocus(103)</onleft>
+						<onback>SetFocus(103)</onback>
+						<onright condition="VideoPlayer.SubtitlesEnabled">211</onright>
+						<onup>noop</onup>
+						<ondown condition="!Skin.HasSetting(HideOSDControls)">SetFocus(504)</ondown>
+						<ondown condition="Skin.HasSetting(HideOSDControls)">SetFocus(999)</ondown>
+						<orientation>vertical</orientation>
+						<scrolltime tween="sine" easing="out">240</scrolltime>
+						<control id="201" type="button">
+							<width>300</width>
+							<height>58</height>
+							<font>Reg22</font>
+							<textoffsetx>34</textoffsetx>
+							<texturefocus border="13,5,6,8">views/button_fo.png</texturefocus>
+							<texturenofocus border="13,5,6,8">views/button_nf.png</texturenofocus>
+							<label>$LOCALIZE[248] ($INFO[VideoPlayer.SubtitlesLanguage])</label>
+							<onclick>CycleSubtitle</onclick>
+							<onback>SetFocus(103)</onback>
+							<enable>VideoPlayer.SubtitlesEnabled + VideoPlayer.HasSubtitles</enable>
+						</control>
+						<control id="202" type="togglebutton">
+							<width>300</width>
+							<height>58</height>
+							<font>Reg22</font>
+							<label>$LOCALIZE[31138]</label>
+							<altlabel>$LOCALIZE[31139]</altlabel>
+							<textoffsetx>34</textoffsetx>
+							<texturefocus border="13,5,6,8">views/button_fo.png</texturefocus>
+							<texturenofocus border="13,5,6,8">views/button_nf.png</texturenofocus>
+							<alttexturefocus border="13,5,6,8">views/button_fo.png</alttexturefocus>
+							<alttexturenofocus border="13,5,6,8">views/button_nf.png</alttexturenofocus>
+							<usealttexture>VideoPlayer.SubtitlesEnabled</usealttexture>
+							<onclick>ShowSubtitles</onclick>
+							<onback>SetFocus(103)</onback>
+							<enable>VideoPlayer.HasSubtitles</enable>
+						</control>
+						<control id="203" type="button">
+							<width>300</width>
+							<height>58</height>
+							<font>Reg22</font>
+							<label>$LOCALIZE[31140]</label>
+							<textoffsetx>34</textoffsetx>
+							<texturefocus border="13,5,6,8">views/button_fo.png</texturefocus>
+							<texturenofocus border="13,5,6,8">views/button_nf.png</texturenofocus>
+							<onclick>Close</onclick>
+							<onclick>Dialog.Close(VideoOSD)</onclick>
+							<onclick>ActivateWindow(SubtitleSearch)</onclick>
+							<onback>SetFocus(103)</onback>
+						</control>
+					</control>
+				</control>
+				<!-- Middle Grouplist -->
+				<control type="group">
+					<bottom>130</bottom>
+					<centerleft>50%</centerleft>
+					<width>298</width>
+					<height>140</height>
+					<control type="label">
+						<height>36</height>
+						<font>Bold30</font>
+						<label>$LOCALIZE[274]</label>
+						<textcolor>ffdadada</textcolor>
+					</control>
+					<control type="grouplist" id="210">
+						<width>402</width>
+						<bottom>0</bottom>
+						<height>90</height>
+						<itemgap>14</itemgap>
+						<onback>SetFocus(103)</onback>
+						<onleft>SetFocus(200)</onleft>
+						<onright>SetFocus(221)</onright>
+						<onup>noop</onup>
+						<ondown condition="!Skin.HasSetting(HideOSDControls)">SetFocus(504)</ondown>
+						<ondown condition="Skin.HasSetting(HideOSDControls)">SetFocus(999)</ondown>
+						<orientation>horizontal</orientation>
+						<scrolltime tween="sine" easing="out">240</scrolltime>
+						<control type="button" id="211">
+							<width>90</width>
+							<height>90</height>
+							<font>Reg22</font>
+							<textoffsetx>5</textoffsetx>
+							<align>center</align>
+							<texturefocus>common/ghost_button_fo.png</texturefocus>
+							<texturenofocus>common/ghost_button_nf.png</texturenofocus>
+							<wrapmultiline>true</wrapmultiline>
+							<label>$LOCALIZE[31302]</label>
+							<focusedcolor>ffffaf37</focusedcolor>
+							<disabledcolor>44ffffff</disabledcolor>
+							<onclick>SetFocus(997)</onclick>
+							<onback>SetFocus(103)</onback>
+							<enable>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</enable>
+						</control>
+						<control type="button" id="212">
+							<width>90</width>
+							<height>90</height>
+							<font>Reg22</font>
+							<textoffsetx>5</textoffsetx>
+							<align>center</align>
+							<texturefocus>common/ghost_button_fo.png</texturefocus>
+							<texturenofocus>common/ghost_button_nf.png</texturenofocus>
+							<wrapmultiline>true</wrapmultiline>
+							<label>$LOCALIZE[31301]</label>
+							<focusedcolor>ffffaf37</focusedcolor>
+							<disabledcolor>44ffffff</disabledcolor>
+							<onclick>SetProperty(ForceFocus,subtitlealign,home)</onclick>
+							<onclick>subtitlealign</onclick>
+							<onclick>ReloadSkin()</onclick>
+							<onclick>ActivateWindow(videoosd)</onclick>
+							<onback>SetFocus(103)</onback>
+							<enable>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</enable>
+						</control>
+						<control type="button" id="213">
+							<width>90</width>
+							<height>90</height>
+							<font>Reg22</font>
+							<textoffsetx>5</textoffsetx>
+							<align>center</align>
+							<texturefocus>common/ghost_button_fo.png</texturefocus>
+							<texturenofocus>common/ghost_button_nf.png</texturenofocus>
+							<wrapmultiline>true</wrapmultiline>
+							<label>$LOCALIZE[31299]</label>
+							<focusedcolor>ffffaf37</focusedcolor>
+							<disabledcolor>44ffffff</disabledcolor>
+							<onclick>SetFocus(998)</onclick>
+							<onback>SetFocus(103)</onback>
+							<enable>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</enable>
+						</control>				
+					</control>
+				</control>
+				<!-- Right Grouplist -->
+				<control type="group">
+					<bottom>130</bottom>
+					<right>196</right>
+					<width>298</width>
+					<height>140</height>
+					<control type="label">
+						<height>36</height>
+						<font>Bold30</font>
+						<label>$LOCALIZE[31298]</label>
+						<textcolor>ffdadada</textcolor>
+					</control>
+					<control type="grouplist" id="220">
+						<width>402</width>
+						<bottom>0</bottom>
+						<height>90</height>
+						<itemgap>14</itemgap>
+						<onback>SetFocus(103)</onback>
+						<onright>SetFocus(103)</onright>
+						<onleft>SetFocus(213)</onleft>
+						<onup>noop</onup>
+						<ondown condition="!Skin.HasSetting(HideOSDControls)">SetFocus(504)</ondown>
+						<ondown condition="Skin.HasSetting(HideOSDControls)">SetFocus(999)</ondown>
+						<orientation>horizontal</orientation>
+						<scrolltime tween="sine" easing="out">240</scrolltime>
+						<control type="button" id="221">
+							<width>90</width>
+							<height>90</height>
+							<font>Reg22</font>
+							<textoffsetx>5</textoffsetx>
+							<align>center</align>
+							<texturefocus>common/ghost_button_fo.png</texturefocus>
+							<texturenofocus>common/ghost_button_nf.png</texturenofocus>
+							<wrapmultiline>true</wrapmultiline>
+							<label>$LOCALIZE[289]</label>
+							<focusedcolor>ffffaf37</focusedcolor>
+							<disabledcolor>44ffffff</disabledcolor>
+							<onclick>SetProperty(Dialog.NumItems,5)</onclick>
+							<onclick>SetProperty(Dialog.1.Label,Medium - $LOCALIZE[571])</onclick>
+							<onclick>SetProperty(Dialog.1.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.height,value=28))</onclick>
+							<onclick>SetProperty(Dialog.2.Label,Tiny)</onclick>
+							<onclick>SetProperty(Dialog.2.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.height,value=18))</onclick>
+							<onclick>SetProperty(Dialog.3.Label,Small)</onclick>
+							<onclick>SetProperty(Dialog.3.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.height,value=24))</onclick>
+							<onclick>SetProperty(Dialog.4.Label,Big)</onclick>
+							<onclick>SetProperty(Dialog.4.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.height,value=32))</onclick>
+							<onclick>SetProperty(Dialog.5.Label,Bigger)</onclick>
+							<onclick>SetProperty(Dialog.5.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.height,value=38))</onclick>
+							<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[36186])</onclick>
+							<onback>SetFocus(103)</onback>
+							<enable>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</enable>
+						</control>
+						<control type="button" id="222">
+							<width>90</width>
+							<height>90</height>
+							<font>Reg22</font>
+							<textoffsetx>5</textoffsetx>
+							<align>center</align>
+							<texturefocus>common/ghost_button_fo.png</texturefocus>
+							<texturenofocus>common/ghost_button_nf.png</texturenofocus>
+							<wrapmultiline>true</wrapmultiline>
+							<label>$LOCALIZE[736]</label>
+							<focusedcolor>ffffaf37</focusedcolor>
+							<disabledcolor>44ffffff</disabledcolor>
+							<onclick>SetProperty(Dialog.NumItems,4)</onclick>
+							<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[630])</onclick>
+							<onclick>SetProperty(Dialog.1.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.style,value=0))</onclick>
+							<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[739])</onclick>
+							<onclick>SetProperty(Dialog.2.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.style,value=1))</onclick>
+							<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[740])</onclick>
+							<onclick>SetProperty(Dialog.3.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.style,value=2))</onclick>
+							<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[741])</onclick>
+							<onclick>SetProperty(Dialog.4.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.style,value=3))</onclick>
+							<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[36187])</onclick>
+							<onback>SetFocus(103)</onback>
+							<enable>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</enable>
+						</control>
+						<control type="button" id="223">
+							<width>90</width>
+							<height>90</height>
+							<font>Reg22</font>
+							<textoffsetx>5</textoffsetx>
+							<align>center</align>
+							<texturefocus>common/ghost_button_fo.png</texturefocus>
+							<texturenofocus>common/ghost_button_nf.png</texturenofocus>
+							<wrapmultiline>true</wrapmultiline>
+							<label>$LOCALIZE[737]</label>
+							<focusedcolor>ffffaf37</focusedcolor>
+							<disabledcolor>44ffffff</disabledcolor>
+							<onclick>SetProperty(Dialog.NumItems,8)</onclick>
+							<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[743])</onclick>
+							<onclick>SetProperty(Dialog.1.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.color,value=0))</onclick>
+							<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[742])</onclick>
+							<onclick>SetProperty(Dialog.2.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.color,value=1))</onclick>
+							<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[762])</onclick>
+							<onclick>SetProperty(Dialog.3.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.color,value=2))</onclick>
+							<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[763])</onclick>
+							<onclick>SetProperty(Dialog.4.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.color,value=3))</onclick>
+							<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[764])</onclick>
+							<onclick>SetProperty(Dialog.5.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.color,value=4))</onclick>
+							<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[765])</onclick>
+							<onclick>SetProperty(Dialog.6.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.color,value=5))</onclick>
+							<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[766])</onclick>
+							<onclick>SetProperty(Dialog.7.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.color,value=6))</onclick>
+							<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[767])</onclick>
+							<onclick>SetProperty(Dialog.8.BuiltIn,RunScript(script.skin.helper.service,action=setkodisetting,setting=subtitles.color,value=7))</onclick>
+							<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[36188])</onclick>
+							<onback>SetFocus(103)</onback>
+							<enable>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</enable>
+						</control>
+						<control type="button" id="224">
+							<width>90</width>
+							<height>90</height>
+							<font>Reg22</font>
+							<textoffsetx>5</textoffsetx>
+							<align>center</align>
+							<texturefocus>common/ghost_button_fo.png</texturefocus>
+							<texturenofocus>common/ghost_button_nf.png</texturenofocus>
+							<wrapmultiline>true</wrapmultiline>
+							<label>$LOCALIZE[31303]</label>
+							<focusedcolor>ffffaf37</focusedcolor>
+							<disabledcolor>44ffffff</disabledcolor>
+							<onback>SetFocus(103)</onback>
+							<onclick>SetProperty(ForceFocus,apply,home)</onclick>
+							<onclick>ReloadSkin()</onclick>
+							<onclick>ActivateWindow(videoosd)</onclick>
+							<enable>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</enable>
+						</control>
+					</control>
+				</control>
+			</control>
+			<!-- 3D Options -->
+			<control type="group" id="3000">
+				<visible allowhiddenfocus="true">ControlGroup(3000).HasFocus</visible>
+				<animation effect="fade" start="100" end="0" time="200" condition="Window.IsVisible(selectdialog)">Conditional</animation>
+				<top>635</top>
+				<!-- Background -->
+				<control type="image">
+					<bottom>120</bottom>
+					<width>1920</width>
+					<height>265</height>
+					<texture>osd/mask.png</texture>
+				</control>
+				<!-- Left Grouplist -->
+				<control type="group">
+					<bottom>0</bottom>
+					<height>368</height>
+					<control type="label">
+						<left>92</left>
+						<height>36</height>
+						<font>Bold30</font>
+						<label>$LOCALIZE[31153]</label>
+						<textcolor>ffdadada</textcolor>
+					</control>
+					<control type="grouplist" id="300">
+						<left>81</left>
+						<bottom>0</bottom>
+						<height>320</height>
+						<width>805</width>
+						<itemgap>10</itemgap>
+						<onback>SetFocus(101)</onback>
+						<onleft>SetFocus(101)</onleft>
+						<onup>noop</onup>
+						<ondown condition="!Skin.HasSetting(HideOSDControls)">SetFocus(504)</ondown>
+						<ondown condition="Skin.HasSetting(HideOSDControls)">SetFocus(999)</ondown>
+						<orientation>vertical</orientation>
+						<scrolltime tween="sine" easing="out">240</scrolltime>
+						<control id="301" type="togglebutton">
+							<width>300</width>
+							<height>58</height>
+							<font>Reg22</font>
+							<label>$LOCALIZE[31255]: $LOCALIZE[1223]</label>
+							<altlabel>$LOCALIZE[31255]: $LOCALIZE[305]</altlabel>
+							<textoffsetx>34</textoffsetx>
+							<texturefocus border="13,5,6,8">views/button_fo.png</texturefocus>
+							<texturenofocus border="13,5,6,8">views/button_nf.png</texturenofocus>
+							<alttexturefocus border="13,5,6,8">views/button_fo.png</alttexturefocus>
+							<alttexturenofocus border="13,5,6,8">views/button_nf.png</alttexturenofocus>
+							<usealttexture>Integer.IsGreater(System.StereoscopicMode,0)</usealttexture>
+							<onclick>ToggleStereoMode</onclick>
+							<onback>SetFocus(101)</onback>
+						</control>
+						<control id="302" type="togglebutton">
+							<width>300</width>
+							<height>58</height>
+							<font>Reg22</font>
+							<label>$LOCALIZE[31256]: $LOCALIZE[1223]</label>
+							<altlabel>$LOCALIZE[31256]: $LOCALIZE[305]</altlabel>
+							<textoffsetx>34</textoffsetx>
+							<texturefocus border="13,5,6,8">views/button_fo.png</texturefocus>
+							<texturenofocus border="13,5,6,8">views/button_nf.png</texturenofocus>
+							<alttexturefocus border="13,5,6,8">views/button_fo.png</alttexturefocus>
+							<alttexturenofocus border="13,5,6,8">views/button_nf.png</alttexturenofocus>
+							<usealttexture>String.IsEqual(System.StereoscopicMode,9)</usealttexture>
+							<onclick>StereoModeToMono</onclick>
+							<onback>SetFocus(101)</onback>
+						</control>
+						<control id="303" type="button">
+							<width>300</width>
+							<height>58</height>
+							<font>Reg22</font>
+							<textoffsetx>34</textoffsetx>
+							<texturefocus border="13,5,6,8">views/button_fo.png</texturefocus>
+							<texturenofocus border="13,5,6,8">views/button_nf.png</texturenofocus>
+							<label>$LOCALIZE[31257]</label>
+							<onclick>StereoMode</onclick>
+							<onback>SetFocus(101)</onback>
+						</control>
+					</control>
+				</control>
+			</control>
+			<!-- Player controls -->
+			<control type="group" id="5000">
+				<control type="grouplist" id="500">
+					<centerleft>50%</centerleft>
+					<bottom>26</bottom>
+					<width>800</width>
+					<height>64</height>
+					<onup condition="!Skin.HasSetting(HideOSDControls)">SetProperty(ShowOptions,1,home)</onup>
+					<onup condition="!Skin.HasSetting(HideOSDControls) + VideoPlayer.Content(livetv)">SetFocus(110)</onup>
+					<onup condition="!Skin.HasSetting(HideOSDControls) + !VideoPlayer.Content(livetv) + system.getbool(videoplayer.autoplaynextitem)">SetFocus(107)</onup>
+					<onup condition="!Skin.HasSetting(HideOSDControls) + !VideoPlayer.Content(livetv) + !system.getbool(videoplayer.autoplaynextitem)">SetFocus(106)</onup>
+					<onup condition="Skin.HasSetting(HideOSDControls) + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)]">Dialog.Close(videoosd,true)</onup>
+					<onup condition="Skin.HasSetting(HideOSDControls) + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)]">ActivateWindow(fullscreeninfo)</onup>
+					<ondown condition="!Skin.HasSetting(HideOSDControls) + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)]">Dialog.Close(videoosd,true)</ondown>
+					<ondown condition="!Skin.HasSetting(HideOSDControls) + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)]">ActivateWindow(fullscreeninfo)</ondown>					
+					<ondown condition="VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.Plot)">SetProperty(ShowXRay,true,home)</ondown>
+					<ondown condition="VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.Plot)">ActivateWindow(1113)</ondown>
+					<itemgap>0</itemgap>
+					<align>center</align>
+					<orientation>horizontal</orientation>
+					<defaultcontrol always="true">504</defaultcontrol>
+					<visible>!Skin.HasSetting(HideOSDControls) + !Control.HasFocus(998) + !Control.HasFocus(997)</visible>
+					<!-- Skip Back -->
+					<control type="button" id="501">
+						<width>64</width>
+						<height>64</height>
+						<font>-</font>
+						<texturefocus>osd/osd_prev_fo.png</texturefocus>
+						<texturenofocus>osd/osd_prev_nf.png</texturenofocus>
+						<onclick>PlayerControl(Previous)</onclick>
+						<onfocus>ClearProperty(ShowOptions,home)</onfocus>
+					</control>
+					<!-- Rewind -->
+					<control type="button" id="502">
+						<width>64</width>
+						<height>64</height>
+						<font>-</font>
+						<texturefocus>osd/osd_rw_fo.png</texturefocus>
+						<texturenofocus>osd/osd_rw_nf.png</texturenofocus>
+						<onclick>PlayerControl(Rewind)</onclick>
+						<onfocus>ClearProperty(ShowOptions,home)</onfocus>
+					</control>
+					<!-- Stop -->
+					<control type="button" id="503">
+						<width>64</width>
+						<height>64</height>
+						<font>-</font>
+						<texturefocus>osd/osd_stop_fo.png</texturefocus>
+						<texturenofocus>osd/osd_stop_nf.png</texturenofocus>
+						<onclick>PlayerControl(Stop)</onclick>
+						<onfocus>ClearProperty(ShowOptions,home)</onfocus>
+					</control>
+					<!-- Play/Pause -->
+					<control type="togglebutton" id="504">
+						<width>64</width>
+						<height>64</height>
+						<font>-</font>
+						<texturefocus>osd/osd_pause_fo.png</texturefocus>
+						<texturenofocus>osd/osd_pause_nf.png</texturenofocus>
+						<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+						<alttexturefocus>osd/osd_play_fo.png</alttexturefocus>
+						<alttexturenofocus>osd/osd_play_nf.png</alttexturenofocus>
+						<onclick>PlayerControl(Play)</onclick>
+						<onfocus>ClearProperty(ShowOptions,home)</onfocus>
+					</control>
+					<!-- Fast Forward -->
+					<control type="button" id="505">
+						<width>64</width>
+						<height>64</height>
+						<font>-</font>
+						<texturefocus>osd/osd_ff_fo.png</texturefocus>
+						<texturenofocus>osd/osd_ff_nf.png</texturenofocus>
+						<onclick>PlayerControl(Forward)</onclick>
+						<onfocus>ClearProperty(ShowOptions,home)</onfocus>
+					</control>
+					<!-- Next -->
+					<control type="button" id="506">
+						<width>64</width>
+						<height>64</height>
+						<font>-</font>
+						<texturefocus>osd/osd_next_fo.png</texturefocus>
+						<texturenofocus>osd/osd_next_nf.png</texturenofocus>
+						<onclick>PlayerControl(Next)</onclick>
+						<onfocus>ClearProperty(ShowOptions,home)</onfocus>
+					</control>
+					<!-- Record -->
+					<control type="button" id="507">
+						<width>64</width>
+						<height>64</height>
+						<font>-</font>
+						<texturefocus>osd/osd_rec_fo.png</texturefocus>
+						<texturenofocus>osd/osd_rec_nf.png</texturenofocus>
+						<onclick>PlayerControl(Record)</onclick>
+						<onfocus>ClearProperty(ShowOptions,home)</onfocus>
+						<visible>VideoPlayer.Content(livetv) + [Player.CanRecord | Player.Recording]</visible>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- playercontrols -->
+	<visible>Player.HasMedia + Window.IsActive(PlayerControls) + !VideoPlayer.IsFullscreen + !Window.IsActive(Visualisation)</visible>
+	<onload>Close</onload>	
+	<onload condition="Player.HasMedia">SetProperty(PlayerControls,1,home)</onload>
+	<onload condition="Player.HasMedia">ActivateWindow(shutdownmenu)</onload>
+	<controls />
+</window>

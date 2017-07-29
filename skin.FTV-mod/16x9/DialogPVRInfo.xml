@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- mediasource -->
+	<defaultcontrol always="true">1000</defaultcontrol>
+	<controls>
+		<!-- Background -->
+		<include>BackgroundImage</include>
+		<!-- Fanart -->
+		<include>PVRFanart</include>
+		<control type="group">
+			<left>90</left>
+			<top>99</top>
+			<control type="image">
+				<width>336</width>
+				<height>336</height>
+				<texture>common/default_empty.png</texture>
+			</control>
+			<control type="image">
+				<width>336</width>
+				<height>336</height>
+				<texture>$VAR[PVRImage]</texture>
+				<aspectratio aligny="center" align="center">keep</aspectratio>
+			</control>
+		</control>
+		<control type="group">
+			<left>460</left>
+			<top>99</top>
+			<control type="label">
+				<top>-7</top>
+				<width>1270</width>
+				<height>48</height>
+				<font>Med48</font>
+				<scroll>true</scroll>
+				<textcolor>ffdadada</textcolor>
+				<scrollspeed>100</scrollspeed>
+				<label>$INFO[ListItem.Title]</label>
+			</control>
+			<control type="label">
+				<top>50</top>
+				<width>1270</width>
+				<height>48</height>
+				<font>Reg30Spaced</font>
+				<scroll>true</scroll>
+				<textcolor>ffFFC24B</textcolor>
+				<label>[LIGHT]$INFO[ListItem.ChannelName][/LIGHT]</label>
+			</control>
+			<control type="grouplist">
+				<top>110</top>
+				<width>1192</width>
+				<height>200</height>
+				<itemgap>0</itemgap>
+				<orientation>vertical</orientation>
+				<control type="textbox">
+					<width>1192</width>
+					<height>40</height>
+					<align>left</align>
+					<font>Reg30Spaced</font>
+					<autoscroll>false</autoscroll>
+					<textcolor>ffbbbbbb</textcolor>
+					<label>[LIGHT]$INFO[ListItem.StartTime,[B]$LOCALIZE[31534]:[/B] , - ]$INFO[ListItem.EndTime][/LIGHT]</label>
+				</control>
+				<control type="textbox">
+					<width>1192</width>
+					<height>40</height>
+					<align>left</align>
+					<font>Reg30Spaced</font>
+					<autoscroll>false</autoscroll>
+					<textcolor>ffbbbbbb</textcolor>
+					<label>[LIGHT][B]$LOCALIZE[180]:[/B] $INFO[ListItem.Duration][/LIGHT]</label>
+					<visible>!String.IsEmpty(ListItem.Duration)</visible>
+				</control>
+				<control type="textbox">
+					<width>1192</width>
+					<height>40</height>
+					<align>left</align>
+					<font>Reg30Spaced</font>
+					<autoscroll>false</autoscroll>
+					<textcolor>ffbbbbbb</textcolor>
+					<label>[LIGHT]$INFO[ListItem.Genre,[B]$LOCALIZE[515]:[/B] ][/LIGHT]</label>
+				</control>
+			</control>
+			<control type="group">
+				<top>285</top>
+				<control type="label">
+					<width>742</width>
+					<height>32</height>
+					<align>left</align>
+					<font>Med32</font>
+					<textcolor>ffdadada</textcolor>
+					<label>$LOCALIZE[207]</label>
+				</control>
+				<control type="textbox">
+					<top>56</top>
+					<width>1192</width>
+					<height>388</height>
+					<align>left</align>
+					<font>Light30</font>
+					<autoscroll>false</autoscroll>
+					<textcolor>ffa4a4a4</textcolor>
+					<pagecontrol>96</pagecontrol>
+					<label fallback="135">$INFO[ListItem.EpisodeName,,[CR][CR]]$INFO[ListItem.Plot]</label>
+				</control>
+				<control id="96" type="scrollbar">
+					<left>-1200</left>
+					<top>10</top>
+					<width>792</width>
+					<height>528</height>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+				</control>
+				<control id="2000" type="button">
+					<left>1194</left>
+					<top>413</top>
+					<width>37</width>
+					<height>23</height>
+					<onclick condition="Control.IsVisible(96)">RunScript(script.toolbox,info=textviewer,header=,text='$ESCINFO[ListItem.Plot]')</onclick>
+					<onup>close</onup>
+					<ondown>1000</ondown>
+					<onleft>close</onleft>
+					<onright>close</onright>
+					<texturefocus>views/more_fo.png</texturefocus>
+					<texturenofocus>views/more_nf.png</texturenofocus>
+					<animation effect="fade" time="0" start="100" end="0" condition="!Control.IsVisible(96)">Conditional</animation>
+				</control>
+			</control>
+		</control>
+		<!-- Button grouplist -->
+		<control id="1000" type="grouplist">
+			<left>448</left>
+			<bottom>90</bottom>
+			<width>1620</width>
+			<height>116</height>
+			<itemgap>0</itemgap>
+			<onup condition="Control.IsVisible(96)">SetFocus(2000)</onup>
+			<onup condition="!Control.IsVisible(96)">close</onup>
+			<onleft>noop</onleft>
+			<onright>noop</onright>
+			<ondown>close</ondown>
+			<orientation>horizontal</orientation>
+			<include>DialogVideoInfoAnimation</include>
+			<defaultcontrol always="true">9001</defaultcontrol>
+			<animation condition="Control.HasFocus(50) | Control.HasFocus(5000)" effect="slide" end="0,-192" start="0,0" time="200">Conditional</animation>
+			<control id="1001" type="button">
+				<width>0</width>
+				<height>0</height>
+				<label>-</label>
+				<onfocus>Right</onfocus>
+				<include>NoTextures</include>
+				<visible>!Control.HasFocus(5) + !Control.HasFocus(6) + !Control.HasFocus(9)</visible>
+			</control>
+			<control id="5" type="button">
+				<width min="124" max="300">auto</width>
+				<height>116</height>
+				<font>Med24</font>
+				<label>$VAR[TuneInLabel]</label>
+				<onclick>SetFocus(8)</onclick>
+				<textoffsetx>28</textoffsetx>
+				<textcolor>ffdadada</textcolor>
+				<focusedcolor>ff222222</focusedcolor>
+				<texturefocus border="13,5,6,8">views/button_fo.png</texturefocus>
+				<texturenofocus border="13,3,6,6">views/button_nf.png</texturenofocus>
+				<visible>Control.IsVisible(5)</visible>
+			</control>
+			<control id="6" type="button">
+				<width min="124" max="300">auto</width>
+				<height>116</height>
+				<font>Med24</font>
+				<label>-</label>
+				<textoffsetx>28</textoffsetx>
+				<textcolor>ffdadada</textcolor>
+				<focusedcolor>ff222222</focusedcolor>
+				<texturefocus border="13,5,6,8">views/button_fo.png</texturefocus>
+				<texturenofocus border="13,3,6,6">views/button_nf.png</texturenofocus>
+				<visible>Control.IsEnabled(6) + !String.IsEmpty(Control.GetLabel(6))</visible>
+			</control>
+			<control id="9" type="button">
+				<width min="124" max="300">auto</width>
+				<height>116</height>
+				<font>Med24</font>
+				<label>19061</label>
+				<textoffsetx>28</textoffsetx>
+				<textcolor>ffdadada</textcolor>
+				<focusedcolor>ff222222</focusedcolor>
+				<texturefocus border="13,5,6,8">views/button_fo.png</texturefocus>
+				<texturenofocus border="13,3,6,6">views/button_nf.png</texturenofocus>
+				<visible>Control.IsEnabled(9)</visible>
+			</control>
+			<control id="4" type="button">
+				<width min="124" max="300">auto</width>
+				<wrapmultiline>true</wrapmultiline>
+				<height>116</height>
+				<font>Med24</font>
+				<label>$LOCALIZE[31070]</label>
+				<textoffsetx>28</textoffsetx>
+				<textcolor>ffdadada</textcolor>
+				<focusedcolor>ff222222</focusedcolor>
+				<texturefocus border="13,5,6,8">views/button_fo.png</texturefocus>
+				<texturenofocus border="13,3,6,6">views/button_nf.png</texturenofocus>
+				<visible>Control.IsEnabled(4)</visible>
+			</control>
+		</control>
+	</controls>
+</window>

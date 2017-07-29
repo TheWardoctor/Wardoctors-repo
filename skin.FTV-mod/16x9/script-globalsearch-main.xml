@@ -1,0 +1,993 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<include>WindowOpenTrigger</include>
+	<onload>ClearProperty(Category,home)</onload>
+	<onload>ClearProperty(CategoryFocus,home)</onload>
+	<coordinates>
+		<system>1</system>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<animation effect="fade" end="100" start="100" time="200">WindowClose</animation>
+	<controls>
+		<control type="button" id="300">
+			<height>1</height>
+			<width>1</width>
+			<onup>Close</onup>			
+			<ondown condition="String.IsEqual(Window(home).Property(CategoryFocus),movies)">SetFocus(111)</ondown>
+			<ondown condition="String.IsEqual(Window(home).Property(CategoryFocus),tvshows)">SetFocus(121)</ondown>
+			<ondown condition="String.IsEqual(Window(home).Property(CategoryFocus),seasons)">SetFocus(131)</ondown>
+			<ondown condition="String.IsEqual(Window(home).Property(CategoryFocus),episodes)">SetFocus(141)</ondown>
+			<ondown condition="String.IsEqual(Window(home).Property(CategoryFocus),musicvideos)">SetFocus(151)</ondown>
+			<ondown condition="String.IsEqual(Window(home).Property(CategoryFocus),artists)">SetFocus(161)</ondown>
+			<ondown condition="String.IsEqual(Window(home).Property(CategoryFocus),albums)">SetFocus(171)</ondown>
+			<ondown condition="String.IsEqual(Window(home).Property(CategoryFocus),songs)">SetFocus(181)</ondown>
+			<ondown condition="String.IsEqual(Window(home).Property(CategoryFocus),actors)">SetFocus(219)</ondown>			
+			<ondown>ClearProperty(CategoryFocus,home)</ondown>
+			<onclick>Close</onclick>
+			<onclick>RunScript(script.globalsearch)</onclick>
+			<onleft>185</onleft>
+			<onright>999</onright>
+		</control>
+		<control type="grouplist" id="999">
+			<left>-100</left>
+			<top>0</top>
+			<height>1</height>
+			<width>10</width>
+			<itemgap>0</itemgap>
+			<onleft>300</onleft>
+			<onright>noop</onright>
+			<orientation>horizontal</orientation>
+			<control type="button" id="115">
+				<height>1</height>
+				<width>1</width>
+				<onfocus>SetProperty(CategoryFocus,movies,home)</onfocus>
+				<onfocus>SetProperty(Category,movies,home)</onfocus>
+				<onup>Close</onup>
+				<ondown>SetFocus(111)</ondown>
+				<ondown>ClearProperty(CategoryFocus,home)</ondown>
+				<onleft>noop</onleft>
+				<onright>125</onright>
+				<visible>Control.IsVisible(119)</visible>
+			</control>
+			<control type="button" id="125">
+				<height>1</height>
+				<width>1</width>
+				<onfocus>SetProperty(CategoryFocus,tvshows,home)</onfocus>
+				<onfocus>SetProperty(Category,tvshows,home)</onfocus>
+				<onup>Close</onup>
+				<ondown>SetFocus(121)</ondown>
+				<ondown>ClearProperty(CategoryFocus,home)</ondown>
+				<onleft>115</onleft>
+				<onright>135</onright>
+				<visible>Control.IsVisible(129)</visible>
+			</control>
+			<control type="button" id="135">
+				<height>1</height>
+				<width>1</width>
+				<onfocus>SetProperty(CategoryFocus,seasons,home)</onfocus>
+				<onfocus>SetProperty(Category,seasons,home)</onfocus>
+				<onup>Close</onup>
+				<ondown>SetFocus(131)</ondown>
+				<ondown>ClearProperty(CategoryFocus,home)</ondown>
+				<onleft>125</onleft>
+				<onright>145</onright>
+				<visible>Control.IsVisible(139)</visible>
+			</control>
+			<control type="button" id="145">
+				<height>1</height>
+				<width>1</width>
+				<onfocus>SetProperty(CategoryFocus,episodes,home)</onfocus>
+				<onfocus>SetProperty(Category,episodes,home)</onfocus>
+				<onup>Close</onup>
+				<ondown>SetFocus(141)</ondown>
+				<ondown>ClearProperty(CategoryFocus,home)</ondown>
+				<onleft>135</onleft>
+				<onright>155</onright>
+				<visible>Control.IsVisible(149)</visible>
+			</control>
+			<control type="button" id="155">
+				<height>1</height>
+				<width>1</width>
+				<onfocus>SetProperty(CategoryFocus,musicvideos,home)</onfocus>
+				<onfocus>SetProperty(Category,musicvideos,home)</onfocus>
+				<onup>Close</onup>
+				<ondown>SetFocus(151)</ondown>
+				<ondown>ClearProperty(CategoryFocus,home)</ondown>
+				<onleft>145</onleft>
+				<onright>165</onright>
+				<visible>Control.IsVisible(159)</visible>
+			</control>
+			<control type="button" id="165">
+				<height>1</height>
+				<width>1</width>
+				<onfocus>SetProperty(CategoryFocus,artists,home)</onfocus>
+				<onfocus>SetProperty(Category,artists,home)</onfocus>
+				<onup>Close</onup>
+				<ondown>SetFocus(161)</ondown>
+				<ondown>ClearProperty(CategoryFocus,home)</ondown>
+				<onleft>155</onleft>
+				<onright>175</onright>
+				<visible>Control.IsVisible(169)</visible>
+			</control>
+			<control type="button" id="175">
+				<height>1</height>
+				<width>1</width>
+				<onfocus>SetProperty(CategoryFocus,albums,home)</onfocus>
+				<onfocus>SetProperty(Category,albums,home)</onfocus>
+				<onup>Close</onup>
+				<ondown>SetFocus(171)</ondown>
+				<ondown>ClearProperty(CategoryFocus,home)</ondown>
+				<onleft>165</onleft>
+				<onright>185</onright>
+				<visible>Control.IsVisible(179)</visible>
+			</control>
+			<control type="button" id="185">
+				<height>1</height>
+				<width>1</width>
+				<onfocus>SetProperty(CategoryFocus,songs,home)</onfocus>
+				<onfocus>SetProperty(Category,songs,home)</onfocus>
+				<onup>Close</onup>
+				<ondown>SetFocus(181)</ondown>
+				<ondown>ClearProperty(CategoryFocus,home)</ondown>
+				<onleft>175</onleft>
+				<onright>215</onright>
+				<visible>Control.IsVisible(189)</visible>
+			</control>
+			<control type="button" id="215">
+				<height>1</height>
+				<width>1</width>
+				<onfocus>SetProperty(CategoryFocus,actors,home)</onfocus>
+				<onfocus>SetProperty(Category,actors,home)</onfocus>
+				<onup>Close</onup>
+				<ondown>SetFocus(211)</ondown>
+				<ondown>ClearProperty(CategoryFocus,home)</ondown>
+				<onleft>185</onleft>
+				<onright>noop</onright>
+				<visible>Control.IsVisible(219)</visible>
+			</control>
+		</control>
+		<control type="group" id="100">
+			<control type="label" id="110">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="120">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="130">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="140">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="150">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="160">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="170">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="180">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="210">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="220">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="190">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="191">
+				<include>HiddenControl</include>
+			</control>
+			<control type="label" id="199">
+				<include>HiddenControl</include>
+			</control>
+			<control type="group">
+				<!-- Background -->
+				<include>BackgroundImage</include>
+				<!-- Fanart -->
+				<control type="image">
+					<include>FullscreenDimensions</include>
+					<fadetime>400</fadetime>
+					<colordiffuse>26ffffff</colordiffuse>
+					<texture background="true">$VAR[SearchFanart]</texture>
+					<visible>!Skin.HasSetting(HideFanart)</visible>
+				</control>
+				<!-- No results -->
+				<control type="group">
+					<visible>Control.IsVisible(199)</visible>
+					<animation delay="800" effect="fade" end="100" start="0" time="200">WindowOpen</animation>
+					<control type="image">
+						<centerleft>50%</centerleft>
+						<top>385</top>
+						<width>1490</width>
+						<height>310</height>
+						<texture>dialogs/empty_search.png</texture>
+					</control>
+					<control type="group">
+						<centerleft>50%</centerleft>
+						<top>468</top>
+						<control type="label">
+							<height>32</height>
+							<font>Bold32</font>
+							<align>center</align>
+							<textcolor>ffdadada</textcolor>
+							<label>$LOCALIZE[31111]</label>
+						</control>
+						<control type="label">
+							<top>34</top>
+							<height>32</height>
+							<font>Reg22</font>
+							<align>center</align>
+							<textcolor>ff717171</textcolor>
+							<label>$LOCALIZE[31112]</label>
+						</control>
+						<control id="198" type="button">
+							<centerleft>50%</centerleft>
+							<top>78</top>
+							<width>300</width>
+							<height>76</height>
+							<align>center</align>
+							<aligny>top</aligny>
+							<font>MedUpper24</font>
+							<textoffsety>27</textoffsety>
+						</control>
+					</control>
+				</control>
+				<control type="group">
+					<visible>String.IsEmpty(Control.GetLabel(190)) + !Control.IsVisible(199)</visible>
+					<animation delay="800" effect="fade" end="100" start="0" time="200">WindowOpen</animation>
+					<!-- Search Result -->
+					<control type="grouplist">
+						<left>196</left>
+						<top>134</top>
+						<height>80</height>
+						<itemgap>10</itemgap>
+						<orientation>horizontal</orientation>
+						<usecontrolcoords>true</usecontrolcoords>
+						<include>VisibleDelayFadeAnimation</include>
+						<control type="label">
+							<width>auto</width>
+							<height>60</height>
+							<font>Med48</font>
+							<aligny>bottom</aligny>
+							<textcolor>ffdadada</textcolor>
+							<label>$INFO[Window.Property(GlobalSearch.SearchString),$LOCALIZE[283] “,”]  </label>
+						</control>
+						<control type="label">
+							<top>15</top>
+							<width>auto</width>
+							<height>60</height>
+							<font>Med32</font>
+							<aligny>bottom</aligny>
+							<textcolor>ffdadada</textcolor>
+							<label>$VAR[GlobalSearchCurrentItem]</label>
+							<visible>!String.IsEmpty(Window(home).Property(Category))</visible>
+						</control>
+						<control type="label">
+							<top>14</top>
+							<width>auto</width>
+							<height>60</height>
+							<font>Light36</font>
+							<aligny>bottom</aligny>
+							<textcolor>ff505050</textcolor>
+							<label>|</label>
+							<visible>!String.IsEmpty(Window(home).Property(Category))</visible>
+						</control>
+						<control type="label">
+							<top>15</top>
+							<width>auto</width>
+							<height>60</height>
+							<font>Light32</font>
+							<aligny>bottom</aligny>
+							<textcolor>ff505050</textcolor>
+							<label>$VAR[GlobalSearchNumItems]</label>
+							<visible>!String.IsEmpty(Window(home).Property(Category))</visible>
+						</control>
+					</control>
+					<control type="group">
+						<!-- Categories -->
+						<control type="grouplist">
+							<left>196</left>
+							<top>212</top>
+							<height>40</height>
+							<itemgap>47</itemgap>
+							<orientation>horizontal</orientation>
+							<usecontrolcoords>true</usecontrolcoords>
+							<include>VisibleDelayFadeAnimation</include>
+							<control type="label">
+								<width>auto</width>
+								<height>40</height>
+								<font>Light32</font>
+								<aligny>bottom</aligny>
+								<textcolor>$VAR[CategoryColourNewSearch]</textcolor>
+								<label>31522</label>
+							</control>
+							<control type="label">
+								<width>auto</width>
+								<height>40</height>
+								<font>Light32</font>
+								<aligny>bottom</aligny>
+								<textcolor>$VAR[CategoryColourMovies]</textcolor>
+								<label>342</label>
+								<visible>Control.IsVisible(119)</visible>
+							</control>
+							<control type="label">
+								<width>auto</width>
+								<height>40</height>
+								<font>Light32</font>
+								<aligny>bottom</aligny>
+								<textcolor>$VAR[CategoryColourTVShows]</textcolor>
+								<label>20343</label>
+								<visible>Control.IsVisible(129)</visible>
+							</control>
+							<control type="label">
+								<width>auto</width>
+								<height>40</height>
+								<font>Light32</font>
+								<aligny>bottom</aligny>
+								<textcolor>$VAR[CategoryColourSeasons]</textcolor>
+								<label>33054</label>
+								<visible>Control.IsVisible(139)</visible>
+							</control>
+							<control type="label">
+								<width>auto</width>
+								<height>40</height>
+								<font>Light32</font>
+								<aligny>bottom</aligny>
+								<textcolor>$VAR[CategoryColourEpisodes]</textcolor>
+								<label>20360</label>
+								<visible>Control.IsVisible(149)</visible>
+							</control>
+							<control type="label">
+								<width>auto</width>
+								<height>40</height>
+								<font>Light32</font>
+								<aligny>bottom</aligny>
+								<textcolor>$VAR[CategoryColourMusicVideos]</textcolor>
+								<label>20389</label>
+								<visible>Control.IsVisible(159)</visible>
+							</control>
+							<control type="label">
+								<width>auto</width>
+								<height>40</height>
+								<font>Light32</font>
+								<aligny>bottom</aligny>
+								<textcolor>$VAR[CategoryColourArtists]</textcolor>
+								<label>133</label>
+								<visible>Control.IsVisible(169)</visible>
+							</control>
+							<control type="label">
+								<width>auto</width>
+								<height>40</height>
+								<font>Light32</font>
+								<aligny>bottom</aligny>
+								<textcolor>$VAR[CategoryColourAlbums]</textcolor>
+								<label>132</label>
+								<visible>Control.IsVisible(179)</visible>
+							</control>
+							<control type="label">
+								<width>auto</width>
+								<height>40</height>
+								<font>Light32</font>
+								<aligny>bottom</aligny>
+								<textcolor>$VAR[CategoryColourSongs]</textcolor>
+								<label>134</label>
+								<visible>Control.IsVisible(189)</visible>
+							</control>
+							<control type="label">
+								<width>auto</width>
+								<height>40</height>
+								<font>Light32</font>
+								<aligny>bottom</aligny>
+								<textcolor>$VAR[CategoryColourActors]</textcolor>
+								<label>344</label>
+								<visible>Control.IsVisible(219)</visible>
+							</control>
+						</control>
+						<!-- Lower group -->
+						<control type="group">
+							<left>196</left>
+							<top>782</top>
+							<visible>!ControlGroup(999).HasFocus + !Control.HasFocus(300) + String.IsEmpty(Control.GetLabel(190)) + !Control.IsVisible(199)</visible>
+							<include>VisibleFadeAnimation</include>
+							<!-- Controls -->
+							<control id="1000" type="grouplist">
+								<left>-10</left>
+								<height>100</height>
+								<itemgap>0</itemgap>
+								<onleft>$VAR[SearchSetFocus]</onleft>
+								<onright>$VAR[SearchSetFocus]</onright>
+								<orientation>horizontal</orientation>
+								<usecontrolcoords>true</usecontrolcoords>
+								<defaultcontrol always="true">1001</defaultcontrol>
+								<control id="1001" type="button">
+									<width min="104" max="224">auto</width>
+									<wrapmultiline>true</wrapmultiline>
+									<height>100</height>
+									<onup>$VAR[SearchSetFocus]</onup>
+									<ondown>3000</ondown>
+									<onclick>$VAR[SearchSetFocus]</onclick>
+									<onclick>Info</onclick>
+									<onclick>SetProperty(OpenMovieInformation,1,home)</onclick>-->
+									<font>Med24</font>
+									<label>[CAPITALIZE]$VAR[SearchVideoType][CR]$LOCALIZE[19033][/CAPITALIZE]</label>
+									<textoffsetx>28</textoffsetx>
+									<textcolor>ffdadada</textcolor>
+									<focusedcolor>ff222222</focusedcolor>
+									<texturefocus border="13,5,6,8">views/button_fo.png</texturefocus>
+									<texturenofocus border="13,3,6,6">views/button_nf.png</texturenofocus>
+								</control>
+							</control>
+							<!-- Details -->
+							<control type="grouplist">
+								<top>110</top>
+								<height>30</height>
+								<itemgap>10</itemgap>
+								<orientation>horizontal</orientation>
+								<usecontrolcoords>true</usecontrolcoords>
+								<control type="label">
+									<width>auto</width>
+									<height>24</height>
+									<font>Med24Num</font>
+									<aligny>bottom</aligny>
+									<textcolor>ffbebebe</textcolor>
+									<label>$INFO[Container(111).ListItem.Property(Year),,[COLOR 00ffffff]/[/COLOR]]</label>
+									<visible>Control.IsVisible(111) + !String.IsEmpty(Container(111).ListItem.Property(Year))</visible>
+								</control>
+								<control type="label">
+									<width>auto</width>
+									<height>24</height>
+									<font>Med24Num</font>
+									<aligny>bottom</aligny>
+									<textcolor>ffbebebe</textcolor>
+									<label>$INFO[Container(121).ListItem.Property(Year),,[COLOR 00ffffff]/[/COLOR]]</label>
+									<visible>Control.IsVisible(121) + !String.IsEmpty(Container(121).ListItem.Property(Year))</visible>
+								</control>
+								<control type="label">
+									<width>auto</width>
+									<height>24</height>
+									<font>Med24Num</font>
+									<aligny>bottom</aligny>
+									<textcolor>ffbebebe</textcolor>
+									<label>$INFO[Container(211).ListItem.Property(Year),,[COLOR 00ffffff]/[/COLOR]]</label>
+									<visible>Control.IsVisible(211) + !String.IsEmpty(Container(211).ListItem.Property(Year))</visible>
+								</control>
+								<control type="label">
+									<width>auto</width>
+									<height>24</height>
+									<font>Med24</font>
+									<aligny>bottom</aligny>
+									<textcolor>ffbebebe</textcolor>
+									<label>$INFO[Container(141).ListItem.Property(Duration),, $LOCALIZE[31147]]</label>
+									<visible>Control.IsVisible(141) + !String.IsEmpty(Container(141).ListItem.Property(Duration)) + Integer.IsGreater(Container(141).ListItem.Property(Duration),1)</visible>
+								</control>
+								<control type="image">
+									<top>2</top>
+									<width>147</width>
+									<height>24</height>
+									<texture>$INFO[Container(111).ListItem.Property(UserRating),rating/rating,.png]</texture>
+									<aspectratio align="left">keep</aspectratio>
+									<visible>Control.IsVisible(111) + !String.IsEmpty(Container(111).ListItem.Property(UserRating))</visible>
+								</control>
+								<control type="image">
+									<top>2</top>
+									<width>147</width>
+									<height>24</height>
+									<texture>$INFO[Container(121).ListItem.Property(UserRating),rating/rating,.png]</texture>
+									<aspectratio align="left">keep</aspectratio>
+									<visible>Control.IsVisible(121) + !String.IsEmpty(Container(121).ListItem.Property(UserRating))</visible>
+								</control>
+								<control type="image">
+									<top>2</top>
+									<width>147</width>
+									<height>24</height>
+									<texture>$INFO[Container(211).ListItem.Property(UserRating),rating/rating,.png]</texture>
+									<aspectratio align="left">keep</aspectratio>
+									<visible>Control.IsVisible(211) + !String.IsEmpty(Container(211).ListItem.Property(UserRating))</visible>
+								</control>
+								<control type="image">
+									<top>3</top>
+									<width>48</width>
+									<height>23</height>
+									<texture>views/ratingbadge.png</texture>
+									<visible>[Control.IsVisible(111) + !String.IsEmpty(Container(111).ListItem.Property(Rating))] | [Control.IsVisible(211) + !String.IsEmpty(Container(211).ListItem.Property(Rating))] | [Control.IsVisible(121) + !String.IsEmpty(Container(121).ListItem.Property(Rating))] | [Control.IsVisible(141) + !String.IsEmpty(Container(141).ListItem.Property(Rating))]</visible>
+								</control>
+								<control type="label">
+									<top>-8</top>
+									<width>auto</width>
+									<height>24</height>
+									<font>Bold24Num</font>
+									<aligny>bottom</aligny>
+									<textcolor>ffdadada</textcolor>
+									<label>$INFO[Container(111).ListItem.Property(Rating),,/10]</label>
+									<visible>Control.IsVisible(111) + !String.IsEmpty(Container(111).ListItem.Property(Rating))</visible>
+								</control>
+								<control type="label">
+									<top>-8</top>
+									<width>auto</width>
+									<height>24</height>
+									<font>Bold24Num</font>
+									<aligny>bottom</aligny>
+									<textcolor>ffdadada</textcolor>
+									<label>$INFO[Container(121).ListItem.Property(Rating),,/10]</label>
+									<visible>Control.IsVisible(121) + !String.IsEmpty(Container(121).ListItem.Property(Rating))</visible>
+								</control>
+								<control type="label">
+									<top>-8</top>
+									<width>auto</width>
+									<height>24</height>
+									<font>Bold24Num</font>
+									<aligny>bottom</aligny>
+									<textcolor>ffdadada</textcolor>
+									<label>$INFO[Container(211).ListItem.Property(Rating),,/10]</label>
+									<visible>Control.IsVisible(211) + !String.IsEmpty(Container(211).ListItem.Property(Rating))</visible>
+								</control>
+								<control type="label">
+									<top>-8</top>
+									<width>auto</width>
+									<height>24</height>
+									<font>Bold24Num</font>
+									<aligny>bottom</aligny>
+									<textcolor>ffdadada</textcolor>
+									<label>$INFO[Container(141).ListItem.Property(Rating),,/10]</label>
+									<visible>Control.IsVisible(141) + !String.IsEmpty(Container(141).ListItem.Property(Rating))</visible>
+								</control>
+								<control type="label">
+									<width>auto</width>
+									<height>24</height>
+									<font>Med24</font>
+									<aligny>bottom</aligny>
+									<textcolor>ffbebebe</textcolor>
+									<label>[COLOR ff707070]$LOCALIZE[31152]: [/COLOR]$INFO[Container(141).ListItem.Property(Premiered)]</label>
+									<visible>Control.IsVisible(141) + !String.IsEmpty(Container(141).ListItem.Property(Premiered))</visible>
+								</control>
+							</control>
+							<control type="group">
+								<visible>Control.IsVisible(111) | Control.IsVisible(121) | Control.IsVisible(141) | Control.IsVisible(211)</visible>
+								<control type="textbox">
+									<top>145</top>
+									<width>1192</width>
+									<height>88</height>
+									<align>left</align>
+									<font>Reg30Spaced</font>
+									<pagecontrol>96</pagecontrol>
+									<autoscroll>false</autoscroll>
+									<textcolor>ffbcbcbc</textcolor>
+									<label>[B]$VAR[SearchLabel][/B] [LIGHT]$VAR[SearchPlot][/LIGHT]</label>
+								</control>
+								<control id="96" type="scrollbar">
+									<top>143</top>
+									<width>1192</width>
+									<height>88</height>
+									<showonepage>false</showonepage>
+									<orientation>vertical</orientation>
+								</control>
+								<!-- More button -->
+								<control id="3000" type="button">
+									<left>1194</left>
+									<top>192</top>
+									<width>37</width>
+									<height>23</height>
+									<onup>1000</onup>
+									<ondown>noop</ondown>
+									<onleft>$VAR[SearchSetFocus]</onleft>
+									<onright>$VAR[SearchSetFocus]</onright>
+									<onclick>SetProperty(SearchOpenTextViewer,1,home)</onclick>
+									<onclick>RunScript(script.toolbox,info=textviewer,header='$ESCVAR[SearchLabel]',text='$ESCVAR[SearchPlot]')</onclick>
+									<visible>Control.IsVisible(96)</visible>
+									<texturefocus>views/more_fo.png</texturefocus>
+									<texturenofocus>views/more_nf.png</texturenofocus>
+								</control>
+							</control>
+							<control type="group">
+								<visible>!Control.IsVisible(111) + !Control.IsVisible(121) + !Control.IsVisible(141) + !Control.IsVisible(211)</visible>
+								<control type="textbox">
+									<top>103</top>
+									<width>1192</width>
+									<height>126</height>
+									<align>left</align>
+									<font>Reg30Spaced</font>
+									<pagecontrol>99</pagecontrol>
+									<autoscroll>false</autoscroll>
+									<textcolor>ffbcbcbc</textcolor>
+									<label>[B]$VAR[SearchLabel][/B] [LIGHT]$VAR[SearchPlot][/LIGHT]</label>
+								</control>
+								<control id="99" type="scrollbar">
+									<top>103</top>
+									<width>1192</width>
+									<height>126</height>
+									<showonepage>false</showonepage>
+									<orientation>vertical</orientation>
+								</control>
+								<!-- More button -->
+								<control id="3000" type="button">
+									<left>1194</left>
+									<top>192</top>
+									<width>37</width>
+									<height>23</height>
+									<onup>1000</onup>
+									<ondown>noop</ondown>
+									<onleft>$VAR[SearchSetFocus]</onleft>
+									<onright>$VAR[SearchSetFocus]</onright>
+									<onclick>SetProperty(SearchOpenTextViewer,1,home)</onclick>
+									<onclick>RunScript(script.toolbox,info=textviewer,header='$ESCVAR[SearchLabel]',text='$ESCVAR[SearchPlot]')</onclick>
+									<visible>Control.IsVisible(99)</visible>
+									<texturefocus>views/more_fo.png</texturefocus>
+									<texturenofocus>views/more_nf.png</texturenofocus>
+								</control>
+							</control>
+						</control>
+					</control>
+				</control>
+				<!-- Movies group -->
+				<control type="group" id="119">
+					<!-- Movies list -->
+					<control id="111" type="fixedlist">
+						<left>-102</left>
+						<top>242</top>
+						<width>2036</width>
+						<height>576</height>
+						<onfocus>SetProperty(Category,movies,home)</onfocus>
+						<onup>999</onup>
+						<ondown>1000</ondown>
+						<onleft>Back</onleft>
+						<onright>noop</onright>
+						<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+						<preloaditems>2</preloaditems>
+						<focusposition>1</focusposition>
+						<viewtype label="">list</viewtype>
+						<orientation>horizontal</orientation>
+						<scrolltime easing="inout" tween="sine">300</scrolltime>
+						<visible allowhiddenfocus="true">Control.HasFocus(111) | Control.HasFocus(115) | [[ControlGroup(1000).HasFocus | Control.HasFocus(3000) | Control.HasFocus(300)] + String.IsEqual(Window(home).Property(Category),movies)]</visible>
+						<animation reversible="false" type="Hidden">
+							<effect center="357,540" easing="out" end="98" start="100" time="180" tween="linear" type="zoom" />
+							<effect easing="out" end="0" start="100" time="180" tween="linear" type="fade" />
+						</animation>
+						<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+							<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+							<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+						</animation>
+						<animation reversible="false" type="Visible">
+							<effect center="357,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />
+							<effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade" />
+						</animation>
+						<include content="ViewPosterLayout">
+							<param name="ID">111</param>
+						</include>
+					</control>
+				</control>
+				<!-- TV Shows group -->
+				<control type="group" id="129">
+					<!-- TV Shows list -->
+					<control id="121" type="fixedlist">
+						<left>-102</left>
+						<top>242</top>
+						<width>2036</width>
+						<height>576</height>
+						<onfocus>SetProperty(Category,tvshows,home)</onfocus>
+						<onup>999</onup>
+						<ondown>1000</ondown>
+						<onleft>Back</onleft>
+						<onright>noop</onright>
+						<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+						<preloaditems>2</preloaditems>
+						<focusposition>1</focusposition>
+						<viewtype label="">list</viewtype>
+						<orientation>horizontal</orientation>
+						<scrolltime easing="inout" tween="sine">300</scrolltime>
+						<visible allowhiddenfocus="true">Control.HasFocus(121) | Control.HasFocus(125) | [[ControlGroup(1000).HasFocus | Control.HasFocus(3000) | Control.HasFocus(300)] + String.IsEqual(Window(home).Property(Category),tvshows)]</visible>
+						<animation reversible="false" type="Hidden">
+							<effect center="357,540" easing="out" end="98" start="100" time="180" tween="linear" type="zoom" />
+							<effect easing="out" end="0" start="100" time="180" tween="linear" type="fade" />
+						</animation>
+						<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+							<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+							<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+						</animation>
+						<animation reversible="false" type="Visible">
+							<effect center="357,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />
+							<effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade" />
+						</animation>
+						<include content="ViewPosterLayout">
+							<param name="ID">121</param>
+						</include>
+					</control>
+				</control>
+				<!-- Seasons group -->
+				<control type="group" id="139">
+					<!-- Seasons list -->
+					<control id="131" type="fixedlist">
+						<left>-102</left>
+						<top>242</top>
+						<width>2036</width>
+						<height>576</height>
+						<onfocus>SetProperty(Category,seasons,home)</onfocus>
+						<onup>999</onup>
+						<ondown>1000</ondown>
+						<onleft>Back</onleft>
+						<onright>noop</onright>
+						<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+						<preloaditems>2</preloaditems>
+						<focusposition>1</focusposition>
+						<viewtype label="">list</viewtype>
+						<orientation>horizontal</orientation>
+						<scrolltime easing="inout" tween="sine">300</scrolltime>
+						<visible allowhiddenfocus="true">Control.HasFocus(131) | Control.HasFocus(135) | [[ControlGroup(1000).HasFocus | Control.HasFocus(3000) | Control.HasFocus(300)] + String.IsEqual(Window(home).Property(Category),seasons)]</visible>
+						<animation reversible="false" type="Hidden">
+							<effect center="357,540" easing="out" end="98" start="100" time="180" tween="linear" type="zoom" />
+							<effect easing="out" end="0" start="100" time="180" tween="linear" type="fade" />
+						</animation>
+						<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+							<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+							<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+						</animation>
+						<animation reversible="false" type="Visible">
+							<effect center="357,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />
+							<effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade" />
+						</animation>
+						<include content="ViewPosterLayout">
+							<param name="ID">131</param>
+						</include>
+					</control>
+				</control>
+				<!-- Episodes group -->
+				<control type="group" id="149">
+					<!-- Episodes list -->
+					<control id="141" type="fixedlist">
+						<left>-374</left>
+						<top>242</top>
+						<width>2388</width>
+						<height>576</height>
+						<onfocus>SetProperty(Category,episodes,home)</onfocus>
+						<onup>999</onup>
+						<ondown>1000</ondown>
+						<ondown>151</ondown>
+						<onleft>Back</onleft>
+						<onright>noop</onright>
+						<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+						<preloaditems>2</preloaditems>
+						<focusposition>1</focusposition>
+						<viewtype label="">list</viewtype>
+						<orientation>horizontal</orientation>
+						<scrolltime easing="inout" tween="sine">300</scrolltime>
+						<visible allowhiddenfocus="true">Control.HasFocus(141) | Control.HasFocus(145) | [[ControlGroup(1000).HasFocus | Control.HasFocus(3000) | Control.HasFocus(300)] + String.IsEqual(Window(home).Property(Category),episodes)]</visible>
+						<animation reversible="false" type="Hidden">
+							<effect center="357,540" easing="out" end="98" start="100" time="180" tween="linear" type="zoom" />
+							<effect easing="out" end="0" start="100" time="180" tween="linear" type="fade" />
+						</animation>
+						<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+							<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+							<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+						</animation>
+						<animation reversible="false" type="Visible">
+							<effect center="357,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />
+							<effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade" />
+						</animation>
+						<include content="ViewEpisodeLayout">
+							<param name="ID">141</param>
+						</include>
+					</control>
+				</control>
+				<!-- Music Videos group -->
+				<control type="group" id="159">
+					<!-- Music Videos list -->
+					<control id="151" type="fixedlist">
+						<left>-374</left>
+						<top>242</top>
+						<width>2344</width>
+						<height>576</height>
+						<onfocus>SetProperty(Category,musicvideos,home)</onfocus>
+						<onup>999</onup>
+						<ondown>1000</ondown>
+						<ondown>161</ondown>
+						<onleft>Back</onleft>
+						<onright>noop</onright>
+						<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+						<preloaditems>2</preloaditems>
+						<focusposition>1</focusposition>
+						<viewtype label="">list</viewtype>
+						<orientation>horizontal</orientation>
+						<scrolltime easing="inout" tween="sine">300</scrolltime>
+						<visible allowhiddenfocus="true">Control.HasFocus(151) | Control.HasFocus(155) | [[ControlGroup(1000).HasFocus | Control.HasFocus(3000) | Control.HasFocus(300)] + String.IsEqual(Window(home).Property(Category),musicvideos)]</visible>
+						<animation reversible="false" type="Hidden">
+							<effect center="357,540" easing="out" end="98" start="100" time="180" tween="linear" type="zoom" />
+							<effect easing="out" end="0" start="100" time="180" tween="linear" type="fade" />
+						</animation>
+						<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+							<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+							<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+						</animation>
+						<animation reversible="false" type="Visible">
+							<effect center="357,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />
+							<effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade" />
+						</animation>
+						<include content="ViewEpisodeLayout">
+							<param name="ID">151</param>
+						</include>
+					</control>
+				</control>
+				<!-- Artists group -->
+				<control type="group" id="169">
+					<!-- Artists list -->
+					<control id="161" type="fixedlist">
+						<left>-238</left>
+						<top>242</top>
+						<width>2200</width>
+						<height>576</height>
+						<onfocus>SetProperty(Category,artists,home)</onfocus>
+						<onup>999</onup>
+						<ondown>1000</ondown>
+						<ondown>171</ondown>
+						<onleft>Back</onleft>
+						<onright>noop</onright>
+						<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+						<preloaditems>2</preloaditems>
+						<focusposition>1</focusposition>
+						<viewtype label="">list</viewtype>
+						<orientation>horizontal</orientation>
+						<scrolltime easing="inout" tween="sine">300</scrolltime>
+						<visible allowhiddenfocus="true">Control.HasFocus(161) | Control.HasFocus(165) | [[ControlGroup(1000).HasFocus | Control.HasFocus(3000) | Control.HasFocus(300)] + String.IsEqual(Window(home).Property(Category),artists)]</visible>
+						<animation reversible="false" type="Hidden">
+							<effect center="357,540" easing="out" end="98" start="100" time="180" tween="linear" type="zoom" />
+							<effect easing="out" end="0" start="100" time="180" tween="linear" type="fade" />
+						</animation>
+						<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+							<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+							<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+						</animation>
+						<animation reversible="false" type="Visible">
+							<effect center="357,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />
+							<effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade" />
+						</animation>
+						<include content="ViewSquareInfoLayout">
+							<param name="ID">161</param>
+						</include>
+					</control>
+				</control>
+				<!-- Albums group -->
+				<control type="group" id="179">
+					<!-- Albums list -->
+					<control id="171" type="fixedlist">
+						<left>-238</left>
+						<top>242</top>
+						<width>2200</width>
+						<height>576</height>
+						<onfocus>SetProperty(Category,albums,home)</onfocus>
+						<onup>999</onup>
+						<ondown>1000</ondown>
+						<ondown>181</ondown>
+						<onleft>Back</onleft>
+						<onright>noop</onright>
+						<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+						<preloaditems>2</preloaditems>
+						<focusposition>1</focusposition>
+						<viewtype label="">list</viewtype>
+						<orientation>horizontal</orientation>
+						<scrolltime easing="inout" tween="sine">300</scrolltime>
+						<visible allowhiddenfocus="true">Control.HasFocus(171) | Control.HasFocus(175) | [[ControlGroup(1000).HasFocus | Control.HasFocus(3000) | Control.HasFocus(300)] + String.IsEqual(Window(home).Property(Category),albums)]</visible>
+						<animation reversible="false" type="Hidden">
+							<effect center="357,540" easing="out" end="98" start="100" time="180" tween="linear" type="zoom" />
+							<effect easing="out" end="0" start="100" time="180" tween="linear" type="fade" />
+						</animation>
+						<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+							<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+							<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+						</animation>
+						<animation reversible="false" type="Visible">
+							<effect center="357,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />
+							<effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade" />
+						</animation>
+						<include content="ViewSquareInfoLayout">
+							<param name="ID">171</param>
+						</include>
+					</control>
+				</control>
+				<!-- Songs group -->
+				<control type="group" id="189">
+					<!-- Songs list -->
+					<control id="181" type="fixedlist">
+						<left>-238</left>
+						<top>242</top>
+						<width>2200</width>
+						<height>576</height>
+						<onfocus>SetProperty(Category,songs,home)</onfocus>
+						<onup>999</onup>
+						<ondown>1000</ondown>
+						<ondown>211</ondown>
+						<onleft>Back</onleft>
+						<onright>noop</onright>
+						<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+						<preloaditems>2</preloaditems>
+						<focusposition>1</focusposition>
+						<viewtype label="">list</viewtype>
+						<orientation>horizontal</orientation>
+						<scrolltime easing="inout" tween="sine">300</scrolltime>
+						<visible allowhiddenfocus="true">Control.HasFocus(181) | Control.HasFocus(185) | [[ControlGroup(1000).HasFocus | Control.HasFocus(3000) | Control.HasFocus(300)] + String.IsEqual(Window(home).Property(Category),songs)]</visible>
+						<animation reversible="false" type="Hidden">
+							<effect center="357,540" easing="out" end="98" start="100" time="180" tween="linear" type="zoom" />
+							<effect easing="out" end="0" start="100" time="180" tween="linear" type="fade" />
+						</animation>
+						<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+							<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+							<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+						</animation>
+						<animation reversible="false" type="Visible">
+							<effect center="357,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />
+							<effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade" />
+						</animation>
+						<include content="ViewSquareInfoLayout">
+							<param name="ID">181</param>
+						</include>
+					</control>
+				</control>
+				<!-- Starring group -->
+				<control type="group" id="219">
+					<!-- Starring list -->
+					<control id="211" type="fixedlist">
+						<left>-102</left>
+						<top>242</top>
+						<width>2036</width>
+						<height>576</height>
+						<onfocus>SetProperty(Category,actors,home)</onfocus>
+						<onup>999</onup>
+						<ondown>1000</ondown>
+						<ondown>221</ondown>
+						<onleft>Back</onleft>
+						<onright>noop</onright>
+						<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+						<preloaditems>2</preloaditems>
+						<focusposition>1</focusposition>
+						<viewtype label="">list</viewtype>
+						<orientation>horizontal</orientation>
+						<scrolltime easing="inout" tween="sine">300</scrolltime>
+						<visible allowhiddenfocus="true">Control.HasFocus(211) | Control.HasFocus(215) | [[ControlGroup(1000).HasFocus | Control.HasFocus(3000) | Control.HasFocus(300)] + String.IsEqual(Window(home).Property(Category),actors)]</visible>
+						<animation reversible="false" type="Hidden">
+							<effect center="357,540" easing="out" end="98" start="100" time="180" tween="linear" type="zoom" />
+							<effect easing="out" end="0" start="100" time="180" tween="linear" type="fade" />
+						</animation>
+						<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+							<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+							<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+						</animation>
+						<animation reversible="false" type="Visible">
+							<effect center="357,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />
+							<effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade" />
+						</animation>
+						<include content="ViewPosterLayout">
+							<param name="ID">211</param>
+						</include>
+					</control>
+				</control>
+			</control>
+		</control>
+		<!-- busydialog -->
+		<control type="group">
+			<visible>!String.IsEmpty(Control.GetLabel(190))</visible>
+			<!-- Background -->
+			<include>BackgroundImage</include>
+			<!-- Busy -->
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>94</width>
+				<height>94</height>
+				<texture>common/spinner_outer.png</texture>
+				<animation effect="rotate" end="-360" center="auto" time="1120" loop="true" reversible="false" condition="true">Conditional</animation>
+			</control>
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>94</width>
+				<height>94</height>
+				<texture>common/spinner_inner.png</texture>
+				<animation effect="rotate" end="360" center="auto" time="1680" loop="true" reversible="false" condition="true">Conditional</animation>
+			</control>
+		</control>
+	</controls>
+</window>

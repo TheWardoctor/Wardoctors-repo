@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+	<include file="Animations.xml" />
+	<include file="Defaults.xml" />
+	<include file="Parameters.xml" />
+	<include file="ParametersHomeWidgets.xml" />
+	<include file="IncludesWidgetLayout.xml" />
+	<include file="Widgets.xml" />
+	<include file="ViewTypes.xml" />
+	<include file="IncludesViewTypeLayout.xml" />
+	<include file="script-skinshortcuts-includes.xml" />
+	<include file="Variables.xml" />
+	<include file="IncludesDialogSettings.xml" />
+	<include file="IncludesDialogSelect.xml" />
+	<include file="IncludesDialogInfo.xml" />
+	<include file="IncludesDialogMusicInfo.xml" />
+	<include file="IncludesPVRChannelsOSD.xml" />
+	<include file="IncludesCustomPVRWindow.xml" />
+	<!-- Expressions -->
+	<expression name="Rating_TV">[String.Contains(ListItem.Mpaa,y) | String.Contains(ListItem.Mpaa,ma) | String.Contains(ListItem.Mpaa,g) | String.Contains(ListItem.Mpaa,14)]</expression>
+	<expression name="VideoPlayerRating_TV">[String.Contains(VideoPlayer.Mpaa,y) | String.Contains(VideoPlayer.Mpaa,ma) | String.Contains(VideoPlayer.Mpaa,g) | String.Contains(VideoPlayer.Mpaa,14)]</expression>
+	<expression name="Rating_FSK">[String.Contains(ListItem.Mpaa,FSK) | String.Contains(ListItem.Mpaa,Germany) | String.Contains(ListItem.Mpaa,DE)]</expression>
+	<expression name="VideoPlayerRating_FSK">[String.Contains(VideoPlayer.Mpaa,FSK) | String.Contains(VideoPlayer.Mpaa,Germany) | String.Contains(VideoPlayer.Mpaa,DE)]</expression>
+	<expression name="NoContentMessage">[[String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget1) + String.IsEmpty(Skin.String(1000-WidgetList-1)) + String.IsEmpty(Skin.String(1000-WidgetList-2)) + String.IsEmpty(Skin.String(1000-WidgetList-3)) + String.IsEmpty(Skin.String(1000-WidgetList-4)) + String.IsEmpty(Skin.String(1000-WidgetList-5)) + String.IsEmpty(Skin.String(1000-WidgetList-6)) + String.IsEmpty(Skin.String(1000-WidgetList-7)) + String.IsEmpty(Skin.String(1000-WidgetList-8))] | [String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget2) + String.IsEmpty(Skin.String(2000-WidgetList-1)) + String.IsEmpty(Skin.String(2000-WidgetList-2)) + String.IsEmpty(Skin.String(2000-WidgetList-3)) + String.IsEmpty(Skin.String(2000-WidgetList-4)) + String.IsEmpty(Skin.String(2000-WidgetList-5)) + String.IsEmpty(Skin.String(2000-WidgetList-6)) + String.IsEmpty(Skin.String(2000-WidgetList-7)) + String.IsEmpty(Skin.String(2000-WidgetList-8))] | [String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget3) + String.IsEmpty(Skin.String(3000-WidgetList-1)) + String.IsEmpty(Skin.String(3000-WidgetList-2)) + String.IsEmpty(Skin.String(3000-WidgetList-3)) + String.IsEmpty(Skin.String(3000-WidgetList-4)) + String.IsEmpty(Skin.String(3000-WidgetList-5)) + String.IsEmpty(Skin.String(3000-WidgetList-6)) + String.IsEmpty(Skin.String(3000-WidgetList-7)) + String.IsEmpty(Skin.String(3000-WidgetList-8))] | [String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget4) + String.IsEmpty(Skin.String(4000-WidgetList-1)) + String.IsEmpty(Skin.String(4000-WidgetList-2)) + String.IsEmpty(Skin.String(4000-WidgetList-3)) + String.IsEmpty(Skin.String(4000-WidgetList-4)) + String.IsEmpty(Skin.String(4000-WidgetList-5)) + String.IsEmpty(Skin.String(4000-WidgetList-6)) + String.IsEmpty(Skin.String(4000-WidgetList-7)) + String.IsEmpty(Skin.String(4000-WidgetList-8))] | [String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget5) + String.IsEmpty(Skin.String(5000-WidgetList-1)) + String.IsEmpty(Skin.String(5000-WidgetList-2)) + String.IsEmpty(Skin.String(5000-WidgetList-3)) + String.IsEmpty(Skin.String(5000-WidgetList-4)) + String.IsEmpty(Skin.String(5000-WidgetList-5)) + String.IsEmpty(Skin.String(5000-WidgetList-6)) + String.IsEmpty(Skin.String(5000-WidgetList-7)) + String.IsEmpty(Skin.String(5000-WidgetList-8))] | [String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget6) + String.IsEmpty(Skin.String(6000-WidgetList-1)) + String.IsEmpty(Skin.String(6000-WidgetList-2)) + String.IsEmpty(Skin.String(6000-WidgetList-3)) + String.IsEmpty(Skin.String(6000-WidgetList-4)) + String.IsEmpty(Skin.String(6000-WidgetList-5)) + String.IsEmpty(Skin.String(6000-WidgetList-6)) + String.IsEmpty(Skin.String(6000-WidgetList-7)) + String.IsEmpty(Skin.String(6000-WidgetList-8))] | [String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget7) + String.IsEmpty(Skin.String(7000-WidgetList-1)) + String.IsEmpty(Skin.String(7000-WidgetList-2)) + String.IsEmpty(Skin.String(7000-WidgetList-3)) + String.IsEmpty(Skin.String(7000-WidgetList-4)) + String.IsEmpty(Skin.String(7000-WidgetList-5)) + String.IsEmpty(Skin.String(7000-WidgetList-6)) + String.IsEmpty(Skin.String(7000-WidgetList-7)) + String.IsEmpty(Skin.String(7000-WidgetList-8))] | [String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget8) + String.IsEmpty(Skin.String(8000-WidgetList-1)) + String.IsEmpty(Skin.String(8000-WidgetList-2)) + String.IsEmpty(Skin.String(8000-WidgetList-3)) + String.IsEmpty(Skin.String(8000-WidgetList-4)) + String.IsEmpty(Skin.String(8000-WidgetList-5)) + String.IsEmpty(Skin.String(8000-WidgetList-6)) + String.IsEmpty(Skin.String(8000-WidgetList-7)) + String.IsEmpty(Skin.String(8000-WidgetList-8))] | [String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget9) + String.IsEmpty(Skin.String(9000-WidgetList-1)) + String.IsEmpty(Skin.String(9000-WidgetList-2)) + String.IsEmpty(Skin.String(9000-WidgetList-3)) + String.IsEmpty(Skin.String(9000-WidgetList-4)) + String.IsEmpty(Skin.String(9000-WidgetList-5)) + String.IsEmpty(Skin.String(9000-WidgetList-6)) + String.IsEmpty(Skin.String(9000-WidgetList-7)) + String.IsEmpty(Skin.String(9000-WidgetList-8))] | [String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget10) + String.IsEmpty(Skin.String(10000-WidgetList-1)) + String.IsEmpty(Skin.String(10000-WidgetList-2)) + String.IsEmpty(Skin.String(10000-WidgetList-3)) + String.IsEmpty(Skin.String(10000-WidgetList-4)) + String.IsEmpty(Skin.String(10000-WidgetList-5)) + String.IsEmpty(Skin.String(10000-WidgetList-6)) + String.IsEmpty(Skin.String(10000-WidgetList-7)) + String.IsEmpty(Skin.String(10000-WidgetList-8))] | [String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget11) + String.IsEmpty(Skin.String(11000-WidgetList-1)) + String.IsEmpty(Skin.String(11000-WidgetList-2)) + String.IsEmpty(Skin.String(11000-WidgetList-3)) + String.IsEmpty(Skin.String(11000-WidgetList-4)) + String.IsEmpty(Skin.String(11000-WidgetList-5)) + String.IsEmpty(Skin.String(11000-WidgetList-6)) + String.IsEmpty(Skin.String(11000-WidgetList-7)) + String.IsEmpty(Skin.String(11000-WidgetList-8))] | [String.IsEqual(Container(99).ListItem.Property(ftvWidget),widget12) + String.IsEmpty(Skin.String(12000-WidgetList-1)) + String.IsEmpty(Skin.String(12000-WidgetList-2)) + String.IsEmpty(Skin.String(12000-WidgetList-3)) + String.IsEmpty(Skin.String(12000-WidgetList-4)) + String.IsEmpty(Skin.String(12000-WidgetList-5)) + String.IsEmpty(Skin.String(12000-WidgetList-6)) + String.IsEmpty(Skin.String(12000-WidgetList-7)) + String.IsEmpty(Skin.String(12000-WidgetList-8))]]</expression>
+	<expression name="WidgetsUpdate">!String.IsEmpty(Window(home).Property(Preload)) + [[Container(1001).IsUpdating + Control.IsVisible(1001)] | [Container(1002).IsUpdating + Control.IsVisible(1002)] | [Container(1003).IsUpdating + Control.IsVisible(1003)] | [Container(1004).IsUpdating + Control.IsVisible(1004)] | [Container(1005).IsUpdating + Control.IsVisible(1005)] | [Container(1006).IsUpdating + Control.IsVisible(1006)] | [Container(1007).IsUpdating + Control.IsVisible(1007)] | [Container(1008).IsUpdating + Control.IsVisible(1008)] | [Container(1009).IsUpdating + Control.IsVisible(1009)] | [Container(2001).IsUpdating + Control.IsVisible(2001)] | [Container(2002).IsUpdating + Control.IsVisible(2002)] | [Container(2003).IsUpdating + Control.IsVisible(2003)] | [Container(2004).IsUpdating + Control.IsVisible(2004)] | [Container(2005).IsUpdating + Control.IsVisible(2005)] | [Container(2006).IsUpdating + Control.IsVisible(2006)] | [Container(2007).IsUpdating + Control.IsVisible(2007)] | [Container(2008).IsUpdating + Control.IsVisible(2008)] | [Container(2009).IsUpdating + Control.IsVisible(2009)] | [Container(3001).IsUpdating + Control.IsVisible(3001)] | [Container(3002).IsUpdating + Control.IsVisible(3002)] | [Container(3003).IsUpdating + Control.IsVisible(3003)] | [Container(3004).IsUpdating + Control.IsVisible(3004)] | [Container(3005).IsUpdating + Control.IsVisible(3005)] | [Container(3006).IsUpdating + Control.IsVisible(3006)] | [Container(3007).IsUpdating + Control.IsVisible(3007)] | [Container(3008).IsUpdating + Control.IsVisible(3008)] | [Container(3009).IsUpdating + Control.IsVisible(3009)] | [Container(4001).IsUpdating + Control.IsVisible(4001)] | [Container(4002).IsUpdating + Control.IsVisible(4002)] | [Container(4003).IsUpdating + Control.IsVisible(4003)] | [Container(4004).IsUpdating + Control.IsVisible(4004)] | [Container(4005).IsUpdating + Control.IsVisible(4005)] | [Container(4006).IsUpdating + Control.IsVisible(4006)] | [Container(4007).IsUpdating + Control.IsVisible(4007)] | [Container(4008).IsUpdating + Control.IsVisible(4008)] | [Container(4009).IsUpdating + Control.IsVisible(4009)] | [Container(5001).IsUpdating + Control.IsVisible(5001)] | [Container(5002).IsUpdating + Control.IsVisible(5002)]	| [Container(5003).IsUpdating + Control.IsVisible(5003)] | [Container(5004).IsUpdating + Control.IsVisible(5004)] | [Container(5005).IsUpdating + Control.IsVisible(5005)] | [Container(5006).IsUpdating + Control.IsVisible(5006)] | [Container(5007).IsUpdating + Control.IsVisible(5007)] | [Container(5008).IsUpdating + Control.IsVisible(5008)] | [Container(5009).IsUpdating + Control.IsVisible(5009)] | [Container(6001).IsUpdating + Control.IsVisible(6001)] | [Container(6002).IsUpdating + Control.IsVisible(6002)] | [Container(6003).IsUpdating + Control.IsVisible(6003)] | [Container(6004).IsUpdating + Control.IsVisible(6004)] | [Container(6005).IsUpdating + Control.IsVisible(6005)] | [Container(6006).IsUpdating + Control.IsVisible(6006)] | [Container(6007).IsUpdating + Control.IsVisible(6007)] | [Container(6008).IsUpdating + Control.IsVisible(6008)] | [Container(6009).IsUpdating + Control.IsVisible(6009)] | [Container(7001).IsUpdating + Control.IsVisible(7001)] | [Container(7002).IsUpdating + Control.IsVisible(7002)] | [Container(7003).IsUpdating + Control.IsVisible(7003)] | [Container(7004).IsUpdating + Control.IsVisible(7004)]	| [Container(7005).IsUpdating + Control.IsVisible(7005)] | [Container(7006).IsUpdating + Control.IsVisible(7006)] | [Container(7007).IsUpdating + Control.IsVisible(7007)] | [Container(7008).IsUpdating + Control.IsVisible(7008)] | [Container(7009).IsUpdating + Control.IsVisible(7009)] | [Container(8001).IsUpdating + Control.IsVisible(8001)] | [Container(8002).IsUpdating + Control.IsVisible(8002)] | [Container(8003).IsUpdating + Control.IsVisible(8003)] | [Container(8004).IsUpdating + Control.IsVisible(8004)] | [Container(8005).IsUpdating + Control.IsVisible(8005)] | [Container(8006).IsUpdating + Control.IsVisible(8006)] | [Container(8007).IsUpdating + Control.IsVisible(8007)] | [Container(8008).IsUpdating + Control.IsVisible(8008)] | [Container(8009).IsUpdating + Control.IsVisible(8009)] | [Container(9001).IsUpdating + Control.IsVisible(9001)] | [Container(9002).IsUpdating + Control.IsVisible(9002)] | [Container(9003).IsUpdating + Control.IsVisible(9003)] | [Container(9004).IsUpdating + Control.IsVisible(9004)] | [Container(9005).IsUpdating + Control.IsVisible(9005)] | [Container(9006).IsUpdating + Control.IsVisible(9006)] | [Container(9007).IsUpdating + Control.IsVisible(9007)] | [Container(9008).IsUpdating + Control.IsVisible(9008)] | [Container(9009).IsUpdating + Control.IsVisible(9009)] | [Container(10001).IsUpdating + Control.IsVisible(10001)] | [Container(10002).IsUpdating + Control.IsVisible(10002)] | [Container(10003).IsUpdating + Control.IsVisible(10003)] | [Container(10004).IsUpdating + Control.IsVisible(10004)] | [Container(10005).IsUpdating + Control.IsVisible(10005)] | [Container(10006).IsUpdating + Control.IsVisible(10006)] | [Container(10007).IsUpdating + Control.IsVisible(10007)] | [Container(10008).IsUpdating + Control.IsVisible(10008)] | [Container(10009).IsUpdating + Control.IsVisible(10009)] | [Container(11001).IsUpdating + Control.IsVisible(11001)] | [Container(11002).IsUpdating + Control.IsVisible(11002)] | [Container(11003).IsUpdating + Control.IsVisible(11003)] | [Container(11004).IsUpdating + Control.IsVisible(11004)] | [Container(11005).IsUpdating + Control.IsVisible(11005)] | [Container(11006).IsUpdating + Control.IsVisible(11006)] | [Container(11007).IsUpdating + Control.IsVisible(11007)] | [Container(11008).IsUpdating + Control.IsVisible(11008)] | [Container(11009).IsUpdating + Control.IsVisible(11009)] | [Container(12001).IsUpdating + Control.IsVisible(12001)] | [Container(12002).IsUpdating + Control.IsVisible(12002)] | [Container(12003).IsUpdating + Control.IsVisible(12003)] | [Container(12004).IsUpdating + Control.IsVisible(12004)] | [Container(12005).IsUpdating + Control.IsVisible(12005)] | [Container(12006).IsUpdating + Control.IsVisible(12006)] | [Container(12007).IsUpdating + Control.IsVisible(12007)] | [Container(12008).IsUpdating + Control.IsVisible(12008)] | [Container(12009).IsUpdating + Control.IsVisible(12009)] | Container(201).IsUpdating]</expression>
+	<expression name="MsgSplash">[System.HasAddon(plugin.video.exodus) | System.HasAddon(plugin.video.xstream) | System.HasAddon(plugin.video.genesis) | System.HasAddon(plugin.video.quasar) | System.HasAddon(plugin.video.123movies) | System.HasAddon(plugin.video.icefilms) | System.HasAddon(plugin.video.movie4k) | System.HasAddon(plugin.video.sportsdevil) | System.HasAddon(plugin.video.salts) | System.HasAddon(plugin.video.phstreams) | System.HasAddon(plugin.video.specto) | System.HasAddon(plugin.video.1channel) | System.HasAddon(plugin.video.zen) | System.HasAddon(plugin.video.bob) | System.HasAddon(plugin.video.ukturk) | System.HasAddon(plugin.video.goodfellas)]</expression>	
+	<expression name="ViewTypeSrcCheck">[String.StartsWith(Container.FolderPath,plugin://plugin.video.exodus) | String.StartsWith(Container.FolderPath,plugin://plugin.video.xstream) | String.StartsWith(Container.FolderPath,plugin://plugin.video.genesis) | String.StartsWith(Container.FolderPath,plugin://plugin.video.quasar) | String.StartsWith(Container.FolderPath,plugin://plugin.video.123movies) | String.StartsWith(Container.FolderPath,plugin://plugin.video.icefilms) | String.StartsWith(Container.FolderPath,plugin://plugin.video.movie4k) | String.StartsWith(Container.FolderPath,plugin://plugin.video.sportsdevil) | String.StartsWith(Container.FolderPath,plugin://plugin.video.salts) | String.StartsWith(Container.FolderPath,plugin://plugin.video.phstreams) | String.StartsWith(Container.FolderPath,plugin://plugin.video.specto) | String.StartsWith(Container.FolderPath,plugin://plugin.video.1channel) | String.StartsWith(Container.FolderPath,plugin://plugin.video.zen) | String.StartsWith(Container.FolderPath,plugin://plugin.video.bob) | String.StartsWith(Container.FolderPath,plugin://plugin.video.ukturk) | String.StartsWith(Container.FolderPath,plugin://plugin.video.goodfellas)]</expression>	
+	<!-- Sort Letter Overlay -->
+	<include name="SortLetterOverlay">
+		<control type="group">
+			<visible>Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[563])]</visible>			
+			<animation effect="fade" start="0" end="100" time="120" reversible="true" delay="200">VisibleChange</animation>
+			<animation effect="fade" start="0" end="100" time="0" reversible="true" delay="300">WindowOpen</animation>
+			<right>12</right>
+			<bottom>12</bottom>
+			<width>183</width>
+			<height>183</height>
+			<control type="image">
+				<width>183</width>
+				<height>183</height>
+				<texture border="48">views/shadow_fo.png</texture>
+			</control>
+			<control type="image">
+				<left>48</left>
+				<top>48</top>
+				<width>87</width>
+				<height>87</height>
+				<texture border="4">dialogs/DialogNotificationBackground.png</texture>
+			</control>
+			<control id="401" type="label">
+				<left>47</left>
+				<top>48</top>
+				<width>87</width>
+				<height>87</height>
+				<font>Med48</font>
+				<align>center</align>
+				<label>$INFO[ListItem.SortLetter]</label>
+				<textcolor>ffdadada</textcolor>
+			</control>
+		</control>
+	</include>
+	<!-- WIndowOpen Property -->
+	<include name="WindowOpenTrigger">
+		<onload>SetProperty(WindowOpen,1,home)</onload>
+		<onload>AlarmClock(WindowOpen,ClearProperty(WindowOpen,home),00:01,silent)</onload>
+	</include>
+	<!-- Widths -->
+	<include name="Width242">
+		<width>242</width>
+	</include>
+	<include name="Width358">
+		<width>358</width>
+	</include>
+	<!-- Fullscreen dimensions -->
+	<include name="FullscreenDimensions">
+		<left>0</left>
+		<top>0</top>
+		<width>1920</width>
+		<height>1080</height>
+	</include>
+	<!-- Background image -->
+	<include name="BackgroundImage">
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture>special://skin/extras/backgrounds/default.png</texture>
+		</control>
+	</include>
+	<!-- Dialog background image -->
+	<include name="DialogBackgroundImage">
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture>dialogs/DialogBackground.png</texture>
+			<animation effect="fade" end="100" start="0" time="200">WindowOpen</animation>
+			<animation delay="100" effect="fade" end="0" start="100" time="200">WindowClose</animation>
+		</control>
+	</include>
+	<!-- Dialog text background image -->
+	<include name="DialogTextBackgroundImage">
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture>dialogs/DialogBackground.png</texture>
+			<animation effect="fade" end="100" start="0" time="200">WindowOpen</animation>
+			<animation delay="100" effect="fade" end="0" start="100" time="200">WindowClose</animation>
+		</control>
+	</include>
+	<!-- Message Background image -->
+	<include name="MessageBackground">
+		<texture border="32">dialogs/DialogMessageBackground.png</texture>
+		<bordertexture border="32">dialogs/Empty.png</bordertexture>
+		<bordersize>-82</bordersize>
+	</include>
+	<include name="osd_padding">
+		<height>82</height>
+		<width>17.36</width>
+		<texture>-</texture>
+	</include>
+	<include name="HiddenHomeList">
+		<top>-10</top>
+		<width>10</width>
+		<height>1</height>
+		<viewtype label="">list</viewtype>
+		<orientation>horizontal</orientation>
+		<itemlayout height="1" width="1" />
+		<focusedlayout height="1" width="1" />
+	</include>
+	<!-- Global Video Background -->
+	<include name="VideoBackground">
+		<control type="group">
+			<visible>Player.HasVideo + !Skin.HasSetting(HideVideoBackground)</visible>
+			<control type="videowindow">
+				<include>FullscreenDimensions</include>
+				<visible>!Window.Next(home)</visible>
+			</control>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>special://skin/extras/backgrounds/default.png</texture>
+				<colordiffuse>EFFFFFFF</colordiffuse>
+			</control>
+		</control>
+	</include>
+	<!-- Fanart -->
+	<include name="Fanart">
+		<include>VideoBackground</include>
+		<control type="group">
+			<visible>[!Player.HasVideo | Skin.HasSetting(HideVideoBackground)] + !Skin.HasSetting(HideFanart)</visible>
+			<animation condition="!Window.Previous(visualisation)" delay="800" effect="fade" end="100" start="0" time="200">WindowOpen</animation>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<fadetime>400</fadetime>
+				<colordiffuse>26ffffff</colordiffuse>
+				<texture background="true">$VAR[Fanart]</texture>
+			</control>
+		</control>
+	</include>
+	<!-- PVR Fanart -->
+	<include name="PVRFanart">
+		<include>VideoBackground</include>
+		<control type="group">
+			<visible>[!Player.HasVideo | Skin.HasSetting(HideVideoBackground)] + Skin.HasSetting(SkinHelper.EnablePVRThumbs)</visible>
+			<animation condition="!Window.Previous(fullscreenvideo)" delay="800" effect="fade" end="100" start="0" time="200">WindowOpen</animation>
+			<animation condition="Window.IsActive(tvchannels) + ControlGroup(1000).HasFocus" effect="fade" end="0" start="100" time="120">Conditional</animation>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<fadetime>400</fadetime>
+				<colordiffuse>0effffff</colordiffuse>
+				<texture background="true">$VAR[Fanart]</texture>
+			</control>
+		</control>
+	</include>
+	<!-- No textures -->
+	<include name="NoTextures">
+		<texturefocus>-</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<alttexturenofocus>-</alttexturenofocus>
+		<alttexturefocus>-</alttexturefocus>
+		<textureradioonfocus>-</textureradioonfocus>
+		<textureradioonnofocus>-</textureradioonnofocus>
+		<textureradioofffocus>-</textureradioofffocus>
+		<textureradiooffnofocus>-</textureradiooffnofocus>
+		<textureup>-</textureup>
+		<texturedown>-</texturedown>
+		<textureupfocus>-</textureupfocus>
+		<texturedownfocus>-</texturedownfocus>
+	</include>
+	<!-- Hidden control -->
+	<include name="HiddenControl">
+		<left>-10</left>
+		<top>-10</top>
+		<width>1</width>
+		<height>1</height>
+		<font>-</font>
+		<texture>-</texture>
+		<texturefocus>-</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<alttexturenofocus>-</alttexturenofocus>
+		<alttexturefocus>-</alttexturefocus>
+		<textureradiofocus>-</textureradiofocus>
+		<textureradionofocus>-</textureradionofocus>
+	</include>
+	<!-- FSK Ratings -->
+	<include name="Rating_FSK">
+		<control type="image">
+			<top>3</top>
+			<width>54</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>$VAR[Rating_FSK]</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + !String.Contains(ListItem.Mpaa,nr) + !String.Contains(ListItem.Mpaa,not rated) + !String.EndsWith(ListItem.Mpaa,12) + !String.EndsWith(ListItem.Mpaa,16) + !String.EndsWith(ListItem.Mpaa,18) + $EXP[Rating_FSK]</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>63</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>$VAR[Rating_FSK]</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + !String.Contains(ListItem.Mpaa,nr) + !String.Contains(ListItem.Mpaa,not rated) + [String.EndsWith(ListItem.Mpaa,12) | String.EndsWith(ListItem.Mpaa,16) | String.EndsWith(ListItem.Mpaa,18)] + $EXP[Rating_FSK]</visible>
+		</control>
+	</include>
+	<!-- FSK Ratings Custom Info Dialog -->
+	<include name="VideoPlayerRating_FSK">
+		<control type="image">
+			<top>3</top>
+			<width>54</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>$VAR[Rating_FSK]</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + !String.Contains(VideoPlayer.Mpaa,nr) + !String.Contains(VideoPlayer.Mpaa,not rated) + !String.EndsWith(VideoPlayer.Mpaa,12) + !String.EndsWith(VideoPlayer.Mpaa,16) + !String.EndsWith(VideoPlayer.Mpaa,18) + $EXP[VideoPlayerRating_FSK]</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>63</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>$VAR[Rating_FSK]</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + !String.Contains(VideoPlayer.Mpaa,nr) + !String.Contains(VideoPlayer.Mpaa,not rated) + [String.EndsWith(VideoPlayer.Mpaa,12) | String.EndsWith(VideoPlayer.Mpaa,16) | String.EndsWith(VideoPlayer.Mpaa,18)] + $EXP[VideoPlayerRating_FSK]</visible>
+		</control>
+	</include>
+	<!-- BBFC Ratings -->
+	<include name="Rating_BBFC">
+		<control type="image">
+			<top>3</top>
+			<width>33</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/pg.png</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + String.EndsWith(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/12.png</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + String.EndsWith(ListItem.Mpaa,12)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>38</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/12A.png</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + String.EndsWith(ListItem.Mpaa,12a)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/15.png</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + String.EndsWith(ListItem.Mpaa,15)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/18.png</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + String.EndsWith(ListItem.Mpaa,18)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>23</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/u.png</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + String.EndsWith(ListItem.Mpaa,u)</visible>
+		</control>
+	</include>
+	<!-- BBFC Ratings Custom Info Dialog -->
+	<include name="VideoPlayerRating_BBFC">
+		<control type="image">
+			<top>3</top>
+			<width>33</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/pg.png</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + String.EndsWith(VideoPlayer.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/12.png</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + String.EndsWith(VideoPlayer.Mpaa,12)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>38</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/12A.png</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + String.EndsWith(VideoPlayer.Mpaa,12a)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/15.png</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + String.EndsWith(VideoPlayer.Mpaa,15)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/18.png</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + String.EndsWith(VideoPlayer.Mpaa,18)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>23</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/u.png</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + String.EndsWith(VideoPlayer.Mpaa,u)</visible>
+		</control>
+	</include>
+	<!-- MPAA Ratings -->
+	<include name="Rating_MPAA">
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/nc17.png</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + String.EndsWith(ListItem.Mpaa,nc)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/pg13.png</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + String.EndsWith(ListItem.Mpaa,13)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>35</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/r.png</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + String.EndsWith(ListItem.Mpaa,r) + !String.EndsWith(ListItem.Mpaa,nr)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>35</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/pg.png</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + String.EndsWith(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/g.png</texture>
+			<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Mpaa) + String.Contains(ListItem.Mpaa,g) + !String.Contains(ListItem.Mpaa,pg)</visible>
+		</control>
+	</include>
+	<!-- MPAA Ratings Custom Info Dialog -->
+	<include name="VideoPlayerRating_MPAA">
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/nc17.png</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + String.EndsWith(VideoPlayer.Mpaa,nc)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/pg13.png</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + String.EndsWith(VideoPlayer.Mpaa,13)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>35</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/r.png</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + String.EndsWith(VideoPlayer.Mpaa,r) + !String.EndsWith(VideoPlayer.Mpaa,nr)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>35</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/pg.png</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + String.EndsWith(VideoPlayer.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/g.png</texture>
+			<visible>VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.Mpaa) + String.Contains(VideoPlayer.Mpaa,g) + !String.Contains(VideoPlayer.Mpaa,pg)</visible>
+		</control>
+	</include>
+	<!-- AudioCodec -->
+	<include name="AudioCodec">
+		<control type="image">
+			<top>3</top>
+			<width>58</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/mono.png</texture>
+			<visible>Integer.IsEqual(ListItem.AudioChannels,1)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>73</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/stereo.png</texture>
+			<visible>Integer.IsEqual(ListItem.AudioChannels,2)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>42</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/dts.png</texture>
+			<visible>Integer.IsGreater(ListItem.AudioChannels,2) + !String.Contains(ListItem.AudioCodec,dtshd) + [String.Contains(ListItem.AudioCodec,dca) | String.Contains(ListItem.AudioCodec,dts)]</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>67</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/dtshd.png</texture>
+			<visible>Integer.IsGreater(ListItem.AudioChannels,2) + String.Contains(ListItem.AudioCodec,dtshd)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>64</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/dolby.png</texture>
+			<visible>Integer.IsGreater(ListItem.AudioChannels,2) + String.Contains(ListItem.AudioCodec,ac3) + !String.Contains(ListItem.AudioCodec,eac3)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>73</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/dolbyplus.png</texture>
+			<visible>Integer.IsGreater(ListItem.AudioChannels,2) + String.Contains(ListItem.AudioCodec,eac3)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>78</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/truehd.png</texture>
+			<visible>Integer.IsGreater(ListItem.AudioChannels,2) + String.Contains(ListItem.AudioCodec,truehd)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>79</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/multich.png</texture>
+			<visible>Integer.IsGreater(ListItem.AudioChannels,2) + !String.Contains(ListItem.AudioCodec,ac3) + !String.Contains(ListItem.AudioCodec,truehd) + !String.Contains(ListItem.AudioCodec,dts) + !String.Contains(ListItem.AudioCodec,dca)</visible>
+		</control>
+	</include>
+	<!-- AudioCodec Custom Info Dialog -->
+	<include name="VideoPlayerAudioCodec">
+		<control type="image">
+			<top>3</top>
+			<width>58</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/mono.png</texture>
+			<visible>Integer.IsEqual(VideoPlayer.AudioChannels,1)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>73</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/stereo.png</texture>
+			<visible>Integer.IsEqual(VideoPlayer.AudioChannels,2)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>42</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/dts.png</texture>
+			<visible>Integer.IsGreater(VideoPlayer.AudioChannels,2) + !String.Contains(VideoPlayer.AudioCodec,dtshd) + [String.Contains(VideoPlayer.AudioCodec,dca) | String.Contains(VideoPlayer.AudioCodec,dts)]</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>67</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/dtshd.png</texture>
+			<visible>Integer.IsGreater(VideoPlayer.AudioChannels,2) + String.Contains(VideoPlayer.AudioCodec,dtshd)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>64</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/dolby.png</texture>
+			<visible>Integer.IsGreater(VideoPlayer.AudioChannels,2) + String.Contains(VideoPlayer.AudioCodec,ac3) + !String.Contains(VideoPlayer.AudioCodec,eac3)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>73</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/dolbyplus.png</texture>
+			<visible>Integer.IsGreater(VideoPlayer.AudioChannels,2) + String.Contains(VideoPlayer.AudioCodec,eac3)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>78</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/truehd.png</texture>
+			<visible>Integer.IsGreater(VideoPlayer.AudioChannels,2) + String.Contains(VideoPlayer.AudioCodec,truehd)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>79</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flags/multich.png</texture>
+			<visible>Integer.IsGreater(VideoPlayer.AudioChannels,2) + !String.Contains(VideoPlayer.AudioCodec,ac3) + !String.Contains(VideoPlayer.AudioCodec,truehd) + !String.Contains(VideoPlayer.AudioCodec,dts) + !String.Contains(VideoPlayer.AudioCodec,dca)</visible>
+		</control>
+	</include>
+	<!--  Resolution label -->
+	<include name="ListItemResolution">
+		<control type="label">
+			<width>auto</width>
+			<top>2</top>
+			<height>23</height>
+			<font>Bold23</font>
+			<textcolor>ffbebebe</textcolor>
+			<label>[B]HD[/B] $VAR[ListItemResolution]</label>
+			<visible>Integer.IsGreater(ListItem.VideoResolution,710) | [Window.IsVisible(1114) + Integer.IsGreater(VideoPlayer.VideoResolution,710)] | String.IsEqual(ListItem.VideoResolution,4K)</visible>
+		</control>
+	</include>
+	<!-- TV Ratings -->
+	<include name="Rating_TV">
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>$VAR[Rating_TV]</texture>
+			<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)] + $EXP[Rating_TV] + !$EXP[Rating_FSK]</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>54</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>$VAR[Rating_FSK]</texture>
+			<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)] + ![String.EndsWith(ListItem.Mpaa,12) | String.EndsWith(ListItem.Mpaa,16) | String.EndsWith(ListItem.Mpaa,18)] + $EXP[Rating_FSK]</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>63</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>$VAR[Rating_FSK]</texture>
+			<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)] + [String.EndsWith(ListItem.Mpaa,12) | String.EndsWith(ListItem.Mpaa,16) | String.EndsWith(ListItem.Mpaa,18)] + $EXP[Rating_FSK]</visible>
+		</control>
+	</include>
+	<!-- Small Keyboard buttons -->
+	<include name="SmallKeyboardButtons">
+		<width>48</width>
+		<height>44</height>
+		<font>Light40</font>
+		<align>center</align>
+		<textcolor>ff808080</textcolor>
+		<focusedcolor>ffffc24b</focusedcolor>
+		<texturefocus border="2">-</texturefocus>
+		<texturenofocus border="2">-</texturenofocus>
+	</include>
+	<!-- Hidden Keyboard Button -->
+	<include name="HiddenKeyboardButtons">
+		<width>48</width>
+		<height>44</height>
+		<font>invisible</font>
+		<texturefocus border="2">-</texturefocus>
+		<texturenofocus border="2">-</texturenofocus>
+	</include>
+	<!-- Control buttons -->
+	<include name="BottomControlButtons">
+		<width>48</width>
+		<height>44</height>
+		<font>invisible</font>
+		<align>center</align>
+		<aligny>center</aligny>
+		<textcolor>ff808080</textcolor>
+		<focusedcolor>ffffc24b</focusedcolor>
+		<texturefocus border="2">dialogs/keys/keyboard_$PARAM[name]_fo.png</texturefocus>
+		<texturenofocus border="2">dialogs/keys/keyboard_$PARAM[name]_nf.png</texturenofocus>
+	</include>
+	<include name="KeyboardControlButtons">
+		<control type="image">
+			<width>48</width>
+			<height>44</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<texture>dialogs/keys/keyboard_$PARAM[name]_fo.png</texture>
+			<visible>Control.HasFocus($PARAM[ID])</visible>
+		</control>
+		<control type="image">
+			<width>48</width>
+			<height>44</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<texture>dialogs/keys/keyboard_$PARAM[name]_nf.png</texture>
+			<visible>!Control.HasFocus($PARAM[ID])</visible>
+		</control>
+	</include>
+	<!-- Keyboard buttons -->
+	<include name="KeyboardButtons">
+		<width>68</width>
+		<height>68</height>
+		<font>Keyboard</font>
+		<align>center</align>
+		<aligny>center</aligny>
+		<textcolor>ffdadada</textcolor>
+		<focusedcolor>ff0c0c0c</focusedcolor>
+		<texturefocus border="2">dialogs/KeyboardButtonFO.png</texturefocus>
+		<texturenofocus border="2">dialogs/KeyboardButtonNF.png</texturenofocus>
+	</include>
+	<!-- Numeric buttons -->
+	<include name="NumericButtons">
+		<width>148</width>
+		<height>148</height>
+		<font>Med40</font>
+		<align>center</align>
+		<aligny>center</aligny>
+		<textcolor>ffdadada</textcolor>
+		<focusedcolor>ff0c0c0c</focusedcolor>
+		<texturefocus border="2">dialogs/KeyboardButtonFO.png</texturefocus>
+		<texturenofocus border="2">dialogs/KeyboardButtonNF.png</texturenofocus>
+	</include>
+	<include name="OverlayWatched">
+		<control type="image">
+			<top>48</top>
+			<width>90</width>
+			<height>90</height>
+			<texture>views/OverlayWatched.png</texture>
+			<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+		</control>
+	</include>
+	<!-- Player Titles -->
+	<include name="PlayerTitles">
+		<control id="99" type="image">
+			<width>1980</width>
+			<height>720</height>
+			<texture border="1">osd/mask_top.png</texture>
+		</control>
+		<control id="99" type="group">
+			<control id="99" type="group">
+				<visible>!String.IsEmpty(Player.Art(tvshow.clearlogo)) | !String.IsEmpty(Player.Art(clearlogo)) | [!String.IsEmpty(VideoPlayer.Cover) + VideoPlayer.Content(livetv)] | [!String.IsEmpty(MusicPlayer.Cover) + Player.HasAudio]</visible>
+				<control id="99" type="image">
+					<left>90</left>
+					<top>76</top>
+					<width>164</width>
+					<height>85</height>
+					<aspectratio align="left" aligny="top">keep</aspectratio>
+					<texture background="true">$VAR[PlayerTitleImage]</texture>
+					<visible>!VideoPlayer.Content(livetv) + !Player.HasAudio</visible>
+				</control>
+				<control id="99" type="image">
+					<left>90</left>
+					<top>76</top>
+					<width>85</width>
+					<height>85</height>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<texture background="true">$VAR[PlayerTitleImage]</texture>
+					<visible>VideoPlayer.Content(livetv) | Player.HasAudio</visible>
+				</control>
+				<control id="99" type="image">
+					<left>274</left>
+					<top>64</top>
+					<width>8</width>
+					<height>109</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>common/WhiteLine.png</texture>
+					<colordiffuse>ffeaeaea</colordiffuse>
+					<animation effect="slide" time="0" start="0,0" end="-78,0" condition="[!String.IsEmpty(VideoPlayer.Cover) + VideoPlayer.Content(livetv)] | [!String.IsEmpty(MusicPlayer.Cover) + Player.HasAudio]">Conditional</animation>
+				</control>
+			</control>
+			<control id="99" type="group">
+				<animation effect="slide" time="0" start="0,0" end="-204,0" condition="[String.IsEmpty(Player.Art(tvshow.clearlogo)) + String.IsEmpty(Player.Art(clearlogo)) + !VideoPlayer.Content(livetv) + !Player.HasAudio] | [String.IsEmpty(VideoPlayer.Cover) + VideoPlayer.Content(livetv)] | [String.IsEmpty(MusicPlayer.Cover) + Player.HasAudio]">Conditional</animation>
+				<animation effect="slide" time="0" start="0,0" end="-78,0" condition="[!String.IsEmpty(VideoPlayer.Cover) + VideoPlayer.Content(livetv)] | [!String.IsEmpty(MusicPlayer.Cover) + Player.HasAudio]">Conditional</animation>
+				<!--  Title -->
+				<control id="99" type="label">
+					<left>294</left>
+					<top>64</top>
+					<width>1300</width>
+					<height>50</height>
+					<align>left</align>
+					<font>Med40</font>
+					<textcolor>ffeaeaea</textcolor>
+					<shadowcolor>ff000000</shadowcolor>
+					<label fallback="195">$VAR[PlayerBigLabel]$VAR[PlayerEpisodeValue, ]</label>
+				</control>
+				<!--  Small label -->
+				<control id="99" type="label">
+					<left>294</left>
+					<top>127</top>
+					<width>1300</width>
+					<height>40</height>
+					<align>left</align>
+					<font>Light36</font>
+					<textcolor>fffe8e8e8</textcolor>
+					<shadowcolor>ff000000</shadowcolor>
+					<label>$VAR[PlayerSmallLabel]</label>
+				</control>
+			</control>
+			<!-- Clock -->
+			<control id="99" type="grouplist">
+				<right>90</right>
+				<top>74</top>
+				<width>500</width>
+				<height>60</height>
+				<align>right</align>
+				<itemgap>6</itemgap>
+				<orientation>horizontal</orientation>
+				<control id="99" type="label">
+					<width>auto</width>
+					<height>30</height>
+					<font>Light28</font>
+					<align>right</align>
+					<textcolor>ffeaeaea</textcolor>
+					<shadowcolor>ff000000</shadowcolor>
+					<label>$LOCALIZE[31217]</label>
+				</control>
+				<control id="99" type="label">
+					<top>1</top>
+					<width>auto</width>
+					<height>30</height>
+					<align>right</align>
+					<font>Med28</font>
+					<textcolor>ffeaeaea</textcolor>
+					<shadowcolor>ff000000</shadowcolor>
+					<label>$INFO[System.Time]</label>
+				</control>
+			</control>
+		</control>
+	</include>
+	<!-- Player HD Label -->
+	<include name="PlayerResolutionLabel">
+		<!--  HD label -->
+		<control type="label" id="1">
+			<left>24</left>
+			<top>-1</top>
+			<width>auto</width>
+			<height>34</height>
+			<font>Bold28</font>
+			<textcolor>ffebebeb</textcolor>
+			<label>[B]HD[/B]</label>
+			<visible>Integer.IsGreaterOrEqual(VideoPlayer.VideoResolution,720) | Integer.IsEqual(VideoPlayer.VideoResolution,4K)</visible>
+		</control>
+		<!--  Resolution label -->
+		<control type="label" id="1">
+			<left>2</left>
+			<top>-1</top>
+			<width>auto</width>
+			<height>34</height>
+			<font>Bold29</font>
+			<textcolor>ffebebeb</textcolor>
+			<label>$VAR[PlayerResolution]</label>
+		</control>
+	</include>
+	<!-- Player Duration Labels -->
+	<include name="PlayerDurationLabels">
+		<control type="grouplist" id="1">
+			<visible>!Player.ShowInfo | Player.HasAudio</visible>
+			<left>92</left>
+			<bottom>39</bottom>
+			<width>800</width>
+			<height>40</height>
+			<itemgap>4</itemgap>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>			
+			<!--  Current position -->
+			<control type="label" id="1">
+				<width>auto</width>
+				<height>34</height>
+				<font>Light27</font>
+				<textcolor>fff3f3f3</textcolor>
+				<label>$VAR[PlayerTime]</label>
+			</control>
+			<!--  Divider -->
+			<control type="label" id="1">
+				<width>auto</width>
+				<height>34</height>
+				<font>Light27</font>
+				<textcolor>ff696969</textcolor>
+				<visible>!String.IsEmpty(Player.Time) + !String.IsEmpty(Player.Duration)</visible>
+				<label>/</label>
+			</control>
+			<!--  Total length -->
+			<control type="label" id="1">
+				<width>auto</width>
+				<height>34</height>
+				<font>Light27</font>
+				<textcolor>ff696969</textcolor>
+				<label>$VAR[PlayerDuration]</label>
+			</control>
+			<!-- Player Resolution Label -->
+			<include condition="!Player.HasAudio">PlayerResolutionLabel</include>
+		</control>
+		<!-- Show Info Labels -->
+		<control type="label">
+			<left>92</left>
+			<bottom>45</bottom>
+			<width>800</width>
+			<height>34</height>
+			<font>Light27</font>
+			<textcolor>fff3f3f3</textcolor>
+			<label>[COLOR ff696969]$LOCALIZE[19126][/COLOR] $INFO[VideoPlayer.StartTime]</label>
+			<visible>Player.ShowInfo + !Player.HasAudio</visible>
+		</control>
+		<control type="label">
+			<right>92</right>
+			<bottom>45</bottom>
+			<width>800</width>
+			<height>34</height>
+			<font>Light27</font>
+			<textcolor>fff3f3f3</textcolor>
+			<align>right</align>
+			<label>[COLOR ff696969]$LOCALIZE[19127][/COLOR] $INFO[VideoPlayer.EndTime]</label>
+			<visible>Player.ShowInfo + !Player.HasAudio</visible>
+		</control>
+	</include>
+	<include name="MsgSplash">
+		<control type="group">
+			<visible>$EXP[MsgSplash]</visible>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>special://skin/extras/backgrounds/default.png</texture>
+				<colordiffuse>CFFFFFFF</colordiffuse>
+			</control>
+			<control type="group">
+				<control type="textbox">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>800</width>
+					<height>500</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Reg36Spaced</font>
+					<autoscroll>false</autoscroll>
+					<textcolor>ffdadada</textcolor>
+					<label>[COLOR red]Illegal streaming plugin found![/COLOR][CR]You - and plugins like Exodus, xStream, etc. - are destroying Kodi and its community. I made this skin for everyone, except for people like you. Please uninstall the piracy addons and this message will be gone.</label>			
+					<animation effect="zoom" start="100" end="160" center="auto" time="8000" pulse="true" condition="true" reversible="false">Conditional</animation>
+					<animation effect="slide" start="-100,-100" end="100,100" time="2000" pulse="true" condition="true" reversible="false">Conditional</animation>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

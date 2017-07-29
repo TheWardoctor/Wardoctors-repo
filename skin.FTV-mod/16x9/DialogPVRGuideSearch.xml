@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">9</defaultcontrol>
+	<controls>
+		<include>DialogBackgroundImage</include>
+		<!-- Main group -->
+		<control type="group">
+			<include>DialogAnimation</include>
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>1337</width>
+			<height>564</height>
+			<control type="image">
+				<width>1337</width>
+				<height>564</height>
+				<texture>dialogs/pvr_dialog_back.png</texture>
+			</control>
+			<!-- Heading -->
+			<control type="label">
+				<left>40</left>
+				<top>14</top>
+				<height>30</height>
+				<width>937</width>
+				<aligny>center</aligny>
+				<font>Bold30</font>
+				<label>19142</label>
+				<textcolor>ffdadada</textcolor>
+			</control>
+			<!-- Grouplist -->
+			<control type="grouplist" id="5">
+				<top>60</top>
+				<width>937</width>
+				<height>504</height>
+				<itemgap>0</itemgap>
+				<onleft>noop</onleft>
+				<onright>9001</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<!-- search -->
+				<control type="edit" id="9">					
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>$LOCALIZE[19133]</label>
+				</control>			
+				<!-- Include Description -->
+				<control type="radiobutton" id="10">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>717</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<radiowidth>125</radiowidth>
+					<radioheight>53</radioheight>
+					<radioposx>773</radioposx>
+					<textureradioonfocus>settings/radio_on_focus.png</textureradioonfocus>
+					<textureradioonnofocus>settings/radio_on_no_focus.png</textureradioonnofocus>
+					<textureradioondisabled>settings/radio_on_disabled.png</textureradioondisabled>
+					<textureradioofffocus>settings/radio_off_focus.png</textureradioofffocus>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<textureradiooffdisabled>settings/radio_off_disabled.png</textureradiooffdisabled>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>19134</label>
+				</control>
+				<!-- Case Sensitive -->
+				<control type="radiobutton" id="11">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>717</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<radiowidth>125</radiowidth>
+					<radioheight>53</radioheight>
+					<radioposx>773</radioposx>
+					<textureradioonfocus>settings/radio_on_focus.png</textureradioonfocus>
+					<textureradioonnofocus>settings/radio_on_no_focus.png</textureradioonnofocus>
+					<textureradioondisabled>settings/radio_on_disabled.png</textureradioondisabled>
+					<textureradioofffocus>settings/radio_off_focus.png</textureradioofffocus>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<textureradiooffdisabled>settings/radio_off_disabled.png</textureradiooffdisabled>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>19135</label>
+				</control>
+				<!-- Start Date -->
+				<control type="edit" id="14">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>19128</label>
+				</control>
+				<!-- Stop Date -->
+				<control type="edit" id="15">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>19129</label>
+				</control>
+				<!-- Genre -->
+				<control type="spincontrolex" id="18">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>738</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<selectedcolor2>ffffffff</selectedcolor2>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<aligny>center</aligny>
+					<reverse>true</reverse>
+					<label>515</label>
+				</control>
+				<!-- Include unknown Genres -->
+				<control type="radiobutton" id="20">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>717</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<radiowidth>125</radiowidth>
+					<radioheight>53</radioheight>
+					<radioposx>773</radioposx>
+					<textureradioonfocus>settings/radio_on_focus.png</textureradioonfocus>
+					<textureradioonnofocus>settings/radio_on_no_focus.png</textureradioonnofocus>
+					<textureradioondisabled>settings/radio_on_disabled.png</textureradioondisabled>
+					<textureradioofffocus>settings/radio_off_focus.png</textureradioofffocus>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<textureradiooffdisabled>settings/radio_off_disabled.png</textureradiooffdisabled>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>19132</label>
+				</control>
+				<!-- FTA only -->
+				<control type="radiobutton" id="22">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>717</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<radiowidth>125</radiowidth>
+					<radioheight>53</radioheight>
+					<radioposx>773</radioposx>
+					<textureradioonfocus>settings/radio_on_focus.png</textureradioonfocus>
+					<textureradioonnofocus>settings/radio_on_no_focus.png</textureradioonnofocus>
+					<textureradioondisabled>settings/radio_on_disabled.png</textureradioondisabled>
+					<textureradioofffocus>settings/radio_off_focus.png</textureradioofffocus>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<textureradiooffdisabled>settings/radio_off_disabled.png</textureradiooffdisabled>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>19123</label>
+				</control>
+				<!-- Ignore Timers -->
+				<control type="radiobutton" id="24">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>717</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<radiowidth>125</radiowidth>
+					<radioheight>53</radioheight>
+					<radioposx>773</radioposx>
+					<textureradioonfocus>settings/radio_on_focus.png</textureradioonfocus>
+					<textureradioonnofocus>settings/radio_on_no_focus.png</textureradioonnofocus>
+					<textureradioondisabled>settings/radio_on_disabled.png</textureradioondisabled>
+					<textureradioofffocus>settings/radio_off_focus.png</textureradioofffocus>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<textureradiooffdisabled>settings/radio_off_disabled.png</textureradiooffdisabled>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>19124</label>
+				</control>
+				<!-- Min Duration -->
+				<control type="spincontrolex" id="12">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>738</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<selectedcolor2>ffffffff</selectedcolor2>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<aligny>center</aligny>
+					<reverse>true</reverse>
+					<label>19130</label>
+				</control>
+				<!-- Max Duration -->
+				<control type="spincontrolex" id="13">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>738</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<selectedcolor2>ffffffff</selectedcolor2>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<aligny>center</aligny>
+					<reverse>true</reverse>
+					<label>19131</label>
+				</control>
+				<!-- Start time -->
+				<control type="edit" id="16">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>19126</label>
+				</control>
+				<!-- Stop time -->
+				<control type="edit" id="17">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>19127</label>
+				</control>
+				<!-- Avoid repeats -->
+				<control type="radiobutton" id="19">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>717</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<radiowidth>125</radiowidth>
+					<radioheight>53</radioheight>
+					<radioposx>773</radioposx>
+					<textureradioonfocus>settings/radio_on_focus.png</textureradioonfocus>
+					<textureradioonnofocus>settings/radio_on_no_focus.png</textureradioonnofocus>
+					<textureradioondisabled>settings/radio_on_disabled.png</textureradioondisabled>
+					<textureradioofffocus>settings/radio_off_focus.png</textureradioofffocus>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<textureradiooffdisabled>settings/radio_off_disabled.png</textureradiooffdisabled>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>19121</label>
+				</control>
+				<!-- Groups -->
+				<control type="spincontrolex" id="21">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>738</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<selectedcolor2>ffffffff</selectedcolor2>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<aligny>center</aligny>
+					<reverse>true</reverse>
+					<label>19141</label>
+				</control>
+				<!-- Channels -->
+				<control type="spincontrolex" id="23">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>738</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<selectedcolor2>ffffffff</selectedcolor2>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<aligny>center</aligny>
+					<reverse>true</reverse>
+					<label>19148</label>
+				</control>
+				<!-- Ignore Recordings -->
+				<control type="radiobutton" id="27">
+					<width>937</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>717</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<radiowidth>125</radiowidth>
+					<radioheight>53</radioheight>
+					<radioposx>773</radioposx>
+					<textureradioonfocus>settings/radio_on_focus.png</textureradioonfocus>
+					<textureradioonnofocus>settings/radio_on_no_focus.png</textureradioonnofocus>
+					<textureradioondisabled>settings/radio_on_disabled.png</textureradioondisabled>
+					<textureradioofffocus>settings/radio_off_focus.png</textureradioofffocus>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<textureradiooffdisabled>settings/radio_off_disabled.png</textureradiooffdisabled>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>19125</label>
+				</control>
+			</control>
+			<control type="grouplist" id="9001">
+				<right>24</right>
+				<bottom>33</bottom>
+				<width>351</width>
+				<height>420</height>
+				<onleft>5</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<onback>10</onback>
+				<itemgap>10</itemgap>
+				<align>right</align>
+				<!-- Defaults Button -->
+				<control type="button" id="28">
+					<width>351</width>
+					<height>76</height>
+					<aligny>top</aligny>
+					<font>Med24</font>
+					<textoffsetx>23</textoffsetx>
+					<textoffsety>27</textoffsety>
+					<label>10035</label>
+				</control>
+				<!-- Cancel Button -->
+				<control type="button" id="25">
+					<width>351</width>
+					<height>76</height>
+					<aligny>top</aligny>
+					<font>Med24</font>
+					<textoffsetx>23</textoffsetx>
+					<textoffsety>27</textoffsety>
+					<label>222</label>
+				</control>
+				<!-- OK Button -->
+				<control type="button" id="26">
+					<width>351</width>
+					<height>76</height>
+					<aligny>top</aligny>
+					<font>Med24</font>
+					<textoffsetx>23</textoffsetx>
+					<textoffsety>27</textoffsety>
+					<label>137</label>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

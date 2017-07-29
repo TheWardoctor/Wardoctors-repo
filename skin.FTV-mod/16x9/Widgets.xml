@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+	<include name="HomeWidgets">
+		<!-- #1 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">100</param>
+			<param name="widget">widget1</param>
+		</include>
+		<!-- #2 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">200</param>
+			<param name="widget">widget2</param>
+		</include>
+		<!-- #3 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">300</param>
+			<param name="widget">widget3</param>
+		</include>
+		<!-- #4 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">400</param>
+			<param name="widget">widget4</param>
+		</include>
+		<!-- #5 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">500</param>
+			<param name="widget">widget5</param>
+		</include>
+		<!-- #6 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">600</param>
+			<param name="widget">widget6</param>
+		</include>
+		<!-- #7 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">700</param>
+			<param name="widget">widget7</param>
+		</include>
+		<!-- #8 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">800</param>
+			<param name="widget">widget8</param>
+		</include>
+		<!-- #9 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">900</param>
+			<param name="widget">widget9</param>
+		</include>
+		<!-- #10 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">1000</param>
+			<param name="widget">widget10</param>
+		</include>
+		<!-- #11 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">1100</param>
+			<param name="widget">widget11</param>
+		</include>
+		<!-- #12 Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">1200</param>
+			<param name="widget">widget12</param>
+		</include>
+		<!-- Favourites Widget -->
+		<include content="ParamWidgetInclude">
+			<param name="ID">20</param>
+			<param name="widget">favourites</param>
+			<param name="content">FavouritesWidget</param>
+		</include>
+		<!-- LiveTV Widget -->
+		<control type="list" id="301">
+			<visible>!$EXP[MsgSplash] + String.IsEqual(Container(99).ListItem.Property(ftvWidget),livetv) + !Control.IsVisible(91)</visible>
+			<include>HomeWidgetsAnimation</include>
+			<include>WindowHomeFadeAnimation</include>
+			<left>391</left>
+			<top>252</top>
+			<width>2200</width>
+			<height>576</height>
+			<onfocus>SetProperty(LabelsDelayFadeAnimation,1,home)</onfocus>
+			<defaultcontrol always="true">0</defaultcontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>horizontal</orientation>
+			<defaultcontrol always="true">0</defaultcontrol>
+			<itemlayout height="576" width="436">
+				<control type="group">
+					<animation center="250,288" condition="true" effect="zoom" end="85" start="85">Conditional</animation>
+					<control type="image">
+						<top>48</top>
+						<width>480</width>
+						<height>480</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true">common/default_empty.png</texture>
+					</control>
+					<control type="image">
+						<top>48</top>
+						<width>480</width>
+						<height>480</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture background="true">$VAR[PVRImage]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>576</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="576" width="436">
+				<control type="group">
+					<animation center="250,288" condition="true" effect="zoom" end="85" start="85">Conditional</animation>
+					<control type="image">
+						<top>48</top>
+						<width>480</width>
+						<height>480</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true">common/default_empty.png</texture>
+					</control>
+					<control type="image">
+						<top>48</top>
+						<width>480</width>
+						<height>480</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture background="true">$VAR[PVRImage]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>576</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+				</control>
+			</focusedlayout>
+			<content>pvr://channels/tv/*</content>
+		</control>
+		<!-- Weather Widget -->
+		<control type="fixedlist">
+			<left>433</left>
+			<top>83</top>
+			<width>2000</width>
+			<height>914</height>
+			<viewtype label="">list</viewtype>
+			<onfocus>SetProperty(LabelsDelayFadeAnimation,1,home)</onfocus>
+			<orientation>horizontal</orientation>
+			<include>WindowHomeFadeAnimation</include>
+			<include>HomeWidgetsAnimation</include>
+			<visible>!$EXP[MsgSplash] + String.IsEqual(Container(99).ListItem.Property(ftvWidget),weather) + !Control.IsVisible(91)</visible>
+			<itemlayout height="914" width="299">
+				<control type="image">
+					<width>299</width>
+					<height>914</height>
+					<texture background="true">$INFO[ListItem.Property(Fanart)]</texture>
+				</control>
+				<control type="image">
+					<top>321</top>
+					<width>299</width>
+					<height>272</height>
+					<texture background="true">views/OverlayNF.png</texture>
+				</control>
+				<control type="label">
+					<left>23</left>
+					<top>334</top>
+					<width>253</width>
+					<height>38</height>
+					<font>Light28</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>ffffffff</textcolor>
+				</control>
+				<control type="textbox">
+					<left>23</left>
+					<top>383</top>
+					<width>253</width>
+					<height>auto</height>
+					<wrapmultiline>true</wrapmultiline>
+					<font>Med20</font>
+					<label>$INFO[ListItem.Property(Outlook)]</label>
+					<autoscroll>False</autoscroll>
+					<textcolor>ffdadada</textcolor>
+				</control>
+				<control type="image">
+					<left>23</left>
+					<top>411</top>
+					<width>140</width>
+					<height>140</height>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>23</left>
+					<top>548</top>
+					<width>253</width>
+					<height>30</height>
+					<font>Med20</font>
+					<textcolor>ffffffff</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="914" width="299">
+				<control type="image">
+					<width>299</width>
+					<height>914</height>
+					<texture background="true">$INFO[ListItem.Property(Fanart)]</texture>
+				</control>
+				<control type="image">
+					<top>321</top>
+					<width>299</width>
+					<height>272</height>
+					<texture background="true">views/OverlayNF.png</texture>
+				</control>
+				<control type="label">
+					<left>23</left>
+					<top>334</top>
+					<width>253</width>
+					<height>38</height>
+					<font>Light28</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>ffffffff</textcolor>
+					<scroll>false</scroll>
+				</control>
+				<control type="textbox">
+					<left>23</left>
+					<top>383</top>
+					<width>253</width>
+					<height>auto</height>
+					<wrapmultiline>true</wrapmultiline>
+					<font>Med20</font>
+					<label>$INFO[ListItem.Property(Outlook)]</label>
+					<autoscroll>False</autoscroll>
+					<textcolor>ffdadada</textcolor>
+				</control>
+				<control type="image">
+					<left>23</left>
+					<top>411</top>
+					<width>140</width>
+					<height>140</height>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>23</left>
+					<top>548</top>
+					<width>253</width>
+					<height>30</height>
+					<font>Med20</font>
+					<textcolor>ffffffff</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+					<scroll>false</scroll>
+				</control>
+			</focusedlayout>
+			<content>
+				<item>
+					<onclick>noop</onclick>
+					<label>$INFO[Window(Weather).Property(Day0.Title)]</label>
+					<label2>$INFO[Window(Weather).Property(Day0.LowTemp),$LOCALIZE[391] ,°]    $INFO[Window(Weather).Property(Day0.HighTemp),$LOCALIZE[393] ,°]</label2>
+					<icon>$INFO[Window(Weather).Property(Day0.FanartCode),weather/icons/,.png]</icon>
+					<property name="Fanart">$INFO[Window(Weather).Property(Day0.FanartCode),weather/home/,.jpg]</property>
+					<property name="Outlook">$INFO[Window(Weather).Property(Day0.Outlook)]</property>
+					<visible>!String.IsEmpty(Window(Weather).Property(Day0.Outlook))</visible>
+				</item>
+				<item>
+					<onclick>noop</onclick>
+					<label>$INFO[Window(Weather).Property(Day1.Title)]</label>
+					<label2>$INFO[Window(Weather).Property(Day1.LowTemp),$LOCALIZE[391] ,°]    $INFO[Window(Weather).Property(Day1.HighTemp),$LOCALIZE[393] ,°]</label2>
+					<icon>$INFO[Window(Weather).Property(Day1.FanartCode),weather/icons/,.png]</icon>
+					<property name="Fanart">$INFO[Window(Weather).Property(Day1.FanartCode),weather/home/,.jpg]</property>
+					<property name="Outlook">$INFO[Window(Weather).Property(Day1.Outlook)]</property>
+					<visible>!String.IsEmpty(Window(Weather).Property(Day1.Outlook))</visible>
+				</item>
+				<item>
+					<onclick>noop</onclick>
+					<label>$INFO[Window(Weather).Property(Day2.Title)]</label>
+					<label2>$INFO[Window(Weather).Property(Day2.LowTemp),$LOCALIZE[391] ,°]    $INFO[Window(Weather).Property(Day2.HighTemp),$LOCALIZE[393] ,°]</label2>
+					<icon>$INFO[Window(Weather).Property(Day2.FanartCode),weather/icons/,.png]</icon>
+					<property name="Fanart">$INFO[Window(Weather).Property(Day2.FanartCode),weather/home/,.jpg]</property>
+					<property name="Outlook">$INFO[Window(Weather).Property(Day2.Outlook)]</property>
+					<visible>!String.IsEmpty(Window(Weather).Property(Day2.Outlook))</visible>
+				</item>
+				<item>
+					<onclick>noop</onclick>
+					<label>$INFO[Window(Weather).Property(Day3.Title)]</label>
+					<label2>$INFO[Window(Weather).Property(Day3.LowTemp),$LOCALIZE[391] ,°]    $INFO[Window(Weather).Property(Day3.HighTemp),$LOCALIZE[393] ,°]</label2>
+					<icon>$INFO[Window(Weather).Property(Day3.FanartCode),weather/icons/,.png]</icon>
+					<property name="Fanart">$INFO[Window(Weather).Property(Day3.FanartCode),weather/home/,.jpg]</property>
+					<property name="Outlook">$INFO[Window(Weather).Property(Day3.Outlook)]</property>
+					<visible>!String.IsEmpty(Window(Weather).Property(Day3.Outlook))</visible>
+				</item>
+				<item>
+					<onclick>noop</onclick>
+					<label>$INFO[Window(Weather).Property(Day4.Title)]</label>
+					<label2>$INFO[Window(Weather).Property(Day4.LowTemp),$LOCALIZE[391] ,°]    $INFO[Window(Weather).Property(Day4.HighTemp),$LOCALIZE[393] ,°]</label2>
+					<icon>$INFO[Window(Weather).Property(Day4.FanartCode),weather/icons/,.png]</icon>
+					<property name="Fanart">$INFO[Window(Weather).Property(Day4.FanartCode),weather/home/,.jpg]</property>
+					<property name="Outlook">$INFO[Window(Weather).Property(Day4.Outlook)]</property>
+					<visible>!String.IsEmpty(Window(Weather).Property(Day4.Outlook))</visible>
+				</item>
+			</content>
+		</control>
+		<!-- Settings Widget -->
+		<control id="900" type="fixedlist">
+			<left>133</left>
+			<top>289</top>
+			<width>2200</width>
+			<height>497</height>
+			<focusposition>1</focusposition>
+			<viewtype label="">list</viewtype>
+			<orientation>horizontal</orientation>
+			<onfocus>SetProperty(LabelsDelayFadeAnimation,1,home)</onfocus>
+			<include>WindowHomeFadeAnimation</include>
+			<include>HomeWidgetsAnimation</include>
+			<visible>String.IsEqual(Container(99).ListItem.Property(defaultID),settings) + !Control.IsVisible(91)</visible>
+			<itemlayout height="497" width="300">
+				<control type="group">
+					<animation center="134,240" condition="True" effect="zoom" end="84.5" start="84.5">Conditional</animation>
+					<control type="image">
+						<left>-24</left>
+						<width>333</width>
+						<height>497</height>
+						<texture border="1,1,14,18">settings/settings_tile.png</texture>
+					</control>
+					<control type="label">
+						<left>-10</left>
+						<top>28</top>
+						<width>276</width>
+						<height>32</height>
+						<font>Bold34</font>
+						<textcolor>ffdadada</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>-13</left>
+						<top>123</top>
+						<width>300</width>
+						<height>300</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="497" width="300">
+				<control type="group">
+					<animation center="134,240" condition="True" effect="zoom" end="84.5" start="84.5">Conditional</animation>
+					<control type="image">
+						<left>-24</left>
+						<width>333</width>
+						<height>497</height>
+						<texture border="1,1,14,18">settings/settings_tile.png</texture>
+					</control>
+					<control type="label">
+						<left>-10</left>
+						<top>28</top>
+						<width>276</width>
+						<height>32</height>
+						<font>Bold34</font>
+						<textcolor>ffdadada</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>-13</left>
+						<top>123</top>
+						<width>300</width>
+						<height>300</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+					</control>
+				</control>
+			</focusedlayout>
+			<content>
+				<item>
+					<onclick>noop</onclick>
+					<label>$LOCALIZE[31324]</label>
+					<icon>settings/icon_appearance.png</icon>
+				</item>
+				<item>
+					<onclick>noop</onclick>
+					<label>24001</label>
+					<icon>settings/icon_addons.png</icon>
+				</item>
+				<item>
+					<onclick>noop</onclick>
+					<label>31310</label>
+					<icon>settings/icon_library.png</icon>
+				</item>
+				<item>
+					<onclick>noop</onclick>
+					<label>14200</label>
+					<icon>settings/icon_player.png</icon>
+				</item>
+				<item>
+					<onclick>noop</onclick>
+					<label>19020</label>
+					<icon>settings/icon_tv.png</icon>
+				</item>
+			</content>
+		</control>
+	</include>
+	<include name="EmptyMessages">
+		<!-- Movies -->
+		<include content="NoContentMessage">
+			<param name="Visible">[String.IsEqual(Container(99).ListItem.Property(DefaultID),movies) | String.Contains(Container(99).ListItem.Property(list),library://video/movies/) | String.Contains(Container(99).ListItem.Property(list),videodb://movies/)] + !Library.HasContent(Movies) + !Skin.HasSetting(HideMoviesMessage) + String.IsEmpty(Container(99).ListItem.Property(ftvWidget))</param>
+			<param name="Header">$LOCALIZE[31264]</param>
+			<param name="Message">$LOCALIZE[31262]</param>
+			<param name="ShowButton">true</param>
+			<param name="ShowButton2">true</param>
+			<param name="Button">$LOCALIZE[1026]</param>
+			<param name="Action">ActivateWindow(Videos,Files,return)</param>
+			<param name="Action2">Skin.SetBool(HideMoviesMessage)</param>
+		</include>
+		<!-- TVShows -->
+		<include content="NoContentMessage">
+			<param name="Visible">[String.IsEqual(Container(99).ListItem.Property(DefaultID),tvshows) | String.Contains(Container(99).ListItem.Property(DefaultID),library://video/tvshows/) | String.Contains(Container(99).ListItem.Property(list),videodb://tvshows/)] + !Library.HasContent(TVShows) + !Skin.HasSetting(HideTVShowsMessage) + String.IsEmpty(Container(99).ListItem.Property(ftvWidget))</param>
+			<param name="Header">$LOCALIZE[31264]</param>
+			<param name="Message">$LOCALIZE[31262]</param>
+			<param name="ShowButton">true</param>
+			<param name="ShowButton2">true</param>
+			<param name="Button">$LOCALIZE[1026]</param>
+			<param name="Action">ActivateWindow(Videos,Files,return)</param>
+			<param name="Action2">Skin.SetBool(HideTVShowsMessage)</param>
+		</include>
+		<!-- Videos -->
+		<include content="NoContentMessage">
+			<param name="Visible">String.IsEqual(Container(99).ListItem.Property(DefaultID),videos) + !Library.HasContent(TVShows) + !Library.HasContent(Movies)+ !Skin.HasSetting(HideVideosMessage) + String.IsEmpty(Container(99).ListItem.Property(ftvWidget))</param>
+			<param name="Header">$LOCALIZE[31264]</param>
+			<param name="Message">$LOCALIZE[31262]</param>
+			<param name="ShowButton">true</param>
+			<param name="ShowButton2">true</param>
+			<param name="Button">$LOCALIZE[1026]</param>
+			<param name="Action">ActivateWindow(Videos,Files,return)</param>
+			<param name="Action2">Skin.SetBool(HideVideosMessage)</param>
+		</include>
+		<!-- Music -->
+		<include content="NoContentMessage">
+			<param name="Visible">[String.IsEqual(Container(99).ListItem.Property(DefaultID),music) | String.Contains(Container(99).ListItem.Property(list),library://music/) | String.Contains(Container(99).ListItem.Property(list),musicdb://)] + !Library.HasContent(Music) + !Skin.HasSetting(HideMusicMessage) + String.IsEmpty(Container(99).ListItem.Property(ftvWidget))</param>
+			<param name="Header">$LOCALIZE[31264]</param>
+			<param name="Message">$LOCALIZE[31262]</param>
+			<param name="ShowButton">true</param>
+			<param name="ShowButton2">true</param>
+			<param name="Button">$LOCALIZE[1026]</param>
+			<param name="Action">ActivateWindow(Music,Files,return)</param>
+			<param name="Action2">Skin.SetBool(HideMusicMessage)</param>
+		</include>
+		<!-- Weather -->
+		<include content="NoContentMessage">
+			<param name="Visible">String.IsEqual(Container(99).ListItem.Property(ftvWidget),weather) + String.IsEmpty(Window(Weather).Property(Day0.Outlook))</param>
+			<param name="Header">$LOCALIZE[412]</param>
+			<param name="Message">$LOCALIZE[31119]</param>
+			<param name="ShowButton">true</param>
+			<param name="Button">$LOCALIZE[31285]</param>
+			<param name="Focus">SetProperty(SettingsCurrentItem,7,settings)</param>
+			<param name="Action">ActivateWindow(servicesettings,weather)</param>
+		</include>
+		<!-- Empty widgets -->
+		<include content="NoContentMessage">
+			<param name="Visible">$EXP[NoContentMessage]</param>
+			<param name="Header">$LOCALIZE[31263]</param>
+			<param name="Message">$LOCALIZE[31266]</param>
+			<param name="ShowButton">true</param>
+			<param name="ShowButton2">true</param>
+			<param name="Button">$LOCALIZE[31265]</param>
+			<param name="Button2">$LOCALIZE[31049]</param>
+			<param name="Action">ActivateWindow(1105)</param>
+			<param name="Action2">RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</param>
+			<param name="CurrenItem">$INFO[Container(99).CurrenItem]</param>
+		</include>
+	</include>
+</includes>

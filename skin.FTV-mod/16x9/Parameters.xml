@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+	<!-- ViewType Thumb Overlays -->
+	<include name="OverlayHD">
+		<param name="top" default="48" />
+		<definition>
+			<control type="image">
+				<top>$PARAM[top]</top>
+				<width>90</width>
+				<height>90</height>
+				<texture>views/OverlayHD.png</texture>
+				<visible>Integer.IsGreater(ListItem.VideoResolution,719) + !Integer.IsEqual(ListItem.VideoResolution,4K) + !ListItem.IsStereoscopic</visible>
+			</control>
+			<control type="image">
+				<top>$PARAM[top]</top>
+				<width>90</width>
+				<height>90</height>
+				<texture>views/Overlay4K.png</texture>
+				<visible>Integer.IsEqual(ListItem.VideoResolution,4K) + !ListItem.IsStereoscopic</visible>
+			</control>
+			<control type="image">
+				<top>$PARAM[top]</top>
+				<width>90</width>
+				<height>90</height>
+				<texture>views/Overlay3D.png</texture>
+				<visible>ListItem.IsStereoscopic</visible>
+			</control>
+		</definition>
+	</include>
+	<!-- Emty Keyboard Buttons -->
+	<include name="EmptyKeyboardButtons">
+		<control type="image">
+			<width>68</width>
+			<height>68</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<texture border="2">dialogs/KeyboardButtonNF.png</texture>
+			<colordiffuse>66ffffff</colordiffuse>
+			<animation effect="fade" end="0" start="100" time="0" condition="Control.IsVisible($PARAM[ID])">Conditional</animation>
+		</control>
+	</include>
+	<!-- Jump to letter -->
+	<include name="JumpToLetter">
+		<param name="ID" default="6000" />
+		<definition>
+			<control type="group">
+				<animation type="Conditional" condition="Control.HasFocus($PARAM[ID])">
+					<effect center="auto" tween="circle" easing="out" end="100" start="110" time="200" type="zoom" />
+					<effect easing="inout" end="100" start="0" time="200" tween="sine" type="fade" />
+				</animation>
+				<animation easing="inout" effect="fade" end="0" start="100" time="200" tween="sine" condition="!Control.HasFocus($PARAM[ID])">Conditional</animation>
+				<control type="image">
+					<include>FullscreenDimensions</include>
+					<texture>special://skin/extras/backgrounds/default.png</texture>
+					<colordiffuse>EFFFFFFF</colordiffuse>
+				</control>
+				<control type="group">
+					<centerleft>50%</centerleft>
+					<width>720</width>
+					<height>1080</height>
+					<control id="$PARAM[ID]1" type="button">
+						<onfocus>Control.Move($PARAM[ID],-1)</onfocus>
+						<onfocus>SetFocus($PARAM[ID])</onfocus>
+						<onfocus>Right</onfocus>
+						<onfocus>Right</onfocus>
+						<onfocus>Right</onfocus>
+						<onfocus>Right</onfocus>
+						<onfocus>Right</onfocus>
+						<onfocus>Right</onfocus>
+						<onfocus>Right</onfocus>
+						<onfocus>Right</onfocus>
+						<include>HiddenControl</include>
+					</control>
+					<control id="$PARAM[ID]2" type="button">
+						<onfocus>SetFocus($PARAM[ID])</onfocus>
+						<onfocus>Left</onfocus>
+						<onfocus>Left</onfocus>
+						<onfocus>Left</onfocus>
+						<onfocus>Left</onfocus>
+						<onfocus>Left</onfocus>
+						<onfocus>Left</onfocus>
+						<onfocus>Left</onfocus>
+						<onfocus>Left</onfocus>
+						<onfocus>Control.Move($PARAM[ID],1)</onfocus>
+						<include>HiddenControl</include>
+					</control>
+					<control id="311" type="label">
+						<left>6</left>
+						<top>379</top>
+						<width>708</width>
+						<height>36</height>
+						<font>Light36</font>
+						<label>$LOCALIZE[31334]</label>
+						<textcolor>ffdadada</textcolor>
+					</control>
+					<control type="image">
+						<left>6</left>
+						<top>434</top>
+						<width>708</width>
+						<height>2</height>
+						<texture border="1">dialogs/KeyboardEditLine.png</texture>
+					</control>
+					<control type="panel" id="$PARAM[ID]">
+						<left>6</left>
+						<top>545</top>
+						<width>720</width>
+						<onback>SetFocus(50)</onback>
+						<ondown>SetFocus(50)</ondown>
+						<onup>SetFocus(50)</onup>						
+						<onleft condition="String.IsEmpty(Container($PARAM[ID]).ListItemNoWrap(-1).Label)">SetFocus(50)</onleft>
+						<onleft condition="!String.IsEmpty(Container($PARAM[ID]).ListItemNoWrap(-1).Label)">SetFocus($PARAM[ID]1)</onleft>
+						<onleft>noop</onleft>
+						<onright condition="String.IsEmpty(Container($PARAM[ID]).ListItemNoWrap(1).Label)">SetFocus(50)</onright>
+						<onright condition="!String.IsEmpty(Container($PARAM[ID]).ListItemNoWrap(1).Label)">SetFocus($PARAM[ID]2)</onright>
+						<onright>noop</onright>
+						<scrolltime>0</scrolltime>
+						<orientation>vertical</orientation>
+						<defaultcontrol>0</defaultcontrol>
+						<animation effect="slide" time="0" end="0,-40" condition="Integer.IsGreater(Container($PARAM[ID]).NumItems,9) + Integer.IsLess(Container($PARAM[ID]).NumItems,19)">Conditional</animation>
+						<animation effect="slide" time="0" end="0,-80" condition="Integer.IsGreater(Container($PARAM[ID]).NumItems,18) + Integer.IsLess(Container($PARAM[ID]).NumItems,28)">Conditional</animation>
+						<animation effect="slide" time="0" end="0,-160" condition="Integer.IsGreater(Container($PARAM[ID]).NumItems,27) + Integer.IsLess(Container($PARAM[ID]).NumItems,37)">Conditional</animation>
+						<animation effect="slide" time="0" end="0,-200" condition="Integer.IsGreater(Container($PARAM[ID]).NumItems,36) + Integer.IsLess(Container($PARAM[ID]).NumItems,46)">Conditional</animation>
+						<itemlayout height="80" width="80">
+							<control type="image">
+								<width>68</width>
+								<height>68</height>
+								<texture border="3">common/button_nf.png</texture>
+								<visible>!String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
+							</control>
+							<control type="image">
+								<width>68</width>
+								<height>68</height>
+								<texture border="3">dialogs/KeyboardButtonToggleOn.png</texture>
+								<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
+							</control>
+							<control type="textbox">
+								<width>68</width>
+								<height>68</height>
+								<font>Keyboard</font>
+								<align>center</align>
+								<aligny>center</aligny>
+								<textcolor>ffdadada</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>String.IsEmpty(ListItem.Property(NotAvailable))</visible>
+							</control>
+							<control type="textbox">
+								<width>68</width>
+								<height>68</height>
+								<font>Keyboard</font>
+								<align>center</align>
+								<aligny>center</aligny>
+								<textcolor>ff000000</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>!String.IsEmpty(ListItem.Property(NotAvailable))</visible>
+							</control>
+						</itemlayout>
+						<focusedlayout height="80" width="80">
+							<control type="group">
+								<visible>!Control.HasFocus(6000)</visible>
+								<control type="image">
+									<width>68</width>
+									<height>68</height>
+									<texture border="3">common/button_nf.png</texture>
+									<visible>!String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
+								</control>
+								<control type="image">
+									<width>68</width>
+									<height>68</height>
+									<texture border="3">dialogs/KeyboardButtonToggleOn.png</texture>
+									<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
+								</control>
+								<control type="textbox">
+									<width>68</width>
+									<height>68</height>
+									<font>Keyboard</font>
+									<align>center</align>
+									<aligny>center</aligny>
+									<textcolor>ffdadada</textcolor>
+									<label>$INFO[ListItem.Label]</label>
+								</control>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus(6000)</visible>
+								<control type="image">
+									<width>68</width>
+									<height>68</height>
+									<texture border="3">common/button_fo.png</texture>
+								</control>
+								<control type="textbox">
+									<width>68</width>
+									<height>68</height>
+									<font>Keyboard</font>
+									<align>center</align>
+									<aligny>center</aligny>
+									<textcolor>ff0c0c0c</textcolor>
+									<label>$INFO[ListItem.Label]</label>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+	<!-- Param Top -->
+	<include name="ParamTop">
+		<top>$PARAM[top]</top>
+	</include>
+	<!-- Param Height -->
+	<include name="ParamHeight">
+		<height>$PARAM[height]</height>
+	</include>
+	<!-- Param Width -->
+	<include name="ParamWidth">
+		<width>$PARAM[width]</width>
+	</include>
+	<!-- Defaultcontrol -->
+	<include name="MoveDefaultControl">
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),1)">
+			<param name="position">2</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),2)">
+			<param name="position">3</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),3)">
+			<param name="position">4</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),4)">
+			<param name="position">5</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),5)">
+			<param name="position">6</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),6)">
+			<param name="position">7</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),7)">
+			<param name="position">8</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),8)">
+			<param name="position">9</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),9)">
+			<param name="position">10</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),10)">
+			<param name="position">11</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),11)">
+			<param name="position">12</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),12)">
+			<param name="position">13</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),13)">
+			<param name="position">14</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),14)">
+			<param name="position">15</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),15)">
+			<param name="position">16</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),16)">
+			<param name="position">17</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),17)">
+			<param name="position">18</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),18)">
+			<param name="position">19</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),19)">
+			<param name="position">20</param>
+		</include>
+		<include content="ParamDefaultControl" condition="String.IsEqual(Skin.String(MenuDefaultControl),20)">
+			<param name="position">21</param>
+		</include>
+	</include>
+	<include name="ParamDefaultControl">
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(1).Property(id),$PARAM[position])">Control.Move(99,1)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(2).Property(id),$PARAM[position])">Control.Move(99,2)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(3).Property(id),$PARAM[position])">Control.Move(99,3)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(4).Property(id),$PARAM[position])">Control.Move(99,4)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(5).Property(id),$PARAM[position])">Control.Move(99,5)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(6).Property(id),$PARAM[position])">Control.Move(99,6)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(7).Property(id),$PARAM[position])">Control.Move(99,7)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(8).Property(id),$PARAM[position])">Control.Move(99,8)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(9).Property(id),$PARAM[position])">Control.Move(99,9)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(10).Property(id),$PARAM[position])">Control.Move(99,10)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(11).Property(id),$PARAM[position])">Control.Move(99,11)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(12).Property(id),$PARAM[position])">Control.Move(99,12)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(13).Property(id),$PARAM[position])">Control.Move(99,13)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(14).Property(id),$PARAM[position])">Control.Move(99,14)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(15).Property(id),$PARAM[position])">Control.Move(99,15)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(16).Property(id),$PARAM[position])">Control.Move(99,16)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(17).Property(id),$PARAM[position])">Control.Move(99,17)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(18).Property(id),$PARAM[position])">Control.Move(99,18)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(19).Property(id),$PARAM[position])">Control.Move(99,19)</onfocus>
+		<onfocus condition="[Window.Previous(startup) | !String.IsEmpty(Window(home).Property(ReloadTriggered))] + String.IsEqual(Container(99).ListItemPosition(20).Property(id),$PARAM[position])">Control.Move(99,20)</onfocus>
+	</include>
+	<!-- Spacer for grouplists -->
+	<include name="Spacer">
+		<param name="visible" default="false" />
+		<param name="width" default="0" />
+		<param name="height" default="0" />
+		<definition>
+			<control type="label">
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<font>invisible</font>
+				<label>-</label>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+	<!--Info Dialog Fake List -->
+	<include name="InfoDialogVideoList">		
+		<control type="group">
+			<left>$PARAM[Left]</left>
+			<visible>!String.IsEmpty(Container($PARAM[ID]).ListItemNoWrap($PARAM[POS]).Label)</visible>
+			<control type="image">
+				<top>48</top>
+				<width>320</width>
+				<height>480</height>
+				<aspectratio align="center">scale</aspectratio>
+				<texture>views/movie_fallback.png</texture>
+			</control>
+			<control type="image">
+				<top>48</top>
+				<width>320</width>
+				<height>480</height>
+				<aspectratio align="center">scale</aspectratio>
+				<texture background="true" fallback="views/movie_fallback.png">$INFO[Container($PARAM[ID]).ListItemNoWrap($PARAM[POS]).Icon]</texture>
+				<visible>[Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)]</visible>
+			</control>
+			<control type="image">
+				<top>48</top>
+				<width>320</width>
+				<height>480</height>
+				<aspectratio align="center">scale</aspectratio>
+				<texture background="true" fallback="views/movie_fallback.png">$INFO[Container($PARAM[ID]).ListItemNoWrap($PARAM[POS]).Art(poster)]</texture>
+				<visible>![Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)]</visible>
+			</control>
+			<control type="image">
+				<left>-48</left>
+				<centertop>288</centertop>
+				<width>416</width>
+				<height>576</height>
+				<texture border="66,66,51,51">views/shadow_nf.png</texture>
+			</control>
+			<control type="label">
+				<left>18</left>
+				<top>455</top>
+				<width>290</width>
+				<height>42</height>
+				<font>Bold42</font>
+				<scroll>false</scroll>
+				<textcolor>ffffffff</textcolor>
+				<shadowcolor>80000000</shadowcolor>
+				<label>$INFO[Container($PARAM[ID]).ListItemNoWrap($PARAM[POS]).Label]</label>
+				<visible>String.IsEmpty(Container($PARAM[ID]).ListItemNoWrap($PARAM[POS]).Icon)</visible>
+			</control>
+		</control>
+	</include>
+	<include name="InfoDialogCastList">
+		<control type="group">
+			<left>$PARAM[Left]</left>
+			<visible>!String.IsEmpty(Container($PARAM[ID]).ListItemNoWrap($PARAM[POS]).Label)</visible>
+			<control type="image">
+				<top>48</top>
+				<width>320</width>
+				<height>480</height>
+				<aspectratio align="center">scale</aspectratio>
+				<texture>views/cast_fallback.png</texture>
+			</control>
+			<control type="image">
+				<top>48</top>
+				<width>320</width>
+				<height>480</height>
+				<aspectratio align="center">scale</aspectratio>
+				<texture background="true" fallback="views/cast_fallback.png">$INFO[Container($PARAM[ID]).ListItemNoWrap($PARAM[POS]).Icon]</texture>
+			</control>
+			<control type="image">
+				<left>-48</left>
+				<centertop>288</centertop>
+				<width>416</width>
+				<height>576</height>
+				<texture border="66,66,51,51">views/shadow_nf.png</texture>
+			</control>
+			<control type="image">
+				<top>48</top>
+				<width>320</width>
+				<height>480</height>
+				<texture border="2">views/season_overlay.png</texture>
+				<visible>!String.Contains(Container($PARAM[ID]).ListItemNoWrap($PARAM[POS]).Icon,Default)</visible>
+			</control>
+			<control type="label">
+				<left>18</left>
+				<top>412</top>
+				<width>290</width>
+				<height>42</height>
+				<font>Bold42</font>
+				<textcolor>ffffffff</textcolor>
+				<shadowcolor>80000000</shadowcolor>
+				<label>$INFO[Container($PARAM[ID]).ListItemNoWrap($PARAM[POS]).Label]</label>
+			</control>
+			<control type="label">
+				<left>18</left>
+				<top>463</top>
+				<width>290</width>
+				<height>28</height>
+				<font>Med28</font>
+				<scroll>false</scroll>
+				<textcolor>ffffffff</textcolor>
+				<shadowcolor>80000000</shadowcolor>
+				<label>$INFO[Container($PARAM[ID]).ListItemNoWrap($PARAM[POS]).Property(character),$LOCALIZE[20347] ,]</label>
+				<visible>[Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)]</visible>
+			</control>
+			<control type="label">
+				<left>18</left>
+				<top>463</top>
+				<width>290</width>
+				<height>28</height>
+				<font>Med28</font>
+				<scroll>false</scroll>
+				<textcolor>ffffffff</textcolor>
+				<shadowcolor>80000000</shadowcolor>
+				<label>$INFO[Container($PARAM[ID]).ListItemNoWrap($PARAM[POS]).Label2,$LOCALIZE[20347] ,]</label>
+				<visible>![Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)]</visible>
+			</control>
+		</control>
+	</include>
+	<!-- ViewType progress -->
+	<include name="ParamProgress">
+		<param name="OverlayWatched" default="true" />
+		<param name="top" default="516" />
+		<definition>
+			<control type="progress">
+				<top>$PARAM[top]</top>
+				<width>$PARAM[width]</width>
+				<height>12</height>
+				<info>ListItem.PercentPlayed</info>
+				<texturebg border="2">views/ProgressBack.png</texturebg>
+				<lefttexture>-</lefttexture>
+				<midtexture border="2">views/ProgressBar.png</midtexture>
+				<righttexture>-</righttexture>
+				<overlaytexture>-</overlaytexture>
+				<visible>ListItem.IsResumable</visible>
+			</control>
+			<control type="group">
+				<visible>$PARAM[OverlayWatched]</visible>
+				<control type="image">
+					<top>$PARAM[top]</top>
+					<width>$PARAM[width]</width>
+					<height>12</height>
+					<texture border="2">views/ProgressBar.png</texture>
+					<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png) + !ListItem.IsResumable</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+	<!-- Reset Parameters -->
+	<include name="ResetAllWidgets">		
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetLabel-1)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetLabel-2)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetLabel-3)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetLabel-4)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetLabel-5)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetLabel-6)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetLabel-7)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetLabel-8)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetAction-1)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetAction-2)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetAction-3)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetAction-4)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetAction-5)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetAction-6)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetAction-7)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetAction-8)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetList-1)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetList-2)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetList-3)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetList-4)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetList-5)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetList-6)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetList-7)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetList-8)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyle-1)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyle-2)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyle-3)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyle-4)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyle-5)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyle-6)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyle-7)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyle-8)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyleLabel-1)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyleLabel-2)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyleLabel-3)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyleLabel-4)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyleLabel-5)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyleLabel-6)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyleLabel-7)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetStyleLabel-8)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetView)</onfocus>
+		<onfocus>Skin.Reset(ftvLabelWidget$PARAM[ID])</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetAd)</onfocus>
+		<onfocus>Skin.Reset($PARAM[ID]-WidgetAd-Label)</onfocus>
+	</include>
+	<!-- Widget Label Include -->
+	<include name="ParamWidgetLabel">
+		<item>
+			<label>$VAR[WidgetLabel-$PARAM[Pos]]</label>
+			<label2>31200</label2>
+			<onclick>SetProperty(DisableSuggestions,1,Home)</onclick>
+			<onclick>Skin.SetString($INFO[Window(home).Property(SubMenu),,-WidgetLabel-$PARAM[Pos]])</onclick>
+		</item>
+	</include>
+	<!-- Widget Path Include -->
+	<include name="ParamWidgetPath">
+		<item>
+			<label>$VAR[WidgetAction-$PARAM[Pos]]</label>
+			<label2>31201</label2>
+			<onclick>RunScript(script.skinshortcuts,type=shortcuts&amp;showNone=True&amp;custom=true&amp;grouping=ftv&amp;skinLabel=$INFO[Window(home).Property(SubMenu)]-WidgetLabel-$PARAM[Pos]&amp;skinAction=$INFO[Window(home).Property(SubMenu)]-WidgetAction-$PARAM[Pos]&amp;skinList=$INFO[Window(home).Property(SubMenu)]-WidgetList-$PARAM[Pos]&amp;skinType=$INFO[Window(home).Property(SubMenu)]-WidgetType-$PARAM[Pos])</onclick>
+		</item>
+	</include>
+	<!-- Widget Layout Include -->
+	<include name="ParamWidgetLayout">
+		<item>
+			<label fallback="31203">$VAR[WidgetStyleLabel-$PARAM[Pos]]</label>
+			<onclick>SetProperty(Dialog.NumItems,$PARAM[Pos])</onclick>
+			<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31527])</onclick>
+			<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString($INFO[Window(home).Property(SubMenu),,-WidgetStyle-$PARAM[Pos]],wide)||Skin.SetString($INFO[Window(home).Property(SubMenu),,-WidgetStyleLabel-$PARAM[Pos]],$LOCALIZE[31159]))</onclick>
+			<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31528])</onclick>
+			<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString($INFO[Window(home).Property(SubMenu),,-WidgetStyle-$PARAM[Pos]],poster)||Skin.SetString($INFO[Window(home).Property(SubMenu),,-WidgetStyleLabel-$PARAM[Pos]],$LOCALIZE[31160]))</onclick>
+			<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31550])</onclick>
+			<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString($INFO[Window(home).Property(SubMenu),,-WidgetStyle-$PARAM[Pos]],episode)||Skin.SetString($INFO[Window(home).Property(SubMenu),,-WidgetStyleLabel-$PARAM[Pos]],$LOCALIZE[31549]))</onclick>
+			<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31529])</onclick>
+			<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString($INFO[Window(home).Property(SubMenu),,-WidgetStyle-$PARAM[Pos]],square)||Skin.SetString($INFO[Window(home).Property(SubMenu),,-WidgetStyleLabel-$PARAM[Pos]],$LOCALIZE[31161]))</onclick>
+			<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31530])</onclick>
+			<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString($INFO[Window(home).Property(SubMenu),,-WidgetStyle-$PARAM[Pos]],squareinfo)||Skin.SetString($INFO[Window(home).Property(SubMenu),,-WidgetStyleLabel-$PARAM[Pos]],$LOCALIZE[31203]))</onclick>
+			<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31198])</onclick>
+		</item>
+	</include>
+	<!-- Widget Move Down Include -->
+	<include name="ParamWidgetMoveDownInclude">
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">1</param>
+			<param name="TempPos">2</param>
+			<param name="Move">1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">2</param>
+			<param name="TempPos">3</param>
+			<param name="Move">1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">3</param>
+			<param name="TempPos">4</param>
+			<param name="Move">1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">4</param>
+			<param name="TempPos">5</param>
+			<param name="Move">1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">5</param>
+			<param name="TempPos">6</param>
+			<param name="Move">1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">6</param>
+			<param name="TempPos">7</param>
+			<param name="Move">1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">7</param>
+			<param name="TempPos">8</param>
+			<param name="Move">1</param>
+		</include>
+		<item>
+			<label>noop</label>
+			<onclick>noop</onclick>
+		</item>
+	</include>
+	<!-- Widet Move Up Include -->
+	<include name="ParamWidgetMoveUpInclude">
+		<item>
+			<label>noop</label>
+			<onclick>noop</onclick>
+		</item>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">2</param>
+			<param name="TempPos">1</param>
+			<param name="Move">-1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">3</param>
+			<param name="TempPos">2</param>
+			<param name="Move">-1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">4</param>
+			<param name="TempPos">3</param>
+			<param name="Move">-1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">5</param>
+			<param name="TempPos">4</param>
+			<param name="Move">-1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">6</param>
+			<param name="TempPos">5</param>
+			<param name="Move">-1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">7</param>
+			<param name="TempPos">6</param>
+			<param name="Move">-1</param>
+		</include>
+		<include content="ParamWidgetMoveFunction">
+			<param name="SubMenu">$PARAM[SubMenu]</param>
+			<param name="Pos">8</param>
+			<param name="TempPos">7</param>
+			<param name="Move">-1</param>
+		</include>
+	</include>
+	<!-- Widget movement function -->
+	<include name="ParamWidgetMoveFunction">
+		<item>
+			<label>$PARAM[Pos]</label>
+			<!-- temporary save next items -->
+			<onclick>Skin.SetString(TempItemLabel,$INFO[Skin.String($PARAM[SubMenu]-WidgetLabel-$PARAM[TempPos])])</onclick>
+			<onclick>Skin.SetString(TempItemAction,$INFO[Skin.String($PARAM[SubMenu]-WidgetAction-$PARAM[TempPos])])</onclick>
+			<onclick>Skin.SetString(TempItemStyle,$INFO[Skin.String($PARAM[SubMenu]-WidgetStyle-$PARAM[TempPos])])</onclick>
+			<onclick>Skin.SetString(TempItemStyleLabel,$INFO[Skin.String($PARAM[SubMenu]-WidgetStyleLabel-$PARAM[TempPos])])</onclick>
+			<onclick>Skin.SetString(TempItemType,$INFO[Skin.String($PARAM[SubMenu]-WidgetType-$PARAM[TempPos])])</onclick>
+			<onclick>Skin.SetString(TempItemList,$INFO[Skin.String($PARAM[SubMenu]-WidgetList-$PARAM[TempPos])])</onclick>
+			<!-- save current items to next position -->
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetLabel-$PARAM[TempPos],$INFO[Skin.String($PARAM[SubMenu]-WidgetLabel-$PARAM[Pos])])</onclick>
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetAction-$PARAM[TempPos],$INFO[Skin.String($PARAM[SubMenu]-WidgetAction-$PARAM[Pos])])</onclick>
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetStyle-$PARAM[TempPos],$INFO[Skin.String($PARAM[SubMenu]-WidgetStyle-$PARAM[Pos])])</onclick>
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetStyleLabel-$PARAM[TempPos],$INFO[Skin.String($PARAM[SubMenu]-WidgetStyleLabel-$PARAM[Pos])])</onclick>
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetType-$PARAM[TempPos],$INFO[Skin.String($PARAM[SubMenu]-WidgetType-$PARAM[Pos])])</onclick>
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetList-$PARAM[TempPos],$INFO[Skin.String($PARAM[SubMenu]-WidgetList-$PARAM[Pos])])</onclick>
+			<!-- save temporary items to current postion -->
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetLabel-$PARAM[Pos],$INFO[Skin.String(TempItemLabel)])</onclick>
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetAction-$PARAM[Pos],$INFO[Skin.String(TempItemAction)])</onclick>
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetStyle-$PARAM[Pos],$INFO[Skin.String(TempItemStyle)])</onclick>
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetStyleLabel-$PARAM[Pos],$INFO[Skin.String(TempItemStyleLabel)])</onclick>
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetType-$PARAM[Pos],$INFO[Skin.String(TempItemType)])</onclick>
+			<onclick>Skin.SetString($PARAM[SubMenu]-WidgetList-$PARAM[Pos],$INFO[Skin.String(TempItemList)])</onclick>
+			<!-- clear temp strings -->
+			<onclick>Skin.Reset(TempItemLabel)</onclick>
+			<onclick>Skin.Reset(TempItemAction)</onclick>
+			<onclick>Skin.Reset(TempItemStyle)</onclick>
+			<onclick>Skin.Reset(TempItemStyleLabel)</onclick>
+			<onclick>Skin.Reset(TempItemType)</onclick>
+			<onclick>Skin.Reset(TempItemList)</onclick>
+			<!-- move with the lines -->
+			<onclick>Control.Move(100,$PARAM[Move])</onclick>
+			<onclick>Control.Move(200,$PARAM[Move])</onclick>
+			<onclick>Control.Move(300,$PARAM[Move])</onclick>
+			<onclick>Control.Move(400,$PARAM[Move])</onclick>
+			<onclick>Control.Move(500,$PARAM[Move])</onclick>
+			<onclick>Control.Move(600,$PARAM[Move])</onclick>
+		</item>
+	</include>
+	<!-- next aired -->
+	<include name="NextAiredItems">
+		<item id="1$PARAM[ItemID]">
+			<onclick>SetFocus($PARAM[ItemID])</onclick>
+			<label>$INFO[Window(home).Property(NextAired.$PARAM[ItemID].Weekday)]</label>
+			<property name="OnDown">SetFocus($PARAM[ItemID])</property>
+			<visible>!String.IsEqual(Window(Home).Property(NextAired.$PARAM[ItemID].Weekday),) + !String.IsEmpty(Container($PARAM[ItemID]).ListItem.Label)</visible>
+		</item>
+	</include>
+	<include name="NextAiredLists">
+		<control type="fixedlist" id="$PARAM[ListID]">
+			<left>-102</left>
+			<top>242</top>
+			<width>2036</width>
+			<height>576</height>
+			<onup>999</onup>
+			<ondown>1000</ondown>
+			<onleft>Back</onleft>
+			<onright>noop</onright>
+			<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+			<onfocus>SetProperty(Category,$PARAM[ListID],home)</onfocus>
+			<oninfo>ActivateWindow(1104)</oninfo>
+			<preloaditems>2</preloaditems>
+			<focusposition>1</focusposition>
+			<viewtype label="">list</viewtype>
+			<orientation>horizontal</orientation>
+			<scrolltime easing="inout" tween="sine">300</scrolltime>
+			<visible allowhiddenfocus="true">Container(999).HasFocus(1$PARAM[ListID])</visible>
+			<animation reversible="false" type="Hidden">
+				<effect center="357,540" easing="out" end="98" start="100" time="180" tween="linear" type="zoom" />
+				<effect easing="out" end="0" start="100" time="180" tween="linear" type="fade" />
+			</animation>
+			<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+				<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+				<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+			</animation>
+			<animation reversible="false" type="Visible">
+				<effect center="357,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />
+				<effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade" />
+			</animation>
+			<include content="ViewPosterLayout">
+				<param name="ID">$PARAM[ListID]</param>
+			</include>
+		</control>
+	</include>
+</includes>

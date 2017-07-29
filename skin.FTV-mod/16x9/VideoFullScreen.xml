@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- fullscreenvideo -->
+	<defaultcontrol>-</defaultcontrol>
+	<controls>
+		<control type="image" id="99">
+			<visible>Window.IsVisible(fullscreenvideo) + !String.IsEmpty(Window(home).Property(ShowXRay)) + [Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]</visible>
+			<include>FullscreenDimensions</include>
+			<texture>dialogs/DialogBackground.png</texture>
+			<animation effect="fade" end="100" start="0" time="200">Visible</animation>
+			<animation delay="100" effect="fade" end="0" start="100" time="200">Hidden</animation>
+		</control>
+		<control type="group" id="99">
+			<visible>String.IsEmpty(Window(home).Property(ShowXRay)) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(script-nextup-notification-NextUpInfo.xml) + !Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml)</visible>
+			<control id="99" type="group">
+				<animation reversible="true" type="WindowOpen">
+					<effect end="100" start="0" time="200" type="fade" />
+					<effect delay="4200" end="0" start="100" time="200" type="fade" />
+				</animation>
+				<visible>!Window.IsActive(seekbar) + !Window.IsActive(fullscreeninfo) + !Window.IsActive(videoosd) + !Window.IsActive(musicosd) + !Window.IsActive(subtitlesearch) + !Window.IsVisible(script-nextup-notification-NextUpInfo.xml)</visible>
+				<include>PlayerTitles</include>
+				<control id="99" type="image">
+					<bottom>0</bottom>
+					<width>1980</width>
+					<height>120</height>
+					<texture>osd/mask.png</texture>
+				</control>
+				<!--  Cache bar -->
+				<control id="99" type="progress">
+					<left>92</left>
+					<bottom>93</bottom>
+					<width>1735</width>
+					<height>11</height>
+					<reveal>true</reveal>
+					<info>Player.ProgressCache</info>
+					<texturebg border="4">osd/progress_back.png</texturebg>
+					<lefttexture>-</lefttexture>
+					<midtexture border="4">osd/progress_cache.png</midtexture>
+					<righttexture>-</righttexture>
+					<overlaytexture>-</overlaytexture>
+				</control>
+				<!--  Progress bar -->
+				<control id="99" type="progress">
+					<left>92</left>
+					<bottom>93</bottom>
+					<width>1735</width>
+					<height>11</height>
+					<reveal>true</reveal>
+					<info>Player.Progress</info>
+					<texturebg border="4" colordiffuse="00ffffff">osd/progress_back.png</texturebg>
+					<lefttexture>-</lefttexture>
+					<midtexture border="4">osd/progress_bar.png</midtexture>
+					<righttexture>-</righttexture>
+					<overlaytexture>-</overlaytexture>
+				</control>
+				<!-- Duration Labels -->
+				<include>PlayerDurationLabels</include>
+				<!--Xray Icon-->
+				<control id="99" type="grouplist">
+					<visible>!Player.ShowInfo</visible>
+					<right>92</right>
+					<bottom>40</bottom>
+					<height>40</height>
+					<itemgap>10</itemgap>
+					<align>right</align>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control id="99" type="label">
+						<top>4</top>
+						<width>auto</width>
+						<height>30</height>
+						<font>Reg27</font>
+						<textcolor>fff3f3f3</textcolor>
+						<label>    $LOCALIZE[33063]</label>
+					</control>
+					<control id="99" type="image">
+						<width>40</width>
+						<height>40</height>
+						<texture>osd/select.png</texture>
+					</control>
+				</control>
+			</control>
+			<!-- Pause -->
+			<control type="image" id="99">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>321</width>
+				<height>341</height>
+				<texture>osd/Pause.png</texture>
+				<visible>Player.Paused + !Player.Caching + !Window.IsVisible(fullscreeninfo)</visible>
+			</control>
+			<control type="group" id="99">
+				<visible>Player.Paused + Player.Caching</visible>
+				<!-- Busy -->
+				<control type="image" id="99">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>94</width>
+					<height>94</height>
+					<texture>common/spinner_outer.png</texture>
+					<animation effect="rotate" end="-360" center="auto" time="1120" loop="true" reversible="false" condition="true">Conditional</animation>
+				</control>
+				<control type="image" id="99">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>94</width>
+					<height>94</height>
+					<texture>common/spinner_inner.png</texture>
+					<animation effect="rotate" end="360" center="auto" time="1680" loop="true" reversible="false" condition="true">Conditional</animation>
+				</control>
+			</control>
+			<control type="group">
+				<left>80</left>
+				<top>200</top>
+				<width>1620</width>
+				<height>274</height>
+				<!-- Row 1 label -->
+				<control id="10" type="label">
+					<left>20</left>
+					<top>20</top>
+					<width>1580</width>
+					<height>50</height>
+					<font>Reg27</font>
+					<textcolor>ffffffff</textcolor>
+					<shadowcolor>ff000000</shadowcolor>
+					<label>-</label>
+				</control>
+				<!-- Row 2 label -->
+				<control id="11" type="label">
+					<left>20</left>
+					<top>110</top>
+					<width>1580</width>
+					<height>50</height>
+					<font>Reg27</font>
+					<textcolor>ffffffff</textcolor>
+					<shadowcolor>ff000000</shadowcolor>
+					<label>-</label>
+				</control>
+				<!-- Row 3 label -->
+				<control id="12" type="label">
+					<left>20</left>
+					<top>200</top>
+					<width>1580</width>
+					<height>50</height>
+					<font>Reg27</font>
+					<textcolor>ffffffff</textcolor>
+					<shadowcolor>ff000000</shadowcolor>
+					<label>-</label>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

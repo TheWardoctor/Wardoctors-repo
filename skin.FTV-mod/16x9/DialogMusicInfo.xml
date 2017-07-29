@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- musicinformation -->
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<onload condition="String.IsEmpty(ListItem.DBType)">SetFocus(8)</onload>
+	<onload>SetProperty(TrackCount,$INFO[Window(home).Property(SkinHelper.ListItem.SongCount)],home)</onload>
+	<onload>SetProperty(TrackList,$INFO[Window(home).Property(SkinHelper.ListItem.Tracks.Formatted)],home)</onload>
+	<onload>SetProperty(Albums,$INFO[Window(home).Property(SkinHelper.ListItem.Albums.Formatted)],home)</onload>
+	<onunload>ClearProperty(AlbumDetails,home)</onunload>
+	<onunload>ClearProperty(TrackList,home)</onunload>
+	<onunload>ClearProperty(TrackCount,home)</onunload>
+	<onunload>ClearProperty(Albums,home)</onunload>
+	<onunload>SetFocus(50)</onunload>
+	<animation effect="fade" end="100" start="100" time="200">WindowClose</animation>
+	<controls>
+		<include condition="!String.IsEmpty(ListItem.DBType)">IncludeDialogMusicInfoDefault</include>
+		<include condition="String.IsEmpty(ListItem.DBType)">IncludeDialogMusicInfoSpecial</include>
+	</controls>
+</window>

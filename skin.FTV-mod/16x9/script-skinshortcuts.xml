@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- script-skinshortcuts -->
+	<defaultcontrol always="true">10</defaultcontrol>
+	<onunload>ClearProperty(editShutdownmenu,home)</onunload>
+	<onunload condition="Window.IsVisible(home)">RunScript(script.toolbox,info=yesnodialog,header=$LOCALIZE[20183],text=$LOCALIZE[31267],yesaction=SetProperty(ReloadTriggered,1,home)||XBMC.ReloadSkin,noaction=SetFocus(99),yeslabel=$LOCALIZE[107],nolabel=$LOCALIZE[106])</onunload>
+	<controls>
+		<!-- Move down -->
+		<control type="button" id="304">
+			<include>HiddenControl</include>
+			<onleft>noop</onleft>
+			<onright>303</onright>
+			<onup condition="!String.IsEmpty(Container(211).ListItemNoWrap(-1).Label)">Control.Move(211,-1)</onup>
+			<ondown condition="!String.IsEmpty(Container(211).ListItemNoWrap(1).Label)">Control.Move(211,1)</ondown>
+			<ondown condition="String.IsEmpty(Container(211).ListItemNoWrap(1).Label)">9001</ondown>
+		</control>
+		<!-- Move up -->
+		<control type="button" id="303">
+			<include>HiddenControl</include>
+			<onleft>304</onleft>
+			<onright>9000</onright>
+			<onup condition="!String.IsEmpty(Container(211).ListItemNoWrap(-1).Label)">Control.Move(211,-1)</onup>
+			<ondown condition="!String.IsEmpty(Container(211).ListItemNoWrap(1).Label)">Control.Move(211,1)</ondown>
+			<ondown condition="String.IsEmpty(Container(211).ListItemNoWrap(1).Label)">9001</ondown>
+		</control>
+		<!-- Hidden Buttons -->
+		<control type="button" id="404">
+			<include>HiddenControl</include>
+		</control>
+		<control type="button" id="311">
+			<include>HiddenControl</include>
+		</control>
+		<control type="button" id="308">
+			<include>HiddenControl</include>
+		</control>
+		<control type="button" id="50">
+			<include>HiddenControl</include>
+			<include name="ResetAllWidgets">
+				<param name="ID">1000</param>
+			</include>
+			<include content="ResetAllWidgets">
+				<param name="ID">2000</param>
+			</include>
+			<include content="ResetAllWidgets">
+				<param name="ID">3000</param>
+			</include>
+			<include content="ResetAllWidgets">
+				<param name="ID">4000</param>
+			</include>
+			<include content="ResetAllWidgets">
+				<param name="ID">5000</param>
+			</include>
+			<include content="ResetAllWidgets">
+				<param name="ID">6000</param>
+			</include>
+			<include content="ResetAllWidgets">
+				<param name="ID">7000</param>
+			</include>
+			<include content="ResetAllWidgets">
+				<param name="ID">8000</param>
+			</include>
+			<include content="ResetAllWidgets">
+				<param name="ID">9000</param>
+			</include>
+			<include content="ResetAllWidgets">
+				<param name="ID">10000</param>
+			</include>
+			<include content="ResetAllWidgets">
+				<param name="ID">11000</param>
+			</include>
+			<include content="ResetAllWidgets">
+				<param name="ID">12000</param>
+			</include>
+			<onfocus>SetFocus(910)</onfocus>
+		</control>
+		<include>DialogBackgroundImage</include>
+		<!-- Main group -->
+		<control type="group">
+			<left>190</left>
+			<centertop>50%</centertop>
+			<width>1540</width>
+			<include condition="String.IsEmpty(Window(home).Property(editShutdownmenu))" content="ParamHeight">
+				<param name="height" value="916"/>
+			</include>
+			<include condition="!String.IsEmpty(Window(home).Property(editShutdownmenu))" content="ParamHeight">
+				<param name="height" value="580"/>
+			</include>
+			<include>DialogZoomAnimation</include>
+			<control type="image">
+				<width>1540</width>
+				<include condition="String.IsEmpty(Window(home).Property(editShutdownmenu))" content="ParamHeight">
+					<param name="height" value="916"/>
+				</include>
+				<include condition="!String.IsEmpty(Window(home).Property(editShutdownmenu))" content="ParamHeight">
+					<param name="height" value="580"/>
+				</include>
+				<texture border="5,65,5,5">dialogs/dialog_back.png</texture>
+			</control>
+			<!-- Heading -->
+			<control type="label" id="500">
+				<left>40</left>
+				<top>14</top>
+				<height>30</height>
+				<width>1540</width>
+				<aligny>center</aligny>
+				<font>Bold30</font>
+				<label>21432</label>
+				<textcolor>ffdadada</textcolor>
+				<visible>String.IsEmpty(Window(home).Property(editShutdownmenu))</visible>
+			</control>
+			<control type="label">
+				<left>40</left>
+				<top>14</top>
+				<height>30</height>
+				<width>1540</width>
+				<aligny>center</aligny>
+				<font>Bold30</font>
+				<label>$LOCALIZE[31114]</label>
+				<textcolor>ffdadada</textcolor>
+				<visible>!String.IsEmpty(Window(home).Property(editShutdownmenu))</visible>
+			</control>
+			<control type="label">
+				<right>40</right>
+				<top>14</top>
+				<width>1540</width>
+				<height>30</height>
+				<font>Light30Spaced</font>
+				<align>right</align>
+				<textcolor>ff636364</textcolor>
+				<label>[COLOR ffb2b2b2]$INFO[Container(211).CurrentItem][/COLOR] | $INFO[Container(211).NumItems]</label>
+			</control>
+			<!-- Left list -->
+			<control type="list" id="211">
+				<top>60</top>
+				<width>670</width>
+				<include condition="String.IsEmpty(Window(home).Property(editShutdownmenu))" content="ParamHeight">
+					<param name="height" value="756"/>
+				</include>
+				<include condition="!String.IsEmpty(Window(home).Property(editShutdownmenu))" content="ParamHeight">
+					<param name="height" value="420"/>
+				</include>
+				<onleft>noop</onleft>
+				<onright>304</onright>
+				<onup>noop</onup>
+				<ondown>9001</ondown>
+				<scrolltime>0</scrolltime>
+				<itemlayout height="84" width="670">
+					<control type="image">
+						<width>670</width>
+						<height>84</height>
+						<texture border="3">settings/button_no_focus.png</texture>
+					</control>
+					<control type="label">
+						<left>40</left>
+						<width>590</width>
+						<height>84</height>
+						<font>Light32</font>
+						<textcolor>DisabledColor</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>String.IsEqual(ListItem.Property(skinshortcuts-disabled),True)</visible>
+					</control>
+					<control type="label">
+						<left>40</left>
+						<width>590</width>
+						<height>84</height>
+						<font>Light32</font>
+						<textcolor>ff505153</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>String.IsEqual(ListItem.Property(skinshortcuts-disabled),False)</visible>
+					</control>
+					<control type="label">
+						<right>40</right>
+						<width>590</width>
+						<label>$LOCALIZE[571]</label>
+						<height>84</height>
+						<font>Light32</font>
+						<align>right</align>
+						<textcolor>ffdadada</textcolor>
+						<visible>String.IsEqual(ListItem.Property(skinshortcuts-orderindex),Skin.String(MenuDefaultControl)) + String.IsEmpty(Window(home).Property(editShutdownmenu))</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="84" width="670">
+					<control type="image">
+						<width>670</width>
+						<height>84</height>
+						<texture border="3">settings/button_focus.png</texture>
+					</control>
+					<control type="label">
+						<left>40</left>
+						<width>590</width>
+						<height>84</height>
+						<font>Light32</font>
+						<textcolor>ffffaf37</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>Control.HasFocus(303) | Control.HasFocus(304)</visible>
+					</control>
+					<control type="label">
+						<left>40</left>
+						<width>590</width>
+						<height>84</height>
+						<font>Light32</font>
+						<textcolor>ffffffff</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>!Control.HasFocus(303) + !Control.HasFocus(304)</visible>
+					</control>
+					<control type="label">
+						<right>120</right>
+						<width>590</width>
+						<label>$LOCALIZE[571]</label>
+						<height>84</height>
+						<font>Light32</font>
+						<align>right</align>
+						<textcolor>ffdadada</textcolor>
+						<visible>String.IsEqual(ListItem.Property(skinshortcuts-orderindex),Skin.String(MenuDefaultControl)) + String.IsEmpty(Window(home).Property(editShutdownmenu))</visible>
+					</control>
+					<control type="image">
+						<top>31</top>
+						<left>566</left>
+						<width>32</width>
+						<height>21</height>
+						<texture>dialogs/SpinDownNF.png</texture>
+						<visible>!Control.HasFocus(304)</visible>
+					</control>
+					<control type="image">
+						<top>31</top>
+						<left>598</left>
+						<width>32</width>
+						<height>21</height>
+						<texture>dialogs/SpinUpNF.png</texture>
+						<visible>!Control.HasFocus(303)</visible>
+					</control>
+					<control type="image">
+						<top>31</top>
+						<left>566</left>
+						<width>32</width>
+						<height>21</height>
+						<texture>dialogs/SpinDownFO.png</texture>
+						<visible>Control.HasFocus(304)</visible>
+					</control>
+					<control type="image">
+						<top>31</top>
+						<left>598</left>
+						<width>32</width>
+						<height>21</height>
+						<texture>dialogs/SpinUpFO.png</texture>
+						<visible>Control.HasFocus(303)</visible>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<width>670</width>
+				<top>60</top>
+				<control type="label">
+					<right>40</right>
+					<width>590</width>
+					<label>$LOCALIZE[571]</label>
+					<height>84</height>
+					<font>Light32</font>
+					<align>right</align>
+					<textcolor>ffdadada</textcolor>
+					<animation effect="slide" time="0" start="0,0" end="-80,0" condition="Container(211).Row(0)">Conditional</animation>
+					<visible>String.IsEmpty(Skin.String(MenuDefaultControl)) + !Container(211).HasPrevious + String.IsEmpty(Window(home).Property(editShutdownmenu))</visible>
+				</control>
+			</control>
+			<!-- Right grouplist -->
+			<control type="grouplist" id="9000">
+				<left>670</left>
+				<top>60</top>
+				<width>870</width>
+				<include condition="String.IsEmpty(Window(home).Property(editShutdownmenu))" content="ParamHeight">
+					<param name="height" value="756"/>
+				</include>
+				<include condition="!String.IsEmpty(Window(home).Property(editShutdownmenu))" content="ParamHeight">
+					<param name="height" value="420"/>
+				</include>
+				<itemgap>0</itemgap>
+				<onleft>303</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>9001</ondown>
+				<orientation>vertical</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<!-- Change label -->
+				<control type="button" id="305">
+					<width>870</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>790</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>$LOCALIZE[21899]</label>
+					<label2>$INFO[Container(211).ListItem.Label]</label2>
+				</control>
+				<!-- Change shortcut -->
+				<control type="button" id="401">
+					<width>870</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>790</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>$LOCALIZE[31201]</label>
+				</control>
+				<!-- Change action -->
+				<control type="button" id="307">
+					<width>870</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>790</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>$ADDON[script.skinshortcuts 32027]</label>
+					<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
+				</control>
+				<!-- widget button -->
+				<control id="997" type="radiobutton">
+					<width>870</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>790</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<radiowidth>125</radiowidth>
+					<radioheight>53</radioheight>
+					<radioposx>718</radioposx>
+					<textureradioonfocus>settings/radio_on_focus.png</textureradioonfocus>
+					<textureradioonnofocus>settings/radio_on_no_focus.png</textureradioonnofocus>
+					<textureradioondisabled>settings/radio_on_disabled.png</textureradioondisabled>
+					<textureradioofffocus>settings/radio_off_focus.png</textureradioofffocus>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<textureradiooffdisabled>settings/radio_off_disabled.png</textureradiooffdisabled>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<onclick>SetProperty(DisableSuggestions,1,Home)</onclick>
+					<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
+					<onclick>SetProperty(Dialog.1.BuiltIn,SetProperty(customProperty,ftvWidget)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[19020])</onclick>
+					<onclick>SetProperty(Dialog.2.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,livetv)||Skin.SetString(ftvLabelTV,$LOCALIZE[19020])||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[10508])</onclick>
+					<onclick>SetProperty(Dialog.3.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,weather)||Skin.SetString(ftvLabelWeather,$LOCALIZE[10508])||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[1036])</onclick>
+					<onclick>SetProperty(Dialog.4.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,favourites)||Skin.SetString(ftvLabelFavourites,$LOCALIZE[1036])||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.5.Label,$VAR[ftvLabelWidget1000])</onclick>
+					<onclick>SetProperty(Dialog.5.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget1)||Skin.SetString(ftvLabelWidget1000)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.6.Label,$VAR[ftvLabelWidget2000])</onclick>
+					<onclick>SetProperty(Dialog.6.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget2)||Skin.SetString(ftvLabelWidget2000)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.7.Label,$VAR[ftvLabelWidget3000])</onclick>
+					<onclick>SetProperty(Dialog.7.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget3)||Skin.SetString(ftvLabelWidget3000)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.8.Label,$VAR[ftvLabelWidget4000])</onclick>
+					<onclick>SetProperty(Dialog.8.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget4)||Skin.SetString(ftvLabelWidget4000)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.9.Label,$VAR[ftvLabelWidget5000])</onclick>
+					<onclick>SetProperty(Dialog.9.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget5)||Skin.SetString(ftvLabelWidget5000)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.10.Label,$VAR[ftvLabelWidget6000])</onclick>
+					<onclick>SetProperty(Dialog.10.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget6)||Skin.SetString(ftvLabelWidget6000)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.11.Label,$VAR[ftvLabelWidget7000])</onclick>
+					<onclick>SetProperty(Dialog.11.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget7)||Skin.SetString(ftvLabelWidget7000)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.12.Label,$VAR[ftvLabelWidget8000])</onclick>
+					<onclick>SetProperty(Dialog.12.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget8)||Skin.SetString(ftvLabelWidget8000)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.13.Label,$VAR[ftvLabelWidget9000])</onclick>
+					<onclick>SetProperty(Dialog.13.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget9)||Skin.SetString(ftvLabelWidget9000)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.14.Label,$VAR[ftvLabelWidget10000])</onclick>
+					<onclick>SetProperty(Dialog.14.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget10)||Skin.SetString(ftvLabelWidget10000)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.15.Label,$VAR[ftvLabelWidget11000])</onclick>
+					<onclick>SetProperty(Dialog.15.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget11)||Skin.SetString(ftvLabelWidget11000)||SendClick(404))</onclick>
+					<onclick>SetProperty(Dialog.16.Label,$VAR[ftvLabelWidget12000])</onclick>
+					<onclick>SetProperty(Dialog.16.BuiltIn,SetProperty(customProperty,ftvWidget)||setProperty(customValue,widget12)||Skin.SetString(ftvLabelWidget12000)||SendClick(404))</onclick>
+					<onclick>RunScript(script.toolbox,info=selectdialog,header=$ADDON[script.skinshortcuts 32044])</onclick>
+					<label>$LOCALIZE[31197]</label>
+					<selected>!String.IsEmpty(Container(211).ListItem.Property(ftvWidget))</selected>
+					<enable>!String.IsEqual(Container(211).ListItem.Property(defaultID),settings)</enable>
+					<visible>String.IsEmpty(Window(home).Property(editShutdownmenu))</visible>
+				</control>
+				<!-- Manage widgets -->
+				<control id="998" type="button">
+					<width>870</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>790</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>$LOCALIZE[31265]</label>
+					<label2>$VAR[ftvWidgetLabel]</label2>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget1)">SetProperty(SubMenu,1000,home)</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget2)">SetProperty(SubMenu,2000,home)</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget3)">SetProperty(SubMenu,3000,home)</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget4)">SetProperty(SubMenu,4000,home)</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget5)">SetProperty(SubMenu,5000,home)</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget6)">SetProperty(SubMenu,6000,home)</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget7)">SetProperty(SubMenu,7000,home)</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget8)">SetProperty(SubMenu,8000,home)</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget9)">SetProperty(SubMenu,9000,home)</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget10)">SetProperty(SubMenu,10000,home)</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget11)">SetProperty(SubMenu,11000,home)</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(ftvWidget),widget12)">SetProperty(SubMenu,12000,home)</onclick>
+					<visible>!String.IsEmpty(Container(211).ListItem.Property(ftvWidget))</visible>
+					<onclick>ActivateWindow(1105)</onclick>
+					<enable>String.StartsWith(Container(211).ListItem.Property(ftvWidget),widget)</enable>
+				</control>
+				<!-- Change background -->
+				<control type="radiobutton" id="999">
+					<width>870</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>790</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<radiowidth>125</radiowidth>
+					<radioheight>53</radioheight>
+					<radioposx>718</radioposx>
+					<textureradioonfocus>settings/radio_on_focus.png</textureradioonfocus>
+					<textureradioonnofocus>settings/radio_on_no_focus.png</textureradioonnofocus>
+					<textureradioondisabled>settings/radio_on_disabled.png</textureradioondisabled>
+					<textureradioofffocus>settings/radio_off_focus.png</textureradioofffocus>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<textureradiooffdisabled>settings/radio_off_disabled.png</textureradiooffdisabled>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>$LOCALIZE[19190]</label>
+					<selected>!String.IsEqual(Container(211).ListItem.Thumb,DefaultAddonNone.png) + !String.IsEmpty(Container(211).ListItem.Thumb)</selected>
+					<onclick>SetProperty(LabelOverride,$ADDON[script.skinshortcuts 32045],home)</onclick>
+					<onclick>SendClick(311)</onclick>
+					<visible>String.IsEmpty(Window(home).Property(editShutdownmenu))</visible>
+				</control>
+				<!-- Start -->
+				<control type="radiobutton" id="996">
+					<width>870</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>790</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<selected>String.IsEqual(Container(211).ListItem.Property(skinshortcuts-orderindex),Skin.String(MenuDefaultControl))</selected>
+					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-orderindex),Skin.String(MenuDefaultControl))">Skin.SetString(MenuDefaultControl,$INFO[Container(211).ListItem.Property(skinshortcuts-orderindex)])</onclick>
+					<onclick condition="String.IsEqual(Container(211).ListItem.Property(skinshortcuts-orderindex),Skin.String(MenuDefaultControl))">Skin.Reset(MenuDefaultControl)</onclick>
+					<label>$LOCALIZE[31269]</label>
+					<radiowidth>125</radiowidth>
+					<radioheight>53</radioheight>
+					<radioposx>718</radioposx>
+					<textureradioonfocus>settings/radio_on_focus.png</textureradioonfocus>
+					<textureradioonnofocus>settings/radio_on_no_focus.png</textureradioonnofocus>
+					<textureradioondisabled>settings/radio_on_disabled.png</textureradioondisabled>
+					<textureradioofffocus>settings/radio_off_focus.png</textureradioofffocus>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<textureradiooffdisabled>settings/radio_off_disabled.png</textureradiooffdisabled>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<enable>!Integer.IsGreater(Container(211).ListItem.Property(skinshortcuts-orderindex),21)</enable>					
+					<visible>String.IsEmpty(Window(home).Property(editShutdownmenu))</visible>
+				</control>
+				<!-- Disable -->
+				<control type="radiobutton" id="313">
+					<width>870</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>790</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<label>$LOCALIZE[19218]</label>
+					<radiowidth>125</radiowidth>
+					<radioheight>53</radioheight>
+					<radioposx>718</radioposx>
+					<textureradioonfocus>settings/radio_on_focus.png</textureradioonfocus>
+					<textureradioonnofocus>settings/radio_on_no_focus.png</textureradioonnofocus>
+					<textureradioondisabled>settings/radio_on_disabled.png</textureradioondisabled>
+					<textureradioofffocus>settings/radio_off_focus.png</textureradioofffocus>
+					<textureradiooffnofocus>settings/radio_off_no_focus.png</textureradiooffnofocus>
+					<textureradiooffdisabled>settings/radio_off_disabled.png</textureradiooffdisabled>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<selected>String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),False)</selected>
+					<enable>!String.IsEmpty(Container(211).ListItem.Property(skinshortcuts-disabled))</enable>
+				</control>
+				<!-- Remove -->
+				<control type="button" id="302">
+					<width>870</width>
+					<height>84</height>
+					<font>Light32</font>
+					<textwidth>790</textwidth>
+					<textoffsetx>40</textoffsetx>
+					<textcolor>ff505153</textcolor>
+					<focusedcolor>ffffaf37</focusedcolor>
+					<texturefocus border="3">settings/button_focus.png</texturefocus>
+					<texturenofocus border="3">settings/button_no_focus.png</texturenofocus>
+					<label>-</label>
+				</control>
+			</control>
+			<control type="image">
+				<top>732</top>
+				<width>1540</width>
+				<height>84</height>
+				<texture border="3">settings/button_no_focus.png</texture>
+				<animation effect="slide" time="0" end="0,-336" condition="!String.IsEmpty(Window(home).Property(editShutdownmenu))">Conditional</animation>
+			</control>
+			<!-- Button grouplist -->
+			<control type="grouplist" id="9001">
+				<left>0</left>
+				<bottom>12</bottom>
+				<width>1540</width>
+				<height>76</height>
+				<itemgap>0</itemgap>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>9000</onup>
+				<ondown>noop</ondown>
+				<align>center</align>
+				<orientation>horizontal</orientation>
+				<!-- Add -->
+				<control type="button" id="301">
+					<width>320</width>
+					<height>76</height>
+					<align>center</align>
+					<aligny>top</aligny>
+					<font>Med24</font>
+					<onup>303</onup>
+					<textoffsetx>23</textoffsetx>
+					<textoffsety>27</textoffsety>
+					<label>$ADDON[script.skinshortcuts 32000]</label>
+				</control>
+				<!-- Reset -->
+				<control type="button" id="910">
+					<width>320</width>
+					<height>76</height>
+					<align>center</align>
+					<aligny>top</aligny>
+					<font>Med24</font>
+					<onup>303</onup>
+					<textoffsetx>23</textoffsetx>
+					<textoffsety>27</textoffsety>
+					<label>$LOCALIZE[31260]</label>
+					<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31144])</onclick>
+					<onclick>SetProperty(Dialog.1.BuiltIn,RunScript(script.skin.helper.skinbackup,action=backup,filter=Widget))</onclick>
+					<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31259])</onclick>
+					<onclick>SetProperty(Dialog.2.BuiltIn,RunScript(script.skin.helper.skinbackup,action=restore,filter=Widget))</onclick>
+					<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31143])</onclick>
+					<onclick>SetProperty(Dialog.3.BuiltIn,SetFocus(50))</onclick>
+					<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31142])</onclick>
+					<onclick>SetProperty(Dialog.4.BuiltIn,SendClick(308))</onclick>
+					<onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31260])</onclick>
+				</control>
+				<!-- OK Button -->
+				<control type="button" id="10">
+					<width>320</width>
+					<height>76</height>
+					<align>center</align>
+					<aligny>top</aligny>
+					<font>Med24</font>
+					<textoffsetx>23</textoffsetx>
+					<textoffsety>27</textoffsety>
+					<label>186</label>
+					<onback condition="!Window.IsVisible(home)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=99&amp;levels=5&amp;group=mainmenu|shutdown)</onback>
+					<onclick condition="!Window.IsVisible(home)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=99&amp;levels=0&amp;group=mainmenu|shutdown)</onclick>
+					<onclick>Close</onclick>
+				</control>
+			</control>
+			<control type="image">
+				<left>670</left>
+				<top>60</top>
+				<width>40</width>
+				<include condition="String.IsEmpty(Window(home).Property(editShutdownmenu))" content="ParamHeight">
+					<param name="height" value="756"/>
+				</include>
+				<include condition="!String.IsEmpty(Window(home).Property(editShutdownmenu))" content="ParamHeight">
+					<param name="height" value="420"/>
+				</include>
+				<texture border="0,20,0,0">common/shadow.png</texture>
+			</control>
+		</control>
+	</controls>
+</window>
