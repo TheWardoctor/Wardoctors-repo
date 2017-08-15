@@ -1,0 +1,3108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- # Languages strings disabled -->
+<window type="dialog">
+    <allowoverlay>no</allowoverlay>
+    <defaultcontrol always="false">4001</defaultcontrol>
+    <coordinates>
+        <system>1</system>
+        <posx>0</posx>
+        <posy>0</posy>
+    </coordinates>
+    <animation effect="fade" time="250">WindowOpen</animation>
+    <animation effect="fade" time="200">WindowClose</animation>
+    <controls>
+        <!-- # Main Background - perhaps settings background -->
+        <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>1280</width>
+            <height>720</height>
+            <texture>backgrounds/background.png</texture>
+            <visible>true</visible>
+        </control>
+        <!-- # touch close depreciated perhaps -->
+        <control type="button" id="4015">
+            <texturefocus></texturefocus>
+            <texturenofocus></texturenofocus>
+            <label></label>
+            <description>touch close depreciated perhaps</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>1280</width>
+            <height>720</height>
+            <onup></onup>
+            <ondown></ondown>
+            <onleft></onleft>
+            <align>center</align>
+            <aligny>center</aligny>
+            <textcolor>white</textcolor>
+            <focusedcolor>white</focusedcolor>
+            <visible>true</visible>
+            <onclick>back</onclick>
+        </control>
+        <!-- # clear Mainscreen invisible exit -->
+        <control type="button">
+            <texturenofocus></texturenofocus>
+            <description>clear Mainscreen invisible exit</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>1280</width>
+            <height>720</height>
+            <!--<onclick>SetFocus(100)</onclick>
+            <onclick>ContextMenu</onclick>-->
+            <onclick>back</onclick>
+            <texturefocus>buttons/clearFO.png</texturefocus>
+            <!--<visible>Control.IsVisible(5000)+Window.IsVisible(VideoOSD)</visible>-->
+        </control>
+        <!-- # Categories Main Control Group -->
+        <control type="group">
+            <description>Main Categories Control Group</description>
+            <control type="image">
+                <description>category background</description>
+                <posx>30</posx>
+                <posy>42</posy>
+                <width>1220</width>
+                <height>45</height>
+                <texture>buttons/clear-black.png</texture>
+                <visible>true</visible>
+            </control>
+            <control type="image">
+                <posx>28</posx>
+                <posy>8</posy>
+                <width>1224</width>
+                <height>34</height>
+                <texture>black.png</texture>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <posx>30</posx>
+                <posy>10</posy>
+                <width>1220</width>
+                <height>30</height>
+                <texture colordiffuse="skyblue">trans/whitetrans25.png</texture>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="label">
+                <description>Category label</description>
+                <posx>55</posx>
+                <posy>10</posy>
+                <width>380</width>
+                <height>30</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <textcolor>white</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <label>[UPPERCASE]Categories »[/UPPERCASE]</label>
+            </control>
+            <control type="label">
+                <description>Current time label OSD</description>
+                <posx>1235</posx>
+                <!--<left>60</left>-->
+                <posy>11</posy>
+                <width>292</width>
+                <height>30</height>
+                <align>right</align>
+                <aligny>center</aligny>
+                <textcolor>grey</textcolor>
+                <font>font10</font>
+                <label fallback="">$INFO[System.Date(DDD)], $INFO[System.Date(dd)]. $INFO[System.Date(MMM)] - $INFO[System.Time(hh:mm)]</label>
+            </control>
+            <control type="list" id="7004">
+                <description>Categories Group</description>
+                <posx>40</posx>
+                <posy>43</posy>
+                <width>1200</width>
+                <height>625</height>
+                <visible>true</visible>
+                <ondown>40010</ondown>
+                <onleft>7004</onleft>
+                <onright>7004</onright>
+                <itemgap>5</itemgap>
+                <viewtype label="3D list">list</viewtype>
+                <orientation>horizontal</orientation>
+                <itemlayout width="200" height="45">
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>196</width>
+                        <height>40</height>
+                        <texture>buttons/menu_button.png</texture>
+                        <visible>true</visible>
+                    </control>
+                    <control type="label">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>196</width>
+                        <height>40</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <selectedcolor>red</selectedcolor>
+                        <info>ListItem.Label</info>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="45" width="200">
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>196</width>
+                        <height>40</height>
+                        <texture>buttons/menu_buttonFO.png</texture>
+                        <visible>true</visible>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>196</width>
+                        <height>40</height>
+                        <texture>buttons/menu_buttonFO.png</texture>
+                        <!--<visible>Control.HasFocus(7004)</visible>-->
+                        <visible>Control.HasFocus(7004)</visible>
+                    </control>
+                    <control type="label">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>196</width>
+                        <height>40</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <selectedcolor>red</selectedcolor>
+                        <info>ListItem.Label</info>
+                    </control>
+                    <control type="label">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>196</width>
+                        <height>40</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <selectedcolor>red</selectedcolor>
+                        <info>ListItem.Label</info>
+                        <!--<visible>Control.HasFocus(7004)</visible>-->
+                        <visible>Control.HasFocus(7004)</visible>
+                    </control>
+                </focusedlayout>
+            </control>
+        </control>
+        <!-- # Main Program Playing Information Control Group Area Right -->
+        <control type="group">
+            <description>Main Program Playing Information Control Group Area Right</description>
+            <!-- Information background Main -->
+            <control type="image">
+                <description>Information background Main</description>
+                <posx>500</posx>
+                <posy>100</posy>
+                <width>740</width>
+                <height>600</height>
+                <texture>buttons/clear-black.png</texture>
+                <visible>true</visible>
+            </control>
+            <!-- Information background extra black layer for descriptions -->
+            <control type="image">
+                <description>Information background extra black layer for descriptions</description>
+                <posx>510</posx>
+                <posy>465</posy>
+                <width>720</width>
+                <height>233</height>
+                <texture>buttons/clear-black.png</texture>
+                <visible>true</visible>
+            </control>
+            <!-- Information background black -->
+            <control type="image">
+                <description>Information background black</description>
+                <posx>498</posx>
+                <posy>100</posy>
+                <width>740</width>
+                <height>34</height>
+                <texture>black.png</texture>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <!-- Information background edge -->
+            <control type="image">
+                <description>Information background edge</description>
+                <posx>500</posx>
+                <posy>100</posy>
+                <width>740</width>
+                <height>30</height>
+                <texture colordiffuse="skyblue">trans/whitetrans25.png</texture>
+                <!--<texture>backgrounds/blue-back.png</texture>-->
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <!-- Information label -->
+            <control type="label">
+                <description>Information label</description>
+                <posx>525</posx>
+                <posy>100</posy>
+                <width>380</width>
+                <height>30</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <textcolor>white</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <label>[UPPERCASE]Information »[/UPPERCASE]</label>
+                <visible>false</visible>
+            </control>
+            <!-- Database Addon Logo -->
+            <control type="image" id="4025">
+                <description>Database Addon Logo</description>
+                <posx>1210</posx>
+                <posy>100</posy>
+                <width>30</width>
+                <height>30</height>
+                <aspectratio>keep</aspectratio>
+                <align>left</align>
+                <texture>-</texture>
+                <visible>true</visible>
+            </control>
+            <!-- Database Addon Name -->
+            <control type="label" id="4026">
+                <label></label>
+                <description>Database Addon Name</description>
+                <posx>1200</posx>
+                <posy>100</posy>
+                <width>380</width>
+                <height>30</height>
+                <align>right</align>
+                <aligny>center</aligny>
+                <textcolor>white</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <scroll>true</scroll>
+            </control>
+        </control>
+        <!-- # Main Current Program Descriptions Window Control Group -->
+        <control type="group">
+            <description>Popup Current Program Descriptions Group</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <!--<posx>0</posx>
+            <posy>0</posy>-->
+            <!-- first row current channel -->
+            <!-- channel title old disabled -->
+            <control type="label" id="4101">
+                <description>channel title old disabled</description>
+                <posx>525</posx>
+                <posy>472</posy>
+                <width>240</width>
+                <height>30</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <textcolor>white</textcolor>
+                <visible>false</visible>
+                <!--<visible>StringCompare(Control.GetLabel(4100),)</visible>-->
+            </control>
+            <!-- channel title -->
+            <control type="label" id="44101">
+                <description>channel title</description>
+                <posx>525</posx>
+                <posy>472</posy>
+                <width>240</width>
+                <height>32</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <textcolor>white</textcolor>
+                <!--<font>font14_bold</font>-->
+            </control>
+            <!-- Small current program date and time -->
+            <control type="label" id="7003">
+                <label></label>
+                <description>Small current program date and time</description>
+                <posx>1220</posx>
+                <posy>472</posy>
+                <width>240</width>
+                <height>30</height>
+                <textcolor>white</textcolor>
+                <align>right</align>
+                <aligny>center</aligny>
+                <label>[B]18:00 - 20:00[/B]</label>
+            </control>
+            <!-- second row current channel durations -->
+            <control type="grouplist">
+                <posx>525</posx>
+                <posy>499</posy>
+                <itemgap>5</itemgap>
+                <height>20</height>
+                <orientation>horizontal</orientation>
+                <!-- Program Duration header text -->
+                <!--
+                <control type="label">
+                    <description>Program Duration header text</description>
+                    <height>20</height>
+                    <width min="5" max="150">auto</width>
+                    <textcolor>grey</textcolor>
+                    
+                    <shadowcolor>black</shadowcolor>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <visible>true</visible>
+                    <label>DURATION:</label>
+                </control>
+                -->
+                <!-- Program Duration -->
+                <control type="label" id="4103">
+                    <label></label>
+                    <description>Program Duration</description>
+                    <width min="5" max="600">auto</width>
+                    <height>20</height>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <visible>true</visible>
+                </control>
+                <!-- Program Duration spacer -->
+                <control type="label">
+                    <description>Program Duration spacer</description>
+                    <height>20</height>
+                    <width min="5" max="150">auto</width>
+                    <textcolor>grey</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <visible>true</visible>
+                    <label>•</label>
+                </control>
+                <!-- Program time -->
+                <control type="label" id="4104">
+                    <label></label>
+                    <description>Program time</description>
+                    <width min="5" max="220">auto</width>
+                    <height>20</height>
+                    <!--<label>[B]18:00 - 20:00[/B]</label>-->
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <visible>true</visible>
+                </control>
+            </control>
+            <!-- Current system time -->
+            <control type="label">
+                <description>Current system time</description>
+                <posx>1220</posx>
+                <posy>493</posy>
+                <width>240</width>
+                <height>30</height>
+                <textcolor>white</textcolor>
+                <align>right</align>
+                <aligny>center</aligny>
+                <label>$INFO[System.Time(h:mm:ss)]</label>
+                <!--<label>$INFO[System.Time(hh:mm:ss)]</label>-->
+            </control>
+            <!-- third row spacer and progress -->
+            <control type="progress" id="4105">
+                <description>Popup Current Program Progress Bar</description>
+                <posx>525</posx>
+                <posy>520</posy>
+                <width>695</width>
+                <height>10</height>
+                <texturebg colordiffuse="grey">tvg-button-nofocus.png</texturebg>
+                <midtexture colordiffuse="cyan">tvg-button-focus.png</midtexture>
+                <visible>IntegerGreaterThan(Control.GetLabel(4105),0)</visible>
+            </control>
+            <control type="image">
+                <description>Popup Current Program Progress Bar Background</description>
+                <posx>525</posx>
+                <posy>520</posy>
+                <width>695</width>
+                <height>10</height>
+                <align>right</align>
+                <texture colordiffuse="white">buttons/player/progress_under.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!Control.IsVisible(4105)</visible>
+            </control>
+            <!-- fourth row program title -->
+            <!-- Show Program Title -->
+            <control type="label" id="4102">
+                <label></label>
+                <description>Show Program Title</description>
+                <posx>525</posx>
+                <posy>530</posy>
+                <width>710</width>
+                <height>30</height>
+                <textcolor>white</textcolor>
+                <font>font30_title</font>
+                <!--<font>TVGuide35</font>-->
+                <scroll>true</scroll>
+                <visible>!Control.IsVisible(7001)</visible>
+            </control>
+            <!-- Program title + season  episode -->
+            <control type="label" id="7001">
+                <description>Program title + season / episode</description>
+                <posx>525</posx>
+                <posy>530</posy>
+                <width>710</width>
+                <height>30</height>
+                <label>Title + Season and Episode</label>
+                <textcolor>white</textcolor>
+                <font>font30_title</font>
+                <!--<font>TVGuide35</font>-->
+                <scroll>true</scroll>
+                <visible>StringCompare(Control.GetLabel(7001),)</visible>
+            </control>
+            <!-- Current Channel logo bottom right -->
+            <control type="image" id="4100">
+                <description>Current Channel logo bottom right</description>
+                <posx>1130</posx>
+                <posy>660</posy>
+                <width>90</width>
+                <height>27</height>
+                <aspectratio>keep</aspectratio>
+                <colordiffuse>white</colordiffuse>
+            </control>
+            <!-- sixth row  progress -->
+            <!-- Progressbar current playing cache and progress null adds blue hue -->
+            <control type="progress" id="1">
+                <description>Progressbar current playing cache and progress null adds blue hue</description>
+                <posx>525</posx>
+                <posy>663</posy>
+                <width>600</width>
+                <height>12</height>
+                <info>Player.Progress</info>
+            </control>
+            <!-- ProgressbarCache current playing progress -->
+            <control type="progress" id="1">
+                <description>ProgressbarCache current playing progress</description>
+                <posx>525</posx>
+                <posy>663</posy>
+                <width>600</width>
+                <height>12</height>
+                <info>Player.ProgressCache</info>
+                <midtexture border="6,0,6,0">buttons/player/progress_middle.png</midtexture>
+                <!--<midtexture border="6,0,6,0">buttons/player/OSDProgressMidLight.png</midtexture>-->
+                <visible>Player.HasMedia</visible>
+            </control>
+            <!-- seventh row next program descriptions -->
+            <control type="grouplist">
+                <posx>525</posx>
+                <posy>677</posy>
+                <itemgap>5</itemgap>
+                <height>20</height>
+                <orientation>horizontal</orientation>
+                <!-- Next Program title header text -->
+                <control type="label">
+                    <description>Next Program title header text</description>
+                    <height>20</height>
+                    <width min="5" max="150">auto</width>
+                    <textcolor>grey</textcolor>
+                    <font>font10</font>
+                    <shadowcolor>black</shadowcolor>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <visible>true</visible>
+                    <label>UP NEXT:</label>
+                </control>
+                <!-- Next Program title -->
+                <control type="label" id="4106">
+                    <label></label>
+                    <description>Next Program title</description>
+                    <width min="5" max="300">auto</width>
+                    <height>20</height>
+                    <label>[B]Title[/B]</label>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <font>font10</font>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <visible>Control.IsVisible(4106)</visible>
+                </control>
+                <!-- Next Program title spacer -->
+                <control type="label">
+                    <description>Next Program title spacer</description>
+                    <height>20</height>
+                    <width min="5" max="50">auto</width>
+                    <font>font10</font>
+                    <textcolor>grey</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <visible>true</visible>
+                    <label>•</label>
+                </control>
+                <!-- Next Program time -->
+                <control type="label" id="4107">
+                    <label></label>
+                    <description>Next Program time</description>
+                    <width min="5" max="220">auto</width>
+                    <height>20</height>
+                    <label>[B]18:00 - 20:00[/B]</label>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <font>font10</font>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <visible>Control.IsVisible(4107)</visible>
+                </control>
+            </control>
+            <!-- fifth row description add last so it can overlay text if needed-->
+            <!--<control type="textbox" id="7000">-->
+            <control type="label" id="7000">
+                <label></label>
+                <description>Program description</description>
+                <posx>525</posx>
+                <posy>560</posy>
+                <width>705</width>
+                <height>80</height>
+                <textcolor>white</textcolor>
+                <font>font10</font>
+                <!--<font>TVGuide31_textbox</font>-->
+                <wrapmultiline>true</wrapmultiline>
+            </control>
+        </control>
+        <!-- # Main Current Player durations and codecflags Left Under Tab Menus Control Group -->
+        <control type="group">
+            <description>Current Player durations Controls</description>
+            <posx>270</posx>
+            <posy>100</posy>
+            <width>220</width>
+            <!-- Codec Flags background -->
+            <control type="image">
+                <description>Codec Flags background</description>
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>220</width>
+                <height>30</height>
+                <texture colordiffuse="skyblue">trans/whitetrans25.png</texture>
+                <!--<texture>backgrounds/blue-back.png</texture>-->
+                <aspectratio>stretch</aspectratio>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+                <visible>Player.HasMedia</visible>
+            </control>
+            <!-- Current Playing Codec Flags -->
+            <control type="grouplist">
+                <description>Current Playing Codec Flags</description>
+                <posx>0</posx>
+                <posy>0</posy>
+                <orientation>horizontal</orientation>
+                <itemgap>0</itemgap>
+                <animation effect="fade" time="150">VisibleChange</animation>
+                <visible>Player.HasMedia</visible>
+                <control type="image">
+                    <description>Audio Channels Image</description>
+                    <width>55</width>
+                    <height>35</height>
+                    <texture>$INFO[VideoPlayer.AudioChannels,codecflags/audiochannel/,.png]</texture>
+                    <visible>!Player.ChannelPreviewActive</visible>
+                </control>
+                <control type="image">
+                    <description>Audio Codec Image</description>
+                    <width>55</width>
+                    <height>35</height>
+                    <texture>$INFO[VideoPlayer.AudioCodec,codecflags/audiocodec/,.png]</texture>
+                </control>
+                <control type="image">
+                    <description>Video Resolution Image</description>
+                    <width>55</width>
+                    <height>35</height>
+                    <texture>$INFO[VideoPlayer.VideoResolution,codecflags/videoresolution/,.png]</texture>
+                    <visible>!Player.ChannelPreviewActive</visible>
+                </control>
+                <control type="image">
+                    <description>Video AspectRatio Image</description>
+                    <width>55</width>
+                    <height>35</height>
+                    <texture>$INFO[VideoPlayer.VideoAspect,codecflags/aspectratio/,.png]</texture>
+                    <visible>!Player.ChannelPreviewActive</visible>
+                </control>
+                <control type="image">
+                    <description>Video VideoCodec Image</description>
+                    <width>55</width>
+                    <height>35</height>
+                    <texture>$INFO[VideoPlayer.VideoCodec,codecflags/videocodec/,.png]</texture>
+                    <visible>!Player.ChannelPreviewActive</visible>
+                </control>
+            </control>
+            <!-- Current playing media name Player.Title -->
+            <control type="label">
+                <description>Current playing media name Player.Title</description>
+                <posy>45</posy>
+                <width>220</width>
+                <height>15</height>
+                <font>font10</font>
+                <textcolor>grey</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <label>$INFO[Player.Title]</label>
+                <scroll>true</scroll>
+            </control>
+            <!-- live opposite of Library Current Program title if no channel info and player is playing -->
+            <control type="label">
+                <description>live opposite of Library Current Program title if no channel info and player is playing</description>
+                <label>$INFO[VideoPlayer.ChannelName] •</label>
+                <posy>65</posy>
+                <width>220</width>
+                <height>15</height>
+                <textcolor>white</textcolor>
+                <font>font10</font>
+                <shadowcolor>black</shadowcolor>
+                <align>left</align>
+                <aligny>center</aligny>
+                <visible>VideoPlayer.Content(LiveTV)</visible>
+            </control>
+            <!-- movies opposite of Library Current Program title if no channel info and player is playing -->
+            <control type="label">
+                <description>movies opposite of Library Current Program title if no channel info and player is playing</description>
+                <label>$INFO[VideoPlayer.Year,[COLOR=grey] (,)[/COLOR]] •</label>
+                <posy>65</posy>
+                <width>220</width>
+                <height>15</height>
+                <textcolor>white</textcolor>
+                <font>font10</font>
+                <shadowcolor>black</shadowcolor>
+                <align>left</align>
+                <aligny>center</aligny>
+                <visible>VideoPlayer.Content(Movies)</visible>
+            </control>
+            <!-- tv opposite of Library Current Program title if no channel info and player is playing -->
+            <control type="label">
+                <description>tv opposite of Library Current Program title if no channel info and player is playing</description>
+                <label>$INFO[VideoPlayer.TVShowTitle] ($INFO[VideoPlayer.Season,$LOCALIZE[20373] , - ]$INFO[VideoPlayer.episode,$LOCALIZE[20359] ,])</label>
+                <posy>65</posy>
+                <width>220</width>
+                <height>15</height>
+                <textcolor>white</textcolor>
+                <font>font10</font>
+                <shadowcolor>black</shadowcolor>
+                <align>left</align>
+                <aligny>center</aligny>
+                <visible>VideoPlayer.Content(Episodes)</visible>
+            </control>
+            <!-- Player Time and Duration no pvr -->
+            <control type="label">
+                <description>Player Time and Duration no pvr</description>
+                <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+                <posy>85</posy>
+                <width>220</width>
+                <height>15</height>
+                <textcolor>white</textcolor>
+                <font>font10</font>
+                <shadowcolor>black</shadowcolor>
+                <align>left</align>
+                <aligny>center</aligny>
+            </control>
+            <!-- Player Time Remaining -->
+            <control type="label">
+                <description>Player Time Remaining</description>
+                <label>Remaining : $INFO[Player.TimeRemaining] </label>
+                <posy>105</posy>
+                <width>220</width>
+                <height>15</height>
+                <textcolor>white</textcolor>
+                <font>font10</font>
+                <shadowcolor>black</shadowcolor>
+                <align>left</align>
+                <aligny>center</aligny>
+            </control>
+            <!-- Player end Time -->
+            <control type="label">
+                <description>Player end time</description>
+                <label>End : $INFO[Player.FinishTime]</label>
+                <posy>125</posy>
+                <width>220</width>
+                <height>15</height>
+                <textcolor>white</textcolor>
+                <font>font10</font>
+                <shadowcolor>black</shadowcolor>
+                <align>left</align>
+                <aligny>center</aligny>
+            </control>
+            <!-- Player time Livetv -->
+            <control type="label">
+                <description>Player time Livetv</description>
+                <visible>VideoPlayer.Content(LiveTV)</visible>
+                <posx>0</posx>
+                <posy>85</posy>
+                <width>300</width>
+                <height>15</height>
+                <font>font10</font>
+                <textcolor>grey</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <label>$INFO[Player.StartTime(hh:mm),Start: ]</label>
+            </control>
+            <!-- pvr Next Title Player.Title -->
+            <control type="label">
+                <description>pvr Next Title Player.Title</description>
+                <posx>0</posx>
+                <posy>105</posy>
+                <width>220</width>
+                <height>15</height>
+                <font>font10</font>
+                <textcolor>grey</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <label>$INFO[VideoPlayer.NextTitle,Next: ]</label>
+                <scroll>true</scroll>
+            </control>
+            <!-- Separation Underline Title -->
+            <control type="image">
+                <description>Separation Underline Title</description>
+                <posx>0</posx>
+                <posy>170</posy>
+                <width>220</width>
+                <height>2</height>
+                <texture colordiffuse="white">grey.png</texture>
+                <aspectratio>scale</aspectratio>
+            </control>
+            <!-- CPU stats -->
+            <control type="label">
+                <description>CPU stats</description>
+                <posx>0</posx>
+                <posy>175</posy>
+                <width>220</width>
+                <height>15</height>
+                <font>font10</font>
+                <textcolor>grey</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <scroll>true</scroll>
+                <label>CPU: $INFO[System.CPUUsage]</label>
+                <!--<label>$INFO[System.CPUUsage,CPU:]</label>-->
+            </control>
+            <!-- mem stats -->
+            <control type="label">
+                <description>MEM stats</description>
+                <posx>0</posx>
+                <posy>195</posy>
+                <width>220</width>
+                <height>15</height>
+                <font>font10</font>
+                <textcolor>grey</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <scroll>true</scroll>
+                <label>Memory: $INFO[system.memory(used.percent)] [B]/[/B] $INFO[system.memory(total)]</label>
+                <!--<label>$INFO[system.memory(used.percent),Mem:]</label>-->
+                <!--<label>$INFO[system.memory(used.percent)] [B]/[/B] $INFO[system.memory(total)]:Mem</label>-->
+            </control>
+            <!-- Cache buffering value -->
+            <control type="label">
+                <description>Cache buffering value</description>
+                <posx>0</posx>
+                <posy>215</posy>
+                <width>220</width>
+                <height>15</height>
+                <font>font10</font>
+                <textcolor>grey</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <scroll>true</scroll>
+                <label>Cache: $INFO[Player.CacheLevel]</label>
+                <!--<label>$INFO[Player.CacheLevel,Cache%:]</label>-->
+                <visible>Player.HasMedia</visible>
+            </control>
+            <!-- program image if channel is playing -->
+            <control type="image" id="7002">
+                <texture></texture>
+                <description>program image if channel is playing</description>
+                <posx>0</posx>
+                <top>350r</top>
+                <width>220</width>
+                <height>300</height>
+                <aspectratio align="center" aligny="top">keep</aspectratio>
+                <aligny>center</aligny>
+                <visible>Player.HasMedia</visible>
+            </control>
+        </control>
+        <!-- ## Main Menu Control Group -->
+        <control type="label" id="4500">
+            <description>visibility marker for Popup Setup</description>
+        </control>
+        <control type="group">
+            <description>Main Popup Menu Control Group</description>
+            <!-- Main Menu Window Backgrounds-->
+            <control type="image">
+                <description>main background</description>
+                <posx>30</posx>
+                <posy>132</posy>
+                <width>220</width>
+                <height>45</height>
+                <texture>black.png</texture>
+                <visible>true</visible>
+            </control>
+            <control type="image">
+                <description>main background</description>
+                <posx>30</posx>
+                <posy>177</posy>
+                <width>220</width>
+                <height>520</height>
+                <texture>black.png</texture>
+                <visible>true</visible>
+            </control>
+            <control type="image">
+                <description>main background</description>
+                <posx>28</posx>
+                <posy>98</posy>
+                <width>224</width>
+                <height>34</height>
+                <texture>black.png</texture>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <description>main background</description>
+                <posx>30</posx>
+                <posy>100</posy>
+                <width>220</width>
+                <height>30</height>
+                <texture colordiffuse="skyblue">trans/whitetrans25.png</texture>
+                <!--<texture>backgrounds/blue-back.png</texture>-->
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="label">
+                <description>main label</description>
+                <posx>55</posx>
+                <posy>100</posy>
+                <width>380</width>
+                <height>30</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <textcolor>white</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <label>[UPPERCASE]Menu »[/UPPERCASE]</label>
+            </control>
+            <!-- ## Main Menu -->
+            <control type="grouplist" id="40010">
+                <posx>40</posx>
+                <posy>145</posy>
+                <itemgap>5</itemgap>
+                <onup>7004</onup>
+                <height>540</height>
+                <orientation>vertical</orientation>
+                <!-- Play Watch Stream -->
+                <control type="button" id="4000">
+                    <description>Play \ Watch Stream</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Watch Stream</label>
+                    <visible>true</visible>
+                    <!--<visible>Control.HasFocus(7004)</visible>-->
+                    <!--<visible>Control.IsEnabled(4000)</visible>-->
+                    <onright>4507</onright>
+                </control>
+                <!-- Choose and Remove Stream -->
+                <control type="button" id="4001">
+                    <description>Choose and Remove Stream</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>tvg-playing-focus.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Choose Stream</label>
+                    <onright>4507</onright>
+                    <!--<onright>8000080</onright>-->
+                    <!--<onright>40030</onright>-->
+                </control>
+                <!-- Choose and Remove Stream 2 new disabled -->
+                <control type="button" id="40011">
+                    <description>Button Choose Stream_2</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Choose Stream</label>
+                    <visible>false</visible>
+                    <!--<visible>Control.IsEnabled(40011)</visible>-->
+                    <onright>4507</onright>
+                </control>
+                <!-- Remove Stream_2 new disabled -->
+                <control type="button" id="44001">
+                    <description>Remove Stream_2</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Remove Stream</label>
+                    <visible>false</visible>
+                    <!--<visible>Control.IsEnabled(44001)</visible>-->
+                    <onright>4507</onright>
+                </control>
+                <!-- Catchup watch from beginning -->
+                <control type="button" id="4005">
+                    <description>Catchup watch from beginning</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Catchup Meta</label>
+                    <visible>true</visible>
+                    <onright>4006</onright>
+                </control>
+                <!-- autoplay -->
+                <control type="button" id="4008">
+                    <description>autoplay</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>tvg-autoplay-focus.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>AutoPlay</label>
+                    <visible>true</visible>
+                    <onright>4507</onright>
+                </control>
+                <!-- autoplaywith -->
+                <control type="button" id="4009">
+                    <description>autoplaywith</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>tvg-autoplaywith-focus.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>AutoPlayWith</label>
+                    <onright>4507</onright>
+                </control>
+                <!-- Remind -->
+                <control type="button" id="4002">
+                    <description>Remind</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>tvg-remind-focus.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Remind</label>
+                    <onright>4507</onright>
+                </control>
+                <!-- Add Alt Stream -->
+                <control type="button" id="4014">
+                    <description>Add Alt Stream</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Add Alt Stream</label>
+                    <visible>true</visible>
+                    <onright>4507</onright>
+                </control>
+                <!-- EPG Lists -->
+                <control type="button" id="4011">
+                    <description>EPG Lists</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>EPG Lists</label>
+                    <onright>4507</onright>
+                </control>
+                <!-- Stream Setup -->
+                <control type="button" id="4007">
+                    <description>Stream Setup</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Stream Setup</label>
+                    <visible>true</visible>
+                    <onright>4507</onright>
+                </control>
+                <!-- edit CHANNELS Menu -->
+                <control type="button" id="4003">
+                    <description>edit CHANNELS</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Edit Channels</label>
+                    <!--<label>$ADDON[script.tvguide.tardis.skin.awesome 30307]</label>-->
+                    <visible>true</visible>
+                    <onright>4507</onright>
+                </control>
+                <!-- Guide xml Settings -->
+                <control type="button" id="40094">
+                    <description>Guide Settings</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>EPG Settings</label>
+                    <onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">Addon.OpenSettings(script.tvguide.tardis.skin.awesome)</onclick>
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">Addon.OpenSettings(script.tvguide.tardis)</onclick>
+                    <onright>40093</onright>
+                </control>
+                <!-- Quit -->
+                <control type="button" id="4004">
+                    <description>QUIT</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Quit</label>
+                    <!--<label>$ADDON[script.tvguide.tardis 30308]</label>-->
+                    <onright>1500</onright>
+                </control>
+                <!-- Quit 2 disabled -->
+                <control type="button" id="44004">
+                    <textcolor></textcolor>
+                    <description>Quit</description>
+                    <posx>970</posx>
+                    <posy>0</posy>
+                    <width>32</width>
+                    <height>32</height>
+                    <texturefocus>buttons/actionbar/power.png</texturefocus>
+                    <texturenofocus>buttons/actionbar/powerFO.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <onup>4504</onup>
+                    <onleft>4502</onleft>
+                    <onright>4001</onright>
+                    <focusedcolor></focusedcolor>
+                    <label>Quit</label>
+                    <!--<label>$ADDON[script.tvguide.tardis.skin.awesome 30308]</label>-->
+                    <visible>false</visible>
+                </control>
+            </control>
+        </control>
+        <!-- # Catchup Meta Menu Control Group -->
+        <control type="group">
+            <description>Popup SEARCH TITLE OPTIONS Controls</description>
+            <visible>Control.HasFocus(4005) | Control.HasFocus(40020) | Control.HasFocus(4012) | Control.HasFocus(4013) | Control.HasFocus(4006) | Control.HasFocus(80000) | Control.HasFocus(40092) | Control.HasFocus(80001) | Control.HasFocus(80002) | Control.HasFocus(90104) | Control.HasFocus(90105) | Control.HasFocus(90101) | Control.HasFocus(90102) | Control.HasFocus(90103) | Control.HasFocus(90108) | Control.HasFocus(90109) | Control.HasFocus(90110)</visible>
+            <!-- Backgrounds -->
+            <control type="image">
+                <description>SEARCH TITLE OPTIONS background</description>
+                <posx>270</posx>
+                <posy>132</posy>
+                <width>220</width>
+                <height>45</height>
+                <texture>black.png</texture>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="image">
+                <description>SEARCH TITLE OPTIONS background</description>
+                <posx>270</posx>
+                <posy>177</posy>
+                <width>220</width>
+                <height>520</height>
+                <texture>black.png</texture>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="image">
+                <description>SEARCH TITLE OPTIONS background</description>
+                <posx>268</posx>
+                <posy>98</posy>
+                <width>224</width>
+                <height>34</height>
+                <texture>black.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="image">
+                <description>SEARCH TITLE OPTIONS background</description>
+                <posx>270</posx>
+                <posy>100</posy>
+                <width>220</width>
+                <height>30</height>
+                <texture colordiffuse="skyblue">trans/whitetrans25.png</texture>
+                <!--<texture>backgrounds/blue-back.png</texture>-->
+                <aspectratio>stretch</aspectratio>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="label">
+                <description>SEARCH TITLE OPTIONS label</description>
+                <posx>295</posx>
+                <posy>100</posy>
+                <width>380</width>
+                <height>30</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <textcolor>white</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <label>[UPPERCASE]Search Title »[/UPPERCASE]</label>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <!-- Catchup Meta -->
+            <control type="grouplist" id="40020">
+                <description>SEARCH TITLE OPTIONS group</description>
+                <posx>280</posx>
+                <posy>145</posy>
+                <itemgap>5</itemgap>
+                <onup>7004</onup>
+                <!--<onup>7004</onup>-->
+                <onleft>40010</onleft>
+                <onright>8000080</onright>
+                <height>540</height>
+                <orientation>vertical</orientation>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+                <!-- iSearch super favourites -->
+                <control type="button" id="4006">
+                    <description>iSearch super favourites</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>iSearch</label>
+                </control>
+                <!-- Lookups changed from movie library -->
+                <control type="button" id="80000">
+                    <description>My Lookups changed from movie library</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Search for Title</label>
+                    <!--<label>$ADDON[script.tvguide.tardis.skin.awesome 80000]</label>-->
+                    <visible>System.HasAddon(script.tvguide.tardis.skin.awesome)</visible>
+                </control>
+                <!-- Browse addon.ini changed from tv library -->
+                <control type="button" id="80001">
+                    <description>MY Browse addon.ini changed from tv library</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Play .ini</label>
+                    <!--<label>$ADDON[script.tvguide.tardis.skin.awesome 80001]</label>-->
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">RunAddon(plugin.video.addons.ini.player)</onclick>
+                </control>
+                <!-- search ini changed from VIDEO ADDONS id -->
+                <control type="button" id="80002">
+                    <description>search ini changed from VIDEO ADDONS id</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Search .ini</label>
+                    <!--<label>$ADDON[script.tvguide.tardis.skin.awesome 80002]</label>-->
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">RunAddon(plugin.video.addons.ini.search)</onclick>
+                </control>
+                <!-- Simple Favourites -->
+                <control type="button" id="4012">
+                    <description>Simple Favourites</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Favourites</label>
+                    <onright>8000080</onright>
+                </control>
+                <!-- Popup Extras Tardis Fixtures Listings -->
+                <control type="button" id="40092">
+                    <description>Tardis Fixtures Listings</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <label>Sports Listings</label>
+                    <onclick>ActivateWindow(10001,"plugin://plugin.program.tardis-fixtures/thefixtures_index",return)</onclick>
+                    <onright>8000080</onright>
+                </control>
+                <!-- Extended Info -->
+                <control type="button" id="4013">
+                    <description>Extended Info</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Extended Info</label>
+                </control>
+                <!-- Next Aired -->
+                <control type="button" id="90104">
+                    <description>Next Aired</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Next Aired</label>
+                    <onclick>RunScript(script.tv.show.next.aired,return)</onclick>
+                </control>
+                <!-- Global Search -->
+                <control type="button" id="90105">
+                    <description>Global Search</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Global Search</label>
+                    <onclick>RunScript(script.globalsearch,return)</onclick>
+                </control>
+                <!-- Trakt Salts -->
+                <control type="button" id="90101">
+                    <description>Trakt Salts</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Trakt Salts</label>
+                    <onclick>ActivateWindow(10025,plugin://plugin.video.salts/?mode=my_calendar,return)</onclick>
+                    <visible>[System.HasAddon(script.trakt) | System.HasAddon(plugin.video.salts)]</visible>
+                </control>
+                <!-- Trakt Exodus -->
+                <control type="button" id="90102">
+                    <description>Trakt Exodus</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Trakt Exodus</label>
+                    <onclick>ActivateWindow(10025,"plugin://plugin.video.exodus/?action=calendar&amp;url=mycalendar",return)</onclick>
+                    <visible>[System.HasAddon(script.trakt) | System.HasAddon(plugin.video.exodus)]</visible>
+                </control>
+                <!-- Specto Trakt -->
+                <control type="button" id="90103">
+                    <description>Specto Trakt</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Trakt Specto</label>
+                    <onclick>ActivateWindow(10025,"plugin://plugin.video.specto/?action=calendar&amp;url=mycalendar",return)</onclick>
+                    <visible>[System.HasAddon(script.trakt) | System.HasAddon(plugin.video.specto)]</visible>
+                </control>
+                <!-- PVR Channels -->
+                <control type="button" id="90108">
+                    <description>PVR Channels</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>PVR Channels</label>
+                    <visible>PVR.HasTVChannels</visible>
+                    <onclick>ActivateWindow(TVChannels,return)</onclick>
+                </control>
+                <!-- PVR EPG -->
+                <control type="button" id="90109">
+                    <description>PVR EPG</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>PVR EPG</label>
+                    <visible>PVR.HasTVChannels</visible>
+                    <onclick>ActivateWindow(TVGuide,return)</onclick>
+                </control>
+                <!-- PVR Search -->
+                <control type="button" id="90110">
+                    <description>PVR Search</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>PVR Search</label>
+                    <visible>PVR.HasTVChannels</visible>
+                    <onclick>ActivateWindow(TVSearch,return)</onclick>
+                </control>
+            </control>
+        </control>
+        <!-- # Popup EPG SETTINGS Controls -->
+        <control type="group">
+            <description>Popup SETTINGS Controls</description>
+            <visible>Control.HasFocus(99988) | Control.HasFocus(99987) | Control.HasFocus(99986) | Control.HasFocus(40094) | Control.HasFocus(40030) | Control.HasFocus(40093) | Control.HasFocus(99981) | Control.HasFocus(99982) | Control.HasFocus(99983) | Control.HasFocus(99984) | Control.HasFocus(99985) | Control.HasFocus(44505) | Control.HasFocus(44506) | Control.HasFocus(44507) | Control.HasFocus(44501) | Control.HasFocus(44503) | Control.HasFocus(44504) | Control.HasFocus(80003) | Control.HasFocus(80004) | Control.HasFocus(4000099)</visible>
+            <!-- SETTINGS Popup Menu Window Backgrounds-->
+            <control type="image">
+                <description>background</description>
+                <posx>270</posx>
+                <posy>132</posy>
+                <width>220</width>
+                <height>45</height>
+                <texture>black.png</texture>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="image">
+                <description>background</description>
+                <posx>270</posx>
+                <posy>177</posy>
+                <width>220</width>
+                <height>520</height>
+                <texture>black.png</texture>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="image">
+                <description>background</description>
+                <posx>268</posx>
+                <posy>98</posy>
+                <width>224</width>
+                <height>34</height>
+                <texture>black.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="image">
+                <description>background</description>
+                <posx>270</posx>
+                <posy>100</posy>
+                <width>220</width>
+                <height>30</height>
+                <texture colordiffuse="skyblue">trans/whitetrans25.png</texture>
+                <!--<texture>backgrounds/blue-back.png</texture>-->
+                <aspectratio>stretch</aspectratio>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="label">
+                <description>label</description>
+                <posx>295</posx>
+                <posy>100</posy>
+                <width>380</width>
+                <height>30</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <textcolor>white</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <label>[UPPERCASE]Settings »[/UPPERCASE]</label>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <!-- SETTINGS Popup Menu -->
+            <control type="grouplist" id="40030">
+                <posx>280</posx>
+                <posy>145</posy>
+                <itemgap>5</itemgap>
+                <onup>7004</onup>
+                <onleft>40094</onleft>
+                <onright>4507</onright>
+                <height>540</height>
+                <orientation>vertical</orientation>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+                <!-- Main Refresh MY Core Addons -->
+                <control type="button" id="40093">
+                    <description>Refresh MY Core Addons</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Refresh ini</label>
+                    <onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis.skin.awesome/resources/lib/skin.py, 98)</onclick>
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis/ReloadAddonFolders.py)</onclick>
+                    <onright>8000080</onright>
+                </control>
+                <!-- Popup Extras Tardis TV Database -->
+                <control type="button" id="99981">
+                    <description>Tardis TV Database</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>TV Database</label>
+                    <onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis.skin.awesome/resources/lib/skin.py, 666)</onclick>
+                    <!--<onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">ActivateWindow(10025,&quot;plugin://script.tvguide.tardis.skin.awesome/main_databasedel&quot;,return)</onclick>-->
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis/ResetDatabase.py, 1)</onclick>
+                </control>
+                <!-- Popup Extras Open As Video Addon -->
+                <control type="button" id="99982">
+                    <description>Open As Video Addon</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Open Addon</label>
+                    <onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">RunAddon(script.tvguide.tardis.skin.awesome)</onclick>
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">RunAddon(script.tvguide.tardis.skin.andy)</onclick>
+                </control>
+                <!-- Popup Extras Help -->
+                <control type="button" id="99983">
+                    <description>Help Menu MINE</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Help</label>
+                    <onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">ActivateWindow(10025,"plugin://script.tvguide.tardis.skin.awesome/main_help",return)</onclick>
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis/help.py,autoplaywith)</onclick>
+                </control>
+                <!-- Popup Extras Playlist -->
+                <control type="button" id="99984">
+                    <description>Playlist</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>playlist.m3u</label>
+                    <onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">ActivateWindow(10025,"special://profile/addon_data/script.tvguide.tardis.skin.awesome/m3u/playlist.m3u",return)</onclick>
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">ActivateWindow(10025,"special://profile/addon_data/script.tvguide.tardis/playlist.m3u",return)</onclick>
+                </control>
+                <!-- Popup Extras Radio m3u -->
+                <control type="button" id="99985">
+                    <description>Radio m3u</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Radio.m3u</label>
+                    <onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">ActivateWindow(10025,"special://home/addons/script.tvguide.tardis.skin.awesome/resources/data/m3u/Radio.m3u",return)</onclick>
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">ActivateWindow(10025,"special://profile/addon_data/script.tvguide.tardis/playlist.m3u",return)</onclick>
+                </control>
+                <!-- Program previous -->
+                <control type="button" id="44505">
+                    <description>Program previous BIG</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Previous Show</label>
+                </control>
+                <!-- Program now -->
+                <control type="button" id="44507">
+                    <description>Program now BIG</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Program Now</label>
+                </control>
+                <!-- Program next -->
+                <control type="button" id="44506">
+                    <description>Program next BIG</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Program Next</label>
+                </control>
+                <!-- Channel up -->
+                <control type="button" id="44503">
+                    <description>Channel up BIG</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Channel Up</label>
+                    <visible>false</visible>
+                </control>
+                <!-- Channel down -->
+                <control type="button" id="44504">
+                    <description>Channel down BIG</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Channel Down</label>
+                    <visible>false</visible>
+                </control>
+                <!-- PIP toggle -->
+                <control type="button" id="4000099">
+                    <description>PIP toggle</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>PIP</label>
+                    <onclick>RunScript(special://home/addons/script.tvguide.tardis.skin.awesome/resources/lib/main_skin.py, 11)</onclick>
+                    <visible>System.HasAddon(script.tvguide.tardis.skin.awesome)</visible>
+                </control>
+                <!-- Popup Extras Skin Flip -->
+                <control type="button" id="99987">
+                    <description>Skin Flip</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>EPG Description Flip</label>
+                    <onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis.skin.awesome/resources/lib/main_skin.py, 13)</onclick>
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis.skin.andy/main_skin.py, 13)</onclick>
+                </control>
+                <!-- Popup Menu Style -->
+                <control type="button" id="99988">
+                    <description>Popup Menu Style</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Popup Menu Style</label>
+                    <onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis.skin.awesome/resources/lib/main_skin.py, 14)</onclick>
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis.skin.andy/main_skin.py, 14)</onclick>
+                </control>
+                <!-- Add category -->
+                <control type="button" id="80003">
+                    <description>Add category</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Add Category</label>
+                    <visible>true</visible>
+                </control>
+                <!-- Remove Category -->
+                <control type="button" id="80004">
+                    <description>Remove Category</description>
+                    <posx>285</posx>
+                    <posy>660</posy>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Remove Cat</label>
+                    <visible>false</visible>
+                </control>
+                <!-- Popup Extras Skin Settings -->
+                <control type="button" id="99986">
+                    <description>Skin Settings</description>
+                    <width>200</width>
+                    <height>40</height>
+                    <texturefocus>buttons/menu_buttonFO.png</texturefocus>
+                    <texturenofocus>buttons/menu_button.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Skin Settings</label>
+                    <onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis.skin.awesome/resources/lib/main_skin.py, 1)</onclick>
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis.skin.andy/main_skin.py, 1)</onclick>
+                </control>
+            </control>
+        </control>
+        <!-- # Popup VIDEO ADD-ONS Control Group  -->
+        <control type="group">
+            <description>VIDEO ADD-ONS Controls</description>
+            <visible>Control.HasFocus(4004) | Control.HasFocus(1500)</visible>
+            <!-- Popup VIDEO ADD-ONS Backgrounds -->
+            <control type="image">
+                <description>VIDEO ADD-ONS background</description>
+                <posx>270</posx>
+                <posy>132</posy>
+                <width>220</width>
+                <height>45</height>
+                <texture>black.png</texture>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="image">
+                <description>VIDEO ADD-ONS background</description>
+                <posx>270</posx>
+                <posy>177</posy>
+                <width>220</width>
+                <height>520</height>
+                <texture>black.png</texture>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="image">
+                <description>Video Add-Ons label</description>
+                <posx>268</posx>
+                <posy>98</posy>
+                <width>224</width>
+                <height>34</height>
+                <texture>black.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="image">
+                <description>Video Add-Ons image</description>
+                <posx>270</posx>
+                <posy>100</posy>
+                <width>220</width>
+                <height>30</height>
+                <texture colordiffuse="skyblue">trans/whitetrans25.png</texture>
+                <!--<texture>backgrounds/blue-back.png</texture>-->
+                <aspectratio>stretch</aspectratio>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <!-- Popup VIDEO ADD-ONS list Menu -->
+            <control type="label">
+                <description>Video Add-Ons label</description>
+                <posx>295</posx>
+                <posy>100</posy>
+                <width>380</width>
+                <height>30</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <textcolor>white</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <label>[UPPERCASE]Video Add-Ons »[/UPPERCASE]</label>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+            </control>
+            <control type="list" id="1500">
+                <description>addon listings</description>
+                <posx>280</posx>
+                <posy>145</posy>
+                <itemgap>5</itemgap>
+                <!--<onup>7004</onup>-->
+                <onleft>4004</onleft>
+                <onright>8000080</onright>
+                <height>540</height>
+                <orientation>vertical</orientation>
+                <preloaditems>2</preloaditems>
+                <onclick>back</onclick>
+                <onclick>RunAddon($INFO[ListItem.Property(Addon.ID)])</onclick>
+                <animation effect="slide" start="-240,0" end="0,0" time="500">Visible</animation>
+                <animation effect="slide" start="0,0" end="-240,0" time="500">Hidden</animation>
+                <itemlayout width="200" height="45">
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>200</width>
+                        <height>40</height>
+                        <texture>buttons/menu_button.png</texture>
+                    </control>
+                    <control type="textbox">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>200</width>
+                        <label>$INFO[ListItem.Label]</label>
+                        <textcolor>white</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <height>40</height>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="200" height="45">
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>200</width>
+                        <height>40</height>
+                        <texture>buttons/menu_buttonFO.png</texture>
+                    </control>
+                    <control type="textbox">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>200</width>
+                        <label>$INFO[ListItem.Label]</label>
+                        <textcolor>white</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <height>40</height>
+                    </control>
+                </focusedlayout>
+                <content target="videos" sortorder="descending">addons://sources/video/</content>
+            </control>
+        </control>
+        <!-- # Custom Now Playing Player Controls -->
+        <control type="grouplist" id="8000080">
+            <posx>1195</posx>
+            <posy>150</posy>
+            <orientation>vertical</orientation>
+            <itemgap>0</itemgap>
+            <animation effect="fade" time="150">VisibleChange</animation>
+            <visible>Player.HasMedia</visible>
+            <onleft>4503</onleft>
+            <onleft>44500</onleft>
+            <!-- Player Controls -->
+            <!-- Player Controls  Stop -->
+            <control type="button" id="44000">
+                <width>35</width>
+                <height>35</height>
+                <label>Stop</label>
+                <font>-</font>
+                <texturefocus>buttons/player/StopFO.png</texturefocus>
+                <texturenofocus>buttons/player/Stop.png</texturenofocus>
+                <!--<onclick>Stop</onclick>-->
+                <onclick>PlayerControl(Stop)</onclick>
+            </control>
+            <!-- Player Controls Play -->
+            <control type="togglebutton" id="8000082">
+                <width>35</width>
+                <height>35</height>
+                <label>Play</label>
+                <altlabel>Play</altlabel>
+                <font>-</font>
+                <texturefocus>buttons/player/PauseFO.png</texturefocus>
+                <texturenofocus>buttons/player/Pause.png</texturenofocus>
+                <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+                <alttexturefocus>buttons/player/PlayFO.png</alttexturefocus>
+                <alttexturenofocus>buttons/player/Play.png</alttexturenofocus>
+                <!--<onclick>Play</onclick>-->
+                <onclick>PlayerControl(Play)</onclick>
+                <enable>Player.PauseEnabled</enable>
+                <animation effect="fade" start="100" end="50" time="75" condition="!Player.PauseEnabled">Conditional</animation>
+            </control>
+            <!-- Player Controls ShowVideoMenu -->
+            <control type="button" id="8000083">
+                <width>35</width>
+                <height>35</height>
+                <label>ShowVideoMenu</label>
+                <font>-</font>
+                <texturefocus>buttons/player/OSDVideoFO.png</texturefocus>
+                <texturenofocus>buttons/player/OSDVideo.png</texturenofocus>
+                <onclick>PlayerControl(ShowVideoMenu)</onclick>
+                <visible>!VideoPlayer.Content(LiveTV) + VideoPlayer.HasMenu</visible>
+            </control>
+            <!-- Player Controls Previous -->
+            <control type="button" id="8000084">
+                <width>35</width>
+                <height>35</height>
+                <label>Previous</label>
+                <font>-</font>
+                <texturefocus>buttons/player/PrevTrackFO.png</texturefocus>
+                <texturenofocus>buttons/player/PrevTrack.png</texturenofocus>
+                <onclick>PlayerControl(Previous)</onclick>
+                <visible>!VideoPlayer.Content(LiveTV)</visible>
+            </control>
+            <!-- Player Controls Rewind -->
+            <control type="button" id="8000085">
+                <width>35</width>
+                <height>35</height>
+                <label>Rewind</label>
+                <font>-</font>
+                <texturefocus>buttons/player/RewindFO.png</texturefocus>
+                <texturenofocus>buttons/player/Rewind.png</texturenofocus>
+                <enable>Player.SeekEnabled</enable>
+                <animation effect="fade" start="100" end="50" time="75" condition="!Player.SeekEnabled">Conditional</animation>
+                <onclick condition="!Player.Paused + !Player.IsTempo">PlayerControl(Rewind)</onclick>
+                <onclick condition="Player.Paused + Player.TempoEnabled">PlayerControl(Play)</onclick>
+                <onclick condition="Player.Paused + Player.TempoEnabled">PlayerControl(TempoDown)</onclick>
+                <onclick condition="Player.IsTempo + Player.TempoEnabled">PlayerControl(TempoDown)</onclick>
+            </control>
+            <!-- Player Controls FForward -->
+            <control type="button" id="8000086">
+                <width>35</width>
+                <height>35</height>
+                <label>FForward</label>
+                <font>-</font>
+                <texturefocus>buttons/player/ForwardFO.png</texturefocus>
+                <texturenofocus>buttons/player/Forward.png</texturenofocus>
+                <enable>Player.SeekEnabled</enable>
+                <animation effect="fade" start="100" end="50" time="75" condition="!Player.SeekEnabled">Conditional</animation>
+                <onclick condition="!Player.Paused + !Player.IsTempo">PlayerControl(Forward)</onclick>
+                <onclick condition="Player.Paused + Player.TempoEnabled">PlayerControl(Play)</onclick>
+                <onclick condition="Player.Paused + Player.TempoEnabled">PlayerControl(TempoUp)</onclick>
+                <onclick condition="Player.IsTempo + Player.TempoEnabled">PlayerControl(TempoUp)</onclick>
+            </control>
+            <!-- Player Controls Next -->
+            <control type="button" id="8000087">
+                <width>35</width>
+                <height>35</height>
+                <label>Next</label>
+                <font>-</font>
+                <texturefocus>buttons/player/NextTrackFO.png</texturefocus>
+                <texturenofocus>buttons/player/NextTrack.png</texturenofocus>
+                <onclick>PlayerControl(Next)</onclick>
+                <visible>!VideoPlayer.Content(LiveTV)</visible>
+            </control>
+            <!-- Player Controls OSDVideoSettings -->
+            <control type="button" id="8000093">
+                <width>35</width>
+                <height>35</height>
+                <label>OSDVideoSettings</label>
+                <font>-</font>
+                <texturefocus>buttons/player/OSDVideoFO.png</texturefocus>
+                <texturenofocus>buttons/player/OSDVideo.png</texturenofocus>
+                <!--<texture>$INFO[VideoPlayer.VideoResolution,codecflags/videoresolution/,.png]</texture>-->
+                <onclick>ActivateWindow(OSDVideoSettings)</onclick>
+            </control>
+            <!-- Player Controls OSDAudioSettings -->
+            <control type="togglebutton" id="8000094">
+                <width>35</width>
+                <height>35</height>
+                <label>OSDAudioSettings</label>
+                <font>-</font>
+                <texturefocus>buttons/player/OSDAudioFO.png</texturefocus>
+                <texturenofocus>buttons/player/OSDAudio.png</texturenofocus>
+                <onclick>ActivateWindow(OSDAudioSettings)</onclick>
+            </control>
+            <!-- Player Controls Toggle Passthrough -->
+            <control type="togglebutton" id="8000095">
+                <width>35</width>
+                <height>35</height>
+                <label>Toggle Passthrough</label>
+                <font>-</font>
+                <texturefocus>buttons/player/passthrough-off.png</texturefocus>
+                <texturenofocus>buttons/player/passthrough.png</texturenofocus>
+                <usealttexture>system.getbool(audiooutput.passthrough)</usealttexture>
+                <alttexturefocus>buttons/player/passthrough-on.png</alttexturefocus>
+                <alttexturenofocus>buttons/player/passthrough-on.png</alttexturenofocus>
+                <onclick>audiotoggledigital</onclick>
+            </control>
+            <!-- Player Controls Mute if no passthrough -->
+            <!--
+            <control type="button" id="8000096">
+                <width>35</width>
+                <height>35</height>
+                <label>Mute if no passthrough</label>
+                <font>-</font>
+                <texture condition="Player.Muted">buttons/player/volumemute-focus.png</texture>
+                <texturefocus>buttons/player/volumemute-focus.png</texturefocus>
+                <texturenofocus>buttons/player/volumemute.png</texturenofocus>
+                <onclick>Mute</onclick>
+                <visible>!system.getbool(audiooutput.passthrough)</visible>
+            </control>
+            -->
+            <!-- Player Controls Playwith Switchplayer -->
+            <!--         
+            <control type="button" id="8000097">
+                <width>35</width>
+                <height>35</height>
+                <label>Playwith</label>
+                <font>-</font>
+                <texturefocus>buttons/player/ExternalFO.png</texturefocus>
+                <texturenofocus>buttons/player/ExternalNF.png</texturenofocus>
+                <onclick>SwitchPlayer</onclick>
+            </control>
+            -->
+            <!-- Player Controls PVR Record -->
+            <!--
+            <control type="togglebutton" id="8000088">
+                <width>35</width>
+                <height>35</height>
+                <label>Record</label>
+                <altlabel>PVR Record</altlabel>
+                <font>-</font>
+                <texturefocus>buttons/player/OSDRecordOffFO.png</texturefocus>
+                <texturenofocus>buttons/player/OSDRecordOffNF.png</texturenofocus>
+                <usealttexture>Player.Recording</usealttexture>
+                <alttexturefocus>buttons/player/OSDRecordOnFO.png</alttexturefocus>
+                <alttexturenofocus>buttons/player/OSDRecordOnNF.png</alttexturenofocus>
+                <onclick>PlayerControl(Record)</onclick>
+                <enable>Player.CanRecord</enable>
+                <animation effect="fade" start="100" end="50" time="75" condition="!Player.CanRecord">Conditional</animation>
+                <visible>VideoPlayer.Content(LiveTV)</visible>
+            </control>
+            -->
+            <!-- Player Controls PVR ChannelUp -->
+            <!--
+            <control type="button" id="8000089">
+                <width>35</width>
+                <height>35</height>
+                <label>ChannelUp</label>
+                <font>-</font>
+                <texturefocus>buttons/player/OSDChannelUPFO.png</texturefocus>
+                <texturenofocus>buttons/player/OSDChannelUPNF.png</texturenofocus>
+                <onclick>ChannelUp</onclick>
+                <visible>VideoPlayer.Content(LiveTV)</visible>
+            </control>
+            -->
+            <!-- Player Controls PVR ChannelDown -->
+            <!--
+            <control type="button" id="8000090">
+                <width>35</width>
+                <height>35</height>
+                <label>ChannelDown</label>
+                <font>-</font>
+                <texturefocus>buttons/player/OSDChannelDownFO.png</texturefocus>
+                <texturenofocus>buttons/player/OSDChannelDownNF.png</texturenofocus>
+                <onclick>ChannelDown</onclick>
+                <visible>VideoPlayer.Content(LiveTV)</visible>
+            </control>
+            -->
+            <!-- Player Controls PVROSDChannels -->
+            <control type="button" id="8000091">
+                <width>35</width>
+                <height>35</height>
+                <label>PVROSDChannels</label>
+                <font>-</font>
+                <texturefocus>buttons/player/OSDChannelListFO.png</texturefocus>
+                <texturenofocus>buttons/player/OSDChannelList.png</texturenofocus>
+                <onclick>ActivateWindow(PVROSDChannels)</onclick>
+                <onclick>Dialog.Close(VideoOSD)</onclick>
+                <visible>VideoPlayer.Content(LiveTV)</visible>
+            </control>
+            <!-- Player Controls PVROSDGuide -->
+            <control type="button" id="8000092">
+                <width>35</width>
+                <height>35</height>
+                <label>EPG</label>
+                <!--<label>$LOCALIZE[19029]$INFO[VideoPlayer.ChannelName, - ]</label>-->
+                <font>-</font>
+                <texturefocus>buttons/player/OSDepgFO.png</texturefocus>
+                <texturenofocus>buttons/player/OSDepg.png</texturenofocus>
+                <onclick>ActivateWindow(PVROSDGuide)</onclick>
+                <onclick>Dialog.Close(VideoOSD)</onclick>
+                <visible>VideoPlayer.Content(LiveTV)</visible>
+            </control>
+            <!-- Player Controls Subtitles -->
+            <!--
+            <control type="button" id="8000096">
+               <width>35</width>
+               <height>35</height>
+               <label>Subtitles</label>
+               <font>-</font>
+               <texturefocus>buttons/player/OSDSubtitlesFO.png</texturefocus>
+               <texturenofocus>buttons/player/OSDSubtitlesNF.png</texturenofocus>
+               <onup>404</onup>
+            </control>
+            -->
+        </control>
+        <!-- # Main Popup Popup Menu Mouse Control Buttons Control Group -->
+        <control type="label" id="44500">
+            <description>Popup Menu Mouse Control Buttons</description>
+        </control>
+        <control type="group">
+            <description>Popup Menu Mouse Control Buttons Controls</description>
+            <posx>1150</posx>
+            <posy>150</posy>
+            <!--<visible>!Control.IsVisible(44500)</visible>-->
+            <!-- Mouse Control Buttons Group -->
+            <onleft>4001</onleft>
+            <onright>8000080</onright>
+            <!--<onright>44000</onright>-->
+            <control type="grouplist">
+                <description>Popup Menu Mouse Control Buttons vertical</description>
+                <posx>0</posx>
+                <posy>0</posy>
+                <orientation>vertical</orientation>
+                <itemgap>0</itemgap>
+                <animation effect="fade" time="150">VisibleChange</animation>
+                <!-- Mouse Control Navigate to now -->
+                <control type="button" id="4507">
+                    <textcolor></textcolor>
+                    <description>Navigate to now</description>
+                    <width>32</width>
+                    <height>32</height>
+                    <texturefocus>buttons/context/nowFO.png</texturefocus>
+                    <texturenofocus>buttons/context/now.png</texturenofocus>
+                    <onup></onup>
+                    <ondown>4001</ondown>
+                    <onleft>4505</onleft>
+                    <onright>4506</onright>
+                    <focusedcolor></focusedcolor>
+                    <label>Program now</label>
+                </control>
+                <!-- Mouse Control channel up -->
+                <control type="button" id="4503">
+                    <textcolor></textcolor>
+                    <description>channel up</description>
+                    <width>32</width>
+                    <height>32</height>
+                    <texturefocus>buttons/context/arrowupFO.png</texturefocus>
+                    <texturenofocus>buttons/context/arrowup.png</texturenofocus>
+                    <onup></onup>
+                    <ondown>4001</ondown>
+                    <onleft>4506</onleft>
+                    <onright>8000080</onright>
+                    <onright>4504</onright>
+                    <focusedcolor></focusedcolor>
+                    <label>Channel Up</label>
+                    <onleft>4001</onleft>
+                </control>
+                <!-- Mouse Control channel down -->
+                <control type="button" id="4504">
+                    <textcolor></textcolor>
+                    <description>channel down</description>
+                    <width>32</width>
+                    <height>32</height>
+                    <texturefocus>buttons/context/arrowdownFO.png</texturefocus>
+                    <texturenofocus>buttons/context/arrowdown.png</texturenofocus>
+                    <onup></onup>
+                    <ondown>4001</ondown>
+                    <onleft>4507</onleft>
+                    <onright>4505</onright>
+                    <focusedcolor></focusedcolor>
+                    <label>Channel Down</label>
+                </control>
+                <!-- Mouse Control program previous -->
+                <control type="button" id="4505">
+                    <textcolor></textcolor>
+                    <description>program previous</description>
+                    <width>32</width>
+                    <height>32</height>
+                    <texturefocus>buttons/context/arrowleftFO.png</texturefocus>
+                    <texturenofocus>buttons/context/arrowleft.png</texturenofocus>
+                    <onup></onup>
+                    <ondown>4001</ondown>
+                    <onleft>4504</onleft>
+                    <onright>4507</onright>
+                    <focusedcolor></focusedcolor>
+                    <label>Program previous</label>
+                </control>
+                <!-- Mouse Control program next -->
+                <control type="button" id="4506">
+                    <textcolor></textcolor>
+                    <description>program next</description>
+                    <width>32</width>
+                    <height>32</height>
+                    <texturefocus>buttons/context/arrowrightFO.png</texturefocus>
+                    <texturenofocus>buttons/context/arrowright.png</texturenofocus>
+                    <onup></onup>
+                    <ondown>4001</ondown>
+                    <onleft>4507</onleft>
+                    <onright>4507</onright>
+                    <focusedcolor></focusedcolor>
+                    <label>Program next</label>
+                </control>
+                <!-- Mouse Control ffmpeg record -->
+                <control type="button" id="40090">
+                    <label></label>
+                    <description>ffmpeg record</description>
+                    <width>32</width>
+                    <height>32</height>
+                    <textcolor>ffffffff</textcolor>
+                    <texturefocus>buttons/player/recordFO.png</texturefocus>
+                    <texturenofocus>buttons/player/record.png</texturenofocus>
+                    <onclick condition="System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis.skin.awesome/resources/lib/main_skin.py, 2)</onclick>
+                    <onclick condition="!System.HasAddon(script.tvguide.tardis.skin.awesome)">RunScript(special://home/addons/script.tvguide.tardis.skin.andy/main_skin.py, 2)</onclick>
+                    <!--<visible>Player.HasMedia + system.platform.windows</visible>-->
+                </control>
+                <!-- Mouse Control Menu as a button -->
+                <control type="button" id="4501">
+                    <description>Menu as a button</description>
+                    <width>32</width>
+                    <height>32</height>
+                    <texturefocus>buttons/actionbar/settingsFO.png</texturefocus>
+                    <texturenofocus>buttons/actionbar/settings.png</texturenofocus>
+                    <aligny>center</aligny>
+                    <align>center</align>
+                    <onleft>44000</onleft>
+                    <onright>0001</onright>
+                    <visible>false</visible>
+                </control>
+            </control>
+        </control>
+        <!-- # Text Help Labels - custom help tips-->
+        <control type="group">
+            <description>Label Controls</description>
+            <posx>525</posx>
+            <posy>103</posy>
+            <!-- Help Watch Stream -->
+            <control type="label">
+                <description>Help Watch Stream</description>
+                <label>Watch current channel now</label>
+                <visible>Control.HasFocus(4000)</visible>
+            </control>
+            <!-- Help Choose Stream -->
+            <control type="label">
+                <description>Help Choose Stream</description>
+                <label>Choose or remove the pre-set addon channel.</label>
+                <!--<label>$ADDON[script.tvguide.tardis 30305]</label>-->
+                <visible>Control.HasFocus(4001)</visible>
+            </control>
+            <!-- Help Main Remove Stream -->
+            <control type="label">
+                <description>Help Main Remove Stream</description>
+                <label>Remove stream from Database to select another</label>
+                <visible>Control.HasFocus(44001)</visible>
+            </control>
+            <!-- Help Meta Catchup -->
+            <control type="label">
+                <description>Help Meta Catchup</description>
+                <label>Search Title with Catchup with Meta addon for no commercials</label>
+                <visible>Control.HasFocus(4005)</visible>
+            </control>
+            <!-- Help Autoplay -->
+            <control type="label">
+                <description>Help Autoplay</description>
+                <label>Play current channel with Autoplay</label>
+                <visible>Control.HasFocus(4008)</visible>
+            </control>
+            <!-- Help Autoplaywith -->
+            <control type="label">
+                <description>Help Autoplaywith</description>
+                <label>Play current channel with Autoplaywiths 3rd party player</label>
+                <visible>Control.HasFocus(4009)</visible>
+            </control>
+            <!-- Help Remind -->
+            <control type="label">
+                <description>Help Remind</description>
+                <label>Set current channel Reminder for Program Start</label>
+                <visible>Control.HasFocus(4002)</visible>
+            </control>
+            <!-- Help Add Alt Stream -->
+            <control type="label">
+                <description>Help Add Alt Stream</description>
+                <label>Add a secondary alternate stream to this channels database</label>
+                <visible>Control.HasFocus(4014)</visible>
+            </control>
+            <!-- Help Main EPG Lists -->
+            <control type="label">
+                <description>Help Main EPG Lists</description>
+                <label>Search EPG for current Program Title or custom show</label>
+                <visible>Control.HasFocus(4011)</visible>
+            </control>
+            <!-- Help Stream Setup -->
+            <control type="label">
+                <description>Help Stream Setup</description>
+                <label>Browse addons, PVR, strm, or m3u files to set the addon channel</label>
+                <!--<label>$ADDON[script.tvguide.tardis 30305]</label>-->
+                <visible>Control.HasFocus(4007)</visible>
+            </control>
+            <!-- Help Edit Channels -->
+            <control type="label">
+                <description>Help Edit Channels</description>
+                <label>Edit, reorder, or hide channels</label>
+                <visible>Control.HasFocus(4003)</visible>
+            </control>
+            <!-- Help Main Tardis TV Settings -->
+            <control type="label">
+                <description>Help Main Tardis TV Settings</description>
+                <label>Open Tardis TV Main Settings</label>
+                <visible>Control.HasFocus(40094)</visible>
+            </control>
+            <!-- Help Main Exit Quit -->
+            <control type="label">
+                <description>Help Main Exit Quit</description>
+                <label>Exit Tardis TV</label>
+                <visible>Control.HasFocus(4004)</visible>
+            </control>
+            <!-- Help Main Video Addons -->
+            <!--
+            <control type="label">
+                <description>Help Main Video Addons</description>
+                <label>Browse your Video Addons</label>
+                <visible>Control.HasFocus(800035)</visible>
+            </control>
+            -->
+            <!-- Catchip subsection -->
+            <!-- Help Search iSearch -->
+            <control type="label">
+                <description>Help Search iSearch</description>
+                <label>Search for Title with iSearch from Super Favourites</label>
+                <visible>Control.HasFocus(4006)</visible>
+            </control>
+            <!-- Help Search lookups 80000 -->
+            <control type="label">
+                <description>Help Search lookups</description>
+                <label>Search for Title with addon</label>
+                <visible>Control.HasFocus(80000)</visible>
+            </control>
+            <!-- Help Browse addon.ini -->
+            <control type="label">
+                <description>Help Browse addon.ini</description>
+                <label>Browse addon.ini channels and play them manually</label>
+                <visible>Control.HasFocus(80001)</visible>
+            </control>
+            <!-- Help Search addon.ini -->
+            <control type="label">
+                <description>Help Search addon.ini</description>
+                <label>Search addon.ini for possible channel matches</label>
+                <visible>Control.HasFocus(80002)</visible>
+            </control>
+            <!-- Help Favourites -->
+            <control type="label">
+                <description>Help Main Favourites</description>
+                <label>Open your Favourites</label>
+                <visible>Control.HasFocus(4012)</visible>
+            </control>
+            <!-- Help Sports Listings -->
+            <control type="label">
+                <description>Help Main Sports Listings</description>
+                <label>Check Todays Sports Listings via Tardis Fixtures addon</label>
+                <visible>Control.HasFocus(40092)</visible>
+            </control>
+            <!-- Help Extended Info -->
+            <control type="label">
+                <description>Help Extended Info</description>
+                <label>Lookup program title with extra detailed description</label>
+                <visible>Control.HasFocus(4013)</visible>
+            </control>
+            <!-- Help Next Airing -->
+            <control type="label">
+                <description>Help Next Airing</description>
+                <label>Your Next Airing TV Shows based upon Library matches</label>
+                <visible>Control.HasFocus(90104)</visible>
+            </control>
+            <!-- Help Global Search -->
+            <control type="label">
+                <description>Help Global Search</description>
+                <label>Global Search will search your library and PVR for title keywords</label>
+                <visible>Control.HasFocus(90105)</visible>
+            </control>
+            <!-- Help Salts Trakt -->
+            <control type="label">
+                <description>Help Salts Trakt</description>
+                <label>Salts Trakt TV Show Calendar</label>
+                <visible>Control.HasFocus(90101)</visible>
+            </control>
+            <!-- Help Exodus trakt -->
+            <control type="label">
+                <description>Help Exodus trakt</description>
+                <label>Exodus Trakt TV Show Calendar</label>
+                <visible>Control.HasFocus(90102)</visible>
+            </control>
+            <!-- Help Specto trakt -->
+            <control type="label">
+                <description>Help Specto trakt</description>
+                <label>Specto Trakt TV Show Calendar</label>
+                <visible>Control.HasFocus(90103)</visible>
+            </control>
+            <!-- Kodi PVR TV Channels -->
+            <control type="label">
+                <description>Kodi PVR TV Channels</description>
+                <label>Open Kodi PVR TV Channels</label>
+                <visible>Control.HasFocus(90108)</visible>
+            </control>
+            <!-- Kodi PVR EPG -->
+            <control type="label">
+                <description>Kodi PVR EPG</description>
+                <label>Open Kodi PVR EPG</label>
+                <visible>Control.HasFocus(90109)</visible>
+            </control>
+            <!-- Kodi PVR EPG Search -->
+            <control type="label">
+                <description>Kodi PVR EPG Search</description>
+                <label>Open Kodi PVR EPG Search</label>
+                <visible>Control.HasFocus(90110)</visible>
+            </control>
+            <!-- Settings subsection -->
+            <!-- Help Main Refresh Core Addons -->
+            <control type="label">
+                <description>Help Main Refresh Core Addons</description>
+                <label>Refresh addons.ini and subscriptions.ini to update channel urls</label>
+                <visible>Control.HasFocus(40093)</visible>
+            </control>
+            <!-- Help Database -->
+            <control type="label">
+                <description>Help Database</description>
+                <label>Edit the Main Tardis TV Database of channels, xml and ini files</label>
+                <visible>Control.HasFocus(99981)</visible>
+            </control>
+            <!-- Help Open as video addon -->
+            <control type="label">
+                <description>Help Open as video addon</description>
+                <label>Open this as a video addon</label>
+                <visible>Control.HasFocus(99982)</visible>
+            </control>
+            <!-- Help Help -->
+            <control type="label">
+                <description>Help Help</description>
+                <label>Help Menu for common wtf and faq</label>
+                <visible>Control.HasFocus(99983)</visible>
+            </control>
+            <!-- Help M3U playlist -->
+            <control type="label">
+                <description>Help M3U playlist</description>
+                <label>M3U playlist</label>
+                <visible>Control.HasFocus(99984)</visible>
+            </control>
+            <!-- Help M3U Radio -->
+            <control type="label">
+                <description>Help M3U Radio</description>
+                <label>M3U Radio Channels</label>
+                <visible>Control.HasFocus(99985)</visible>
+            </control>
+            <!-- Help Previous program show -->
+            <control type="label">
+                <description>Help Previous program</description>
+                <label>Go to previous program</label>
+                <visible>Control.HasFocus(44505)</visible>
+            </control>
+            <!-- Help program now -->
+            <control type="label">
+                <description>Help program now</description>
+                <label>Go to current program</label>
+                <visible>Control.HasFocus(44507)</visible>
+            </control>
+            <!-- Help program next -->
+            <control type="label">
+                <description>Help program next</description>
+                <label>Go to next playing program</label>
+                <visible>Control.HasFocus(44506)</visible>
+            </control>
+            <!-- Help PIP -->
+            <control type="label">
+                <description>Help PIP</description>
+                <label>PIP - Toggle fullscreen playing video as background</label>
+                <visible>Control.HasFocus(4000099)</visible>
+            </control>
+            <!-- Help Add Category -->
+            <control type="label">
+                <description>Help Add Category</description>
+                <label>Add a custom category to the main category tab</label>
+                <visible>Control.HasFocus(80003)</visible>
+            </control>
+            <!-- Help Remove Category -->
+            <control type="label">
+                <description>Help Remove Category</description>
+                <label>Remove category from the main category tab</label>
+                <visible>Control.HasFocus(80004)</visible>
+            </control>
+            <!-- Help Categories -->
+            <control type="label">
+                <description>Help Categories</description>
+                <label>Select category of channel groups</label>
+                <visible>Control.HasFocus(7004)</visible>
+            </control>
+            <!-- Help mouse controls -->
+            <!-- Help Previous program show -->
+            <control type="label">
+                <description>Help Previous program</description>
+                <label>Go to previous program</label>
+                <visible>Control.HasFocus(4505)</visible>
+            </control>
+            <!-- Help program now -->
+            <control type="label">
+                <description>Help program now</description>
+                <label>Go to current program</label>
+                <visible>Control.HasFocus(4507)</visible>
+            </control>
+            <!-- Help program next -->
+            <control type="label">
+                <description>Help program next</description>
+                <label>Go to next playing program</label>
+                <visible>Control.HasFocus(4506)</visible>
+            </control>
+            <!-- Help channel up -->
+            <control type="label">
+                <description>Help channel up</description>
+                <label>Go up a channel</label>
+                <visible>Control.HasFocus(4503)</visible>
+            </control>
+            <!-- Help channel down -->
+            <control type="label">
+                <description>Help channel down</description>
+                <label>Go down a channel</label>
+                <visible>Control.HasFocus(4504)</visible>
+            </control>
+            <!-- Help Main Record -->
+            <control type="label">
+                <description>Help Main Record</description>
+                <label>Recording with ffmpeg 3rd Party Player</label>
+                <visible>Control.HasFocus(40090)</visible>
+            </control>
+        </control>
+        <!-- # Help Marker Invisible Buttons -->
+        <control type="label" id="44510">
+            <description>popup mouse help control / visibility marker invisible buttons help</description>
+        </control>
+        <!-- # Help hidden Buttons group -->
+        <control type="group">
+            <description>Buttons Help PopupMenu</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>1280</width>
+            <height>720</height>
+            <visible>Control.IsVisible(44510)</visible>
+            <!-- Help Buttons disabled -->
+            <!--
+                <control type="image">
+                    <description>play BIG</description>
+                    <posx>30</posx>
+                    <posy>0</posy>
+                    <width>690</width>
+                    <height>105</height>
+                    <texture>buttons/help_marker.png</texture>
+                    <visible>Control.IsVisible(44510)</visible>
+                </control>
+                <control type="label">
+                    <description>play BIG</description>
+                    <posx>30</posx>
+                    <posy>0</posy>
+                    <width>690</width>
+                    <height>106</height>
+                    <label>PLAY</label>
+                    <font>font15</font>
+                    <textcolor>white</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <visible>Control.IsVisible(44510)</visible>
+                    
+                </control>
+                <control type="image">
+                    <description>close PopupMenu</description>
+                    <posx>-100</posx>
+                    <posy>-28</posy>
+                    <width>1280</width>
+                    <height>720</height>
+                    <texture>-</texture>
+                    <texture>buttons/help_marker.png</texture>
+                </control>
+                <control type="label">
+                    <description>close PopupMenu</description>
+                    <posx>-100</posx>
+                    <posy>-28</posy>
+                    <width>1280</width>
+                    <height>720</height>
+                    <label>CLOSE POPUPMENU / BACK</label>
+                    <font>font15</font>
+                    <textcolor>yellow</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                </control>
+                -->
+            <!--
+                <control type="image">
+                    <description>channel up BIG</description>
+                    <posx>30</posx>
+                    <posy>106</posy>
+                    <width>690</width>
+                    <height>109</height>
+                    <texture>buttons/help_marker.png</texture>
+                </control>
+                <control type="label">
+                    <description>channel up BIG</description>
+                    <posx>30</posx>
+                    <posy>106</posy>
+                    <width>690</width>
+                    <height>110</height>
+                    <label>CHANNEL UP</label>
+                    <font>font15</font>
+                    <textcolor>white</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                </control>
+                
+                <control type="image">
+                    <description>channel down BIG</description>
+                    <posx>30</posx>
+                    <posy>407</posy>
+                    <width>690</width>
+                    <height>109</height>
+                    <texture>buttons/help_marker.png</texture>
+                </control>
+                <control type="label">
+                    <description>channel down BIG</description>
+                    <posx>30</posx>
+                    <posy>406</posy>
+                    <width>690</width>
+                    <height>110</height>
+                    <label>CHANNEL DOWN</label>
+                    <font>font15</font>
+                    <textcolor>white</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                </control>
+                
+                <control type="image">
+                    <description>Program previous BIG</description>
+                    <posx>30</posx>
+                    <posy>216</posy>
+                    <width>220</width>
+                    <height>190</height>
+                    <texture>buttons/help_marker.png</texture>
+                </control>
+                <control type="label">
+                    <description>Program previous BIG</description>
+                    <posx>30</posx>
+                    <posy>216</posy>
+                    <width>220</width>
+                    <height>190</height>
+                    <label>PREVIOUS PROGRAM</label>
+                    <font>font15</font>
+                    <textcolor>white</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                </control>
+                
+                <control type="image">
+                    <description>Program now BIG</description>
+                    <posx>251</posx>
+                    <posy>216</posy>
+                    <width>248</width>
+                    <height>190</height>
+                    <texture>buttons/help_marker.png</texture>
+                </control>
+                <control type="label">
+                    <description>Program now BIG</description>
+                    <posx>250</posx>
+                    <posy>216</posy>
+                    <width>250</width>
+                    <height>190</height>
+                    <label>NOW</label>
+                    <font>font15</font>
+                    <textcolor>white</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                </control>
+                
+                <control type="image">
+                    <description>Program next BIG</description>
+                    <posx>500</posx>
+                    <posy>216</posy>
+                    <width>220</width>
+                    <height>190</height> 
+                    <texture>buttons/help_marker.png</texture>
+                </control>
+                <control type="label">
+                    <description>Program next BIG</description>
+                    <posx>500</posx>
+                    <posy>216</posy>
+                    <width>220</width>
+                    <height>190</height> 
+                    <label>NEXT PROGRAM</label>
+                    <font>font15</font>
+                    <textcolor>white</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                </control>
+                -->
+        </control>
+        <!-- # Main Popup Videowindow and program image -->
+        <control type="group">
+            <description>Popup Menu Mouse Control Buttons Controls</description>
+            <!-- program image fallback custom -->
+            <control type="image">
+                <description>program image fallback custom</description>
+                <posx>505</posx>
+                <posy>145</posy>
+                <width>600</width>
+                <height>300</height>
+                <texture>backgrounds/TV_testcard.png</texture>
+                <aspectratio align="center" aligny="top">keep</aspectratio>
+                <visible>StringCompare(Control.GetLabel(7002),)+!Player.HasMedia</visible>
+            </control>
+            <!-- program image -->
+            <control type="image" id="7002">
+                <texture></texture>
+                <description>program image</description>
+                <posx>505</posx>
+                <posy>145</posy>
+                <width>600</width>
+                <height>300</height>
+                <aspectratio align="center" aligny="top">keep</aspectratio>
+                <visible>!Player.HasMedia</visible>
+            </control>
+            <!-- Blackout for videowindow -->
+            <control type="image">
+                <description>Blackout for videowindow</description>
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>1280</width>
+                <height>720</height>
+                <texture>black.png</texture>
+                <visible>VideoPlayer.IsFullscreen</visible>
+            </control>
+            <!-- videowindow -->
+            <control type="videowindow">
+                <description>program video window</description>
+                <posx>505</posx>
+                <posy>145</posy>
+                <width>600</width>
+                <height>300</height>
+                <aligny>top</aligny>
+                <aspectratio>scale</aspectratio>
+                <animation effect="fade" start="100" end="0" time="0">WindowClose</animation>
+            </control>
+            <!-- play BIG invisible -->
+            <control type="button" id="44501">
+                <description>play BIG invisible</description>
+                <posx>505</posx>
+                <posy>145</posy>
+                <width>600</width>
+                <height>300</height>
+                <texturefocus>-</texturefocus>
+                <texturenofocus>-</texturenofocus>
+                <visible>true</visible>
+            </control>
+        </control>
+        <!--  # disabled 4500 new Popup Main Tab Setup # -->
+        <!--
+        <control type="label" id="4500">
+            <description>visibility marker for Popup Setup</description>
+        </control>
+        <control type="group">
+            <description>Popup Setup</description>
+            <posx>100</posx>
+            <posy>28</posy>
+            <width>1080</width>
+            <height>664</height>
+            <visible>!Control.IsVisible(4500)</visible>
+            <animation effect="fade" start="0" end="100" time="0">VisibleChange</animation>
+
+            <control type="image">
+                <posx>10</posx>
+                <posy>523</posy>
+                <width>1060</width>
+                <height>130</height>
+                <aspectratio align="right">stretch</aspectratio>
+                <texture>DialogSmall.png</texture>
+                <visible>true</visible>
+            </control>
+            <control type="label" id="44101">
+                <description>channel title</description>
+                <posx>40</posx>
+                <posy>533</posy>
+                <width>210</width>
+                <height>32</height>
+                <textcolor>black</textcolor>
+                <font>font14_bold</font>
+            </control>
+
+            <control type="image" id="4025">
+                <description>Addon Logo</description>
+                <posx>730</posx>
+                <posy>533</posy>
+                <width>32</width>
+                <height>32</height>
+                <aspectratio>keep</aspectratio>
+                <align>left</align>
+                <texture>-</texture>
+                <visible>true</visible>
+            </control>
+
+            <control type="label" id="4026">
+                <description>Addon Name</description>
+                <posx>774</posx>
+                <posy>533</posy>
+                <width>100</width>
+                <height>32</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>font12</font>
+                <textcolor>black</textcolor>
+                <shadowcolor></shadowcolor>
+                <label></label>
+                <align>left</align>
+                <scroll>true</scroll>
+            </control>
+
+            <control type="label">
+                <description>MEM</description>
+                <left>210r</left>
+                <posy>533</posy>
+                <width>100</width>
+                <height>32</height>
+                <textcolor>black</textcolor>
+                <font>font10</font>
+                <align>right</align>
+                <aligny>center</aligny>
+                <label>Mem: $INFO[system.memory(used.percent)]</label>
+                <visible>true</visible>
+            </control>
+            <control type="label">
+                <description>CPU</description>
+                <left>140r</left>
+                <posy>533</posy>
+                <width>100</width>
+                <height>32</height>
+                <textcolor>black</textcolor>
+                <font>font10</font>
+                <align>right</align>
+                <aligny>center</aligny>
+                <label>CPU: $INFO[System.CPUUsage]</label>
+                <visible>true</visible>
+            </control>
+            <control type="image">
+                <description>Separation Line Setup</description>
+                <posx>40</posx>
+                <posy>574</posy>
+                <width>1000</width>
+                <height>1</height>
+                <texture colordiffuse="white">tvg-program-nofocus.png</texture>
+                <aspectratio>scale</aspectratio>
+            </control>
+            <control type="group">
+                <description>Visible Buttons Setup Buttons</description>
+                <posx>40</posx>
+                <posy>592</posy>
+                <width>800</width>
+                <height>50</height>
+
+                <control type="image">
+                    <description>Button Choose Stream</description>
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>49</width>
+                    <height>44</height>
+                    <texture>buttons/Button darkBlue AddStream.png</texture>
+                    <aspectratio align="left">keep</aspectratio>
+                    <colordiffuse>white</colordiffuse>
+                    <visible>Control.IsEnabled(4001)</visible>
+                </control>
+                <control type="image">
+                    <description>Button Choose Stream Focus</description>
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>49</width>
+                    <height>44</height>
+                    <texture>buttons/Button darkBlue AddStreamFO.png</texture>
+                    <aspectratio align="left">keep</aspectratio>
+                    <colordiffuse>white</colordiffuse>
+                    <visible>Control.HasFocus(4001)</visible>
+                </control>                
+                <control type="button" id="4001">
+                    <description>Button Choose Stream MAIN DEFAULT BUTTON</description>
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>217</width>
+                    <height>32</height>
+                    <texturefocus></texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onup>4503</onup>
+                    <onleft>44004</onleft>
+                    <onright>44001</onright>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>font12</font>
+                    <textcolor>grey</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <label>Choose Stream</label>
+                    <visible>false</visible>
+                    <visible>Control.IsEnabled(4001)</visible>
+                </control>
+                <control type="image">
+                    <description>Button Choose Stream_2</description>
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>49</width>
+                    <height>44</height>
+                    <texture>buttons/Button darkBlue AddStream.png</texture>
+                    <aspectratio align="left">keep</aspectratio>
+                    <colordiffuse>white</colordiffuse>
+                    <visible>Control.IsEnabled(40011)</visible>
+                </control>
+                <control type="image">
+                    <description>Button Choose Stream_2 Focus</description>
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>49</width>
+                    <height>44</height>
+                    <texture>buttons/Button darkBlue AddStreamFO.png</texture>
+                    <aspectratio align="left">keep</aspectratio>
+                    <colordiffuse>white</colordiffuse>
+                    <visible>Control.HasFocus(40011)</visible>
+                </control>
+                <control type="button" id="40011">
+                    <description>Choose Stream_2 </description>
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>217</width>
+                    <height>32</height>
+                    <texturefocus></texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onup>4503</onup>
+                    <onleft>44004</onleft>
+                    <onright>44001</onright>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>font12</font>
+                    <textcolor>grey</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <label>Choose Stream</label>
+                    <visible>Control.IsEnabled(40011)</visible>
+                </control>
+                <control type="image">
+                    <description>Button Choose Alt Stream</description>
+                    <posx>230</posx>
+                    <posy>0</posy>
+                    <width>49</width>
+                    <height>44</height>
+                    <texture>buttons/Button darkBlue AltStream.png</texture>
+                    <aspectratio align="left">keep</aspectratio>
+                    <colordiffuse>white</colordiffuse>
+                    <visible></visible>
+                </control>
+                <control type="image">
+                    <description>Button Choose Alt Stream Focus</description>
+                    <posx>230</posx>
+                    <posy>0</posy>
+                    <width>49</width>
+                    <height>44</height>
+                    <texture>buttons/Button darkBlue AltStreamFO.png</texture>
+                    <aspectratio align="left">keep</aspectratio>
+                    <colordiffuse>white</colordiffuse>
+                    <visible>Control.HasFocus(4014)</visible>
+                </control>
+                <control type="button" id="4014">
+                    <description>Choose Alt Stream</description>
+                    <posx>280</posx>
+                    <posy>0</posy>
+                    <width>144</width>
+                    <height>32</height>
+                    <texturefocus></texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onup>4503</onup>
+                    <onleft>44001</onleft>
+                    <onright>4007</onright>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>font12</font>
+                    <textcolor>grey</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <label>Add Alt Stream</label>
+                </control>
+                
+                <control type="image">
+                    <description>Stream Setup button</description>
+                    <posx>460</posx>
+                    <posy>0</posy>
+                    <width>49</width>
+                    <height>44</height>
+                    <texture>buttons/Button darkBlue StreamSetup.png</texture>
+                    <aspectratio align="left">keep</aspectratio>
+                    <colordiffuse>white</colordiffuse>
+                    <visible></visible>
+                </control>
+                <control type="image">
+                    <description>Button Stream Setup Focus</description>
+                    <posx>460</posx>
+                    <posy>0</posy>
+                    <width>49</width>
+                    <height>44</height>
+                    <texture>buttons/Button darkBlue StreamSetupFO.png</texture>
+                    <aspectratio align="left">keep</aspectratio>
+                    <colordiffuse>white</colordiffuse>
+                    <visible>Control.HasFocus(4007)</visible>
+                </control>
+                <control type="button" id="4007">
+                    <description>Stream Setup </description>
+                    <posx>460</posx>
+                    <posy>0</posy>
+                    <width>180</width>
+                    <height>32</height>
+                    <texturefocus></texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onup>4503</onup>
+                    <onleft>4014</onleft>
+                    <onright>4003</onright>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>font12</font>
+                    <textcolor>grey</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <label>Stream Setup</label>
+                </control>
+
+                <control type="image" id="">
+                    <description>Channels Button</description>
+                    <posx>690</posx>
+                    <posy>0</posy>
+                    <width>49</width>
+                    <height>44</height>
+                    <texture>buttons/Button darkBlue Channels.png</texture>
+                    <aspectratio align="left">keep</aspectratio>
+                    <colordiffuse>white</colordiffuse>
+                    <visible></visible>
+                </control>
+                <control type="image" id="">
+                    <description>Channels Button Focus</description>
+                    <posx>690</posx>
+                    <posy>0</posy>
+                    <width>49</width>
+                    <height>44</height>
+                    <texture>buttons/Button darkBlue ChannelsFO.png</texture>
+                    <aspectratio align="left">keep</aspectratio>
+                    <colordiffuse>white</colordiffuse>
+                    <visible>Control.HasFocus(4003)</visible>
+                </control>
+                <control type="button" id="4003">
+                    <description>CHANNELS</description>
+                    <posx>690</posx>
+                    <posy>0</posy>
+                    <width>135</width>
+                    <height>32</height>
+                    <texturefocus></texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onup>4503</onup>
+                    <onleft>4007</onleft>
+                    <onright>4502</onright>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>font12</font>
+                    <textcolor>grey</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <label>$ADDON[script.tvguide.tardis 30307]</label>
+                </control>
+
+                <control type="button" id="4011">
+                    <description>Lists</description>
+                    <posx>820</posx>
+                    <posy>0</posy>
+                    <width>220</width>
+                    <height>32</height>
+                    <texturefocus></texturefocus>
+                    <texturenofocus></texturenofocus>
+                    <onup></onup>
+                    <onleft></onleft>
+                    <onright></onright>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>font12</font>
+                    <textcolor>grey</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <visible>false</visible>
+                    <label>Lists</label>
+                </control>
+
+                <control type="button" id="4502">
+                    <description>back</description>
+                    <posx>911</posx>
+                    <posy>0</posy>
+                    <width>32</width>
+                    <height>32</height>
+                    <texturefocus>buttons/button_backFO.png</texturefocus>
+                    <texturenofocus>buttons/button_back.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <onup>4503</onup>
+                    <onleft>4003</onleft>
+                    <onright>44004</onright>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    
+                    <label></label>
+                </control>
+                <control type="button" id="44004">
+                    <description>Quit</description>
+                    <posx>970</posx>
+                    <posy>0</posy>
+                    <width>32</width>
+                    <height>32</height>
+                  <texturefocus>buttons/actionbar/power.png</texturefocus>
+                <texturenofocus>buttons/actionbar/powerFO.png</texturenofocus>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <onup>4503</onup>
+                    <onleft>4502</onleft>
+                    <onright>4001</onright>
+                    <textcolor></textcolor>
+                    <focusedcolor></focusedcolor>
+                    
+                    <label>$ADDON[script.tvguide.tardis 30308]</label>
+                </control>
+            </control>
+        </control>
+        -->
+    </controls>
+</window>

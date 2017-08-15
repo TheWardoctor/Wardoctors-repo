@@ -1,0 +1,6 @@
+version 1.0.25
+- BBC Sport added in but no autoplay.
+
+version 1.0.24
+- Fixes
+

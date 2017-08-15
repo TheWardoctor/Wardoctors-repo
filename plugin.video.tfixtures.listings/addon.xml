@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.tfixtures.listings"
+version="1.0.1"
+name="Tardis Fixtures Listings"
+provider-name="Wardoctor, primaeval">
+<requires>
+  <import addon="xbmc.python" version="2.20.0"/>
+  <import addon="script.module.xbmcswift2" version="2.4.0"/>
+  <import addon="script.module.requests" version="2.9.1" />
+</requires>
+<extension point="xbmc.python.pluginsource" library="main.py">
+  <provides>video</provides>
+</extension>
+<extension point="xbmc.service" library="service.py" start="login"/>
+<extension point="xbmc.addon.metadata">
+  <summary lang="en">Listing for BBC fixtures in Tardis Fixtures</summary>
+  <description lang="en">TV Listings for Tardis Fixtures.</description>
+  <disclaimer lang="en">.</disclaimer>
+</extension>
+</addon>
+

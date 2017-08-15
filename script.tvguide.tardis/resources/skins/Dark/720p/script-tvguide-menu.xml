@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog">
+    <allowoverlay>no</allowoverlay>
+    <defaultcontrol always="false">4000</defaultcontrol>
+    <coordinates>
+        <system>1</system>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <controls>
+		<!-- Background -->
+		<control type="image">
+			<description>Background</description>
+            <left>0</left>
+            <top>0</top>
+            <width>1280</width>
+            <height>720</height>
+			<aspectratio>scale</aspectratio>
+            <texture fallback="special://profile/addon_data/script.tvguide.tardis/backgrounds/charcoal.png">$VAR[GlobalFanartVar]</texture>
+            <visible>true</visible>
+        </control>
+        <!-- Header Image-->
+		<control type="image">
+			<description>Header</description>
+            <left>0</left>
+            <top>0</top>
+            <width>1280</width>
+            <height>58</height>
+            <texture>black-back.png</texture>
+            <visible>true</visible>
+        </control>
+		<control type="image">
+            <description>Header Trim</description>
+            <left>0</left>
+            <top>58</top>
+            <width>1280</width>
+            <height>1</height>
+            <texture>aqua.png</texture>
+			<visible>true</visible>
+        </control>
+		<!-- Main Image -->
+		<control type="image">
+            <description>main</description>
+			<left>0</left>
+            <top>60</top>
+            <width>1280</width>
+            <height>660</height>
+            <texture>black-back.png</texture>
+			<visible>true</visible>
+        </control>
+		<control type="image">
+			<description>Footer Trim</description>
+			<left>642</left>
+			<top>560</top>
+			<width>1280</width>
+			<height>1</height>
+			<texture>aqua.png</texture>
+			<visible>true</visible>
+        </control>
+				
+		<!-- Video Preview -->
+		<control type="group">
+			<left>0</left>
+			<top>358</top>
+			<width>642</width>
+			<height>362</height>
+			<control type="image">
+				<description>Current/Preview background</description>
+				<left>0</left>
+				<top>0</top>
+				<width>642</width>
+				<height>362</height>
+				<texture>black.png</texture>
+				<bordersize>1</bordersize>
+				<bordertexture>aqua.png</bordertexture>
+				<visible>true</visible>
+			</control>
+			<control type="image">
+				<description>Current/Preview backup</description>
+				<left>1</left>
+				<top>1</top>
+				<width>640</width>
+				<height>360</height>
+				<aspectratio>keep</aspectratio>
+				<align>center</align>
+				<texture>tv.png</texture>
+				<visible>!Player.HasMedia</visible>
+			</control>
+			<control type="image" id="7002">
+				<description>Programme image</description>
+				<left>1</left>
+				<top>1</top>
+				<width>640</width>
+				<height>360</height>
+				<aspectratio>scale</aspectratio>
+				<texture>-</texture>
+				<visible>!Player.HasMedia</visible>
+			</control>
+			<control type="videowindow">
+				<description>Preview/Current Video</description>
+				<left>1</left>
+				<top>1</top>
+				<width>640</width>
+				<height>360</height>
+			</control>
+			<control type="image" id="4100">
+				<description>Channel logo</description>
+				<left>588</left>
+				<top>308</top>
+				<width>50</width>
+				<height>50</height>
+				<aspectratio>keep</aspectratio>
+				<visible>true</visible>
+			</control>
+		</control>
+
+		<!-- Header - Date and time display -->
+		<control type="group">
+			<left>0</left>
+			<top>0</top>
+			<width>1280</width>
+			<height>60</height>
+			<visible>true</visible>
+			<control type="label">
+				<description>Displays todays date</description>
+				<left>1000</left>
+				<top>25</top>
+				<width>270</width>
+				<height>20</height>
+				<textcolor>white</textcolor>
+				<font>font12</font>
+				<align>right</align>
+				<label>$INFO[System.Date]</label>
+				<visible>true</visible>
+			</control>
+			<control type="label">
+				<description>Display current time</description>
+				<left>1030</left>
+				<top>5</top>
+				<width>240</width>
+				<height>20</height>
+				<align>right</align>
+				<font>font13_title</font>
+				<textcolor>white</textcolor>
+				<label>$INFO[System.Time]</label>
+			</control>
+		</control>
+		<control type="label">
+			<description>Display current temperature</description>
+			<left>1095</left>
+			<top>5</top>
+			<width>60</width>
+			<height>20</height>
+			<align>right</align>
+			<font>font13_title</font>
+			<textcolor>white</textcolor>
+			<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
+            <visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na) + String.Contains(Weather.Conditions,/)]</visible>
+		</control>
+		<control type="image">
+			<description>Display current weather icon</description>
+            <left>1128</left>
+			<top>1</top>
+			<width>60</width>
+			<height>35</height>
+            <fadetime>300</fadetime>
+            <aspectratio align="right">keep</aspectratio>
+            <texture colordiffuse="button_focus">weather/small/$INFO[Weather.FanartCode].png</texture>
+            <visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na) + String.Contains(Weather.Conditions,/)]</visible>
+        </control>
+		
+		<!-- Programme Details -->
+		<control type="label" id="4101">
+			<description>Channel name</description>
+			<left>20</left>
+            <top>0</top>
+            <width>400</width>
+            <height>60</height>
+			<align>left</align>
+			<font>font13_title</font>
+			<textcolor>white</textcolor>
+			<visible>true</visible>
+			<scroll>true</scroll>
+			<aligny>center</aligny>
+			<label>-</label>
+		</control>
+		<control type="label" id="7001">
+			<description>Programme title</description>
+			<left>440</left>
+			<top>0</top>
+			<width>400</width>
+			<height>60</height>
+			<align>center</align>
+			<textcolor>white</textcolor>
+			<font>font13_title</font>
+			<align>left</align>
+			<aligny>center</aligny>
+			<label/>
+		</control>
+		<control type="label" id="7003">
+			<description>Programme date and time</description>
+			<left>340</left>
+			<top>0</top>
+			<width>300</width>
+			<height>60</height>
+			<textcolor>white</textcolor>
+			<font>font13_title</font>
+			<align>right</align>
+			<aligny>center</aligny>
+			<label></label>
+			<visible>false</visible>
+		</control>
+		<control type="label" id="7000">
+			<description>Programme description</description>
+			<width>620</width>
+			<height>260</height>
+			<left>20</left>
+			<top>70</top>
+			<textcolor>white</textcolor>
+			<font>font13</font>
+			<align>justify</align>
+			<wrapmultiline>true</wrapmultiline>
+			<autoscroll time="3600" delay="6000" repeat="6000">true</autoscroll>
+			<label/>
+		</control>
+        
+		<!-- Category Group -->
+		<control type="group">
+            <left>715</left>
+            <top>60</top>
+			<control type="button" id="80003">
+				<description>Add category</description>
+				<left>30</left>
+				<top>25</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>-</onup>
+				<ondown>4004</ondown>
+				<onright>7004</onright>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>Add Category...</label>
+				<visible>true</visible>
+			</control>
+			<control type="button" id="80004">
+				<!-- Remove Category -->
+				<left>30</left>
+				<top>87</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>80003</onup>
+				<ondown>4004</ondown>
+				<onright>7004</onright>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>Remove Category</label>
+				<visible>fales</visible>
+			</control>
+			<control type="button" id="4004">
+				<description>Quit</description>
+				<left>30</left>
+				<top>56</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>80003</onup>
+				<ondown>4000</ondown>
+				<onleft>7004</onleft>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>$ADDON[script.tvguide.tardis 30308]</label>
+				<visible>true</visible>
+			</control>
+			<control type="image">
+				<left>278</left>
+				<top>22</top>
+				<width>204</width>
+				<height>435</height>
+				<texture>menu-grey.png</texture>
+				<visible>true</visible>
+			</control>
+			<control type="image">
+                <description>Up arrow</description>
+				<left>278</left>
+                <top>4</top>
+                <width>204</width>
+                <height>12</height>
+				<aspectratio>keep</aspectratio>
+                <texture>tvguide-channel-arrow.png</texture>
+            </control>
+            <control type="image">
+				<description>Down arrow</description>
+                <left>278</left>
+                <top>481</top>
+                <width>204</width>
+                <height>-12</height>
+				<aspectratio>keep</aspectratio>
+                <texture>tvguide-channel-arrow.png</texture>
+            </control>
+			<control type="list" id="7004">
+				<description>Categories</description>
+				<left>280</left>
+				<top>25</top>
+				<width>200</width>
+				<height>430</height>
+				<visible>true</visible>
+				<onup>80003</onup>
+				<ondown>4006</ondown>
+				<onleft>80003</onleft>
+				<onright>80004</onright>
+				<viewtype label="3D list">list</viewtype>
+				<orientation>vertical</orientation>
+				<itemlayout width="200" height="50">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>200</width>
+						<height>30</height>
+						<texture>menu-grey.png</texture>
+						<visible>true</visible>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>200</width>
+						<height>30</height>
+						<font>font13</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<textcolor>white</textcolor>
+						<selectedcolor>red</selectedcolor>
+						<align>left</align>
+						<info>ListItem.Label</info>
+					</control>
+				</itemlayout>
+				<focusedlayout height="50" width="200">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>200</width>
+						<height>30</height>
+						<texture>menu-grey-focus.png</texture>
+						<visible>true</visible>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>200</width>
+						<height>30</height>
+						<texture>menu-grey-focus.png</texture>
+						<visible>Control.HasFocus(7004)</visible>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>200</width>
+						<height>30</height>
+						<font>font13</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<textcolor>white</textcolor>
+						<selectedcolor>red</selectedcolor>
+						<align>left</align>
+						<info>ListItem.Label</info>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>200</width>
+						<height>30</height>
+						<font>font13</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<textcolor>white</textcolor>
+						<selectedcolor>red</selectedcolor>
+						<align>left</align>
+						<info>ListItem.Label</info>
+						<visible>Control.HasFocus(7004)</visible>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+
+		<!-- Button Group -->
+		<control type="group">
+            <left>647</left>
+            <top>550</top>
+			<control type="button" id="4006">
+				<!-- super favourites -->
+				<left>223</left>
+				<top>25</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>80003</onup>
+				<ondown>4005</ondown>
+				<onleft>4000</onleft>
+				<onright>4009</onright>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>iSearch</label>
+			</control>
+			<control type="button" id="4005">
+				<!-- watch from beginning -->
+				<left>223</left>
+				<top>56</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>4006</onup>
+				<ondown>4002</ondown>
+				<onleft>4001</onleft>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>Meta Search</label>
+			</control>
+			<control type="button" id="4002">
+				<!-- REMINDER -->
+				<left>223</left>
+				<top>87</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>4005</onup>
+				<ondown>4008</ondown>
+				<onleft>4007</onleft>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+			</control>
+			<control type="button" id="4008">
+				<description>autoplay</description>
+				<left>223</left>
+				<top>118</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>4002</onup>
+				<ondown>4009</ondown>
+				<onleft>4003</onleft>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>Autoplay</label>
+			</control>
+			<control type="button" id="4000">
+				<!-- Watch Stream -->
+				<left>20</left>
+				<top>25</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>80003</onup>
+				<ondown>4001</ondown>
+				<onright>4006</onright>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<visible>true</visible>
+			</control>
+			<control type="button" id="4001">
+				<!-- Choose Stream -->
+				<left>20</left>
+				<top>56</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>4000</onup>
+				<ondown>4007</ondown>
+				<onright>4005</onright>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>Choose Stream</label>
+			</control>
+			<control type="button" id="4007">
+				<!-- Stream Setup -->
+				<left>20</left>
+				<top>87</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>4001</onup>
+				<ondown>4003</ondown>
+				<onright>4002</onright>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>Stream Setup</label>
+			</control>
+			<control type="button" id="4003">
+				<!-- CHANNELS -->
+				<left>20</left>
+				<top>118</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>4007</onup>
+				<ondown>4006</ondown>
+				<onright>4008</onright>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>$ADDON[script.tvguide.tardis 30307]</label>
+			</control>
+			<control type="button" id="4009">
+				<!-- AutoPlay With -->
+				<description>autoplaywith</description>
+				<left>426</left>
+				<top>25</top>
+				<width>200</width>
+				<height>30</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>4008</onup>
+				<ondown>4000</ondown>
+				<onleft>4006</onleft>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>AutoPlayWith</label>
+			</control>
+			<control type="label">
+				<!-- Choose Stream Text -->
+				<left>420</left>
+				<top>0</top>
+				<width>200</width>
+				<height>30</height>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<label>$ADDON[script.tvguide.tardis 30305]</label>
+				<wrapmultiline>true</wrapmultiline>
+				<visible>false</visible>
+			</control>
+			<control type="label" id="4102">
+				<!-- Show Title -->
+				<left>420</left>
+				<top>30</top>
+				<width>200</width>
+				<height>30</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<visible>false</visible>
+			</control>
+			<control type="button" id="80000">
+				<!-- MY MOVIES -->
+				<left>0</left>
+				<top>436</top>
+				<width>200</width>
+				<height>40</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>4002</onup>
+				<ondown>80001</ondown>
+				<onleft>7004</onleft>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<label>$ADDON[script.tvguide.tardis 80000]</label>
+				<visible>false</visible>
+			</control>
+			<control type="button" id="80001">
+				<!-- MY TV SHOWS -->
+				<left>0</left>
+				<top>488</top>
+				<width>200</width>
+				<height>40</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>80000</onup>
+				<ondown>80002</ondown>
+				<onleft>7004</onleft>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>$ADDON[script.tvguide.tardis 80001]</label>
+				<visible>false</visible>
+			</control>
+			<control type="button" id="80002">
+				<!-- VIDEO ADDONS -->
+				<left>0</left>
+				<top>540</top>
+				<width>200</width>
+				<height>40</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>80001</onup>
+				<ondown>4006</ondown>
+				<onleft>7004</onleft>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>$ADDON[script.tvguide.tardis 80002]</label>
+				<visible>false</visible>
+			</control>
+			<control type="button" id="4004">
+				<!-- QUIT -->
+				<left>20</left>
+				<top>650</top>
+				<width>200</width>
+				<height>40</height>
+				<texturefocus>menu-grey-focus.png</texturefocus>
+				<texturenofocus>menu-grey.png</texturenofocus>
+				<onup>4003</onup>
+				<ondown>80000</ondown>
+				<onleft>7004</onleft>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<label>$ADDON[script.tvguide.tardis 30308]</label>
+				<visible>false</visible>
+			</control>
+		</control>
+    </controls>
+</window>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a dummy file for Skinning_Tool.exe validation -->
+<addon id="script.tvguide.tardis" version="0.1" name="Default" provider-name="Wardoctor">
+  <requires>
+    <import addon="xbmc.gui" version="5.10.0"/>
+  </requires>
+  <extension point="xbmc.gui.skin" debugging="false" effectslowdown="1.0">
+   <res width="1280" height="720" aspect="16:9" default="true" folder="720p" />
+    <!--<res width="1280" height="720" aspect="16:9" default="true" folder="720p" />
+    <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />-->
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Tardis TV - Skin</summary>
+    <description lang="en">Skin for Tardis TV - Tardis by Wardoctor</description>
+    <disclaimer lang="en">Tardis TV - Skin</disclaimer>
+    <platform>all</platform>
+  </extension>
+</addon>

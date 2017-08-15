@@ -1,0 +1,23 @@
+<playercorefactory>
+<players>
+<player name="vlc" type="ExternalPlayer" audio="false" video="true">
+    <filename>c:\program files\Videolan\VLC\VLC.exe</filename>
+    <args>--play-and-exit --video-on-top --fullscreen "{1}"</args>
+    <hidexbmc>false</hidexbmc>
+    <hideconsole>false</hideconsole>
+    <hidecursor>false</hidecursor>
+</player>
+<player name="mpc-hc" type="ExternalPlayer" audio="false" video="true">
+    <filename>C:\Program Files\MPC-HC\mpc-hc.exe</filename>
+    <args>"{1}" /fullscreen /close</args>
+    <hidexbmc>true</hidexbmc>
+    <hideconsole>true</hideconsole>
+    <warpcursor>none</warpcursor>
+</player>
+<player name="MXPlayerFree" type="ExternalPlayer" audio="false" video="true">
+    <filename>com.mxtech.videoplayer.ad</filename>
+    <hidexbmc>true</hidexbmc>
+    <playcountminimumtime>120</playcountminimumtime>
+</player>
+</players>
+</playercorefactory> 

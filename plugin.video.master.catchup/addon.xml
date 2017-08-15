@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.master.catchup" name="Master Catchup" version="1.0.5" provider-name="Wardoctor">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Master Catchup</summary>
+    <description lang="en">Watch All Your Favourite UK TV Catchup</description>
+    <platform>all</platform>
+  </extension>
+</addon>
