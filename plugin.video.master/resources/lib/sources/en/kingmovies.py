@@ -165,6 +165,9 @@ class source:
                     p = client.request(self.source_link, post=post, referer=src, XHR=True)
 
                     js = json.loads(p)
+                    src = js['sources']
+                    p = client.request('http:'+src, referer=src)   
+                    js = json.loads(p)[0]
 
                     try:
                         ss = js['sources']

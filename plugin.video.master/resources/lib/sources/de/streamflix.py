@@ -30,8 +30,8 @@ class source:
     def __init__(self):
         self.priority = 1
         self.language = ['de']
-        self.domains = ['streamflix.to']
-        self.base_link = 'https://streamflix.to'
+        self.domains = ['streamflix.org']
+        self.base_link = 'https://streamflix.to/'
         self.search_link = '/api/searchAutoComplete?locale=de&q=%s'
         self.get_links = '/api/getLinks'
         self.get_episodes = '/api/getEpisode'

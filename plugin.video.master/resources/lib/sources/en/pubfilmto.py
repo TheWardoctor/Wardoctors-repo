@@ -2,7 +2,7 @@
 
 '''
     Master Add-on
-    Copyright (C) 2017 Wardoctor
+    Copyright (C) 2017 Master
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -116,9 +116,11 @@ class source:
             if url == None: return sources
             content = 'episode' if 'episode' in url else 'movie'
             result = client.request(url)
-            url = re.findall(r"class\s*=\s*'play_container'\s+href\s*=\s*'([^']+)", result)[0]
-            #url = url + '&server=alternate'
-            result = client.request(url, timeout='10')
+            try:
+                url = re.findall(r"class\s*=\s*'play_container'\s+href\s*=\s*'([^']+)", result)[0]
+                result = client.request(url, timeout='10')
+            except:
+                pass
             try:
                 url = re.compile('ajax\(\{\s*url\s*:\s*[\'"]([^\'"]+)').findall(result)[0]
                 post = 'post'

@@ -30,7 +30,7 @@ class source:
         self.priority = 1
         self.language = ['en']
         self.domains = ['rlsbb.online']
-        self.base_link = 'http://rlsbb.online'
+        self.base_link = 'http://rlsbb.ru/'
         self.search_link = '/search/%s/feed/rss2/'
 
 

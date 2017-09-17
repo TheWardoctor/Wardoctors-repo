@@ -94,10 +94,16 @@ class source:
     def episode(self, url, imdb, tvdb, title, premiered, season, episode):
         try:
             if url == None: return
-            myurl = re.findall('(s\d{2}e\d{2})', url)[0]
-            myepisode = 's%02de%02d' % (int(season), int(episode))
-            url = url.replace(myurl, myepisode)
-            return url
+            url = urlparse.urljoin(self.base_link, url)
+            result = client.request(url)
+            result = client.parseDOM(result, 'select', attrs={'id': 'sezon'})[0]
+            sezons = client.parseDOM(result, 'option')
+            urls = client.parseDOM(result, 'option', ret='value')
+            
+            index = sezons.index("Sezon " + season);
+            
+            return urls[index];          
+            
         except:
             return
 

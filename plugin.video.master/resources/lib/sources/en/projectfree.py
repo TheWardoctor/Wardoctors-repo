@@ -30,7 +30,7 @@ class source:
         self.priority = 0
         self.language = ['en']
         self.domains = ['project-free-tv.ch']
-        self.base_link = 'http://project-free-tv.ch'
+        self.base_link = 'http://project-free-tv.ag'
         self.search_link = '/movies/%s-%s/'
         self.search_link_2 = '/movies/search-form/?free=%s'
 

@@ -115,7 +115,7 @@ class source:
                             x = re.findall('/(tt\d+)', post)[0]
                             if not x == imdb: raise Exception()
                             q = re.findall('<strong>\s*Video\s*:\s*</strong>.+?\s(\d+)', post)[0]
-                            if not int(q) == 1280: raise Exception()
+                            if not int(q) >= 720: raise Exception()
                             if len(dupes) > 3: raise Exception()
                             dupes += [x]
 

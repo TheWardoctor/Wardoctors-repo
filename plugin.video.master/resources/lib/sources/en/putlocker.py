@@ -138,7 +138,7 @@ class source:
             headers['Referer'] = url
 
 
-            u = '/ajax/tnembeds.php'
+            u = '/ajax/tnembedr.php'
             self.base_link = client.request(self.base_link, output='geturl')
             u = urlparse.urljoin(self.base_link, u)
 
