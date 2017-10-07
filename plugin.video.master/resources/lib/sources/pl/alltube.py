@@ -20,11 +20,10 @@
 '''
 
 
-import re, urllib, urlparse, json, base64
+import re, urlparse, json, base64
 
 from resources.lib.modules import cleantitle
 from resources.lib.modules import client
-from resources.lib.modules import cache
 
 def byteify(input):
     if isinstance(input, dict):
@@ -43,55 +42,63 @@ class source:
         self.domains = ['alltube.tv']
         
         self.base_link = 'http://alltube.tv'
+        self.search_link = '/szukaj'
         self.moviesearch_link = '/index.php?url=search/autocomplete/&phrase=%s'
         self.tvsearch_cache = 'http://alltube.tv/seriale-online/'
         self.episode_link = '-Season-%01d-Episode-%01d'
 
 
-    def movie(self, imdb, title, localtitle, aliases, year):
-        try:
-            query = self.moviesearch_link % urllib.quote_plus(cleantitle.query(title))
-            query = urlparse.urljoin(self.base_link, query)
-            result = client.request(query)
-            result = json.loads(result)
-
-            result = [i for i in result['suggestions'] if len(i) > 0]
-            years = ['%s' % str(year), '%s' % str(int(year) + 1), '%s' % str(int(year) - 1)]
-            result = [(i['data'].encode('utf8'), i['value'].encode('utf8')) for i in result]
-            result = [i for i in result if cleantitle.get(title) in cleantitle.get(i[1])]
-            result = [i[0] for i in result if any(x in i[1] for x in years)][0]
-
-            try: url = re.compile('//.+?(/.+)').findall(result)[0]
-            except: url = result
-            url = client.replaceHTMLCodes(url)
-            url = url.encode('utf-8')
-            return url
-        except:
-            return
-
-
-    def alltube_tvshow_cache(self):
-        try:
-            result = client.request(self.tvsearch_cache)
-            result = client.parseDOM(result, 'li', attrs={'data-letter':'.*'})
-            result = [(client.parseDOM(i, 'a', ret='href')[0], client.parseDOM(i, 'a')[0].encode('utf8')) for i in result]
-            return result
-        except: 
-            return
-
-    def tvshow(self, imdb, tvdb, tvshowtitle, localtvshowtitle, aliases, year):
-        try:
-            result = cache.get(self.alltube_tvshow_cache, 120)
-            fixedTitle = cleantitle.get(tvshowtitle)
-            for link in result:
-                found_name = link[1]
-                found_year = re.search('\((\d{4})\)$', found_name)
-                if found_year and found_year.group(0)[1:-1] != year:
+    def get_rows(self, r, search_type):       
+        divs = client.parseDOM(r, 'div', attrs={'class': 'col-sm-12'})        
+        for div in divs:
+            header = client.parseDOM(div, 'h2', attrs={'class': 'headline'})
+            if header and header[0] == search_type:
+                return  client.parseDOM(div, 'div', attrs={'class': 'item-block clearfix'})
+    
+    
+    def name_matches(self, names, names_found):
+        
+        for name in names:
+            if name in names_found:
+                return True        
+        return False
+    
+    
+    def try_read_year(self, url):
+        index = url.rfind('/')
+        found_year = url[index - 4:index]
+        if found_year.isdigit():
+            return found_year
+        return None       
+    
+    
+    def search(self, title, localtitle, year, search_type):
+        try:            
+            r = client.request(urlparse.urljoin(self.base_link, self.search_link), post={'search': cleantitle.query(title)})
+            r = self.get_rows(r, search_type)
+            
+            names = [cleantitle.get(i) for i in [title, localtitle]]
+            for row in r:
+                url = client.parseDOM(row, 'a', ret='href')[0]
+                names_found = client.parseDOM(row, 'h3')[0]
+                if names_found.startswith('Zwiastun') and not localtitle.startswith('Zwiastun'):
                     continue
-                if fixedTitle in cleantitle.get(found_name):
-                    return link[0]
+                names_found = names_found.split('/')
+                names_found = [cleantitle.get(i) for i in names_found]
+                if self.name_matches(names, names_found):
+                    found_year = self.try_read_year(url)
+                    if not found_year or found_year == year:
+                        return url
+                    
+                
         except:
-            return
+            return    
+    
+    def movie(self, imdb, title, localtitle, aliases, year):        
+        return self.search(title, localtitle, year, 'Filmy')
+ 
+    def tvshow(self, imdb, tvdb, tvshowtitle, localtvshowtitle, aliases, year):
+        return self.search(tvshowtitle, localtvshowtitle, year, 'Seriale')      
         
     def episode(self, url, imdb, tvdb, title, premiered, season, episode):
         try:

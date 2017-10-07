@@ -35,6 +35,7 @@ class source:
         self.base_link = 'https://kingmovies.is'
         self.search_link = '/search?q=%s'
         self.source_link = 'https://api.streamdor.co/sources'
+
     def matchAlias(self, title, aliases):
         try:
             for alias in aliases:
@@ -81,9 +82,9 @@ class source:
             search = '%s Season %01d' % (title, int(season))
             url = urlparse.urljoin(self.base_link, self.search_link % urllib.quote_plus(cleantitle.getsearch(search)))
             r = client.request(url, timeout='15')
-            r = [i[1] for i in re.findall(r'<li\s+class="movie-item".*?data-title=\"([^\"]+)\"><a\s+href="([^"]+)',r, re.IGNORECASE) 
+            r = [i[1] for i in re.findall(r'<li\s+class=["\']movie-item["\'].*?data-title=["\']([^"\']+)["\']><a\s+href=["\']([^"\']+)["\']',r, re.IGNORECASE) 
                  if cleantitle.get(re.sub(r"\s*\d{4}","",i[0])) in [cltitle, cltitle2]]
-  
+
             if r == None: return
             else: url = r[0]
 
@@ -97,12 +98,11 @@ class source:
             cltitle = cleantitle.get(title)
             url = urlparse.urljoin(self.base_link, self.search_link % urllib.quote_plus(cleantitle.getsearch(title)))
             r = client.request(url, timeout='15')
-            r = [i[1] for i in re.findall(r'<li\s+class="movie-item".*?data-title=\"([^\"]+)\"><a\s+href="([^"]+)',r, re.IGNORECASE) 
+            r = [i[1] for i in re.findall(r'<li\s+class=["\']movie-item["\'].*?data-title=["\']([^"\']+)["\']><a\s+href=["\']([^"\']+)["\']',r, re.IGNORECASE) 
                  if cleantitle.get(re.sub(r"\s*\d{4}","",i[0])) == cltitle]
 
             if r == None: return
             else: url = r[0]
-
             return url
         except:
             return
@@ -160,25 +160,33 @@ class source:
                     except:
                         continue
 
-                    fl = re.findall(r'file"\s*:\s*"([^"]+)',p)[0]                   
-                    post = {'episodeID': episodeId, 'file': fl, 'subtitle': 'false', 'referer': urllib.quote_plus(u)}
-                    p = client.request(self.source_link, post=post, referer=src, XHR=True)
-
-                    js = json.loads(p)
-                    src = js['sources']
-                    p = client.request('http:'+src, referer=src)   
-                    js = json.loads(p)[0]
-
                     try:
-                        ss = js['sources']
-                        ss = [(i['file'], i['label']) for i in ss if 'file' in i]
+                        fl = re.findall(r'file"\s*:\s*"([^"]+)',p)[0]                   
+                        post = {'episodeID': episodeId, 'file': fl, 'subtitle': 'false', 'referer': urllib.quote_plus(u)}
+                        p = client.request(self.source_link, post=post, referer=src, XHR=True)
+                        js = json.loads(p)
+                        src = js['sources']
+                        p = client.request('http:'+src, referer=src)   
+                        js = json.loads(p)[0]
 
-                        for i in ss:
-                            try:                                                                
-                                sources.append({'source': 'CDN', 'quality': source_utils.label_to_quality(i[1]), 'language': 'en', 'url': i[0], 'direct': True, 'debridonly': False})
-                            except: pass
+                        try:
+                            ss = js['sources']
+                            ss = [(i['file'], i['label']) for i in ss if 'file' in i]
+
+                            for i in ss:
+                                try:                                                                
+                                    sources.append({'source': 'CDN', 'quality': source_utils.label_to_quality(i[1]), 'language': 'en', 'url': i[0], 'direct': True, 'debridonly': False})
+                                except: pass
+                        except:
+                            pass
                     except:
-                        pass
+                        url = re.findall(r'embedURL"\s*:\s*"([^"]+)',p)[0]
+                        valid, hoster = source_utils.is_host_valid(url, hostDict)
+                        if not valid: continue
+                        urls, host, direct = source_utils.check_directstreams(url, hoster)
+                        for x in urls:
+                            sources.append({'source': host, 'quality': 'SD', 'language': 'en', 'url': x['url'], 'direct': direct, 'debridonly': False})     
+
                 except:
                     pass
 

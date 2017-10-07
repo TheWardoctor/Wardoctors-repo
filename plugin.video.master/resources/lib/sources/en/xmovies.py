@@ -32,7 +32,7 @@ class source:
         self.priority = 1
         self.language = ['en']
         self.domains = ['xmovies8.tv', 'xmovies8.ru']
-        self.base_link = 'https://xmovies8.ru'
+        self.base_link = 'https://xmovies8.es'
         self.search_link = '/movies/search?s=%s'
 
     def matchAlias(self, title, aliases):

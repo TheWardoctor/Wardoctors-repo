@@ -23,13 +23,14 @@ from resources.lib.modules import cleantitle
 from resources.lib.modules import client
 from resources.lib.modules import cache
 from resources.lib.modules import directstream
+from resources.lib.modules import source_utils
 
 
 class source:
     def __init__(self):
         self.priority = 1
         self.language = ['en']
-        self.domains = ['movieshd.tv', 'movieshd.is', 'movieshd.watch', 'flixanity.is', 'flixanity.me','istream.is']
+        self.domains = ['movieshd.tv', 'movieshd.is', 'movieshd.watch', 'flixanity.is', 'flixanity.me','istream.is','flixanity.online']
         self.base_link = 'https://flixanity.online'
 
     def movie(self, imdb, title, localtitle, aliases, year):
@@ -141,7 +142,7 @@ class source:
             headers['Referer'] = url
 
 
-            u = '/ajax/jne.php'
+            u = '/ajax/ine.php'
             u = urlparse.urljoin(self.base_link, u)
 
             action = 'getEpisodeEmb' if '/episode/' in url else 'getMovieEmb'
@@ -164,7 +165,17 @@ class source:
             r = re.findall('\'(http.+?)\'', r) + re.findall('\"(http.+?)\"', r)
 
             for i in r:
-                try: sources.append({'source': 'gvideo', 'quality': directstream.googletag(i)[0]['quality'], 'language': 'en', 'url': i, 'direct': True, 'debridonly': False})
+                try:
+                    if 'googleapis' in i:
+                        sources.append({'source': 'GVIDEO', 'quality': 'SD', 'language': 'en', 'url': i, 'direct': True, 'debridonly': False})
+                    else:
+                        valid, hoster = source_utils.is_host_valid(i, hostDict)
+                        urls, host, direct = source_utils.check_directstreams(i, hoster)
+                        if valid:
+                            for x in urls: sources.append({'source': host, 'quality': x['quality'], 'language': 'en', 'url': x['url'], 'direct': direct, 'debridonly': False})
+                        else:
+                            sources.append({'source': 'CDN', 'quality': 'SD', 'language': 'en', 'url': i, 'direct': True, 'debridonly': False})
+
                 except: pass
 
             return sources
@@ -173,6 +184,9 @@ class source:
 
 
     def resolve(self, url):
-        return directstream.googlepass(url)
+        if 'google' in url and not 'googleapis' in url:
+            return directstream.googlepass(url)
+        else:
+            return url
 
 

@@ -58,8 +58,18 @@ class source:
             if not url:
                 return
 
-            url = re.sub('\.\w+$', '', url)
-            return url + '/staffel-%s-episode-%s.html' % (season, episode)
+            s = 'staffel-%s-episode-%s' % (season, episode)
+            s = '(?<=<a class=\"episode-name\" href=\")(.*?)(?='+s+')(.*?)(?=\")'
+
+            url = '/serien' + re.sub('\.\w+$', '', url)
+            url = urlparse.urljoin(self.base_link, url)
+
+            r = client.request(url, mobile=True)
+
+            p = dom_parser.parse_dom(r, 'div', attrs={'id': 'seasonss'})
+            url = re.search(s, p[0][1]).group()
+
+            return url
         except:
             return
 
@@ -108,6 +118,13 @@ class source:
                             if len(url) < 1: continue
                             url = url[0].attrs['src']
                             if '/old/seframer.php' in url: url = self.__get_old_url(url)
+
+                            if 'keepup' in url:
+                                print url
+                                # needs to be fixed (keepup.gq)
+                            elif self.domains[0] in url:
+                                url = re.search('(?<=id=).*$', url).group()
+                                url = 'https://drive.google.com/file/d/' + url
 
                         valid, host = source_utils.is_host_valid(url, hostDict)
                         if not valid: continue

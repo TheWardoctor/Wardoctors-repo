@@ -33,7 +33,7 @@ class source:
         self.base_link = 'http://cda-hd.pl/'
         self.search_link = '/?s=%s'
 
-    def do_search(self, title, year, video_type):
+    def do_search(self, title, local_title, year, video_type):
         try:
             url = urlparse.urljoin(self.base_link, self.search_link)
             url = url % urllib.quote_plus(cleantitle.query(title))
@@ -46,20 +46,22 @@ class source:
                 names = client.parseDOM(row, 'span', attrs={'class': 'tt'})[0]
                 names = names.split('/')
                 year_found = client.parseDOM(row, 'span', attrs={'class': 'year'})
-                if self.name_matches(names, title, year) and (len(year_found) == 0 or year_found[0] == year):
+                
+                titles = [cleantitle.get(i) for i in [title,local_title]]
+                
+                if self.name_matches(names, titles, year) and (len(year_found) == 0 or year_found[0] == year):
                     url = client.parseDOM(row, 'a', ret='href')[0]
                     return urlparse.urljoin(self.base_link, url)
         except :
             return
 
-    def name_matches(self, names_found, title, year):
+    def name_matches(self, names_found, titles, year):
         for name in names_found:
             name = name.strip().encode('utf-8')
             # if ends with year
-            clean_found_title = cleantitle.get(name)
-            clean_title = cleantitle.get(title)
+            clean_found_title = cleantitle.get(name)            
             # sometimes they add year to title so we need to check thet
-            if clean_found_title == clean_title or clean_found_title == (clean_title + year):
+            if clean_found_title in titles:
                 return True
 
         return False
@@ -69,10 +71,10 @@ class source:
 
 
     def movie(self, imdb, title, localtitle, aliases, year):
-        return self.do_search(title, year, 'Film')
+        return self.do_search(title, localtitle, year, 'Film')
 
     def tvshow(self, imdb, tvdb, tvshowtitle, localtvshowtitle, aliases, year):
-        return self.do_search(tvshowtitle, year, 'Serial')
+        return self.do_search(tvshowtitle, localtvshowtitle, year, 'Serial')
 
     def episode(self, url, imdb, tvdb, title, premiered, season, episode):
         try:

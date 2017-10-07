@@ -69,7 +69,7 @@ class source:
             result = client.parseDOM(result, 'div', attrs={'class':'element'})
             for el in result :
                 
-                found_title = client.parseDOM(el, 'span', attrs={'class':'title'})[0]
+                found_title = client.parseDOM(el, 'div', attrs={'class':'title'})[0]
                 if not self.contains_all_wors(found_title, words):
                     continue
                 
@@ -80,13 +80,13 @@ class source:
                     q = 'HD'
                 
                 link = client.parseDOM(el, 'a', attrs={'class':'link'}, ret='href')[0]
-                fields = client.parseDOM(el, 'span', attrs={'class':'fields'})[0]
-                transl_type = client.parseDOM(fields, 'span', attrs={'class':'version'})[0]
+                transl_type = client.parseDOM(el, 'span', attrs={'class':'version'})[0]               
                 transl_type = transl_type.split(' ')
                 transl_type = transl_type[-1]
                  
-                host = client.parseDOM(fields, 'img', ret='src')[0]
-                host = host[36:-4]
+                host = client.parseDOM(el, 'span', attrs={'class':'host'})[0]
+                host = host.split(' ')
+                host = host[-1]
                  
                 lang, info = self.get_lang_by_type(transl_type)
                  

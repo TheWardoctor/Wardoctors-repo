@@ -36,7 +36,7 @@ provider-name="Wardoctor, primaeval">
 </extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.master" version="2.0.9" name="Master" provider-name="Wardoctor">
+<addon id="plugin.video.master" version="2.0.10" name="Master" provider-name="Wardoctor">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
 		<import addon="script.master.artwork" version="1.0.0" />

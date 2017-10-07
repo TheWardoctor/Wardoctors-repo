@@ -35,8 +35,8 @@ class source:
         self.domains = ['gostream.is']
         self.base_link = 'https://gostream.is'
         self.search_link = '/movie/search/%s'
-        #self.user = control.setting('gostream.user')
-        #self.password = control.setting('gostream.pass')
+        self.user = control.setting('gostream.user')
+        self.password = control.setting('gostream.pass')
 
     def movie(self, imdb, title, localtitle, aliases, year):
         try:
@@ -75,19 +75,19 @@ class source:
 
             if url == None: return sources
 
-            #if (self.user != '' and self.password != ''): #raise Exception()
+            if (self.user != '' and self.password != ''): #raise Exception()
 
-            #    login = urlparse.urljoin(self.base_link, '/login.html')
+               login = urlparse.urljoin(self.base_link, '/login.html')
 
-            #    post = urllib.urlencode({'username': self.user, 'password': self.password, 'submit': 'Login'})
+               post = urllib.urlencode({'username': self.user, 'password': self.password, 'submit': 'Login'})
 
-            #    cookie = client.request(login, post=post, output='cookie', close=False)
+               cookie = client.request(login, post=post, output='cookie', close=False)
 
-            #    r = client.request(login, post=post, cookie=cookie, output='extended')
+               r = client.request(login, post=post, cookie=cookie, output='extended')
 
-            #    headers = {'User-Agent': r[3]['User-Agent'], 'Cookie': r[4]}
-            #else:
-            #    headers = {}
+               headers = {'User-Agent': r[3]['User-Agent'], 'Cookie': r[4]}
+            else:
+               headers = {}
 
 
             if not str(url).startswith('http'):
@@ -115,10 +115,8 @@ class source:
                 else:
                     cltitle = cleantitle.get(title)
 
-                #r = [(i[0], i[1][0]) for i in r if len(i[1]) > 0]
                 r = [i for i in r if cltitle == cleantitle.get(i[1]) or cltitle2 == cleantitle.get(i[1])]
                 id = [re.findall('/(\d+)$',i[2])[0] for i in r][0]
-                #r = [i[0] for i in r][0]
 
                 ajx = urlparse.urljoin(self.base_link, '/ajax/movie_episodes/'+id)
 

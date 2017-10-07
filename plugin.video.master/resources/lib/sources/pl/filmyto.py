@@ -22,8 +22,7 @@
 
 import re, urllib, urlparse
 
-from resources.lib.modules import cleantitle
-from resources.lib.modules import client
+from resources.lib.modules import cleantitle, client
 
 import HTMLParser
 
@@ -38,6 +37,16 @@ class source:
         self.ajax_link = '/ajax/provision/%s'
         self.html_parser = HTMLParser.HTMLParser()
 
+
+    def name_matches(self, given_name, names):
+        for splitted_name in given_name.split('/'):
+            simplified = cleantitle.get(splitted_name)
+            for name in names:
+                if name == simplified:
+                    return True            
+        return False
+    
+    
     def movie(self, imdb, title, localtitle, aliases, year):
         try:
             query = self.search_link % (urllib.quote_plus(title))
@@ -52,8 +61,10 @@ class source:
                   client.parseDOM(i, 'p', attrs={'class': 'plot'})) for i in result ]
 
             result = [(i[0][0], u" ".join(i[1] + i[2]), re.findall('(\d{4})', i[4][0])) for i in result]
+                          
+            names = [cleantitle.get(i) for i in [title, localtitle]]
 
-            result = [i for i in result if cleantitle.get(title) in cleantitle.get(i[1])]
+            result = [i for i in result if self.name_matches(i[1], names)]
             years = ['%s' % str(year), '%s' % str(int(year) + 1), '%s' % str(int(year) - 1)]
             result = [i[0] for i in result if any(x in i[2] for x in years)][0]
 
@@ -82,7 +93,8 @@ class source:
 
             result = [(i[0][0], u" ".join(i[1] + i[2]), re.findall('(\d{4})', i[4][0])) for i in result]
             result = [i for i in result if 'serial' in i[0]]
-            result = [i for i in result if cleantitle.get(tvshowtitle) in cleantitle.get(i[1])]
+            names = [cleantitle.get(i) for i in [tvshowtitle, localtvshowtitle]]
+            result = [i for i in result if self.name_matches(i[1], names)]
             years = ['%s' % str(year), '%s' % str(int(year) + 1), '%s' % str(int(year) - 1)]
             result = [i[0] for i in result if any(x in i[2] for x in years)][0]
             url = result
@@ -102,8 +114,16 @@ class source:
             
             index = sezons.index("Sezon " + season);
             
-            return urls[index];          
-            
+            seasonUrl = urlparse.urljoin(self.base_link, urls[index])          
+            result = client.request(seasonUrl)
+            result = client.parseDOM(result, 'div', attrs={'class': 'episodeLinks'})[0]
+            epUrls = client.parseDOM(result, 'a', ret='href')
+            rows = client.parseDOM(result, 'a')
+            for row in rows:
+                episodeNo = client.parseDOM(row, 'span')[0]
+                episodeNo = episodeNo[:-1]
+                if episodeNo == episode:
+                    return epUrls[rows.index(row)]                                 
         except:
             return
 
@@ -133,7 +153,7 @@ class source:
             ajax_prov = client.parseDOM(result[0], 'meta', attrs={'property': 'provision'}, ret='content')[0]
             
             ajax_url = urlparse.urljoin(self.base_link, self.ajax_link) % ajax_prov
-            h['X-CSRFToken']=re.findall ('csrftoken=(.*?);', cookie)[0]
+            h['X-CSRFToken'] = re.findall ('csrftoken=(.*?);', cookie)[0]
             result = client.request(ajax_url, cookie=cookie, XHR=True, headers=h)
             
             r = client.parseDOM(result, 'div', attrs={'class':'host-container pull-left'})
