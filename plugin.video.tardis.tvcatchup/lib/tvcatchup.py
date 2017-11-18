@@ -1,12 +1,8 @@
 import json
 import urllib2
-import re
-
 from httplib import HTTPException
 
 from retrying import Retrying
-
-stream_re = re.compile(r"""(?P<q>['"])(?P<stream_url>https?://.*m3u8\?.*clientKey=.*?)(?P=q)""")
 
 
 def retry_if_http_error(exception):
@@ -22,12 +18,17 @@ class TVCatchupBlocked(TVCatchupError):
     pass
 
 
+class TVCatchupAgentBlocked(TVCatchupBlocked):
+    pass
+
+
 class TVCatchup(object):
     API_URL = "http://www.tvcatchup.com/api/{0}"
-    USER_AGENT = "TVCatchup/1.0.1 (samsung/SM-J7008; Android 4.4.2/KOT49H)"
+    USER_AGENT = "TVCatchup/1.0 (iPhone; iOS 11.0.2; Scale/3.00)"
 
-    def __init__(self, region=1):
+    def __init__(self, region=1, user_agent=None):
         self.region = region
+        self.user_agent = user_agent or self.USER_AGENT
 
     @staticmethod
     def lookup_region(name):
@@ -55,7 +56,7 @@ class TVCatchup(object):
         timeout = kwargs.pop("timeout", 10.0)
 
         opener = urllib2.build_opener()
-        opener.addheaders = [("User-Agent", self.USER_AGENT),
+        opener.addheaders = [("User-Agent", self.user_agent),
                              ("region-id", str(self.region))]
 
         req = urllib2.Request(self.API_URL.format(path), **kwargs)
@@ -76,5 +77,7 @@ class TVCatchup(object):
         data = self.api_call("stream/{0}".format(channel_id))
         if data["blocked"]:
             raise TVCatchupBlocked(data.get("blocked_message"))
+        elif data["stream"].endswith("hls/ua.m3u8"):
+            raise TVCatchupAgentBlocked("User-Agent blocked")
         else:
             return data["stream"]

@@ -179,8 +179,8 @@ class SmoozedResolver(UrlResolver):
     @classmethod
     def get_settings_xml(cls):
         xml = super(cls, cls).get_settings_xml()
-        xml.append('<setting id="%s_email" visible="true" type="text" default=""/>' % (cls.__name__))
-        xml.append('<setting id="%s_password" visible="true" type="text" default=""/>' % (cls.__name__))
+        xml.append('<setting id="%s_email" visible="true" type="text" label="Username" default=""/>' % (cls.__name__))
+        xml.append('<setting id="%s_password" visible="true" type="text" label="Password" default=""/>' % (cls.__name__))
         xml.append('<setting id="%s_session_key" visible="false" type="text" default=""/>' % (cls.__name__))
         return xml
 

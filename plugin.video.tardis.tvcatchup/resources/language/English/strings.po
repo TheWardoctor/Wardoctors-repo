@@ -21,6 +21,10 @@ msgctxt "#30011"
 msgid "Region"
 msgstr ""
 
+msgctxt "#30012"
+msgid "Custom User-Agent"
+msgstr ""
+
 # Script
 
 msgctxt "#32000"
@@ -33,4 +37,8 @@ msgstr ""
 
 msgctxt "#32002"
 msgid "Unknown"
+msgstr ""
+
+msgctxt "#32003"
+msgid "User Agent has been blocked, set a custom User Agent in the Addon's settings"
 msgstr ""

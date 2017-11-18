@@ -1,0 +1,41 @@
+# Kodi Media Center language file
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.video.tardis.tvcatchup\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-11-02 09:29+0200\n"
+"Last-Translator: A. Dambledore\n"
+"Language-Team: Eng2Heb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he_IL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.4\n"
+
+msgctxt "#30000"
+msgid "TV Catchup"
+msgstr "TV Catchup"
+
+# Settings
+msgctxt "#30010"
+msgid "General"
+msgstr "כללי"
+
+msgctxt "#30011"
+msgid "Region"
+msgstr "אזור"
+
+# Script
+msgctxt "#32000"
+msgid "Warning"
+msgstr "אזהרה"
+
+msgctxt "#32001"
+msgid "Could not open stream for {0}!"
+msgstr "לא היתה אפשרות לפתוח את ההזרמה עבור {0}!"
+
+msgctxt "#32002"
+msgid "Unknown"
+msgstr "לא ידוע"

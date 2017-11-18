@@ -77,7 +77,7 @@ class OpenLoadResolver(UrlResolver):
             header = i18n('ol_auth_header')
             line1 = i18n('auth_required')
             line2 = i18n('visit_link')
-            line3 = i18n('click_pair') % (pair_url)
+            line3 = i18n('click_pair').decode('utf-8') % (pair_url)
             with common.kodi.CountdownDialog(header, line1, line2, line3) as cd:
                 return cd.start(self.__check_auth, [media_id])
         

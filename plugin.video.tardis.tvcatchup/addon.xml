@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.tardis.tvcatchup" name="TV Catchup Tardis Edition" version="1.3.6" provider-name="War Doctor, beardypig, blxd">
+<addon id="plugin.video.tardis.tvcatchup" name="TV Catchup Tardis Edition" version="1.3.7" provider-name="Wardoctor, beardypig">
   <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="xbmc.python" version="2.19.0"/>
     <import addon="script.module.six" version="1.9.0"/>
   </requires>
  <extension point="xbmc.python.pluginsource" library="addon.py">
@@ -11,5 +11,7 @@
     <summary lang="en">Live streams from TVCatchup.com</summary>
     <disclaimer>May not work outside the UK</disclaimer>
     <platform>all</platform>
+    <forum></forum>
+    <source></source>
   </extension>
 </addon>

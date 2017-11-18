@@ -107,7 +107,7 @@ def parse_smil_source_list(smil):
         sources += [(label, '%s playpath=%s' % (base, i.group(1)))]
     return sources
 
-def scrape_sources(html, result_blacklist=None, scheme='http', patterns=None):
+def scrape_sources(html, result_blacklist=None, scheme='http', patterns=None, generic_patterns=True):
     if patterns is None: patterns = []
     
     def __parse_to_list(_html, regex):
@@ -143,12 +143,13 @@ def scrape_sources(html, result_blacklist=None, scheme='http', patterns=None):
     html += get_packed_data(html)
 
     source_list = []
-    source_list += __parse_to_list(html, '''["']?label\s*["']?\s*[:=]\s*["']?(?P<label>[^"',]+)["']?(?:[^}\]]+)["']?\s*file\s*["']?\s*[:=,]?\s*["'](?P<url>[^"']+)''')
-    source_list += __parse_to_list(html, '''["']?\s*(?:file|src)\s*["']?\s*[:=,]?\s*["'](?P<url>[^"']+)(?:[^}>\]]+)["']?\s*label\s*["']?\s*[:=]\s*["']?(?P<label>[^"',]+)''')
-    source_list += __parse_to_list(html, '''video[^><]+src\s*[=:]\s*['"](?P<url>[^'"]+)''')
-    source_list += __parse_to_list(html, '''source\s+src\s*=\s*['"](?P<url>[^'"]+)['"](?:.*?res\s*=\s*['"](?P<label>[^'"]+))?''')
-    source_list += __parse_to_list(html, '''["'](?:file|url)["']\s*[:=]\s*["'](?P<url>[^"']+)''')
-    source_list += __parse_to_list(html, '''param\s+name\s*=\s*"src"\s*value\s*=\s*"(?P<url>[^"]+)''')
+    if generic_patterns or not patterns:
+        source_list += __parse_to_list(html, '''["']?label\s*["']?\s*[:=]\s*["']?(?P<label>[^"',]+)["']?(?:[^}\]]+)["']?\s*file\s*["']?\s*[:=,]?\s*["'](?P<url>[^"']+)''')
+        source_list += __parse_to_list(html, '''["']?\s*(?:file|src)\s*["']?\s*[:=,]?\s*["'](?P<url>[^"']+)(?:[^}>\]]+)["']?\s*label\s*["']?\s*[:=]\s*["']?(?P<label>[^"',]+)''')
+        source_list += __parse_to_list(html, '''video[^><]+src\s*[=:]\s*['"](?P<url>[^'"]+)''')
+        source_list += __parse_to_list(html, '''source\s+src\s*=\s*['"](?P<url>[^'"]+)['"](?:.*?res\s*=\s*['"](?P<label>[^'"]+))?''')
+        source_list += __parse_to_list(html, '''["'](?:file|url)["']\s*[:=]\s*["'](?P<url>[^"']+)''')
+        source_list += __parse_to_list(html, '''param\s+name\s*=\s*"src"\s*value\s*=\s*"(?P<url>[^"]+)''')
     for regex in patterns:
         source_list += __parse_to_list(html, regex)
         
@@ -157,12 +158,15 @@ def scrape_sources(html, result_blacklist=None, scheme='http', patterns=None):
     common.logger.log(source_list)
     if len(source_list) > 1:
         try: source_list.sort(key=lambda x: int(re.sub("\D", "", x[0])), reverse=True)
-        except: common.logger.log_debug('Scrape sources sort failed |int(re.sub("\D", "", x[0])|')
+        except: 
+            common.logger.log_debug('Scrape sources sort failed |int(re.sub("\D", "", x[0])|')
+            try: source_list.sort(key=lambda x: re.sub("[^a-zA-Z]", "", x[0]))
+            except: common.logger.log_debug('Scrape sources sort failed |re.sub("[^a-zA-Z]", "", x[0])|')
 
     return source_list
 
 
-def get_media_url(url, result_blacklist=None, patterns=None):
+def get_media_url(url, result_blacklist=None, patterns=None, generic_patterns=True):
     if patterns is None: patterns = []
     scheme = urlparse(url).scheme
     if result_blacklist is None:
@@ -182,7 +186,7 @@ def get_media_url(url, result_blacklist=None, patterns=None):
         headers.update({'Cookie': cookie})
     html = response.content
 
-    source_list = scrape_sources(html, result_blacklist, scheme, patterns)
+    source_list = scrape_sources(html, result_blacklist, scheme, patterns, generic_patterns)
     source = pick_source(source_list)
     return source + append_headers(headers)
 

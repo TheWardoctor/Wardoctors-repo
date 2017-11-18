@@ -12,7 +12,7 @@
 <setting id="view_mode" label="Skin's Big List View Mode" type="number" default="51" />
 </category>
 <category label="XMLTV Data">
-<setting label="XMLTV Type" type="enum" id="xmltv_type" default="1" values="File|Url" />
+<setting label="XMLTV Type" type="enum" id="xmltv_type" default="Url" values="File|Url" />
 <setting id="xmltv_url" label="XMLTV Url" type="text" enable="eq(-1,1)" default="http://163.172.46.122/files/guide/sgs.xml" />
 <setting id="xmltv_file" label="XMLTV File" type="file" mask="*.xml|*.xmltv" enable="eq(-2,0)" default="" />
 <setting id="xml_reload_modified" label="Reload xmltv file when Modified" type="bool" enable="eq(-3,0)" default="true" />
@@ -23,14 +23,14 @@
 <setting id="xml_reload_hour" label="xmltv Timer reload Hour" type="enum" default="3" values="$HOURS" />
 </category>
 <category label="XMLTV .ini File">
-<setting label=".ini Type" type="enum" id="ini_type" default="2" values="None|File|Url" />
+<setting label=".ini Type" type="enum" id="ini_type" default="Url" values="None|File|Url" />
 <setting id="ini_url" label="stream .ini file url" type="text" enable="eq(-1,2)" default="http://163.172.46.122/files/masterbeta/live/addons.ini" />
 <setting id="ini_file" label="stream .ini file" type="file" mask="*.ini" enable="eq(-2,1)" default="" />
 <setting id="ini_reload" label="Force reload .ini files" type="bool" default="true" />
 </category>
 <category label="Logos">
-<setting label="Logo Type" type="enum" id="logo_type" default="Folder" values="Folder|Url" />
-<setting id="logo_url" label="logo folder Url" type="text" enable="eq(-1,1)" default="" />
+<setting label="Logo Type" type="enum" id="logo_type" default="Url" values="Folder|Url" />
+<setting id="logo_url" label="logo folder Url" type="text" enable="eq(-1,1)" default="http://163.172.46.122/files/guide/guidelogos" />
 <setting id="logo_folder" label="logo Folder" type="folder" enable="eq(-2,0)" default="" />
 </category>
 <category label="Reminders">

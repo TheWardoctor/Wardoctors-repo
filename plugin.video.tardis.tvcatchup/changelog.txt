@@ -1,4 +1,6 @@
+[B]Version 1.3.7[/B]
+- Code Fixes
+
 [B]Version 1.3.6[/B]
 - The streamlink module is no longer used to get the streams.
 - Added channel region settings, defaults to London
-

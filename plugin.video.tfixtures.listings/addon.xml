@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="plugin.video.tfixtures.listings"
-version="1.0.2"
+version="1.0.3"
 name="Tardis Fixtures Listings"
 provider-name="Wardoctor, primaeval">
 <requires>
@@ -13,8 +13,8 @@ provider-name="Wardoctor, primaeval">
 </extension>
 <extension point="xbmc.service" library="service.py" start="login"/>
 <extension point="xbmc.addon.metadata">
-  <summary lang="en">Listing for BBC fixtures in Tardis Fixtures</summary>
-  <description lang="en">TV Listings for Tardis Fixtures.</description>
+  <summary lang="en">Tardis Fixtures Listings</summary>
+  <description lang="en">Tardis Fixtures Listings.</description>
   <disclaimer lang="en">.</disclaimer>
 </extension>
 </addon>

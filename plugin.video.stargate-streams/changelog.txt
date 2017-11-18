@@ -1,0 +1,6 @@
+2.0.6
+- Stargate Guide Update
+
+2.0.4
+- Compatibility Coding
+- Viewtype Testing

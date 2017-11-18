@@ -18,10 +18,15 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import re
-from lib import helpers, jsunpack
+
+import os, speedvid_gmu
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
+
+logger = common.log_utils.Logger.get_logger(__name__)
+logger.disable()
+SV_SOURCE = 'https://raw.githubusercontent.com/jsergio123/script.module.urlresolver/master/lib/urlresolver/plugins/speedvid_gmu.py'
+SV_PATH = os.path.join(common.plugins_path, 'speedvid_gmu.py')
 
 class SpeedVidResolver(UrlResolver):
     name = "SpeedVid"
@@ -32,24 +37,21 @@ class SpeedVidResolver(UrlResolver):
         self.net = common.Net()
     
     def get_media_url(self, host, media_id):
-        web_url = self.get_url(host, media_id)
-        headers = {'User-Agent': common.RAND_UA}
-        html = self.net.http_GET(web_url, headers=headers).content
-        
-        if html:
-            try:
-                packed = helpers.get_packed_data(html)
-                packed = re.search("""(eval\s*\(function.*?\|location\|.*?\)\))""", packed).groups()[0]
-                packed = jsunpack.unpack(packed)
-                location_href = re.search("""document\.location\.href\s*=\s*["']([^"']+)""", packed).groups()[0]
-                location_href = 'http:%s' % location_href if location_href.startswith("//") else location_href
-                
-                return helpers.get_media_url(location_href, patterns=['''file:["'](?P<url>(?!http://s13)[^"']+)''']).replace(' ', '%20')
-                
-            except:
-                raise ResolverError('File not found')
-            
-        raise ResolverError('File not found')
+        try:
+            self._auto_update(SV_SOURCE, SV_PATH)
+            reload(speedvid_gmu)
+            web_url = self.get_url(host, media_id)
+            return speedvid_gmu.get_media_url(web_url, media_id)
+        except Exception as e:
+            logger.log_debug('Exception during %s resolve parse: %s' % (self.name, e))
+            raise
         
     def get_url(self, host, media_id):
         return self._default_get_url(host, media_id, 'http://www.{host}/embed-{media_id}.html')
+        
+    @classmethod
+    def get_settings_xml(cls):
+        xml = super(cls, cls).get_settings_xml()
+        xml.append('<setting id="%s_auto_update" type="bool" label="Automatically update resolver" default="true"/>' % (cls.__name__))
+        xml.append('<setting id="%s_etag" type="text" default="" visible="false"/>' % (cls.__name__))
+        return xml

@@ -1,0 +1,9 @@
+<settings>
+<category label="General">
+     <setting id="Username" type="text" label="Username" default=""/>
+     <setting id="Password" type="text" option="writeable,hidden" label="Password" default=""/>
+	 <setting id="improve" type="bool" label="Use Advanced Settings?"value="True"/>
+     <setting type="text" label="[COLOR red]Note: Click 'OK', then Login after you enter your account information.[/COLOR]" default=""/>
+<setting type="text" label="[COLOR white]Join the Stargate Support forums https://forums.sgstreams.org[/COLOR]" default=""/>
+</category>
+</settings>

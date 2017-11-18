@@ -13,8 +13,6 @@ import time
 import os
 from bs4 import BeautifulSoup
 from urlparse import urlparse
-from PIL import Image
-import PIL.ImageOps
 import datetime
 from datetime import timedelta
 from rpc import RPC
@@ -1234,7 +1232,7 @@ def index():
     big_list_view = False
 
     items = []
-
+    '''
     context_items = []
     context_items.append(("[COLOR yellow][B]%s[/B][/COLOR] " % 'Clear Channels', 'XBMC.RunPlugin(%s)' % (plugin.url_for(clear_channels))))
     items.append({
@@ -1243,16 +1241,17 @@ def index():
         'thumbnail': 'special://home/addons/plugin.program.tardis-fixtures/resources/img/tv.png',
         'context_menu': context_items,
     })
-
+    '''
     items.append({
         'label': "BBC Sport",
         'path': plugin.url_for('bbc_sports_index'),
     })
+    '''
     items.append({
         'label': "The Fixtures",
         'path': plugin.url_for('thefixtures_index'),
     })
-
+    '''
     return items
 
 
