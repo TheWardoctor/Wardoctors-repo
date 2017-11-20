@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.service.caretaker" name="KN Addon Caretaker" version="9.9.9" provider-name="Birger Jesch">
+    <requires>
+        <import addon="xbmc.python" version="2.25.0"/>
+        <import addon="xbmc.json" version="7.0.0"/>
+    </requires>
+    <extension point="xbmc.service" library="service.py" start="login"/>
+    <extension point="xbmc.python.script" library="addon.py"/>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_gb">Take care with unauthorized Repositories</summary>
+        <description lang="en_gb">This service checks your addon folder for possibly unauthorized, potentially harmful repositories and informs the user about these. Detailed informations are logged into the caretaker.log at the same folder as your kodi.log. Repository providers: If you think your repository is mistakenly blacklisted, please inform the vendor of this addon.</description>
+        <disclaimer lang="en_gb">Use at your own risk.</disclaimer>
+        <summary lang="de_de">Vorsicht vor nicht autorisierten Repositories</summary>
+        <description lang="de_de">Dieser Dienst überprüft den Addon-Ordner auf möglicherweise nicht autorisierte, potentiell schädliche Repositories und informiert den Nutzer darüber. Detaillierte Informationen werden im caretaker.log protokolliert, welche sich im Log-Verzeichnis von Kodi befindet. Repository Provider: Sollte Euer Repository fälschlicherweise auf der Blacklist erscheinen, informiert bitte den Anbieter dieses Addons.</description>
+        <disclaimer lang="de_de">Benutzung auf eigene Gefahr.</disclaimer>
+        <platform>all</platform>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
+        <forum>https://www.kodinerds.net/index.php/Thread/57888-Release-script-service-caretaker/</forum>
+        <website></website>
+        <email>Birger.Jesch@gmail.com</email>
+        <source>https://github.com/b-jesch/script.service.caretaker</source>
+        <news></news>
+        <assets>
+            <icon>resources/icon.png</icon>
+            <fanart></fanart>
+            <screenshot></screenshot>
+        </assets>
+    </extension>
+</addon>

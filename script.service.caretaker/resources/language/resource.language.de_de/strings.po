@@ -1,0 +1,94 @@
+# XBMC Media Center language file
+# Addon Name: KN Addon Caretaker
+# Addon id: script.service.caretaker
+# Addon version: 0.0.5
+# Addon Provider: Birger Jesch
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC-Addons\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: 2017-08-17 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgctxt "#30010"
+msgid "KN Addon Caretaker"
+msgstr "KN Addon Caretaker"
+
+msgctxt "#30011"
+msgid "Unauthorized repository"
+msgstr "Unautorisiertes Repository"
+
+msgctxt "#30012"
+msgid "You have potentially harmful repositories installed"
+msgstr "Du hast potenziell schädliche Repositories installiert"
+
+msgctxt "#30013"
+msgid "You have one or more unauthorized repositories installed. These repositories may contain harmful addons. It's highly recommended to clean up your addon list."
+msgstr "Du hast ein oder mehrere nicht autorisierte Repositories installiert. Diese können schädliche Addons enthalten. Es wird dringend empfohlen, Deine Addon-Liste zu bereinigen."
+
+msgctxt "#30014"
+msgid "No unauthorized repositories found"
+msgstr "Keine unautorisierten Repositories gefunden"
+
+msgctxt "#30020"
+msgid "Actions"
+msgstr "Aktionen"
+
+msgctxt "#30021"
+msgid "actualize blacklist now"
+msgstr "Blacklist jetzt aktualisieren"
+
+msgctxt "#30022"
+msgid "Blacklist successful updated"
+msgstr "Blacklist erfolgreich aktualisiert"
+
+msgctxt "#30023"
+msgid "Blacklist update failed"
+msgstr "Aktualisierung der Blacklist fehlgeschlagen"
+
+msgctxt "#30030"
+msgid "Blacklist update check"
+msgstr "Aktualisierungsintervall Blacklist"
+
+msgctxt "#30031"
+msgid "daily"
+msgstr "täglich"
+
+msgctxt "#30032"
+msgid "weekly"
+msgstr "wöchentlich"
+
+msgctxt "#30033"
+msgid "monthly"
+msgstr "monatlich"
+
+msgctxt "#30035"
+msgid "Check for addons installed with same timestamp"
+msgstr "Suche Addons, die zum selben Zeitpunkt installiert wurden"
+
+msgctxt "#30036"
+msgid "permanent monitoring"
+msgstr "permanente Überwachung"
+
+msgctxt "#30037"
+msgid "max timestamp variation of installation"
+msgstr "maximale Streuung des Installationszeitpunktes"
+
+msgctxt "#30038"
+msgid "1 min"
+msgstr "1 min"
+
+msgctxt "#30039"
+msgid "2 min"
+msgstr "2 min"
+
+msgctxt "#30040"
+msgid "3 min"
+msgstr "3 min"

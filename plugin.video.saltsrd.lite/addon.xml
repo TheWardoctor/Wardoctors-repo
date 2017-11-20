@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.saltsrd.lite" version="8.0.233" name="Salts RD Lite" provider-name="XvBMC-NL">
+    <requires>
+        <import addon="xbmc.python" version="2.19.0"/>
+        <import addon="script.module.futures" version="2.2.0"/>                             <!--    NEW     -->
+        <import addon="script.module.metahandler" version="3.0.2" />                        <!--    NEW     -->
+        <import addon="script.module.pyxbmct" version="1.2.0"/>                             <!--    NEW     -->
+        <import addon="script.module.dateutil" version="2.5.3"/>
+        <import addon="script.module.myconnpy" version="1.1.7"/>
+        <import addon="script.module.saltsrd.shared" version="0.0.23"/>  <!-- script.module.tknorris.shared -->
+        <import addon="script.module.six" version="1.9.0"/>
+        <import addon="script.module.urlresolver" version="4.0.07"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+        <extension point="xbmc.service" library="service.py" start="startup"/>
+    <extension point="xbmc.addon.metadata">
+        <summary>Stream video from many difference sources with XvBMC SALTs RD Lite (RealDebrid)</summary>
+        <description>This is the MOD version of SALTs by XvBMC -4- RealDebrid usage (also a big thx to: TKnorris/k3l3vra/Cypher/MR.Blamo)</description>
+        <disclaimer>MOD info @ http://bit.ly/XvBMC-NL (USE_AT_YOUR_OWN!_RISK!) ---> *C*R*E*D*I*T*S* TKnorris/k3l3vra/Cypher/MR.Blamo</disclaimer>
+        <platform>all</platform>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
+        <forum></forum>
+        <website></website>
+        <source></source>
+        <news>[B]Version 8.0.233[/B]: Modded</news>
+        <assets>
+          <icon>icon.png</icon>
+          <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>

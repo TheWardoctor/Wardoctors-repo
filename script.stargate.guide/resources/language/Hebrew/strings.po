@@ -1,0 +1,493 @@
+# XBMC Media Center language file
+# Addon Name: Stargate Guide
+# Addon id: script.stargate.guide
+# Addon Provider: Wardoctor
+msgid ""
+msgstr ""
+"Project-Id-Version: script.stargate.guide\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-10-18 10:31+0300\n"
+"Last-Translator: A. Dambledore\n"
+"Language-Team: Eng2Heb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he_IL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.4\n"
+
+msgctxt "#30000"
+msgid "No description"
+msgstr "אין תיאור"
+
+msgctxt "#30001"
+msgid "[B]Loading data from external source...[/B]"
+msgstr "[B]טוען מידע ממקור חיצוני...[/B]"
+
+msgctxt "#30002"
+msgid "Calculating remaining time..."
+msgstr "מחשב את הזמן הנותר..."
+
+msgctxt "#30003"
+msgid "Approximately %d seconds left..."
+msgstr "נותרו בערך %d שניות ..."
+
+msgctxt "#30004"
+msgid "Loading of data already in progress..."
+msgstr "טעינת מידע כבר מתרחשת ברקע..."
+
+msgctxt "#30005"
+msgid "Mouse control"
+msgstr "עכבר"
+
+msgctxt "#30006"
+msgid "Now"
+msgstr "עכשיו"
+
+msgctxt "#30007"
+msgid "[B]Tip![/B] You can also use the scroll wheel"
+msgstr "[B]טיפ![/B] אתה יכול גם להשתמש בלחצן הגלילה בעכבר"
+
+msgctxt "#30008"
+msgid "Cancel"
+msgstr "ביטול"
+
+msgctxt "#30009"
+msgid "No program available"
+msgstr "אין תכנית זמינה"
+
+# empty strings from id 30010 to 30099
+msgctxt "#30100"
+msgid "General"
+msgstr "כללי"
+
+msgctxt "#30101"
+msgid "Source"
+msgstr "מקור"
+
+msgctxt "#30102"
+msgid "Show channels from category"
+msgstr "הצג ערוצים מקטגורית"
+
+msgctxt "#30103"
+msgid "XMLTV file"
+msgstr "קובץ XMLTV"
+
+msgctxt "#30104"
+msgid "Clear cache..."
+msgstr "נקה מטמון..."
+
+msgctxt "#30105"
+msgid "Done!"
+msgstr "הסתיים!"
+
+msgctxt "#30106"
+msgid "Show notification before selected programs start"
+msgstr "הצג התראה לפני התחלת התכניות הנבחרות"
+
+msgctxt "#30107"
+msgid "Use program image as background"
+msgstr "השתמש בתמונת תכנית כרקע"
+
+msgctxt "#30108"
+msgid "Clear all reminders..."
+msgstr "נקה את כל התזכורות..."
+
+msgctxt "#30109"
+msgid "Remember to clear the cache when you change source"
+msgstr "זכור לנקות את המטמון בעת החלפת מקור"
+
+msgctxt "#30110"
+msgid "Update program information on XBMC startup"
+msgstr "עדכן פרטי תכנית בעת הפעלת XBMC"
+
+msgctxt "#30111"
+msgid "Play channels using the YouSee web-tv addon"
+msgstr "נגן ערוצים בעזרת ההרחבה YouSee web-tv"
+
+msgctxt "#30112"
+msgid "Notifications"
+msgstr "התראות"
+
+msgctxt "#30113"
+msgid "Play channels using the Danish Live TV addon"
+msgstr "נגן ערוצים בעזרת ההרחבה Danish Live TV"
+
+msgctxt "#30114"
+msgid "Startup"
+msgstr "אתחול"
+
+msgctxt "#30115"
+msgid "- clear cache first"
+msgstr "- נקה תחילה מטמון"
+
+msgctxt "#30116"
+msgid "Search for channel logos in"
+msgstr "חפש אייקוני ערוצים ב-"
+
+msgctxt "#30117"
+msgid "Show Channel Logos"
+msgstr "הצג את הסמל של הערוץ"
+
+msgctxt "#30118"
+msgid "Enable OSD menu"
+msgstr "הפעל את תפריט מסך התצוגה"
+
+msgctxt "#30119"
+msgid "Disabling the OSD menu may fix video stuttering."
+msgstr "השבתת תפריט מסך התצוגה אולי תפתור בעיית גמגום וידאו."
+
+msgctxt "#30120"
+msgid "Use alternate streaming method (required for some addons)"
+msgstr "השתמש בשיטת הזרמה חלופית (נדרש עבור הרחבות מסוימות)."
+
+msgctxt "#30121"
+msgid "Alternative streaming is not compatible with OSD menu"
+msgstr "מצב הזרמה חלופי אינו תואם עם תפריט מסך התצוגה"
+
+msgctxt "#30122"
+msgid "XMLTV URL"
+msgstr "כתובת XMLTV"
+
+msgctxt "#30123"
+msgid "XMLTV type"
+msgstr "סוג XMLTV"
+
+msgctxt "#30124"
+msgid "Local file"
+msgstr "קובץ מקומי"
+
+msgctxt "#30125"
+msgid "URL"
+msgstr "כתובת אינטרנט"
+
+msgctxt "#30126"
+msgid "TV (All)"
+msgstr "טלוויזיה (כל)"
+
+msgctxt "#30127"
+msgid "TV (Basic)"
+msgstr "טלוויזיה (בסיסי)"
+
+msgctxt "#30128"
+msgid "File download interval"
+msgstr "מרווח זמן להורדת הקובץ"
+
+msgctxt "#30129"
+msgid "every start"
+msgstr "בכל התחלה"
+
+msgctxt "#30130"
+msgid "every 12 hrs"
+msgstr "כל 12 שעות"
+
+msgctxt "#30131"
+msgid "every 24 hrs"
+msgstr "כל 24 שעות"
+
+msgctxt "#30132"
+msgid "every 48 hrs"
+msgstr "כל 48 שעות"
+
+msgctxt "#30133"
+msgid "UK (Freeview)"
+msgstr "בריטניה (Freeview)"
+
+msgctxt "#30134"
+msgid "UK (Sky Go)"
+msgstr "בריטניה (סקיי Go)"
+
+msgctxt "#30135"
+msgid "USTVNow"
+msgstr "USTVNow"
+
+msgctxt "#30136"
+msgid "US/UK (Basic)"
+msgstr "ארצות הברית / בריטניה (בסיסי)"
+
+msgctxt "#30137"
+msgid "** WARNING! ** Resetting your database will cause you to lose all settings!"
+msgstr "** אזהרה! ** איפוס מסד הנתונים שלך יגרום לך לאבד את כל ההגדרות!"
+
+msgctxt "#30138"
+msgid "Only do so if your database has become corrupt!"
+msgstr "עשה זאת רק אם מסד הנתונים שלך נפגם!"
+
+msgctxt "#30139"
+msgid "Yes, Reset Database"
+msgstr "כן, אפס את מסד הנתונים"
+
+msgctxt "#30140"
+msgid "Reset Database"
+msgstr "אפס מסד נתונים"
+
+msgctxt "#30141"
+msgid "Guide Theme"
+msgstr "ערכת נושא למדריך"
+
+msgctxt "#30142"
+msgid "Custom File"
+msgstr "קובץ מותאם אישית"
+
+msgctxt "#30143"
+msgid "Stargate Guide"
+msgstr "מסך מלא מדריך טלוויזיה"
+
+msgctxt "#30144"
+msgid "addons.ini selection"
+msgstr "בחירת ini להרחבות"
+
+msgctxt "#30145"
+msgid "addons.ini file"
+msgstr "קובץ ini להרחבות"
+
+msgctxt "#30146"
+msgid "Logo source"
+msgstr "סמליל המקור"
+
+msgctxt "#30147"
+msgid "Custom Folder"
+msgstr "תיקייה מותאמת אישית"
+
+msgctxt "#30148"
+msgid "Appearance"
+msgstr "מראה"
+
+msgctxt "#30149"
+msgid "Refresh on start"
+msgstr "רענן באתחול"
+
+msgctxt "#30150"
+msgid "Oops, sorry about that!"
+msgstr "אופס, מצטער!"
+
+msgctxt "#30151"
+msgid "It was not possible to load program data,"
+msgstr "לא ניתן היה לטעון פרטי התכנית,"
+
+msgctxt "#30152"
+msgid "check settings or try again later..."
+msgstr "בדוק הגדרות או נסה שנית מאוחר יותר..."
+
+msgctxt "#30153"
+msgid "because the settings are invalid!"
+msgstr "מאחר וההגדרות אינן נכונות!"
+
+msgctxt "#30154"
+msgid "It looks like your current skin has a special"
+msgstr "נראה שיש למעטפת שלך"
+
+msgctxt "#30155"
+msgid "version of the Stargate Guide skin that is not up-to-date."
+msgstr "גרסה מיוחדת של מעטפת מדריך התכניות שאינה מעודכנת."
+
+msgctxt "#30156"
+msgid "Please try with a different skin..."
+msgstr "אנא בדוק מול מעטפת אחרת..."
+
+msgctxt "#30157"
+msgid "It looks like the Stargate Guide database is broken."
+msgstr "נראה כי מסד נתוני מדריך התכניות אינו תקין."
+
+msgctxt "#30158"
+msgid "The database will be deleted and recreated."
+msgstr "מסד הנתונים ימחק ויווצר מחדש."
+
+msgctxt "#30159"
+msgid "Channel configuration, etc. is unfortunately lost."
+msgstr "למרבה הצער הגדרות ערוצים, וכו' אבדו."
+
+# empty strings from id 30160 to 30199
+msgctxt "#30200"
+msgid "on [B]%s[/B] in 5 minutes..."
+msgstr "ב-[B]%s[/B] בעוד 5 דקות..."
+
+msgctxt "#30201"
+msgid "on [B]%s[/B] is starting now..."
+msgstr "ב-[B]%s[/B] מתחילה כעת..."
+
+# empty strings from id 30202 to 30299
+msgctxt "#30300"
+msgid "Watch %s"
+msgstr "צפה ב-%s"
+
+msgctxt "#30301"
+msgid "Remind"
+msgstr "להזכיר"
+
+msgctxt "#30302"
+msgid "Don't remind"
+msgstr "אל תזכיר"
+
+msgctxt "#30303"
+msgid "Cancel"
+msgstr "ביטול"
+
+msgctxt "#30304"
+msgid "Choose stream"
+msgstr "בחר הזרמה"
+
+msgctxt "#30305"
+msgid "You can choose your own .strm file to play, when you want to watch this channel."
+msgstr "אתה יכול לבחור לנגן קובץ strm. משלך, כאשר ברצונך לצפות בערוץ זה."
+
+msgctxt "#30306"
+msgid "Remove Stream"
+msgstr "הסר הזרמה"
+
+msgctxt "#30307"
+msgid "Channels"
+msgstr "ערוצים"
+
+msgctxt "#30308"
+msgid "Quit"
+msgstr "צא"
+
+# empty strings from id 30309 to 30399
+msgctxt "#30400"
+msgid "Background Update Service"
+msgstr "שירות עדכונים ברקע"
+
+msgctxt "#30401"
+msgid "Service Interval"
+msgstr "מרווח השירות"
+
+msgctxt "#30402"
+msgid "2 hrs"
+msgstr "2 שעות"
+
+msgctxt "#30403"
+msgid "6 hrs"
+msgstr "6 שעות"
+
+msgctxt "#30404"
+msgid "12 hrs"
+msgstr "12 שעות"
+
+msgctxt "#30405"
+msgid "24 hrs"
+msgstr "24 שעות"
+
+# empty strings from id 30406 to 30499
+msgctxt "#30500"
+msgid "[B]Edit channel order and visibility[/B]"
+msgstr "[B]ערוך סדר ערוצים ומראה[/B]"
+
+msgctxt "#30501"
+msgid "Press left to pull a channel out, then move it up or down. When in place, press right again to set. Pressing on a channel in the list will enable or disable it.[CR]On touch devices long press on a channel to pull it out, move the list to the desired place and then long press on the pulled out channel to put it in its new place."
+msgstr "הקש שמאלה כדי להוציא ערוץ החוצה, ואז להזיזו למעלה או למטה. כאשר הערוץ במקום, לחץ שוב כדי לקבוע. לחיצה על ערוץ ברשימה להפעיל או לבטל אותו.[CR]בהתקני המגע, לחצו לחיצה ארוכה על הערוץ כדי לשלוף אותו, להעביר את הרשימה למקום הרצוי ולאחר מכן לחיצה ארוכה על הערוץ שהוצא החוצה ותשים אותו במקום החדש שלו."
+
+msgctxt "#30502"
+msgid "Save"
+msgstr "שמור"
+
+msgctxt "#30503"
+msgid "Cancel"
+msgstr "ביטול"
+
+# empty strings from id 30504 to 30599
+msgctxt "#30600"
+msgid "[B]Setup stream[/B]"
+msgstr "[B]הגדר הזרמה[/B]"
+
+msgctxt "#30601"
+msgid ".strm file"
+msgstr "קובץ strm"
+
+msgctxt "#30602"
+msgid "Favourites"
+msgstr "מועדפים"
+
+msgctxt "#30603"
+msgid "Addons"
+msgstr "הרחבות"
+
+msgctxt "#30604"
+msgid "Preview stream"
+msgstr "תצוגה מקדימה"
+
+msgctxt "#30605"
+msgid "Save"
+msgstr "שמור"
+
+msgctxt "#30606"
+msgid "Cancel"
+msgstr "ביטול"
+
+msgctxt "#30607"
+msgid "Stop preview"
+msgstr "עצור תצוגה מקדימה"
+
+# empty strings from id 30608 to 30609
+msgctxt "#30610"
+msgid "Browse..."
+msgstr "עיון..."
+
+msgctxt "#30611"
+msgid "Click Browse... below and navigate to your stream file. When you have chosen your file you can preview the stream to test if it works in XBMC."
+msgstr "לחץ על עיון... שלמטה ונווט לקובץ ההזרמה שלך. לאחר שתבחר את הקובץ תוכל לצפות בהזרמה בתצוגה מקדימה, לשם בחינה האם השידור תקין בקודי."
+
+# empty strings from id 30612 to 30619
+msgctxt "#30620"
+msgid "Choose a favourite below. Only [I]PlayMedia[/I] favourites are supported."
+msgstr "בחר מועדף מלמטה. רק מועדפי [I]PlayMedia[/I] נתמכים."
+
+# empty strings from id 30621 to 30699
+msgctxt "#30700"
+msgid "Multiple addons provide this channels.[CR]Choose one to watch the stream."
+msgstr "ערוץ זה מוצע ע\"י מספר הרחבות.[CR]לצפייה בחר אחת מהן."
+
+# empty strings from id 30701 to 30799
+# weeb.tv mod
+msgctxt "#30800"
+msgid "JSON-EPG URL"
+msgstr "כתובת JSON-EPG"
+
+msgctxt "#30801"
+msgid "Play channels using the Weeb.Tv addon"
+msgstr "נגן ערוצים בעזרת הרחבת Weeb.Tv"
+
+msgctxt "#30802"
+msgid "Stargate Guide is configured to stream using Weeb.Tv"
+msgstr "Stargate Guide מוגדר להזרים באמצעות ההרחבה Weeb.Tv"
+
+msgctxt "#30803"
+msgid "addon which is not installed."
+msgstr "הרחבה שאינה מותקנת."
+
+msgctxt "#30804"
+msgid "Streaming using that addon is now disabled."
+msgstr "הזרמה בעזרת הרחבה זו כעת מנוטרלת."
+
+msgctxt "#30900"
+msgid "Autostart Stargate Guide when Kodi starts up"
+msgstr "התחל את מדריך הטלוויזיה במסך מלא כאשר קודי מתחיל"
+
+msgctxt "#31000"
+msgid "Connection problem"
+msgstr "בעיית חיבור"
+
+msgctxt "#31001"
+msgid "It was not possible to update from the server."
+msgstr "לא ניתן היה לעדכן מהשרת."
+
+msgctxt "#31002"
+msgid "Current local data will be kept for now..."
+msgstr "הנתונים המקומיים הנוכחיים יישמרו כרגע ..."
+
+msgctxt "#80000"
+msgid "My Movies"
+msgstr "הסרטים שלי"
+
+msgctxt "#80001"
+msgid "My TV Shows"
+msgstr "הסדרות שלי"
+
+msgctxt "#80002"
+msgid "Video Add-Ons"
+msgstr "הרחבות וידאו"
+
+msgctxt "#80003"
+msgid "On-Demand"
+msgstr "על פי דרישה"

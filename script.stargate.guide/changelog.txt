@@ -1,0 +1,11 @@
+version 1.0.7
+- Fixes for Metalliq and Extended Info Mod Intergration
+- First Channel up to Categories now set as default
+
+version 1.0.6
+- Lots of updates
+- Addon Intergration
+- Default settings fixed
+
+version 1.0.3
+- Some code updates and additions

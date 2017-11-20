@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <setting id="permanent" type="bool" label="30036" default="true" />
+    <setting id="update" type="enum" label="30030" lvalues="30031|30032|30033" default="1" />
+    <setting id="fuzzy" type="bool" label="30035" default="true" />
+    <setting id="variation" type="labelenum" label="30037" lvalues="30038|30039|30040" default="1 min" enable="eq(-1,true)" />
+    <setting type="lsep" label="30020" />
+    <setting id="actualize" type="action" label="30021" action="RunScript(script.service.caretaker,actualize_blacklist)" option="close" />
+</settings>
