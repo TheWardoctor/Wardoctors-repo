@@ -14,6 +14,19 @@
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.Tardisrepo" name="Tardis Repository" version="1.5" provider-name="The Tenth Doctor">
+	<extension point="xbmc.addon.repository" name="Tardis Repository">
+		<info compressed="false">https://raw.githubusercontent.com/tardisbuilds/Tardisbuilds-Repository/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/tardisbuilds/Tardisbuilds-Repository/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/tardisbuilds/Tardisbuilds-Repository/master</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary></summary>
+		<description></description>
+		<platform>all</platform>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="repository.elysium" version="2017.10.14" name="Elysium repository" provider-name="Elysium">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
