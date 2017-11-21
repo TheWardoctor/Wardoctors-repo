@@ -2,7 +2,6 @@
 '''
 Master Reborn Add-on
 Copyright (C) 2017 Master Reborn
-Rebranded from Schism's "Zen" at his request
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
-from schism_net import OPEN_URL
+from master_net import OPEN_URL
 from resources.lib.modules import cache, cleangenre, cleantitle, client, control, favourites, metacache, playcount, trakt, utils, views, workers
 import base64, datetime, json, os, re, sys, urllib, urlparse, xbmc
 

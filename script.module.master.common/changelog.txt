@@ -1,0 +1,5 @@
+[1.1.2]
+- Rebranded for Master to stop update errors
+
+[1.1.1]
+- Modified for Master Reborn

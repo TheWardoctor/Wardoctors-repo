@@ -24,7 +24,7 @@ import sys,pkgutil,re,json,urllib,urlparse,random,datetime,time
 
 from resources.lib.modules import dialogs, dialogs_list
 from resources.lib.modules.executor import execute
-from schism_commons import cleantitle_get
+from master_commons import cleantitle_get
 
 from resources.lib.modules import control
 from resources.lib.modules import cleantitle

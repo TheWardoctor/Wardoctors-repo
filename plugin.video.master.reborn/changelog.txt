@@ -1,3 +1,8 @@
+[B]1.0.3[/B]
+- Code Updated
+- Dependency changes
+- Better compatability for Elysium on system
+
 [B]1.0.2[/B]
 - Code Tweaks
 - API's Updated

@@ -2,7 +2,6 @@
 '''
 Master Reborn Add-on
 Copyright (C) 2017 Master Reborn
-Rebranded from Schism's "Zen" at his request
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import base64, datetime, json, os, re, sys, unicodedata, urllib, urlparse, xbmc
 from resources.lib.modules import cache, client, control, favourites, metacache, playcount, trakt, utils, views, workers
-from schism_net import OPEN_URL
+from master_net import OPEN_URL
 try   : action = dict(urlparse.parse_qsl(sys.argv[2].replace('?','')))['action']
 except: action = None
 
