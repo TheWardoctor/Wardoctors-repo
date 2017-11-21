@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.stargate-streams" version="2.0.6" name="Stargate Streams" provider-name="Wardoctor">
+<addon id="plugin.video.stargate-streams" version="2.0.7" name="Stargate Streams" provider-name="Wardoctor">
     <requires>
-        <import addon="xbmc.python" version="2.1.0"/>        
+        <import addon="xbmc.python" version="2.1.0"/>
+		<import addon="plugin.program.sgs.notifications" version="1.0.2" />        
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>

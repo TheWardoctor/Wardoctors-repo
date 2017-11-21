@@ -1,0 +1,11 @@
+Change lines to your info
+
+addon.xml - 2,3,14,15,16,19
+common.py - 3,132
+
+Change the pics in art folder using gimp or adobe, 
+   paint is ok but gimp is the best for free
+
+Change the icon.png
+
+To trigger the popup change the number above ||| in the "zThis txt needs to be on your host.txt"
