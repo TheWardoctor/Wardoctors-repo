@@ -1,0 +1,19 @@
+<addon id="plugin.video.salts" version="8.0.204" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
+    <requires>
+        <import addon="xbmc.python" version="2.19.0"/>
+        <import addon="script.module.urlresolver" version="3.0.0"/>
+        <import addon="script.module.myconnpy" version="1.1.6" />
+        <import addon="script.module.tknorris.shared" version="8.0.19"/>
+        <import addon="script.module.six"/>
+        <import addon="script.module.dateutil"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+     <extension point="xbmc.service" library="service.py" start="startup"/>
+    <extension point="xbmc.addon.metadata">
+        <summary>Last Version Made From The TVA Guys, modified</summary>
+        <description>Modified and version bumped to prevent update from rogue repos</description>
+        <platform>all</platform>
+	</extension>
+</addon>

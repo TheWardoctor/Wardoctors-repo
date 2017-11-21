@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <addon id="repository.SpinzTV" name="SpinzTV" version="0.1.4" provider-name="SpinzTV">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="SpinzTV">
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/</datadir>
+		</dir>
+            <info compressed="false">http://raw.github.com/spinztv/pro/master//_repo/addons.xml</info>
+            <checksum>http://raw.github.com/spinztv/pro/master//_repo/addons.xml.md5</checksum>
+            <datadir zip="true">http://raw.github.com/spinztv/pro/master//_repo/</datadir>
+            <hashes>false</hashes>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>SpinzTV</summary>
+            <description>SpinzTV - General Disclaimer: By downloading or using you are agreeing that the author takes no resposibility for the content or reliability of any of the addons included.  The author does not host, distribute or have any control over any of the content that may be provided by any addon. It is the users responsibility to ensure the legality of use within their country.</description>
+            <platform>all</platform>
+    </extension>
+</addon>

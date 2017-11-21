@@ -55,6 +55,156 @@
 		</assets>
 	</extension>
 </addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.catchup4kodi" name="Catchup4Kodi Repo" version="1.3" provider-name="catchup4kodi">
+	<extension point="xbmc.addon.repository" name="Catchup4Kodi Repo">
+		<dir>
+		<info compressed="false">https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/</datadir>
+		</dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Catchup and live addons for Kodi</summary>
+		<description lang="en">Some of the addons in here are geo locked so may not work in your region without a proxy/vpn. There are certainly a few UK based ones which will only work with a UK IP.</description>
+		<genre>livetv,tvshows,kids,sports</genre>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.Cypherslocker" name="[COLOR cornflowerblue]Cyphers locker[/COLOR]" version="1.0.2" provider-name="Project Cypher">
+	<extension point="xbmc.addon.repository" name="TheMegaRepo">
+		<info compressed="false">https://github.com/CypherMediaGIT/CypherRepo/raw/master/cypherrepo/plugins/addons.xml</info>
+		<checksum>https://github.com/CypherMediaGIT/CypherRepo/raw/master/cypherrepo/plugins/addons.xml.md5</checksum>
+		<datadir zip="true">https://github.com/CypherMediaGIT/CypherRepo/raw/master/cypherrepo/plugins</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Cypers Locker Repo - Home to Project Cypher</summary>
+		<description>Cypers Locker Repo - Home to Project Cypher.</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.jesusboxtv" name="Jesusbox Repository" version="1.0.3" provider-name="Playonmonkey">
+	<extension point="xbmc.addon.repository" name="Jesusbox Repository">
+		<info compressed="false">https://raw.githubusercontent.com/jesusboxrepo/repository/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/jesusboxrepo/repository/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/jesusboxrepo/repository/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Welcome to the Jesusbox Repository where you will find all Jesusbox produced Addon-ons and wizards</summary>
+		<description>The Best Media Center Box Available</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.noobsandnerds" name="noobsandnerds Repository" version="2.3.2" provider-name="noobsandnerds">
+        <extension point="xbmc.addon.repository" name="noobsandnerds Repository">
+                <dir>
+                        <info compressed="false">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml</info>
+                        <checksum>https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/</datadir>
+                </dir>
+                <dir>
+                        <info compressed="false">https://raw.githubusercontent.com/alfreddempsey3/repository.rage/master/zips/addons.xml</info>
+                        <checksum>https://raw.githubusercontent.com/alfreddempsey3/repository.rage/master/zips/addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.githubusercontent.com/alfreddempsey3/repository.rage/master/zips/</datadir>
+                </dir>
+                <dir>
+                        <info compressed="false">https://raw.githubusercontent.com/bromerzz/repository.bromcy/master/zips/addons.xml</info>
+                        <checksum>https://raw.githubusercontent.com/bromerzz/repository.bromcy/master/zips/addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.githubusercontent.com/bromerzz/repository.bromcy/master/zips/</datadir>
+                        </dir>
+                <dir>
+                        <info compressed="false">https://github.com/OpenELEQ/repository.elysium/raw/master/elysium.xml</info>
+                        <checksum>https://github.com/OpenELEQ/repository.elysium/raw/master/elysium.xml.md5</checksum>
+                        <datadir zip="true">https://raw.github.com/OpenELEQ/repository.elysium/master/</datadir>
+                </dir>
+                        <dir>
+                        <info compressed="true">https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/addons.xml</info>
+                        <checksum>https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/</datadir>
+                </dir>
+                <dir>
+                        <info compressed="false">https://raw.githubusercontent.com/midraal/repository.midraal/master/zips/addons.xml</info>
+                        <checksum>https://raw.githubusercontent.com/midraal/repository.midraal/master/zips/addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.github.com/midraal/repository.midraal/master/zips/</datadir>
+                </dir>
+                <dir minversion="14.0.0">
+                        <info compressed="false">https://github.com/OpenELEQ/repository.q/raw/master/openeleq-addons.xml</info>
+                        <checksum>https://github.com/OpenELEQ/repository.q/raw/master/openeleq-addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.github.com/OpenELEQ/repository.q/master/zips/</datadir>
+                </dir>
+                <dir minversion="16.0.0">
+                        <info compressed="false">https://github.com/OpenELEQ/repository.q.jarvis/raw/master/openeleq-addons.xml</info>
+                        <checksum>https://github.com/OpenELEQ/repository.q.jarvis/raw/master/openeleq-addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.github.com/OpenELEQ/repository.q.jarvis/master/zips/</datadir>
+                </dir>
+                <dir minversion="16.9.9">
+                        <info compressed="false">https://github.com/OpenELEQ/repository.q.krypton/raw/master/openeleq-addons.xml</info>
+                        <checksum>https://github.com/OpenELEQ/repository.q.krypton/raw/master/openeleq-addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.github.com/OpenELEQ/repository.q.krypton/master/zips/</datadir>
+                </dir>
+                <info compressed="false">https://raw.githubusercontent.com/noobsandnerds/noobsandnerds/master/zips/addons.xml</info>
+                <checksum>https://raw.githubusercontent.com/noobsandnerds/noobsandnerds/master/zips/addons.xml.md5</checksum>
+                <datadir zip="true">https://raw.githubusercontent.com/noobsandnerds/noobsandnerds/master/zips/</datadir>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+                <summary>Home of The Community Portal</summary>
+                <description>Visit www.noobsandnerds.com and become a part of our great family, you get to choose what The Community Portal holds!</description>
+                <platform>all</platform>
+        </extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8"?>
+    <addon id="repository.SpinzTV" name="SpinzTV" version="0.1.4" provider-name="SpinzTV">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="SpinzTV">
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/</datadir>
+		</dir>
+            <info compressed="false">http://raw.github.com/spinztv/pro/master//_repo/addons.xml</info>
+            <checksum>http://raw.github.com/spinztv/pro/master//_repo/addons.xml.md5</checksum>
+            <datadir zip="true">http://raw.github.com/spinztv/pro/master//_repo/</datadir>
+            <hashes>false</hashes>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>SpinzTV</summary>
+            <description>SpinzTV - General Disclaimer: By downloading or using you are agreeing that the author takes no resposibility for the content or reliability of any of the addons included.  The author does not host, distribute or have any control over any of the content that may be provided by any addon. It is the users responsibility to ensure the legality of use within their country.</description>
+            <platform>all</platform>
+    </extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon 	id="repository.streamhub" 
+		name="[COLOR red]StreamHub Repository[/COLOR]" 
+		version="1.2" 
+		provider-name="sClarke">
+	<extension point="xbmc.addon.repository" name="[COLOR red]StreamHub Repository[/COLOR]">
+		<info compressed="false">https://raw.githubusercontent.com/sClarkeIsBack/StreamHub/master/Repo_Files/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/sClarkeIsBack/StreamHub/master/Repo_Files/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/sClarkeIsBack/StreamHub/master/Repo_Files/Zips</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>StreamHub</summary>
+		<description>StreamHub Repository - Bringing You StreamHub</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.zt" name="[COLORred]Z[/COLOR]ero [COLORwhite]T[/COLOR]olerance Repository" version="1.0.1" provider-name="Team ZT">
+		<extension point="xbmc.addon.repository" name="Bla Bla Repository">
+			<info compressed="false">http://zt.r3trozt.tk/repo/addons.xml</info>
+			<checksum>http://zt.r3trozt.tk/repo/addonsmd5.txt</checksum>
+			<datadir zip="true">http://zt.r3trozt.tk/repo/addons/</datadir>
+		</extension>
+		<extension point="xbmc.addon.metadata">
+			<summary></summary>
+			<description></description>
+			<platform>all</platform>
+		</extension>
+</addon>
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="plugin.program.sgs.notifications" version="1.0.2"
        name="Stargate Notify" provider-name="SGS">
@@ -151,6 +301,39 @@ provider-name="Wardoctor, primaeval">
     <description lang="en">Watch All Your Favourite UK TV Catchup</description>
     <platform>all</platform>
   </extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.exodus" version="8.1.07" name="Exodus" provider-name="Wardoctor, Exodus">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.module.exodus" />
+		<import addon="script.exodus.artwork" version="8.0.7" />
+		<import addon="script.exodus.metadata" version="8.0.2" />
+		<import addon="script.module.urlresolver" version="3.0.0" />
+		<import addon="script.module.requests" />
+		<import addon="script.module.metahandler" version="1.0.0" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="exodus.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="startup" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Exodus</summary>
+		<description lang="en">Exodus Modded to remove spam addons and to work</description>
+		<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<forum></forum>
+		<website></website>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+    			<screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+    			<screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+    			<screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
+		</assets>
+		<news></news>
+	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.master.reborn" version="1.0.3" name="Master Reborn" provider-name="Wardoctor">
@@ -270,6 +453,25 @@ provider-name="Wardoctor, primaeval">
         <video_preview></video_preview>
     </extension>
 </addon>
+<addon id="plugin.video.salts" version="8.0.204" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
+    <requires>
+        <import addon="xbmc.python" version="2.19.0"/>
+        <import addon="script.module.urlresolver" version="3.0.0"/>
+        <import addon="script.module.myconnpy" version="1.1.6" />
+        <import addon="script.module.tknorris.shared" version="8.0.19"/>
+        <import addon="script.module.six"/>
+        <import addon="script.module.dateutil"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+     <extension point="xbmc.service" library="service.py" start="startup"/>
+    <extension point="xbmc.addon.metadata">
+        <summary>Last Version Made From The TVA Guys, modified</summary>
+        <description>Modified and version bumped to prevent update from rogue repos</description>
+        <platform>all</platform>
+	</extension>
+</addon>
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="plugin.video.saltsrd.lite" version="8.0.233" name="Salts RD Lite" provider-name="XvBMC-NL">
     <requires>
@@ -384,6 +586,30 @@ provider-name="Wardoctor, primaeval">
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.exodus.artwork" version="8.0.7" name="Exodus Artwork" provider-name="Exodus">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Themes for the Exodus Addon</summary>
+		<description></description>
+		<platform>all</platform>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.exodus.metadata" version="8.0.2" name="Exodus Metadata" provider-name="Exodus">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Metadata for the Exodus Addon</summary>
+		<description>Metadata for Exodus are maintained separately to make distribution of the the addon itself easier/faster.</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.extendedinfo" name="Extended Info Mod" version="8.0.4" provider-name="ReModded by Wardoctor, Modded by OpenELEQ, original work by phil65">
   <requires>
     <import addon="xbmc.python"                     version="2.19.0"/>
@@ -443,6 +669,17 @@ provider-name="Wardoctor, primaeval">
 	<extension point="xbmc.addon.metadata">
 		<platform>all</platform>
 		<summary lang="en">Covenant</summary>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.module.exodus" name="Exodus Module" version="8.00.025" provider-name="Exodus">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Exodus</summary>
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -592,6 +829,17 @@ provider-name="Wardoctor, primaeval">
 		<summary lang="en">Collection of modules used by Master Reborn</summary>
 		<description lang="en">Collection of modules used by Master Reborn</description>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.module.tknorris.shared" name="TKNorris Common Libraries" version="8.0.23" provider-name="tknorris">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Reusable Modules used by several of tknorris's addons, modified</summary>
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
