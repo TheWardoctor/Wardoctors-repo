@@ -566,6 +566,7 @@ provider-name="Wardoctor, primaeval">
         <video_guide>xtOqLY5PJDY</video_guide>
 		<video_preview>WdKIzaiBBI</video_preview>
     </extension>
+</addon>
 <addon id="plugin.video.salts" version="8.0.204" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
