@@ -48,7 +48,7 @@ class VshareEuResolver(UrlResolver):
         line1 = i18n('auth_required')
         line2 = i18n('visit_link')
         line3 = i18n('click_pair') % ('http://vshare.eu/pair')
-        with common.kodi.CountdownDialog(header, line1, line2, line3, countdown=120) as cd:
+        with common.kodi.CountdownDialog(header, line1, line2, line3) as cd:
             return cd.start(self.__check_auth, [media_id])
 
     def __check_auth(self, media_id):

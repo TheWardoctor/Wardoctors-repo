@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 speedvid urlresolver plugin
-Copyright (C) 2015 tknorris
+Copyright (C) 2017 jsergio
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,7 +16,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
-import re
+import re, math, time
+from random import *
 from lib import helpers, aa_decoder
 from urlresolver import common
 from urlresolver.resolver import ResolverError
@@ -32,23 +33,27 @@ def get_media_url(url, media_id):
     
     if html:
         html = html.encode('utf-8')
-        aa_text = re.search("""(ﾟωﾟﾉ=\s*/｀ｍ´）ﾉ\s*~┻━┻\s*//\*´∇｀\*/\s*\['_'\];\s*o=\(ﾟｰﾟ\)\s*=_=3;.+?)</SCRIPT>""", html, re.I)
+        aa_text = re.findall("""(ﾟωﾟﾉ\s*=\s*/｀ｍ´\s*）\s*ﾉ.+?)</SCRIPT>""", html, re.I)
         if aa_text:
             try:
-                aa_decoded = aa_decoder.AADecoder(re.sub('\(+ﾟДﾟ\)+\[ﾟoﾟ\]\)*\+\s*', '(ﾟДﾟ)[ﾟoﾟ]+ ', aa_text.group(1))).decode()
+                aa_decoded = ''
+                for i in aa_text:
+                    try: aa_decoded += str(aa_decoder.AADecoder(re.sub('\(+ﾟДﾟ\)+\s*\[ﾟoﾟ\]\)*\s*\+(.+?)\(+ﾟДﾟ\s*\)+\[ﾟoﾟ\]\)+', r'(ﾟДﾟ)[ﾟoﾟ]+\1(ﾟДﾟ)[ﾟoﾟ])', i)).decode())
+                    except: pass
                 href = re.search("""href\s*=\s*['"]([^"']+)""", aa_decoded)
                 if href:
                     href = href.group(1)
                     if href.startswith("http"): location = href
                     elif href.startswith("//"): location = "http:%s" % href
                     else: location = "http://www.speedvid.net/%s" % href
-                    headers.update({'Referer': url})
+                    headers.update({'Referer': url, 'Cookie': str((int(math.floor((900-100)*random())+100))*(int(time.time()))*(128/8))})
                     _html = net.http_GET(location, headers=headers).content
-                    sources = helpers.scrape_sources(_html, patterns=['''file:["'](?P<url>(?!http://s(?:13|35|51|57|58|59))[^"']+)'''])
+                    sources = helpers.scrape_sources(_html, patterns=['''file:["'](?P<url>(?=http://s(?:02|06))[^"']+)'''])
                     if sources:
+                        del headers['Cookie']
                         headers.update({'Referer': location})
                         return helpers.pick_source(sources) + helpers.append_headers(headers)
-            except:
-                pass
+            except Exception as e:
+                raise ResolverError(e)
         
     raise ResolverError('File not found')

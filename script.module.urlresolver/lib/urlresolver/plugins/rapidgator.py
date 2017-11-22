@@ -16,120 +16,108 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
 import json, urllib
+from urllib2 import HTTPError
 from urlresolver import common
 from urlresolver.common import i18n
 from urlresolver.resolver import UrlResolver, ResolverError
 
 class RapidgatorResolver(UrlResolver):
-    name = "Rapidgator"
-    domains = ["rapidgator.net","rg.to"]
+    name = 'Rapidgator'
+    domains = ['rapidgator.net', 'rg.to']
     pattern = '(?://|\.)(rapidgator\.net|rg\.to)/+file/+([a-z0-9]+)(?=[/?#]|$)'
+
+    @classmethod
+    def _is_enabled(cls):
+        return cls.get_setting('enabled') == 'true' and cls.get_setting('login') == 'true' and cls.get_setting('premium') == 'true'
 
     def __init__(self):
         self.net = common.Net()
         self.scheme = 'https'
         self.api_base = '%s://rapidgator.net/api' % (self.scheme)
+        self._session_id = ''
+
+    def login(self):
+        if not (self.get_setting('login') == 'true'):
+            return False
         self._session_id = self.get_setting('session_id')
-        if self._session_id != '' and self.get_setting('login') == 'false':
-            self._session_id = ''
-            self.set_setting('session_id', self._session_id)
+        return True
 
-    @classmethod
-    def _is_enabled(cls):
-        return cls.get_setting('enabled') == 'true'
+    def logout(self):
+        self._session_id = ''
+        self.set_setting('session_id', '')
 
-    def api_call(self, method, data, http='GET', login=True):
+    def api_call(self, method, data, http='GET', session=True, refresh=True):
         loop = 0
         while loop < 2:
             loop += 1
 
-            if login:
+            if session:
                 data.update({'sid': self._session_id})
 
-            if http == 'GET':
-                content = self.net.http_GET(self.api_base + method + '?' + urllib.urlencode(data)).content
-            elif http == 'HEAD':
-                content = self.net.http_HEAD(self.api_base + method + '?' + urllib.urlencode(data)).content
-            elif http == 'POST':
-                content = self.net.http_POST(self.api_base + method, urllib.urlencode(data)).content
-            else:
-                raise ResolverError(self.name + ' Bad Request')
-
             try:
+                if http == 'GET':
+                    content = self.net.http_GET(self.api_base + method + '?' + urllib.urlencode(data)).content
+                elif http == 'HEAD':
+                    content = self.net.http_HEAD(self.api_base + method + '?' + urllib.urlencode(data)).content
+                elif http == 'POST':
+                    content = self.net.http_POST(self.api_base + method, urllib.urlencode(data)).content
+                else:
+                    raise ResolverError(self.name + ' Bad Request')
+
                 content = json.loads(content)
-                status = content['response_status']
+                status = int(content['response_status'])
                 response = content['response']
+            except HTTPError as e:
+                status, response = e.code, []
+            except ResolverError:
+                raise
             except:
                 raise ResolverError(self.name + ' Bad Response')
 
             if status == 200:
                 return response
 
-            if login and status in [401,402]: # only actually seen 401, although 402 seems possible
-                self.login()
+            if session and refresh and status in [401,402]: # only actually seen 401, although 402 seems plausible
+                self.refresh_session()
                 continue
 
-            if 'response_details' in content and content['response_details']:
-                raise ResolverError(self.name + ' ' + str(content['response_details']))
-            else:
-                raise ResolverError(self.name + ' ' + str(status) + ' Error')
+            raise ResolverError(self.name + ' HTTP ' + str(status) + ' Error')
 
-    def login(self):
-        if self.get_setting('login') == 'false':
+    def refresh_session(self):
+        if not (self.get_setting('login') == 'true'):
             return False
-        elif not (self.get_setting('username') and self.get_setting('password')):
-            raise ResolverError(self.name + ' Unauthorized')
-        else:
-            data = {'username': self.get_setting('username'), 'password': self.get_setting('password')}
-            try:
-                response = self.api_call('/user/login', data, http='POST', login=False)
-                self._session_id = response['session_id']
-            except:
-                self._session_id = ''
+        username, password = self.get_setting('username'), self.get_setting('password')
+        if not (username and password):
+            raise ResolverError(self.name + ' username & password required')
+        data = {'username': username, 'password': password}
+        try:
+            response = self.api_call('/user/login', data, http='POST', session=False)
+            self._session_id = response['session_id']
+        except:
+            self._session_id = ''
         self.set_setting('session_id', self._session_id)
         return True if self._session_id else False
 
     def get_media_url(self, host, media_id):
+        if not (self.get_setting('premium') == 'true'):
+            raise ResolverError(self.name + ' premium account required')
         data = {'url': self.get_url(host, media_id)}
         response = self.api_call('/file/download', data)
         if 'delay' in response and response['delay'] and response['delay'] != '0':
-            raise ResolverError(self.name + ' Payment Required')
+            raise ResolverError(self.name + ' premium account expired')
         if 'url' not in response:
             raise ResolverError(self.name + ' Bad Response')
         return response['url'].replace('\\', '')
 
     def get_url(self, host, media_id):
-        if self.isUniversal():
-            return media_id
         return '%s://%s/file/%s' % (self.scheme, host, media_id)
 
     @classmethod
     def get_settings_xml(cls):
         xml = super(cls, cls).get_settings_xml(include_login=False)
-        xml.append('<setting id="%s_login" type="bool" label="%s" default="true"/>' % (cls.__name__, i18n('login')))
+        xml.append('<setting id="%s_login" type="bool" label="%s" default="false"/>' % (cls.__name__, i18n('login')))
         xml.append('<setting id="%s_username" enable="eq(-1,true)" type="text" label="%s" default=""/>' % (cls.__name__, i18n('username')))
         xml.append('<setting id="%s_password" enable="eq(-2,true)" type="text" label="%s" option="hidden" default=""/>' % (cls.__name__, i18n('password')))
+        xml.append('<setting id="%s_premium" enable="eq(-3,true)" type="bool" label="Premium Account" default="false"/>' % (cls.__name__))
         xml.append('<setting id="%s_session_id" visible="false" type="text" default=""/>' % (cls.__name__))
         return xml
-
-    """ --- (PSEUDO)UNIVERSAL RESOLVER --- """
-
-    @classmethod
-    def isUniversal(self):
-        return True
-
-    def get_host_and_id(self, url):
-        return self.domains[0], url
-
-    def valid_url(self, url, host):
-        if url:
-            if re.search(self.pattern, url, flags=re.I) is not None:
-                return True
-        elif host:
-            host = host.lower()
-            if host.startswith('www.'):
-                host = host[4:]
-            if host in self.domains:
-                return True
-        return False
-

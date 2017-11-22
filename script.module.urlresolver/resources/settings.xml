@@ -40,13 +40,6 @@
 		<setting id="PremiumizeMeResolver_login" type="bool" label="login" default="false"/>
 		<setting id="PremiumizeMeResolver_username" enable="eq(-1,true)" type="text" label="Customer ID" default=""/>
 		<setting id="PremiumizeMeResolver_password" enable="eq(-2,true)" type="text" label="PIN" option="hidden" default=""/>
-		<setting label="Rapidgator" type="lsep"/>
-		<setting id="RapidgatorResolver_priority" type="number" label="Priority" default="100"/>
-		<setting id="RapidgatorResolver_enabled" type="bool" label="Enabled" default="true"/>
-		<setting id="RapidgatorResolver_login" type="bool" label="login" default="true"/>
-		<setting id="RapidgatorResolver_username" enable="eq(-1,true)" type="text" label="Username" default=""/>
-		<setting id="RapidgatorResolver_password" enable="eq(-2,true)" type="text" label="Password" option="hidden" default=""/>
-		<setting id="RapidgatorResolver_session_id" visible="false" type="text" default=""/>
 		<setting label="Real-Debrid" type="lsep"/>
 		<setting id="RealDebridResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="RealDebridResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -121,10 +114,6 @@
 		<setting id="SpeedVidResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="SpeedVidResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="SpeedVidResolver_login" type="bool" label="login" default="true" visible="false"/>
-		<setting label="BitPorno" type="lsep"/>
-		<setting id="BitPornoResolver_priority" type="number" label="Priority" default="100"/>
-		<setting id="BitPornoResolver_enabled" type="bool" label="Enabled" default="true"/>
-		<setting id="BitPornoResolver_login" type="bool" label="login" default="true" visible="false"/>
 		<setting label="bitvid.sx" type="lsep"/>
 		<setting id="BitvidResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="BitvidResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -161,20 +150,16 @@
 		<setting id="DaclipsResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="DaclipsResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="DaclipsResolver_login" type="bool" label="login" default="true" visible="false"/>
-	</category>
-	<category label="Resolvers 2">
 		<setting label="dailymotion" type="lsep"/>
 		<setting id="DailymotionResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="DailymotionResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="DailymotionResolver_login" type="bool" label="login" default="true" visible="false"/>
+	</category>
+	<category label="Resolvers 2">
 		<setting label="datemule" type="lsep"/>
 		<setting id="DateMuleResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="DateMuleResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="DateMuleResolver_login" type="bool" label="login" default="true" visible="false"/>
-		<setting label="datoporn" type="lsep"/>
-		<setting id="DatoPornResolver_priority" type="number" label="Priority" default="100"/>
-		<setting id="DatoPornResolver_enabled" type="bool" label="Enabled" default="true"/>
-		<setting id="DatoPornResolver_login" type="bool" label="login" default="true" visible="false"/>
 		<setting label="dbmovies" type="lsep"/>
 		<setting id="dbMoviesResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="dbMoviesResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -232,8 +217,6 @@
 		<setting id="FlashxResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="FlashxResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="FlashxResolver_login" type="bool" label="login" default="true" visible="false"/>
-		<setting id="FlashxResolver_auto_update" type="bool" label="Automatically update resolver" default="true"/>
-		<setting id="FlashxResolver_etag" type="text" default="" visible="false"/>
 		<setting label="flixtor" type="lsep"/>
 		<setting id="FlixtorResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="FlixtorResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -242,8 +225,6 @@
 		<setting id="GamoVideoResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="GamoVideoResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="GamoVideoResolver_login" type="bool" label="login" default="true" visible="false"/>
-	</category>
-	<category label="Resolvers 3">
 		<setting label="generic" type="lsep"/>
 		<setting id="GenericResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="GenericResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -252,6 +233,8 @@
 		<setting id="GoFlickerResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="GoFlickerResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="GoFlickerResolver_login" type="bool" label="login" default="true" visible="false"/>
+	</category>
+	<category label="Resolvers 3">
 		<setting label="goodvideohost" type="lsep"/>
 		<setting id="GoodVideoHostResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="GoodVideoHostResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -320,8 +303,6 @@
 		<setting id="MovDivxResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="MovDivxResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="MovDivxResolver_login" type="bool" label="login" default="true" visible="false"/>
-	</category>
-	<category label="Resolvers 4">
 		<setting label="movpod" type="lsep"/>
 		<setting id="MovpodResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="MovpodResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -330,6 +311,8 @@
 		<setting id="MovshareResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="MovshareResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="MovshareResolver_login" type="bool" label="login" default="true" visible="false"/>
+	</category>
+	<category label="Resolvers 4">
 		<setting label="mp4engine" type="lsep"/>
 		<setting id="Mp4EngineResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="Mp4EngineResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -370,6 +353,10 @@
 		<setting id="NowvideoResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="NowvideoResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="NowvideoResolver_login" type="bool" label="login" default="true" visible="false"/>
+		<setting label="ocloud" type="lsep"/>
+		<setting id="OcloudResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="OcloudResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting id="OcloudResolver_login" type="bool" label="login" default="true" visible="false"/>
 		<setting label="ok.ru" type="lsep"/>
 		<setting id="OKResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="OKResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -398,12 +385,12 @@
 		<setting id="PlayHDResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="PlayHDResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="PlayHDResolver_login" type="bool" label="login" default="true" visible="false"/>
-	</category>
-	<category label="Resolvers 5">
 		<setting label="playwire" type="lsep"/>
 		<setting id="PlayWireResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="PlayWireResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="PlayWireResolver_login" type="bool" label="login" default="true" visible="false"/>
+	</category>
+	<category label="Resolvers 5">
 		<setting label="powvideo" type="lsep"/>
 		<setting id="PowVideoResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="PowVideoResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -424,6 +411,14 @@
 		<setting id="PutLoadResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="PutLoadResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="PutLoadResolver_login" type="bool" label="login" default="true" visible="false"/>
+		<setting label="Rapidgator" type="lsep"/>
+		<setting id="RapidgatorResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="RapidgatorResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting id="RapidgatorResolver_login" type="bool" label="login" default="false"/>
+		<setting id="RapidgatorResolver_username" enable="eq(-1,true)" type="text" label="Username" default=""/>
+		<setting id="RapidgatorResolver_password" enable="eq(-2,true)" type="text" label="Password" option="hidden" default=""/>
+		<setting id="RapidgatorResolver_premium" enable="eq(-3,true)" type="bool" label="Premium Account" default="false"/>
+		<setting id="RapidgatorResolver_session_id" visible="false" type="text" default=""/>
 		<setting label="rapidvideo.com" type="lsep"/>
 		<setting id="RapidVideoResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="RapidVideoResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -432,10 +427,6 @@
 		<setting id="RapidVideoResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="RapidVideoResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="RapidVideoResolver_login" type="bool" label="login" default="true" visible="false"/>
-		<setting label="redtube" type="lsep"/>
-		<setting id="RedTubeResolver_priority" type="number" label="Priority" default="100"/>
-		<setting id="RedTubeResolver_enabled" type="bool" label="Enabled" default="true"/>
-		<setting id="RedTubeResolver_login" type="bool" label="login" default="true" visible="false"/>
 		<setting label="rutube.ru" type="lsep"/>
 		<setting id="RuTubeResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="RuTubeResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -682,6 +673,10 @@
 		<setting id="VidozaResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VidozaResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="VidozaResolver_login" type="bool" label="login" default="true" visible="false"/>
+		<setting label="vidstore" type="lsep"/>
+		<setting id="VidstoreResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="VidstoreResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting id="VidstoreResolver_login" type="bool" label="login" default="true" visible="false"/>
 		<setting label="vidstreaming" type="lsep"/>
 		<setting id="VidStreamingResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VidStreamingResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -714,12 +709,12 @@
 		<setting id="VidziResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VidziResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="VidziResolver_login" type="bool" label="login" default="true" visible="false"/>
+	</category>
+	<category label="Resolvers 9">
 		<setting label="vimeo" type="lsep"/>
 		<setting id="VimeoResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VimeoResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="VimeoResolver_login" type="bool" label="login" default="true" visible="false"/>
-	</category>
-	<category label="Resolvers 9">
 		<setting label="vivosx" type="lsep"/>
 		<setting id="VivosxResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VivosxResolver_enabled" type="bool" label="Enabled" default="true"/>
