@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.stargate.guide" name="Stargate Guide"
-version="1.0.7" provider-name="Wardoctor">
+version="1.0.8" provider-name="Wardoctor">
     <requires>
         <import addon="xbmc.python" version="2.25.0"/>
         <import addon="script.module.simplejson" version="3.3.0"/>

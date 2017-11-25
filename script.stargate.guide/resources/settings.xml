@@ -42,6 +42,7 @@
         <setting id="categories.ini.file" label="categories.ini File" type="file" visible="eq(-2,true) + eq(-1,0)" mask="categories.ini" default=''/>
         <setting id="categories.ini.url" label="categories.ini Url" type="text" visible="false" default="http://163.172.46.122/files/masterbeta/live/categories.ini"/>
         <setting id="categories.remember" label="Remember Last Category" type="bool" visible="true" default="true" />
+        <setting id="cat.order" label="Custom Category Order (use | to seperate)" type="text" default="All Channels|Entertainment|Movies|Sports|Game Time|International Sports|News|Documentary &amp; Lifestyle|Kids|Music &amp; Radio|Shopping|Box Office" />
         <setting id="mapping.ini.enabled" label="Import mapping.ini" type="bool" default="false"  visible="false" />
         <setting id="mapping.ini.type" label="mapping.ini Source" type="enum" visible="eq(-1,true)" default="0" values="File|Url"/>
         <setting id="mapping.ini.file" label="mapping.ini File" type="file" visible="eq(-2,true) + eq(-1,0)" mask="*.ini" default=''/>
@@ -222,9 +223,7 @@
         <setting type="lsep" label="30138"/>
         <setting label="Reset EPG Data" type="action" action="RunScript($CWD/ResetDatabase.py, 1)" />
         <setting label="Reset Everything" type="action" action="RunScript($CWD/ResetDatabase.py, 2)" />
-    </category>
-    <category label="Lab1">
-        <setting id="cat.order" label="Custom Category Order (use | to seperate)" type="text" default="All Channels|Entertainment|Movies|Sports|Game Time|International Sports|News|Documentary &amp; Lifestyle|Kids|Music &amp; Radio|Shopping" />
+		<!-- Hidden Items -->
         <setting id="find.program.images" label="Find Program Images from OMDb/TVDb/IMDb" type="bool" default="false"  visible="false" />
         <setting id="omdb" label="OMDb Image and Plot Search (BROKEN)" type="bool" enable="eq(-1,true)" default="false"  visible="false" />
         <setting id="tvdb.imdb" label="TVDb/IMDb Image Search" type="bool" enable="eq(-2,true)" default="false"  visible="false" />
@@ -240,8 +239,6 @@
         <setting id="mine1" label="Custom Command for MINE" type="text" default="ActivateWindow(Videos,library://video,return)" visible="false" />
         <setting label="Mangage Catchup Urls" type="action" action="RunScript($CWD/catchup.py)"  visible="false" />
         <setting id="catchup.dialog" label="Ask to Catchup" type="enum" default="0" values="Never|Start &lt; Now|End &lt; Now|Always" visible="false" />
-    </category>
-    <category label="Lab2">
         <setting id="source.source" label="Data Source" type="select" default="xmltv" values="xmltv|SchedulesDirect|tvguide.co.uk|tvguide.co.uk now|tvguide.co.uk now 2|yo.tv|yo.tv now"  visible="false" />
         <setting id="fixtures" label="Include Sports Fixtures in xmltv Source" default="false" type="bool" visible="false" />
         <setting id="fixtures.country" label="Sports Fixtures Country Code" type="select" default="all" values="all|ai|al|ao|ar|au|az|ba|be|bg|br|ca|ch|cn|cy|cz|de|dk|en|es|fi|fr|gr|hk|hr|hu|id|ie|il|in|ir|is|it|jp|kr|lv|mt|mx|my|nl|no|nz|pl|pt|qa|ro|rs|ru|s2|se|sg|si|sk|th|tr|ua|uk|us|vn|wa|za"  visible="false" />
@@ -260,15 +257,6 @@
         <setting label="Delete lineup" type="action" action="RunScript($CWD/editor.py, 4)"  visible="false" />
         <setting id="sd.range" label="Days of guide data to load" type="slider" default="3" range="1,1,14" option="int"  visible="false" />
         <setting id="sd.interval" label="30128" type="enum" default="2" lvalues="30129|30130|30131|30132"  visible="false" />
-    </category>
-    <!--<category label="Alternate Bouquets">
-        <setting type="lsep" label="Alternate Bouquets or Secondary XMLTV File"/>
-        <setting id="xmltv2.enabled" label="XMLTV Secondary Source" type="bool" default="true" />
-        <setting id="xmltv2.type" label="XMLTV Secondary Source Type" type="enum" enable="true" visible="eq(-1,true)" default="1" values="Local File|Stargate" />
-        <setting id="xmltv2.file" label="XMLTV Secondary File" type="file" visible="eq(-2,true) + eq(-1,0)" />
-		<setting id="xmltv2.url" label="Extra Bouquets" type="labelenum" enable="true" visible="eq(-3,true) + eq(-2,1)" default="Romanian" values="Albanian|Arabic|Balkans|Belgian|Brazilian|Bulgarian|Czech|French|German|Greek|Indian|Latino|Netherlands|Nordic|Polish|Portugeuse|Romanian|Russian|Slovenia|Spanish|Swiss|Turkish" />
-    </category>-->
-    <category label="Backup">
         <setting label="Clear Channel Mappings" type="action" action="RunScript($CWD/backup.py,5)"  visible="false" />
         <setting label="Export Channel Mappings" type="action" action="RunScript($CWD/backup.py,1)"  visible="false" />
         <setting label="Import Channel Mappings" type="action" action="RunScript($CWD/backup.py,2)"  visible="false" />
