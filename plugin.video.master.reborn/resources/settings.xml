@@ -42,10 +42,10 @@
 		<setting id="debridsources" type="bool" label="Enable Debrid Providers" default="false"/>
 		<setting id="urlresolver" type="action" label="Open URL-resolver settings" option="close" action="RunPlugin(plugin://plugin.video.master.reborn/?action=urlresolversettings)"/>
 		<setting id="nanscraper" type="action" label="Open NanScraper settings" option="close" action="RunPlugin(plugin://plugin.video.master.reborn/?action=nanscrapersettings)"/>
-<!--		<setting type="lsep" label="Trakt"/>
+		<setting type="lsep" label="Trakt"/>
 		<setting id="trakt.user" type="action" label="32306" option="close" action="RunPlugin(plugin://plugin.video.master.reborn/?action=authTrakt)"/>
 		<setting id="trakt.token" type="text" option="hidden" visible="false" label="" default=""/>
-		<setting id="trakt.refresh" type="text" option="hidden" visible="false" label="" default=""/>-->
+		<setting id="trakt.refresh" type="text" option="hidden" visible="false" label="" default=""/>
 <!--	</category>
 	<category label="Free Providers">
 		<setting id="provider.library" type="bool" label="Include Library Items" default="true"/>

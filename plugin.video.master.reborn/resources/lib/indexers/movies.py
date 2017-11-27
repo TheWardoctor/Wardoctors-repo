@@ -813,7 +813,7 @@ class movies:
                                 #xbmc.log("QQQQQ tagline3 = {0}".format(tagline), xbmc.LOGNOTICE)
                                 self.list.append({'title': title, 'originaltitle': title, 'year': year, 'premiered': premiered, 'genre': genre, 'duration': duration, 'rating': rating, 'votes': votes, 'mpaa': mpaa, 'plot': plot, 'tagline': tagline, 'imdb': imdb, 'tmdb': tmdb, 'tvdb': '0', 'poster': '0', 'next': next})
                                 #xbmc.log("QQQQQ self.list = {0}".format(self.list), xbmc.LOGNOTICE)
-                        except:
+                        except Exception:
                                 pass
                 return self.list
 
@@ -1153,7 +1153,7 @@ class movies:
                                 tmdb, imdb, title, year = i['tmdb'], i['imdb'], i['originaltitle'], i['year']
                                 sysname = urllib.quote_plus('%s (%s)' % (title, year))
                                 systitle = urllib.quote_plus(title)
-                                poster, banner, fanart = i['poster'], i['banner'], i['fanart']
+                                poster, banner, fanart = i.get('poster',"0"), i.get('banner',"0"), i.get('fanart',"0")
                                 if banner == '0' and not fanart == '0': banner = fanart
                                 elif banner == '0' and not poster == '0': banner = poster
                                 if poster == '0': poster = addonPoster

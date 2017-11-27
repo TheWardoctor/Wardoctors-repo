@@ -1,3 +1,6 @@
+[B]1.0.4[/B]
+- Added Trakt intergration
+
 [B]1.0.3[/B]
 - Code Updated
 - Dependency changes
