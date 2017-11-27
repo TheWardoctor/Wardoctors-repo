@@ -1,3 +1,6 @@
+[B]1.0.5[/B]
+- Removed VIP menu items from Trakt.
+
 [B]1.0.4[/B]
 - Added Trakt intergration
 

@@ -147,8 +147,8 @@ class navigator:
                         self.addDirectoryItem(32033, 'movies&url=traktwatchlist',  'trakt.png',       'DefaultMovies.png')
                 if traktCredentials == True:
                         self.addDirectoryItem(32035, 'movies&url=traktfeatured',   'trakt.png',       'DefaultMovies.png', queue=True)
-                if traktIndicators == True:
-                        self.addDirectoryItem(32036, 'movies&url=trakthistory',    'trakt.png',       'DefaultMovies.png', queue=True)
+#                if traktIndicators == True:
+#                        self.addDirectoryItem(32036, 'movies&url=trakthistory',    'trakt.png',       'DefaultMovies.png', queue=True)
                 self.addDirectoryItem("My Lists",     'movieUserlists',             'mymovies.png',    'DefaultMovies.png')
                 if lite == False:
                         self.addDirectoryItem(32031, 'movieliteNavigator',         'movies.png',      'DefaultMovies.png')
@@ -237,15 +237,15 @@ class navigator:
                 elif traktCredentials == True:
                         self.addDirectoryItem(32032, 'tvshows&url=traktcollection', 'trakt.png', 'DefaultTVShows.png')
                         self.addDirectoryItem(32033, 'tvshows&url=traktwatchlist', 'trakt.png', 'DefaultTVShows.png')
-                if traktCredentials == True:
-                        self.addDirectoryItem('Featured', 'tvshows&url=traktfeatured', 'trakt.png', 'DefaultTVShows.png')
-                if traktIndicators == True:
-                        self.addDirectoryItem('History', 'calendar&url=trakthistory', 'trakt.png', 'DefaultTVShows.png', queue=True)
-                        self.addDirectoryItem('Progress', 'calendar&url=progress', 'trakt.png', 'DefaultRecentlyAddedEpisodes.png', queue=True)
-                        self.addDirectoryItem('Calendar', 'calendar&url=mycalendar', 'trakt.png', 'DefaultRecentlyAddedEpisodes.png', queue=True)
+#                if traktCredentials == True:
+#                        self.addDirectoryItem('Featured', 'tvshows&url=traktfeatured', 'trakt.png', 'DefaultTVShows.png')
+#                if traktIndicators == True:
+#                        self.addDirectoryItem('History', 'calendar&url=trakthistory', 'trakt.png', 'DefaultTVShows.png', queue=True)
+#                        self.addDirectoryItem('Progress', 'calendar&url=progress', 'trakt.png', 'DefaultRecentlyAddedEpisodes.png', queue=True)
+#                        self.addDirectoryItem('Calendar', 'calendar&url=mycalendar', 'trakt.png', 'DefaultRecentlyAddedEpisodes.png', queue=True)
                 self.addDirectoryItem('My Lists', 'tvUserlists', 'mytvshows.png', 'DefaultTVShows.png')
-                if traktCredentials == True:
-                        self.addDirectoryItem('My Episodes', 'episodeUserlists', 'mytvshows.png', 'DefaultTVShows.png')
+#                if traktCredentials == True:
+#                        self.addDirectoryItem('My Episodes', 'episodeUserlists', 'mytvshows.png', 'DefaultTVShows.png')
                 if lite == False:
                         self.addDirectoryItem('TV Shows', 'tvliteNavigator', 'tvshows.png', 'DefaultTVShows.png')
                         self.addDirectoryItem('Actor Search', 'tvPerson', 'actorsearch.png', 'DefaultTVShows.png')
