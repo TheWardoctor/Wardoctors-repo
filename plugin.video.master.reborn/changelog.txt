@@ -1,3 +1,8 @@
+[B]1.0.6[/B]
+- Rearranged Trakt Lists
+- Fixed Channels
+- Merry Christmas
+
 [B]1.0.5[/B]
 - Removed VIP menu items from Trakt.
 

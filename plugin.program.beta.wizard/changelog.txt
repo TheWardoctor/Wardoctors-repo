@@ -1,0 +1,18 @@
+v1.0.5
+- Added Elysium and Master Reborn API and Trakt data save
+
+v1.0.4
+- Altered autoclean to off by default
+
+v1.0.3
+- Added Youtube API save
+- Added iPlayer WWW Login save
+- Added Music Box multi login save
+- Tweaked code a little
+
+v1.0.2
+- Added API Data Save menu
+- Adjusted Data Saving for Current Addons
+
+v1.0.1
+- Initial Beta

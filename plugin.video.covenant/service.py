@@ -24,7 +24,6 @@ control.execute('RunPlugin(plugin://%s)' % control.get_plugin_url({'action': 'se
 try:
     ModuleVersion = control.addon('script.module.covenant').getAddonInfo('version')
     AddonVersion = control.addon('plugin.video.covenant').getAddonInfo('version')
-    RepoVersion = control.addon('repository.colossus').getAddonInfo('version')
 
     log_utils.log('######################### COVENANT ############################', log_utils.LOGNOTICE)
     log_utils.log('####### CURRENT COVENANT VERSIONS REPORT ######################', log_utils.LOGNOTICE)

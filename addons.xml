@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?> 
-<addons> 
+<addons>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.program.beta.wizard" name="Wardoctors Beta Wizard" version="1.0.5" provider-name="Wardoctor">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="startup.py" start="startup" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Wardoctors Beta Wizard</summary>
+    <description lang="en">Wardoctors Beta Test Wizard.</description>
+    <platform>all</platform>
+  </extension>
+</addon> 
 <addon id="repository.wardoctor" name="Wardoctors Repo" version="1.0.1" provider-name="Wardoctor">
 	<extension point="xbmc.addon.repository" name="Wardoctors Repository">
 		<info compressed="false">https://raw.githubusercontent.com/thewardoctor/Wardoctors-repo/master/addons.xml</info>
@@ -53,21 +68,6 @@
 			<icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
 		</assets>
-	</extension>
-</addon>
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.catchup4kodi" name="Catchup4Kodi Repo" version="1.3" provider-name="catchup4kodi">
-	<extension point="xbmc.addon.repository" name="Catchup4Kodi Repo">
-		<dir>
-		<info compressed="false">https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/addons.xml</info>
-		<checksum>https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/addons.xml.md5</checksum>
-		<datadir zip="true">https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/</datadir>
-		</dir>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Catchup and live addons for Kodi</summary>
-		<description lang="en">Some of the addons in here are geo locked so may not work in your region without a proxy/vpn. There are certainly a few UK based ones which will only work with a UK IP.</description>
-		<genre>livetv,tvshows,kids,sports</genre>
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -457,7 +457,7 @@ provider-name="Wardoctor, primaeval">
 </extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.covenant" version="8.1.30" name="Covenant" provider-name="Covenant">
+<addon id="plugin.video.covenant" version="8.1.31" name="Covenant" provider-name="Covenant">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
 		<import addon="script.module.covenant" />
@@ -509,7 +509,7 @@ provider-name="Wardoctor, primaeval">
   </extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.exodus" version="8.1.07" name="Exodus" provider-name="Wardoctor, Exodus">
+<addon id="plugin.video.exodus" version="8.1.08" name="Exodus" provider-name="Wardoctor, Exodus">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
 		<import addon="script.module.exodus" />
@@ -542,10 +542,11 @@ provider-name="Wardoctor, primaeval">
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.master.reborn" version="1.0.5" name="Master Reborn" provider-name="Wardoctor">
+<addon id="plugin.video.master.reborn" version="1.0.6" name="Master Reborn" provider-name="Wardoctor">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
         <import addon="script.master-reborn.artwork" version="1.0.1"/>
+		<import addon="script.master.metadata" version="1.0.1"/>
         <import addon="script.module.urlresolver" version="2.10.0"/>
         <import addon="script.module.metahandler" version="2.9.0"/>
         <import addon="script.module.requests" version="2.12.4"/>
@@ -684,6 +685,39 @@ provider-name="Wardoctor, primaeval">
         <video_guide>xtOqLY5PJDY</video_guide>
 		<video_preview>WdKIzaiBBI</video_preview>
     </extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.rebirth" version="8.0.2" name="Rebirth" provider-name="Wardoctor, Cypher">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.rebirth.artwork" version="1.0.0" />
+		<import addon="script.rebirth.metadata" version="1.0.0" />
+                <import addon="script.module.urlresolver"/>
+                <import addon="script.module.metahandler"/>
+                <import addon="script.module.requests"/>
+                <import addon="script.module.beautifulsoup"/>
+                <import addon="script.module.schism.common"/>
+                <import addon="script.module.futures"/>
+                <import addon="script.module.nanscrapers" version="0.5.5" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="Rebirth.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="startup" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Rebirth. Modded for Intergration</summary>
+		<description lang="en">The Ultimate Movie, TV Show, and Playlist Add-on</description>
+		<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+		<platform>all</platform>
+		<forum></forum>
+		<website></website>
+		<source></source>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+		<news></news>
+	</extension>
 </addon>
 <addon id="plugin.video.salts" version="8.0.204" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
     <requires>
@@ -929,7 +963,7 @@ provider-name="Wardoctor, primaeval">
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.module.covenant" name="Covenant Module" version="8.00.025" provider-name="Covenant">
+<addon id="script.module.covenant" name="Covenant Module" version="8.00.026" provider-name="Covenant">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0" />
 	</requires>
@@ -940,7 +974,7 @@ provider-name="Wardoctor, primaeval">
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.module.exodus" name="Exodus Module" version="8.00.025" provider-name="Exodus">
+<addon id="script.module.exodus" name="Exodus Module" version="8.00.026" provider-name="Exodus">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0" />
 	</requires>
@@ -983,6 +1017,18 @@ provider-name="Wardoctor, primaeval">
 		<summary lang="en">Collection of modules used by Master Reborn</summary>
 		<description lang="en">Collection of modules used by Master Reborn</description>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.master.metadata" version="1.0.1" name="Master Metadata" provider-name="Wardoctor">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Metadata for the Master Addon</summary>
+		<description>Metadata for Master are maintained separately to make distribution of the the addon itself easier/faster.</description>
+		<platform>all</platform>
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1153,6 +1199,30 @@ provider-name="Wardoctor, primaeval">
 		<description lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju, pojednostavnjuje razvoj priključaka za video dodatke koji zahtjevaju višestruke video izvore.</description>
         <forum>https://www.tvaddons.co/forums</forum>
         <website>https://www.tvaddons.co</website>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.rebirth.artwork" version="1.0.1" name="Rebirth Artwork" provider-name="Cypher">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Themes for the Rebirth Addon</summary>
+		<description>Themes for Rebirth are maintained separately to make distribution of the the addon itself easier/faster.</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.rebirth.metadata" version="1.0.0" name="Rebirth Metadata" provider-name="Cypher">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Metadata for the Rebirth Addon</summary>
+		<description>Metadata for Rebirth are maintained separately to make distribution of the the addon itself easier/faster.</description>
+		<platform>all</platform>
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>

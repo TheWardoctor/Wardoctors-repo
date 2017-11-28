@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.master.reborn" version="1.0.5" name="Master Reborn" provider-name="Wardoctor">
+<addon id="plugin.video.master.reborn" version="1.0.6" name="Master Reborn" provider-name="Wardoctor">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
         <import addon="script.master-reborn.artwork" version="1.0.1"/>
+		<import addon="script.master.metadata" version="1.0.1"/>
         <import addon="script.module.urlresolver" version="2.10.0"/>
         <import addon="script.module.metahandler" version="2.9.0"/>
         <import addon="script.module.requests" version="2.12.4"/>

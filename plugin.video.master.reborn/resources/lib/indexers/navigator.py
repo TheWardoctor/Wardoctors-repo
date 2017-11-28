@@ -92,7 +92,7 @@ tvlist30         = control.setting('tmdb.tvlist_name30')
 
 class navigator:
         def root(self):
-                # self.addDirectoryItem('Merry Christmas!', 'movies&url=tmdbxmas',  'xmas.png',          'DefaultMovies.png')
+                self.addDirectoryItem('Merry Christmas!', 'movies&url=tmdbxmas',  'xmas.png',          'DefaultMovies.png')
                 self.addDirectoryItem(32001,              'movieNavigator',       'movies.png',        'DefaultMovies.png')
                 self.addDirectoryItem(32002,              'tvNavigator',          'channels.png',      'DefaultTVShows.png')
                 if not control.setting('movie.widget') == '0':
@@ -100,15 +100,15 @@ class navigator:
                 self.addDirectoryItem('New Movies',       'movies&url=premiere',  'trending.png',      'DefaultRecentlyAddedMovies.png')
                 self.addDirectoryItem(32026,              'tvshows&url=premiere', 'years.png',         'DefaultTVShows.png')
                 self.addDirectoryItem('My Lists',         'lists_navigator',      'mymovies.png',      'DefaultRecentlyAddedMovies.png')
+                if not control.setting('lists.widget') == '0':
+                        self.addDirectoryItem('Trakt Movies', 'soullessNavigator',    'mymovies.png',      'DefaultVideoPlaylists.png')
+                        self.addDirectoryItem('Trakt TV',     'tvshowstNavigator',    'mytvshows.png',     'DefaultVideoPlaylists.png')
                 self.addDirectoryItem(32027,              'calendars',            'networks.png',      'DefaultRecentlyAddedEpisodes.png')
                 self.addDirectoryItem(32007,              'channels',             'channels.png',      'DefaultMovies.png')
                 self.addDirectoryItem(32008,              'toolNavigator',        'tools.png',         'DefaultAddonProgram.png')
                 downloads = True if control.setting('downloads') == 'true' and (len(control.listDir(control.setting('movie.download.path'))[0]) > 0) else False
                 if downloads == True:
                         self.addDirectoryItem(32009,          'downloadNavigator',    'downloads.png',     'DefaultFolder.png')
-                if not control.setting('lists.widget') == '0':
-                        self.addDirectoryItem('Trakt Movies', 'soullessNavigator',    'mymovies.png',      'DefaultVideoPlaylists.png')
-                        self.addDirectoryItem('Trakt TV',     'tvshowstNavigator',    'mytvshows.png',     'DefaultVideoPlaylists.png')
                 self.addDirectoryItem(32010,              'searchNavigator',      'search.png',        'DefaultFolder.png')
                 self.addDirectoryItem('Changelog',        'ShowChangelog',        'icon.png',          'DefaultFolder.png')
                 self.endDirectory()
@@ -118,7 +118,7 @@ class navigator:
                         self.addDirectoryItem("In Progress",   'movieProgress',         'trending.png',      'DefaultMovies.png')
                 self.addDirectoryItem('Featured',          'movies&url=featured',   'featured.png',      'DefaultRecentlyAddedMovies.png')
 #		self.addDirectoryItem('Trending',          'movies&url=trending',   'trending.png',      'DefaultRecentlyAddedMovies.png')
-                self.addDirectoryItem('Populars',          'movies&url=popular',    'populars.png',      'DefaultMovies.png')
+                self.addDirectoryItem('Popular',          'movies&url=popular',    'populars.png',      'DefaultMovies.png')
                 self.addDirectoryItem('New Movies',        'movies&url=premiere',   'trending.png',      'DefaultRecentlyAddedMovies.png')
                 self.addDirectoryItem('Top Rated',         'movies&url=views',      'most-viewed.png',   'DefaultMovies.png')
                 self.addDirectoryItem('In Theaters',       'movies&url=theaters',   'in-theaters.png',   'DefaultRecentlyAddedMovies.png')
@@ -255,7 +255,7 @@ class navigator:
         def tvshows(self, lite=False):
                 if inprogress_db == 'true': self.addDirectoryItem("In Progress", 'showsProgress', 'trending.png', 'DefaultMovies.png')
                 self.addDirectoryItem('Featured', 'tvshows&url=featured', 'populars.png', 'DefaultRecentlyAddedEpisodes.png')
-                self.addDirectoryItem('Populars', 'tvshows&url=popular', 'most-viewed.png', 'DefaultTVShows.png')
+                self.addDirectoryItem('Popular', 'tvshows&url=popular', 'most-viewed.png', 'DefaultTVShows.png')
                 self.addDirectoryItem(32019, 'tvshows&url=views', 'most-viewed.png', 'DefaultTVShows.png')
                 self.addDirectoryItem(32026, 'tvshows&url=premiere', 'years.png', 'DefaultTVShows.png')
                 self.addDirectoryItem(32025, 'tvshows&url=active', 'years.png', 'DefaultTVShows.png')
