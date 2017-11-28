@@ -14,7 +14,8 @@
     <description lang="en">Wardoctors Beta Test Wizard.</description>
     <platform>all</platform>
   </extension>
-</addon> 
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="repository.wardoctor" name="Wardoctors Repo" version="1.0.1" provider-name="Wardoctor">
 	<extension point="xbmc.addon.repository" name="Wardoctors Repository">
 		<info compressed="false">https://raw.githubusercontent.com/thewardoctor/Wardoctors-repo/master/addons.xml</info>
