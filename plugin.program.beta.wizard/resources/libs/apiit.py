@@ -202,7 +202,7 @@ def apiIt(do, who):
 	else:
 		if APIID[who]:
 			if os.path.exists(APIID[who]['path']):
-				updateData(do, who)
+				updateApi(do, who)
 		else: wiz.log('[API Data] Invalid Entry: %s' % who, xbmc.LOGERROR)
 
 def clearSaved(who, over=False):

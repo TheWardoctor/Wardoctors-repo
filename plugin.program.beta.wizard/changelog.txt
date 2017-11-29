@@ -1,3 +1,6 @@
+v1.0.6
+- Fixing Startup Error on API saving
+
 v1.0.5
 - Added Elysium and Master Reborn API and Trakt data save
 
