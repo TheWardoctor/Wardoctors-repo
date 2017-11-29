@@ -865,6 +865,46 @@ provider-name="Wardoctor, primaeval">
   </extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.uncoded" 
+	version="8.2.4" 
+	name="[COLOR springgreen]UNCODED[/COLOR]" 
+	provider-name="[COLOR springgreen]UNCODED[/COLOR]">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.module.uncoded" />
+		<import addon="script.uncoded.artwork" version="1.0.0" />
+		<import addon="script.uncoded.metadata" version="1.0.0" />
+		<import addon="script.module.urlresolver" version="3.0.0" />
+		<import addon="script.module.requests" />
+		<import addon="script.module.metahandler" version="1.0.0" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="uncoded.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="startup" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">UNCODED</summary>
+		<description lang="en">[I]A New Generation[/I][CR][CR][B]UNCODED Movies and TV[/B][CR][CR]This addon does not form part of the Kodi Media Centre. Please do not seek assistance with this addon from any of the Official Kodi Support Channels.[CR][CR]The author does not host any of the content in this addon and takes no responsibility for content found.</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<forum></forum>
+		<website></website>
+		<source></source>
+		<disclaimer lang="en">The author of this addon do not host any of the content which is found and have no affiliation with any of the content providers. This addon simply searches websites for content. Use at your own risk!</disclaimer>
+		<assets>
+			<news>Covenant is now rebranded by UNCODED.[CR]Will continu to work on this! I am a Noob dev, who wants to cooperate with other devs to preserve KODI add-ons.[CR]Looking for a home? We can help u out. Contact us!</news>
+			<email>admin@uncoded.life</email>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+    			<screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+    			<screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+    			<screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
+		</assets>
+		<news></news>
+	</extension>
+</addon>
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.covenant.artwork" version="1.0.3" name="Covenant Artwork" provider-name="Covenant">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0"/>
@@ -1183,6 +1223,17 @@ provider-name="Wardoctor, primaeval">
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.module.uncoded" name="Uncoded Module" version="8.0.0" provider-name="Uncoded">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Uncoded, Modded to Allow Metalliq Playback</summary>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.module.urlresolver" name="URLResolver" version="4.0.12" provider-name="Eldorado, tknorris, tvaddons">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0" />
@@ -1283,6 +1334,30 @@ version="1.0.8" provider-name="Wardoctor">
         <news>
         </news>
     </extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.uncoded.artwork" version="1.0.0" name="Uncoded Artwork" provider-name="Uncoded">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Themes for the Uncoded Addon</summary>
+		<description></description>
+		<platform>all</platform>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.uncoded.metadata" version="1.0.0" name="Uncoded Metadata" provider-name="Uncoded">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Metadata for the Uncoded Addon</summary>
+		<description>Metadata for Uncoded are maintained separately to make distribution of the the addon itself easier/faster.</description>
+		<platform>all</platform>
+	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.video.F4mProxy" 

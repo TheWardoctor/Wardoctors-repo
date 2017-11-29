@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.module.uncoded" name="Uncoded Module" version="8.0.0" provider-name="Uncoded">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Uncoded, Modded to Allow Metalliq Playback</summary>
+	</extension>
+</addon>
