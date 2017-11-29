@@ -206,28 +206,6 @@
 			<platform>all</platform>
 		</extension>
 </addon>
-<?xml version="1.0" encoding="UTF-8"?>
-<addon 
-	id="repository.uncoded" 
-	name="  [B]UNCODED[/B] Repository" 
-	version="2.1.1" 
-	provider-name=" [B]UNCODED[/B]">
-    <extension point="xbmc.addon.repository" name="[B]UNCODED[/B] Repository">
-    <dir>
-        <info compressed="false">https://start.uncoded.life/data/addons.xml</info>
-        <checksum>https://start.uncoded.life/data/addons.xml.md5</checksum>
-        <datadir zip="true">https://start.uncoded.life/data/</datadir>
-    </dir>
-    	<info compressed="false">https://start.uncoded.life/common/addons.xml</info>
-        <checksum>https://start.uncoded.life/common/addons.xml.md5</checksum>
-        <datadir zip="true">https://start.uncoded.life/common/</datadir>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary>Home Of Abandoned and 3rd Party Addons</summary>
-        <description></description>
-        <platform>all</platform>
-    </extension>
-</addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="repository.adulthideout" name="AdultHideout REPO" version="1.0.1" provider-name="Vashiel">
 	<extension point="xbmc.addon.repository" name="AdultHideout Addon Repository">
