@@ -600,7 +600,7 @@
          <setting id="wso.ch-base_url" type="text" label="    Base Url" default="http://watchseries-online.pl" visible="eq(-1,true)"/>
          <setting id="wso.ch-sub_check" type="bool" label="    Include in Page Existence checks?" default="true" visible="eq(-2,true)"/>
          <setting id="xmovies8-enable" type="bool" label="xmovies8 Enabled" default="true" visible="true"/>
-         <setting id="xmovies8-base_url" type="text" label="    Base Url" default="https://putlockerhd.co" visible="eq(-1,true)"/>
+         <setting id="xmovies8-base_url" type="text" label="    Base Url" default="https://watch32hd.co" visible="eq(-1,true)"/>
          <setting id="xmovies8-sub_check" type="bool" label="    Include in Page Existence checks?" default="true" visible="eq(-2,true)"/>
          <setting id="xmovies8-default_url" type="text" visible="false"/>
          <setting id="xmovies8.v2-enable" type="bool" label="xmovies8.v2 Enabled" default="true" visible="true"/>

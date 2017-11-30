@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.saltsrd.lite" version="8.0.233" name="Salts RD Lite" provider-name="XvBMC-NL">
+<addon id="plugin.video.saltsrd.lite" version="8.0.234" name="Salts RD Lite" provider-name="XvBMC-NL">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
         <import addon="script.module.futures" version="2.2.0"/>                             <!--    NEW     -->

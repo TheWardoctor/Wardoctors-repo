@@ -1203,10 +1203,9 @@ def browse_episodes(trakt_id, season):
 @url_dispatcher.register(MODES.AUTOPLAY, ['mode', 'video_type', 'title', 'year', 'trakt_id'], ['season', 'episode', 'ep_title', 'ep_airdate'])
 def get_sources(mode, video_type, title, year, trakt_id, season='', episode='', ep_title='', ep_airdate=''):
     cool_down_active = kodi.get_setting('cool_down') == 'true'
-    #if not salts_utils.is_salts() or cool_down_active:
-        #kodi.notify(msg=i18n('playback_limited'))
-        #return False
-    
+    if not salts_utils.is_salts() or cool_down_active:
+        kodi.notify(msg=i18n('playback_limited'))
+        return False
     timeout = max_timeout = int(kodi.get_setting('source_timeout'))
     if max_timeout == 0: timeout = None
     max_results = int(kodi.get_setting('source_results'))

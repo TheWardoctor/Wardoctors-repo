@@ -126,7 +126,7 @@ class Scraper(object):
 class FanartTVScraper(Scraper):
     API_KEY = kodi.get_setting('fanart_key')
     CLIENT_KEY = kodi.get_setting('fanart_person_key')
-    BASE_URL = 'webservice.fanart.tv/v3'
+    BASE_URL = 'webservice.fanart.tv/v3/'
     LANGS = {'en': 3, '00': 1, '': 2}
 
     def __init__(self):

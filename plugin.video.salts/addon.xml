@@ -1,4 +1,4 @@
-<addon id="plugin.video.salts" version="8.0.204" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
+<addon id="plugin.video.salts" version="8.0.205" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
         <import addon="script.module.urlresolver" version="3.0.0"/>
