@@ -698,7 +698,7 @@ provider-name="Wardoctor, primaeval">
 		<news></news>
 	</extension>
 </addon>
-<addon id="plugin.video.salts" version="8.0.205" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
+<addon id="plugin.video.salts" version="8.0.206" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
         <import addon="script.module.urlresolver" version="3.0.0"/>
@@ -718,7 +718,7 @@ provider-name="Wardoctor, primaeval">
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.saltsrd.lite" version="8.0.234" name="Salts RD Lite" provider-name="XvBMC-NL">
+<addon id="plugin.video.saltsrd.lite" version="8.0.235" name="Salts RD Lite" provider-name="XvBMC-NL">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
         <import addon="script.module.futures" version="2.2.0"/>                             <!--    NEW     -->
