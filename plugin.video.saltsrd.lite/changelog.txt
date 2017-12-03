@@ -1,3 +1,10 @@
+Version [B]2.0.236[/B]
+- Superfavourites intergration
+- Artwork re-fix
+
+Version [B]2.0.235[/B]
+- MetalliQ intergration fix
+
 Version [B]2.0.234[/B]
 - Artwork fix
 

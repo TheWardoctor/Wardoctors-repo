@@ -1,4 +1,4 @@
-<addon id="plugin.video.salts" version="8.0.206" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
+<addon id="plugin.video.salts" version="8.0.207" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
         <import addon="script.module.urlresolver" version="3.0.0"/>
@@ -6,6 +6,7 @@
         <import addon="script.module.tknorris.shared" version="8.0.19"/>
         <import addon="script.module.six"/>
         <import addon="script.module.dateutil"/>
+		<import addon="script.salts.themepak" version="8.0.12" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>

@@ -1,2 +1,10 @@
+[B]Version 8.0.207[/B]
+- Superfavourites Menu intergration
+- Artwork re-fix
+- Salts Themepak re-intergrated
+
+[B]Version 8.0.206[/B]
+- Repairing MetalliQ intergration
+
 [B]Version 8.0.205[/B]
 - Artwork fix

@@ -131,7 +131,7 @@ class Service(xbmc.Player):
         self.onPlayBackStopped()
 
 def disable_global_cx(was_on):
-    if kodi.has_addon('plugin.program.super.favourites'):
+    if kodi.has_addon('plugin.program.mega.favourites'):
         active_plugin = xbmc.getInfoLabel('Container.PluginName')
         sf = xbmcaddon.Addon('plugin.program.super.favourites')
         if active_plugin == kodi.get_id():
@@ -147,10 +147,10 @@ def disable_global_cx(was_on):
     return was_on
     
 def check_cooldown(cd_begin):
-    black_list = ['plugin.video.metalliq', 'plugin.video.meta']
-    active_plugin = xbmc.getInfoLabel('Container.PluginName')
-    if active_plugin in black_list:
-        cd_begin = time.time()
+#    black_list = ['plugin.video.livestreams']
+#    active_plugin = xbmc.getInfoLabel('Container.PluginName')
+#    if active_plugin in black_list:
+#        cd_begin = time.time()
     
     active = 'false' if (time.time() - cd_begin) > 30 else 'true'
     if kodi.get_setting('cool_down') != active:

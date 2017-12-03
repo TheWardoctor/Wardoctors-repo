@@ -698,7 +698,7 @@ provider-name="Wardoctor, primaeval">
 		<news></news>
 	</extension>
 </addon>
-<addon id="plugin.video.salts" version="8.0.206" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
+<addon id="plugin.video.salts" version="8.0.207" name="Stream All The Sources" provider-name="Wardoctor, k3l3vra">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
         <import addon="script.module.urlresolver" version="3.0.0"/>
@@ -706,6 +706,7 @@ provider-name="Wardoctor, primaeval">
         <import addon="script.module.tknorris.shared" version="8.0.19"/>
         <import addon="script.module.six"/>
         <import addon="script.module.dateutil"/>
+		<import addon="script.salts.themepak" version="8.0.12" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -718,7 +719,7 @@ provider-name="Wardoctor, primaeval">
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.saltsrd.lite" version="8.0.235" name="Salts RD Lite" provider-name="XvBMC-NL">
+<addon id="plugin.video.saltsrd.lite" version="8.0.236" name="Salts RD Lite" provider-name="XvBMC-NL">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
         <import addon="script.module.futures" version="2.2.0"/>                             <!--    NEW     -->
@@ -1254,6 +1255,18 @@ provider-name="Wardoctor, primaeval">
 		<description>Metadata for Rebirth are maintained separately to make distribution of the the addon itself easier/faster.</description>
 		<platform>all</platform>
 	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.salts.themepak" version="8.0.12" name="SALTS Themepak" provider-name="k3l3vra">
+    <requires>
+        <import addon="kodi.resource" version="1.0.0"/>
+    </requires>
+    <extension point="kodi.resource.images" compile="false" type="themepak" />
+    <extension point="xbmc.addon.metadata">
+        <summary>Themes for the SALTS Addon</summary>
+        <description>Themes for SALTS are maintained separately to make distribution of the the addon itself easier/faster.</description>
+        <platform>all</platform>
+    </extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.service.caretaker" name="KN Addon Caretaker" version="9.9.9" provider-name="Birger Jesch">
