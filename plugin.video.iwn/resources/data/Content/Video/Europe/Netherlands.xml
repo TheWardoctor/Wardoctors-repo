@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>Youtube</provider>
+      <title>Dutch Pro Wrestling</title>
+      <id>dutchprowrestling</id>
+      <logo>-VUFnnExaCho/AAAAAAAAAAI/AAAAAAAAAAA/vosWPvY2sao/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Pro Wrestling Holland</title>
+      <id>204351</id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+</items>

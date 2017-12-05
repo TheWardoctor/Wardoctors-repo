@@ -220,6 +220,20 @@
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.xbmcadult" name="XBMC-Adult Addons" version="1.0.6" provider-name="xbmc-adult">
+	<extension point="xbmc.addon.repository" name="XBMC Adult Addons">
+		<info compressed="false">http://raw.github.com/xbmc-adult/xbmc-adult/ghmaster/addons.xml</info>
+		<checksum>http://raw.github.com/xbmc-adult/xbmc-adult/ghmaster/addons.xml.md5</checksum>
+		<datadir zip="true">http://raw.github.com/xbmc-adult/xbmc-adult/ghmaster</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>XBMC Addons for Adults Only</summary>
+		<description>This repository contains addons that are for adults only. You may only view the contents of this repository if you are at least 18 years of age, or at least the age of majority in the jurisdiction where you reside or from which you access this content.</description>
+		<disclaimer>The owners and submitters to this repository do not host or distribute any of the content displayed by these addons nor do they have any affiliation with the content providers.</disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="repository.BludhavenGrayson" name="BludhavenGrayson Add-ons" version="1.0.0" provider-name="BludhavenGrayson">
 	<extension point="xbmc.addon.repository" name="BludhavenGrayson Repository">
 		<info compressed="false">http://raw.github.com/BludhavenGrayson/repository.BludhavenGrayson/master/addons.xml</info>
@@ -244,6 +258,49 @@
 		<description>eracknaphobia's Repo</description>
 		<platform>all</platform>
 	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.audio.booksshouldbefree" name="Loyal Books" version="1.0.9" provider-name="spoyser">
+  <requires>
+    <import addon="xbmc.python" version="2.1.14"/>
+  </requires>
+  
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>audio</provides>
+  </extension>
+  
+  <extension point="xbmc.addon.metadata">
+    <summary>Loyal Books (formerly Books Should Be Free)</summary>
+    <description lang="en">Over 7000 free public domain audiobooks</description>
+     <platform>all</platform>
+     <language>en</language>
+     <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+     <forum>http://forum.kodi.tv/showthread.php?tid=242478</forum>
+    <website>http://www.loyalbooks.com</website>
+  </extension>
+  
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.audio.internetarchive" name="Internet Archive [Audio]" version="3.0.9" provider-name="MetalChris">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.beautifulsoup4" version="4.2.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>audio</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Choose from thousands of recordings ranging from alternative news programming, to music, to Old Time Radio shows, to book and poetry readings.</summary>
+    <description lang="en">Internet Archive is a non-profit digital library.  Choose from thousands of recordings ranging from alternative news programming, to Grateful Dead concerts, to Old Time Radio shows, to book and poetry readings, to original music uploaded by our users.</description>
+    <disclaimer lang="en"></disclaimer>
+    <language></language>
+    <platform>all</platform>
+    <license></license>
+    <forum></forum>
+    <website></website>
+    <email></email>
+    <source></source>
+  </extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
@@ -519,6 +576,94 @@ provider-name="Wardoctor, primaeval">
 		</assets>
 		<news></news>
 	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.fantastic" version="8.1.30" name="Fantastic" provider-name="Wardoctor, Firestickplusman">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.module.fantastic" />
+		<import addon="script.fantastic.artwork" version="1.0.0" />
+		<import addon="script.fantastic.metadata" version="1.0.0" />
+		<import addon="script.module.urlresolver" version="3.0.0" />
+		<import addon="script.module.metahandler" version="1.0.0" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="fantastic.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="startup" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Fantastic</summary>
+		<description lang="en">[COLOR dodgerblue]A New Fantastic Movies and TV modified for intergration. This addon does not form part of the Kodi Media Centre. Please do not seek assistance with this addon from any of the Official Kodi Support Channels. The author does not host any of the content in this addon and takes no responsibility for content found[/COLOR].</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<forum></forum>
+		<website></website>
+		<source></source>
+		<disclaimer lang="en">The author of this addon do not host any of the content which is found and have no affiliation with any of the content providers. This addon simply searches websites for content. Use at your own risk!</disclaimer>
+		<disclaimer lang="hr">Autor ovog dodatka ne posjeduje bilo kakav sadržaj koji je pronađen i nije povezan sa bilo kojim izvorom sadržaja. Ovaj dodatak samo pretražuje sadržaj na web stranicama. Koristite ga na vlastitu odgovornost!</disclaimer>
+		<disclaimer lang="he">מחבר ההרחבה זה אינו מארח את התוכן שיתכן ויימצא ואין לו זיקה לאף אחד מספקי התוכן. הרחבה רק מחפשת תוכן שקיים באתרי אינטרנט. השימוש בהרחבה הוא על אחריותך בלבד!</disclaimer>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+    			<screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+    			<screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+    			<screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
+		</assets>
+		<news></news>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.internetarchive" name="Internet Archive [Video]" version="8.0.9" provider-name="Wardoctor, MetalChris">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.beautifulsoup4" version="4.2.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Watch thousands of free videos and movies from the Internet Archive, Fixed by Wardoctor</summary>
+    <description lang="en">Internet Archive is a non-profit digital library.  Choose from thousands of digital movies uploaded by Archive users which range from classic full-length films, to daily alternative news broadcasts, to cartoons and concerts.</description>
+    <disclaimer lang="en"></disclaimer>
+    <language></language>
+    <platform>all</platform>
+    <license></license>
+    <forum></forum>
+    <website></website>
+    <email></email>
+    <source></source>
+  </extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.iwn" name="Indy Wrestling Network" version="8.0.3" provider-name="Wardoctor, jg555">
+    <requires>
+        <import addon="xbmc.python" version="2.19.0"/>
+        <!--<import addon="plugin.audio.soundcloud" version="2.0.6"/>-->
+        <import addon="plugin.video.youtube" version="5.3.12"/>
+        <import addon="plugin.video.vimeo" version="4.1.4"/>
+        <import addon="script.module.beautifulsoup4" version="4.5.3"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <disclaimer lang="en">All links are public provided. If there is an issue with a link, contact the content provider.</disclaimer>
+        <language></language>
+        <platform>all</platform>
+        <summary lang="en">Collection of Independent Wrestling Promotions</summary>
+        <description lang="en">The Indy Wrestling Network is your number one stop shop for independent wrestling promotions across the world.</description>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+        <website></website>
+		<source></source>
+        <email></email>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+            <screenshot>resources/screenshot-01.jpg</screenshot>
+            <screenshot>resources/screenshot-02.jpg</screenshot>
+            <screenshot>resources/screenshot-03.jpg</screenshot>
+        </assets>
+    </extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.master.reborn" version="1.0.6" name="Master Reborn" provider-name="Wardoctor">
@@ -932,7 +1077,7 @@ provider-name="Wardoctor, primaeval">
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.extendedinfo" name="Extended Info Mod" version="8.0.4" provider-name="ReModded by Wardoctor, Modded by OpenELEQ, original work by phil65">
+<addon id="script.extendedinfo" name="Extended Info Mod" version="8.0.5" provider-name="ReModded by Wardoctor, Modded by OpenELEQ, original work by phil65">
   <requires>
     <import addon="xbmc.python"                     version="2.19.0"/>
     <import addon="plugin.program.super.favourites" version="1.0.48"/>
@@ -966,6 +1111,30 @@ provider-name="Wardoctor, primaeval">
     <source></source>
     <email></email>
   </extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.fantastic.artwork" version="1.0.3" name="fantastic Artwork" provider-name="fantastic">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Themes for the fantastic Addon</summary>
+		<description></description>
+		<platform>all</platform>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.fantastic.metadata" version="1.0.2" name="fantastic Metadata" provider-name="fantastic">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Metadata for the fantastic Addon</summary>
+		<description>Metadata for fantastic are maintained separately to make distribution of the the addon itself easier/faster.</description>
+		<platform>all</platform>
+	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.master-reborn.artwork" version="1.0.1" name="Master Reborn Artwork" provider-name="Wardoctor">
@@ -1002,6 +1171,18 @@ provider-name="Wardoctor, primaeval">
 	<extension point="xbmc.addon.metadata">
 		<platform>all</platform>
 		<summary lang="en">Exodus</summary>
+	</extension>
+</addon>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.module.fantastic" name="fantastic Module" version="8.00.024" provider-name="Wardoctor, fantastic">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+		<import addon="script.module.requests" />
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">fantastic</summary>
 	</extension>
 </addon>
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>

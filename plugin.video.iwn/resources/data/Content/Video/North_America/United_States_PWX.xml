@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>Youtube</provider>
+      <title>Pro Wrestling Express - Youtube</title>
+      <id>UCLsMv_VivuuuYlcROX3eTTQ</id>
+      <logo></logo>
+      <customlogo>https://www.cagematch.net/site/main/img/ligen/normal/336.gif</customlogo>
+   </item>
+   <item>
+      <provider>VimeoUser</provider>
+      <title>Pro Wrestling Express - Vimeo</title>
+      <id>user5095057</id>
+      <logo></logo>
+      <customlogo>https://www.cagematch.net/site/main/img/ligen/normal/336.gif</customlogo>
+   </item>
+</items>

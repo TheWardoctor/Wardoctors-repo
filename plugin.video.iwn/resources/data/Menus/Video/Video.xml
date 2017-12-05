@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Africa</title>
+      <id>201</id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Asia</title>
+      <id>202</id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Australia and Oceania</title>
+      <id>203</id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Europe</title>
+      <id>204</id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>North America</title>
+      <id>205</id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>South America</title>
+      <id>206</id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+</items>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.iwn" name="Indy Wrestling Network" version="8.0.3" provider-name="Wardoctor, jg555">
+    <requires>
+        <import addon="xbmc.python" version="2.19.0"/>
+        <!--<import addon="plugin.audio.soundcloud" version="2.0.6"/>-->
+        <import addon="plugin.video.youtube" version="5.3.12"/>
+        <import addon="plugin.video.vimeo" version="4.1.4"/>
+        <import addon="script.module.beautifulsoup4" version="4.5.3"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <disclaimer lang="en">All links are public provided. If there is an issue with a link, contact the content provider.</disclaimer>
+        <language></language>
+        <platform>all</platform>
+        <summary lang="en">Collection of Independent Wrestling Promotions</summary>
+        <description lang="en">The Indy Wrestling Network is your number one stop shop for independent wrestling promotions across the world.</description>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+        <website></website>
+		<source></source>
+        <email></email>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+            <screenshot>resources/screenshot-01.jpg</screenshot>
+            <screenshot>resources/screenshot-02.jpg</screenshot>
+            <screenshot>resources/screenshot-03.jpg</screenshot>
+        </assets>
+    </extension>
+</addon>

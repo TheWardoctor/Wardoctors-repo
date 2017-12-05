@@ -1,0 +1,44 @@
+[COLOR chartreuse]1.0.9: 13th March 2017[/COLOR]
+    - Fixes for Krypton
+
+
+[COLOR chartreuse]1.0.8: 17th January 2016[/COLOR]
+    - Fixed search
+
+
+[COLOR chartreuse]1.0.7:[/COLOR]
+    - Updated for org submission
+    - Updated to new name - Loyal Books
+    - Updated icon
+    - Improved quality of search results
+
+
+[COLOR chartreuse]1.0.6:[/COLOR]
+  - Fixed missing chapters, thanks to Volker Cordes for new regex
+  - Cleaned up displayed text
+
+
+[COLOR chartreuse]1.0.5:[/COLOR]
+  - Fixes due to changes at website
+  - Added quicknet module to increase speed of addon and reduce bandwidth
+
+
+[COLOR chartreuse]1.0.4:[/COLOR]
+  - Fixed searching
+
+
+[COLOR chartreuse]1.0.3:[/COLOR]
+  - Added 'Resume' feature
+
+
+[COLOR chartreuse]1.0.2:[/COLOR]
+  - Fixed Genre author results
+
+
+[COLOR chartreuse]1.0.1:[/COLOR]
+  - Added Genre results settings
+  - Work around for bug in XBMC context menu causing certain parameters to become become lowercase
+
+
+[COLOR chartreuse]1.0.0:[/COLOR]
+  - Initial release

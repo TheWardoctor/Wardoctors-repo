@@ -3,11 +3,11 @@
 	<category label="128">
 		<setting label="32164" type="action" action="RunScript(script.extendedinfo,info=deletecache)"/>
 		<setting label="Clear Simple Selector" type="action" action="RunScript(script.extendedinfo,info=clearsimple)"/>
-		<setting label="[COLOR ff0084ff]M[/COLOR]etalli[COLOR ff0084ff]Q[/COLOR] Movie Player" type="select" id="player_main_movie" default="library" values="select|default|library|context" />
-		<setting label="[COLOR ff0084ff]M[/COLOR]etalli[COLOR ff0084ff]Q[/COLOR] TVShow Player" type="select" id="player_main_tv" default="library" values="select|default|library|context" />
+		<setting label="[COLOR ff0084ff]M[/COLOR]etalli[COLOR ff0084ff]Q[/COLOR] Movie Player" type="select" id="player_main_movie" default="select" values="select|default|library|context" />
+		<setting label="[COLOR ff0084ff]M[/COLOR]etalli[COLOR ff0084ff]Q[/COLOR] TVShow Player" type="select" id="player_main_tv" default="select" values="select|default|library|context" />
 		<setting label="Make thumb for favourite-filters?" type="bool" id="fav_thumb" default="true" />
 		<setting label="Resume when playing?" type="bool" id="resume" default="true" />
-		<setting label="Open plugin-entries in script-gui?" type="bool" id="plugin_script" default="false" />
+		<setting label="Open plugin-entries in script-gui?" type="bool" id="plugin_script" default="true" />
 		<setting label="32163" type="bool" id="infodialog_onclick" default="true"/>
 		<setting label="32084" type="bool" id="classic_search" default="false"/>
 		<setting label="32004" type="select" values="google|youtube|local" id="autocomplete_provider" default="youtube"/>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.extendedinfo" name="Extended Info Mod" version="8.0.4" provider-name="ReModded by Wardoctor, Modded by OpenELEQ, original work by phil65">
+<addon id="script.extendedinfo" name="Extended Info Mod" version="8.0.5" provider-name="ReModded by Wardoctor, Modded by OpenELEQ, original work by phil65">
   <requires>
     <import addon="xbmc.python"                     version="2.19.0"/>
     <import addon="plugin.program.super.favourites" version="1.0.48"/>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>Youtube</provider>
+      <title>Pro Wrestling Academy - Youtube</title>
+      <id>UCS2PGRAwiYVoXZhwH4udVhw</id>
+      <logo></logo>
+      <customlogo>https://www.cagematch.net/site/main/img/ligen/normal/1279.gif</customlogo>
+   </item>
+   <item>
+      <provider>VimeoUser</provider>
+      <title>Pro Wrestling Academy - Vimeo</title>
+      <id>user5835938</id>
+      <logo></logo>
+      <customlogo>https://www.cagematch.net/site/main/img/ligen/normal/1279.gif</customlogo>
+   </item>
+</items>

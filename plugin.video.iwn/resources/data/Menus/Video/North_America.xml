@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Canada</title>
+      <id>2055</id>
+      <logo></logo>
+      <customlogo>https://www.mapsofworld.com/images/world-countries-flags/canada-flag.gif</customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Mexico</title>
+      <id>20516</id>
+      <logo></logo>
+      <customlogo>https://www.mapsofworld.com/images/world-countries-flags/mexico-flag.gif</customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>United States</title>
+      <id>20523</id>
+      <logo></logo>
+      <customlogo>https://www.mapsofworld.com/images/world-countries-flags/united-states-flag.gif</customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>United States Territories</title>
+      <id>20524</id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+</items>

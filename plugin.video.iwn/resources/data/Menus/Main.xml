@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+<!--   <item>
+      <provider>MenuLink</provider>
+      <title>Audio</title>
+      <id>100</id>
+      <logo></logo>
+      <customlogo>http://www.clipartbest.com/cliparts/MTL/k9L/MTLk9L6Bc.jpeg</customlogo>
+   </item>-->
+   <item>
+      <provider>MenuLink</provider>
+      <title>Video</title>
+      <id>101</id>
+      <logo></logo>
+      <customlogo>http://www.clipartbest.com/cliparts/9Tz/L6k/9TzL6kgac.jpg</customlogo>
+   </item>
+    <item>
+      <provider>MenuItem</provider>
+      <title>----------------------------------</title>
+      <id></id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Settings</title>
+      <id>102</id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+</items>

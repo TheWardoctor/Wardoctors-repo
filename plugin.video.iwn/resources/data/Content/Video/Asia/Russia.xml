@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>Youtube</provider>
+      <title>Gorky City Wrestling</title>
+      <id>UCzTtaHwXN4FSAdwRrC-a9JQ</id>
+      <logo>-8_LZnJgFlFk/AAAAAAAAAAI/AAAAAAAAAAA/TT2tTsJa9kg/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Independent Wrestling Federation</title>
+      <id>NFRwrestling</id>
+      <logo>-8f9p_9Y73mQ/AAAAAAAAAAI/AAAAAAAAAAA/dBE5pU42hUI/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Northern Storm Wrestling</title>
+      <id>NSWrestlingSPB</id>
+      <logo>-kpNIBbKyA9A/AAAAAAAAAAI/AAAAAAAAAAA/P5zJ6iDIUC0/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Pro Wrestling Mafia</title>
+      <id>RussianProWrestling</id>
+      <logo></logo>
+      <customlogo>https://www.cagematch.net/site/main/img/ligen/normal/1746.gif</customlogo>
+   </item>
+</items>

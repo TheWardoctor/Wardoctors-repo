@@ -1,0 +1,54 @@
+=================================
+    Indy Wrestling Network
+================================
+
+------------------------ v2.0.0 (2017/05/15) ------------------------
+Rewrite of scrapers
+
+------------------------ v2.0.1 (2017/05/16) ------------------------
+Internal change:
+	Moved Lists to Separate Files
+	Moved Menus to Separate Files
+	Moved Common items to Separate Files
+	Added a lot of new content
+
+------------------------ v2.0.2 (2017/05/23) ------------------------
+Added Support for Vimeo
+Fixed Typos in some Links
+
+------------------------ v2.0.3 (2017/05/29) ------------------------
+Vimeo now works
+
+------------------------ v2.0.4 (2017/06/06) ------------------------
+First Public Release of the new version
+Fixed Structure to meet my needs
+
+------------------------ v2.0.5 (2017/06/10) ------------------------
+Added New Content
+Added Fite TV Scraper (Links coming soon, if I can get them to play)
+Update Lists Structure, making it easier to add
+
+------------------------ v2.0.6 (2017/06/15) ------------------------
+Removed plugintools.py
+Added New Content
+Consistent Formatting in all files (utilziing pylint)
+Changed Youtube Channels to use V3 API
+
+------------------------ v3.0.0 (2017/06/27) ------------------------
+Changed Plugin into an Easier Support Model for adding content
+   Moved all the Menus and Content to XML Files
+   Reduced Duplication of Code
+Added the ability to Update Content without getting an update
+
+------------------------ v3.0.1 (2017/07/01) ------------------------
+Moved menus from main file to a file that can get updated with
+content.
+Added New Content
+
+------------------------ v3.0.2 (2017/07/05) ------------------------
+Fixed Update Content Logic, would work randomaly.
+Added New Content
+
+------------------------ v3.0.3 (2017/07/09) ------------------------
+Fixed UK Content
+Made Compliant for URepo upload

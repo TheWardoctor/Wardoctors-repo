@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>Youtube</provider>
+      <title>New England Championship Wrestling - Youtube</title>
+      <id>necwwrestling</id>
+      <logo>-c3OD4KeSl7s/AAAAAAAAAAI/AAAAAAAAAAA/po-86nhJzQg/s300-c-k-no/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>VimeoUser</provider>
+      <title>New England Championship Wrestling - Vimeo</title>
+      <id>necw</id>
+      <logo>2098052_300x300.webp</logo>
+      <customlogo></customlogo>
+   </item>
+</items>

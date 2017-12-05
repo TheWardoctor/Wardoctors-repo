@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>MenuLink</provider>
+      <title>About</title>
+      <id>103</id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Update Content</title>
+      <id>104</id>
+      <logo></logo>
+      <customlogo></customlogo>
+   </item>
+</items>

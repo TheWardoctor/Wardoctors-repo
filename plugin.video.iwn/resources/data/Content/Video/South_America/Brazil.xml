@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>Youtube</provider>
+      <title>Brazilian Wrestling Federation</title>
+      <id>BWFBrazil</id>
+      <logo>-MkqsVZlsq8o/AAAAAAAAAAI/AAAAAAAAAAA/8Yz_5lUeGKw/s300-c-k-no/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Evolution Wrestling Force (EWF)</title>
+      <id>UChiNQoP0BgbwB5Wr_KQzi_Q</id>
+      <logo>-xfHTSjBLnzA/AAAAAAAAAAI/AAAAAAAAAAA/Np86QUUH-Qs/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Gigantes Do Ringue (GDR)</title>
+      <id>GigantesDoRingue</id>
+      <logo>-0WCWOtI1Tc0/AAAAAAAAAAI/AAAAAAAAAAA/wEdlPmlSx-4/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>South Wrestling Union (SWU)</title>
+      <id>prowrestlingswu</id>
+      <logo>-kR9F4DUqOak/AAAAAAAAAAI/AAAAAAAAAAA/jIL5vZW-uMA/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+</items>

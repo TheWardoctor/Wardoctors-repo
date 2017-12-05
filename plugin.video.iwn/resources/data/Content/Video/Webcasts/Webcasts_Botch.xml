@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>VimeoUser</provider>
+      <title>Botchmania - Vimeo</title>
+      <id>user53623106</id>
+      <logo></logo>
+      <customlogo>https://yt3.ggpht.com/-_DjghsLfJrY/AAAAAAAAAAI/AAAAAAAAAAA/_87-dYIKZCk/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Botchmania - Youtube</title>
+      <id>UC1_QgqDHaM4QVK8kSxUzVEQ</id>
+      <logo>-_DjghsLfJrY/AAAAAAAAAAI/AAAAAAAAAAA/_87-dYIKZCk/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+</items>

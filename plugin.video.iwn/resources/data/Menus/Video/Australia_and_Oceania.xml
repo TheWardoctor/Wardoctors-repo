@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Australia</title>
+      <id>2031</id>
+      <logo></logo>
+      <customlogo>https://www.mapsofworld.com/flags/images/world-flags/australia-flag.gif</customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>New Zealand</title>
+      <id>2037</id>
+      <logo></logo>
+      <customlogo>https://www.mapsofworld.com/images/world-countries-flags/new-zealand-flag.gif</customlogo>
+   </item>
+</items>

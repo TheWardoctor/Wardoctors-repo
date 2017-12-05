@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>Youtube</provider>
+      <title>Alianza Universal De Lucha Libre</title>
+      <id>UCCqpJgcHRVLiwRBjhatDJkA</id>
+      <logo></logo>
+      <customlogo>https://www.cagematch.net/site/main/img/ligen/normal/80.gif</customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Consejo Mundial de Lucha Libre</title>
+      <id>VideosOficialesCMLL</id>
+      <logo>-SOpFBeBz-jU/AAAAAAAAAAI/AAAAAAAAAAA/ZUgsX6vvQRE/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Lucha Libre AAA Worldwide</title>
+      <id>luchalibreaaatv</id>
+      <logo>-eXzeppuDviA/AAAAAAAAAAI/AAAAAAAAAAA/h_EXvDO8OKc/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Lucha Libre y Pasion</title>
+      <id>UCvmPT3XB331OAiAQv8wYf6w</id>
+      <logo>-84BQtR0ZMz0/AAAAAAAAAAI/AAAAAAAAAAA/f55uDQ9aTuY/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+</items>

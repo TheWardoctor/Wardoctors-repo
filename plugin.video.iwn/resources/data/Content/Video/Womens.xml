@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>Youtube</provider>
+      <title>Dangerous Women of Wrestling</title>
+      <id>DWOW</id>
+      <logo></logo>
+      <customlogo>http://www.dangerouswomenofwrestling.com/assets/images/autogen/a_Dangerous_Women_of_Wrestling_Logo_White_Background.jpg</customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Diana</title>
+      <id>UCptNGeX-4Y5o3zGeQCTPAqw</id>
+      <logo>-Hu97_tCCTOY/AAAAAAAAAAI/AAAAAAAAAAA/HTo3viNKYI4/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Ice Ribbon</title>
+      <id>iceribbon</id>
+      <logo>-_klWaK-1Sn0/AAAAAAAAAAI/AAAAAAAAAAA/KrXVQe92Etk/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Rise</title>
+      <id>UCvXW7i70wq_Z_HFjwOoDY-A</id>
+      <logo>-vQgwzobYrHk/AAAAAAAAAAI/AAAAAAAAAAA/WOCXJrNeLBY/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>VimeoChannel</provider>
+      <title>Rumble Matreshka</title>
+      <id>russianwomanwrestling</id>
+      <logo></logo>
+      <customlogo>http://www.rumblematreshka.com/images/logorwwmain.jpg</customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Shimmer</title>
+      <id>DavePrazak</id>
+      <logo>-BDXs_q1o9Ys/AAAAAAAAAAI/AAAAAAAAAAA/U6YgXFicT20/s100-c-k-no-mo-rj-c0xfffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Women's Wrestling Revolution</title>
+      <id>wsuwomenswrestling</id>
+      <logo>-zgt8xWcgjC8/AAAAAAAAAAI/AAAAAAAAAAA/ND0b51nFFQo/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Vimeo</provider>
+      <title>Wrestle Castle</title>
+      <id>user62124197</id>
+      <logo></logo>
+      <customlogo>http://www.wrestlingcastle.com/img/top1000_2_.jpg</customlogo>
+   </item>
+</items>

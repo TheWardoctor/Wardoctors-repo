@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>Youtube</provider>
+      <title>GeneraXion Lucha Libre (GLL)</title>
+      <id>GLLwrestling</id>
+      <logo>-MVXUAsg9M6g/AAAAAAAAAAI/AAAAAAAAAAA/PPZnFVyzMQo/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Imperio Lucha Libre</title>
+      <id>UCB3rEOXQShMA_ynvaUpgxaQ</id>
+      <logo>-tlrzoVaSn2k/AAAAAAAAAAI/AAAAAAAAAAA/MdO__idkglg/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Leader Wrestling Association (LWA)</title>
+      <id>LWAperu</id>
+      <logo>-hTmf7WcqBSs/AAAAAAAAAAI/AAAAAAAAAAA/3ntQpEAbODs/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+</items>

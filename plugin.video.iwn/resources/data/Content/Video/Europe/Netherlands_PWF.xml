@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>Youtube</provider>
+      <title>Pro Wrestling Holland - Youtube</title>
+      <id>PWHwrestling</id>
+      <logo>-0DNfMGAeyfA/AAAAAAAAAAI/AAAAAAAAAAA/tFPwnVTIEzA/s100-c-k-no-mo-rj-c0xffffff/photo.jpg</logo>
+      <customlogo></customlogo>
+   </item>
+   <item>
+      <provider>VimeoUser</provider>
+      <title>Pro Wrestling Holland - Vimeo</title>
+      <id>prowrestlingholland</id>
+      <logo>4415208_300x300.webp</logo>
+      <customlogo></customlogo>
+   </item>
+</items>

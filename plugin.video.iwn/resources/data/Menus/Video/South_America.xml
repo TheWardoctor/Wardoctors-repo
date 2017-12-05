@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Argentina</title>
+      <id>2061</id>
+      <logo></logo>
+      <customlogo>https://www.mapsofworld.com/images/world-countries-flags/argentina-flag.gif</customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Bolivia</title>
+      <id>2062</id>
+      <logo></logo>
+      <customlogo>https://www.mapsofworld.com/images/world-countries-flags/bolivia-flag.gif</customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Brazil</title>
+      <id>2063</id>
+      <logo></logo>
+      <customlogo>https://www.mapsofworld.com/images/world-countries-flags/brazil-flag.gif</customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Chile</title>
+      <id>2064</id>
+      <logo></logo>
+      <customlogo>https://www.mapsofworld.com/images/world-countries-flags/chile-flag.gif</customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Ecuador</title>
+      <id>2066</id>
+      <logo></logo>
+      <customlogo>https://www.mapsofworld.com/images/world-countries-flags/ecuador-flag.gif</customlogo>
+   </item>
+   <item>
+      <provider>MenuLink</provider>
+      <title>Peru</title>
+      <id>2069</id>
+      <logo></logo>
+      <customlogo>https://www.mapsofworld.com/images/world-countries-flags/peru-flag.gif</customlogo>
+   </item>
+</items>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+   <item>
+      <provider>Youtube</provider>
+      <title>Pro Wrestling Pride</title>
+      <id>ProWrestlingPrideUk</id>
+      <logo></logo>
+      <customlogo>https://www.cagematch.net/site/main/img/ligen/normal/1377.gif</customlogo>
+   </item>
+   <item>
+      <provider>Youtube</provider>
+      <title>Pro Wrestling Pride - Current</title>
+      <id>UCSroFkAUb6GunQXR57hA1JQ</id>
+      <logo></logo>
+      <customlogo>https://www.cagematch.net/site/main/img/ligen/normal/1377.gif</customlogo>
+   </item>
+</items>
