@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ElementTree
 reload(sys)
 dialog       =  xbmcgui.Dialog()
 sys.setdefaultencoding('utf8')
-SKIN_VIEW_FOR_MOVIES=""
+SKIN_VIEW_FOR_MOVIES="53"
 Bananas = 'cGx1Z2luLnZpZGVvLnN0YXJnYXRl'
 addonDir = plugintools.get_runtime_path()
 global kontroll
@@ -109,7 +109,7 @@ def security_check(params):
         CatID = channel.find(get_live("Y2F0ZWdvcnlfaWQ=")).text        
         plugintools.add_item( action=get_live("c3RyZWFtX3ZpZGVv"), title=kanalinimi , url=CatID , thumbnail=os.path.join(LOAD_LIVE,sync_data("bGl2ZXR2LnBuZw==")) , fanart=os.path.join(LOAD_LIVE,sync_data("dGhlYXRlci5qcGc=")) ,info_labels=kanalinimi, folder=True )
 	                            
-    plugintools.set_view(plugintools.MOVIES)
+    plugintools.set_view(plugintools.LIST)
 
 def detect_modification(params):
     plugintools.log(pnimi+vod_channels("Vk9EIE1lbnUg")+repr(params))
@@ -123,7 +123,7 @@ def detect_modification(params):
         kategoorialink = channel.find(vod_channels("cGxheWxpc3RfdXJs")).text
         plugintools.add_item( action=vod_channels("Z2V0X215YWNjb3VudA=="), title=filminimi , url=kategoorialink , thumbnail=os.path.join(LOAD_LIVE,sync_data("dm9kLnBuZw==")) , fanart=os.path.join(LOAD_LIVE,sync_data("dGhlYXRlci5qcGc=")) , folder=True )
 	
-    plugintools.set_view(plugintools.MOVIES)
+    plugintools.set_view(plugintools.LIST)
 
 def stream_video(params):
     plugintools.log(pnimi+sync_data("TGl2ZSBDaGFubmVscyBNZW51IA==")+repr(params))
@@ -168,7 +168,7 @@ def stream_video(params):
            plugintools.add_item( action=sync_data("cnVuX2Nyb25qb2I="), title=shou , url=poo, thumbnail=pilt, plot=kokku, fanart=os.path.join(LOAD_LIVE,sync_data("dGhlYXRlci5qcGc=")), extra="", isPlayable=True, folder=False )
         else:
            plugintools.add_item( action=sync_data("cnVuX2Nyb25qb2I="), title=shou , url=poo, thumbnail=os.path.join(LOAD_LIVE,vod_channels("YWxsY2hhbm5lbHMucG5n")) , plot=kokku, fanart=os.path.join(LOAD_LIVE,sync_data("dGhlYXRlci5qcGc=")) , extra="", isPlayable=True, folder=False )
-    plugintools.set_view(plugintools.MOVIES)
+    plugintools.set_view(plugintools.LIST)
 #    xbmc.executebuiltin(vod_channels("Q29udGFpbmVyLlNldFZpZXdNb2RlKDUwKQ=="))
 		
 def get_myaccount(params):
@@ -204,8 +204,8 @@ def get_myaccount(params):
                 CatID = channel.find("category_id").text
                 plugintools.add_item( action=get_live("Z2V0X215YWNjb3VudA=="), title=kanalinimi , url=kategoorialink , thumbnail=os.path.join(LOAD_LIVE,sync_data("dm9kLnBuZw==")) , fanart=os.path.join(LOAD_LIVE,sync_data("dGhlYXRlci5qcGc=")) ,info_labels=kanalinimi, folder=True )
 
-        plugintools.set_view(plugintools.MOVIES)
-#        xbmc.executebuiltin('Container.SetViewMode(54)')
+        plugintools.set_view(plugintools.LIST)
+#        xbmc.executebuiltin('Container.SetViewMode(53)')
 
 # televisioonilink = Live channels enigma2.php?username=%s&password=%s&type=get_live_categories
 # 				   = VoD Folders   enigma2.php?username=%s&password=%s&type=get_vod_scategories&scat_id=82
@@ -265,7 +265,7 @@ def execute_ainfo(params):
     plugintools.add_item( action="",   title=get_live("W0NPTE9SID0gd2hpdGVdRXhwaXJlczogWy9DT0xPUl0=")+aegub , thumbnail=os.path.join(LOAD_LIVE,vod_channels("bXlhY2MucG5n")) , fanart=os.path.join(LOAD_LIVE,sync_data("dGhlYXRlci5qcGc=")) , folder=False )
     plugintools.add_item( action="",   title=vod_channels("W0NPTE9SID0gd2hpdGVdTWF4IGNvbm5lY3Rpb25zOiBbL0NPTE9SXQ==")+leavemealone , thumbnail=os.path.join(LOAD_LIVE,vod_channels("bXlhY2MucG5n")) , fanart=os.path.join(LOAD_LIVE,sync_data("dGhlYXRlci5qcGc=")) , folder=False )
 	
-    plugintools.set_view(plugintools.MOVIES)
+    plugintools.set_view(plugintools.LIST)
 def vanema_lukk(name):
         plugintools.log(pnimi+sync_data("UGFyZW50YWwgbG9jayA="))
         a = 'XXX', 'Adult', 'Adults','ADULT','ADULTS','adult','adults','Porn','PORN','porn','Porn','xxx'

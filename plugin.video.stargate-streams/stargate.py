@@ -42,7 +42,7 @@ except:
 def Add_Directory_Item(handle, url, listitem, isFolder):
     xbmcplugin.addDirectoryItem(handle, url, listitem, isFolder)
 def Fix_Special(url):
-    dialogprocess.create("Kodi UK","Renaming paths...",'', 'Please Wait')
+    dialogprocess.create("Wardoctor Beta","Renaming paths...",'', 'Please Wait')
     for root, dirs, files in os.walk(url):  #Search all xml files and replace physical with special
         for file in files:
             if file.endswith(".xml"):
@@ -61,8 +61,8 @@ def correctPVR():
 	jsonSetPVR = '{"jsonrpc":"2.0", "method":"Settings.SetSettingValue", "params":{"setting":"pvrmanager.enabled", "value":true},"id":1}'
 	IPTVon 	   = '{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.iptvsimple","enabled":true},"id":1}'
 	nulldemo   = '{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.demo","enabled":false},"id":1}'
-	loginurl   = "http://sgstreams.tv:25461/get.php?username=" + username_text + "&password=" + password_text + "&type=m3u_plus&output=mpegts"
-	EPGurl     = "http://sgstreams.tv:25461/xmltv.php?username=" + username_text + "&password=" + password_text + "&type=m3u_plus&output=mpegts"
+	loginurl   = "http://sgstreams.tv:25461/get.php?username=" + username_text + "&password=" + password_text + "&type=m3u&output=mpegts"
+	EPGurl     = "http://sgstreams.tv:25461/xmltv.php?username=" + username_text + "&password=" + password_text + "&type=m3u"
 
 	xbmc.executeJSONRPC(jsonSetPVR)
 	xbmc.executeJSONRPC(IPTVon)
@@ -164,7 +164,7 @@ def Archive_File(sourcefile, destfile):
     rootlen = len(sourcefile)
     for_progress = []
     ITEM =[]
-    dialogprocess.create("Kodi UK","Archiving...",'', 'Please Wait')
+    dialogprocess.create("Wardoctor Beta","Archiving...",'', 'Please Wait')
     for base, dirs, files in os.walk(sourcefile):
         for file in files:
             ITEM.append(file)
@@ -348,7 +348,7 @@ def Wipe_Cache():
     except:
         pass
 def Destroy_Path(path):
-    dialogprocess.create("Kodi UK ","Cleaning...",'', 'Please Wait')
+    dialogprocess.create("Wardoctor Beta ","Cleaning...",'', 'Please Wait')
     shutil.rmtree(path, ignore_errors=True)
 def Remove_Textures():
     textures   =  xbmc.translatePath('special://home/userdata/Database/Textures13.db')
@@ -417,7 +417,7 @@ def Read_Zip(url):
             f.close()  			
 def Check_Path():
     if zip=='':
-     if dialog.yesno("Kodi UK Wizard", "You Have Not Set Your Storage Path", 'Set The Storage Path Now ?',''):
+     if dialog.yesno("Wardoctor Beta Wizard", "You Have Not Set Your Storage Path", 'Set The Storage Path Now ?',''):
         ADDON.openSettings()
         print '######### ZIP DIRECTORY #########'
         for filename in os.listdir(USB):
@@ -426,12 +426,12 @@ def RestoreIt():
     import time
     dialog = xbmcgui.Dialog()
     if zip == '':
-        dialog.ok('Kodi UK Wizard','You have not set your ZIP Folder.\nPlease update the addon settings and try again.','','')
+        dialog.ok('Wardoctor Beta Wizard','You have not set your ZIP Folder.\nPlease update the addon settings and try again.','','')
         ADDON.openSettings(sys.argv[0])
-    dialogprocess.create("Kodi UK Wizard","Restoring",'', 'Please Wait')   
+    dialogprocess.create("Wardoctor Beta Wizard","Restoring",'', 'Please Wait')   
     lib=xbmc.translatePath(os.path.join(zip,'backup.zip'))
     Read_Zip(lib)
-    dialogprocess.create("Kodi UK Wizard","Checking ",'', 'Please Wait')
+    dialogprocess.create("Wardoctor Beta Wizard","Checking ",'', 'Please Wait')
     HOME = xbmc.translatePath(os.path.join('special://','home'))
     dialogprocess.update(0,"", "Extracting Zip Please Wait")
     extract.all(lib,HOME,dialogprocess)
@@ -443,18 +443,18 @@ def RestoreIt():
     xbmc.executebuiltin('ReloadSkin()')    
     xbmc.executebuiltin("Loadialogprocessrofile(Master user)")
     dialogprocess.close()
-    dialog.ok("Kodi UK Wizard", "All Done, DONT PRESS OK", "Wait a 5 minutes and pull the Power","")	
+    dialog.ok("Wardoctor Beta Wizard", "All Done, DONT PRESS OK", "Wait a 5 minutes and pull the Power","")	
 	
 def Backupzip():  
     if zip == '':
-        dialog.ok('Kodi UK Wizard','You have not set your ZIP Folder.\nPlease update the addon settings and try again.','','')
+        dialog.ok('Wardoctor Beta Wizard','You have not set your ZIP Folder.\nPlease update the addon settings and try again.','','')
         ADDON.openSettings(sys.argv[0])
     to_backup = xbmc.translatePath(os.path.join('special://','home'))
     backup_zip = xbmc.translatePath(os.path.join(USB,'backup.zip'))
     Delete_Packages()    
     import zipfile
     
-    dialogprocess.create("Kodi UK Wizard","Backing Up",'', 'Please Wait')
+    dialogprocess.create("Wardoctor Beta Wizard","Backing Up",'', 'Please Wait')
     zipobj = zipfile.ZipFile(backup_zip , 'w', zipfile.ZIP_DEFLATED)
     rootlen = len(to_backup)
     for_progress = []
@@ -478,7 +478,7 @@ def Backupzip():
                        zipobj.write(fn, fn[rootlen:])  
     zipobj.close()
     dialogprocess.close()
-    dialog.ok("Kodi UK Wizard", "You Are Now Backed Up", '','')
+    dialog.ok("Wardoctor Beta Wizard", "You Are Now Backed Up", '','')
 
 def Buildlist(url):
     list = common.m3u2list(url)
@@ -542,7 +542,7 @@ elif mode == 3:
 elif mode == 13:
 	fixtures()
 elif mode == 8:
-	tardis()
+	guide()
 elif mode == 9:
 	speed()
 elif mode == 10:
