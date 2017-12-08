@@ -1074,12 +1074,12 @@ if __name__ == '__main__':
     pvrMonitor = PvrMonitor()
 
     displayNotice = True
-    json_query = xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "Addons.GetAddonDetails", "params": { "addonid": "repository.urepo", "properties": ["enabled", "broken", "name", "author"]  }, "id": 1}')
+    json_query = xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "Addons.GetAddonDetails", "params": { "addonid": "repository.kodi", "properties": ["enabled", "broken", "name", "author"]  }, "id": 1}')
     json_response = json.loads(json_query)
 
     if ("result" in json_response) and ('addon' in json_response['result']):
         addonItem = json_response['result']['addon']
-        if (addonItem['enabled'] is True) and (addonItem['broken'] is False) and (addonItem['type'] == 'xbmc.addon.repository') and (addonItem['addonid'] == 'repository.urepo'):
+        if (addonItem['enabled'] is True) and (addonItem['broken'] is False) and (addonItem['type'] == 'xbmc.addon.repository') and (addonItem['addonid'] == 'repository.kodi'):
             displayNotice = False
 
     if displayNotice:
